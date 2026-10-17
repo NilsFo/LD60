@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://c2sxqsqxnf1ux"]
+[gd_scene format=3 uid="uid://bfddkjgc78axk"]
 
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="Texture2D" uid="uid://rpbk4xqjma7b" path="res://icon.svg" id="3_g5j3c"]
+[ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 
 [node name="Game" type="Node2D" unique_id=924122849]
 
@@ -16,5 +17,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9597415, -0.28088492, 0, 0.28088492, 0.959
 texture = ExtResource("3_g5j3c")
 
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
+
+[node name="Environment" parent="." unique_id=199390501 instance=ExtResource("4_6hfer")]
 
 [editable path="Player"]

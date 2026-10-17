@@ -12,7 +12,8 @@ tonemap_agx_white = 14.94
 tonemap_agx_contrast = 1.57
 fog_enabled = true
 fog_light_color = Color(0.41503817, 0.35236818, 0.36185414, 1)
-fog_height_density = 6.9278
+fog_height = 2.0
+fog_height_density = 0.3299
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -21,6 +22,7 @@ fog_height_density = 6.9278
 [node name="Environment" type="Node3D" unique_id=199390501]
 
 [node name="halle" parent="." unique_id=1071216754 instance=ExtResource("1_m881r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=871154553]
 environment = SubResource("Environment_ai7j4")
