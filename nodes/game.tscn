@@ -1,10 +1,31 @@
-[gd_scene format=3 uid="uid://c2sxqsqxnf1ux"]
+[gd_scene format=3 uid="uid://bfddkjgc78axk"]
 
+[ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="1_flw6b"]
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
+[ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
+
+[sub_resource type="Compositor" id="Compositor_jxyld"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0uh5x"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_82gy4"]
 
 [node name="Game" type="Node3D" unique_id=906284256]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
+environment = ExtResource("1_flw6b")
+camera_attributes = SubResource("CameraAttributesPractical_043gu")
+compositor = SubResource("Compositor_jxyld")
+
+[node name="LightmapGI" type="LightmapGI" parent="WorldEnvironment" unique_id=1923249147]
+camera_attributes = SubResource("CameraAttributesPractical_0uh5x")
+light_data = ExtResource("4_flw6b")
+
+[node name="Environment" parent="WorldEnvironment/LightmapGI" unique_id=199390501 instance=ExtResource("4_6hfer")]
 
 [node name="GameState" type="Node3D" parent="." unique_id=1449238398]
 script = ExtResource("2_cpdmu")
@@ -12,9 +33,19 @@ script = ExtResource("2_cpdmu")
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
 
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
+attributes = SubResource("CameraAttributesPractical_82gy4")
 current = true
 
-[node name="Environment" parent="." unique_id=199390501 instance=ExtResource("4_6hfer")]
+[node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
+shadow_bias = 0.228
 
+[node name="SpotLight3D2" type="OmniLight3D" parent="Player" unique_id=1485144498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59329474, 0.122914135)
+light_color = Color(0.581, 0.8051, 0.83, 1)
+light_energy = 0.524
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1860931207]
+light_energy = 0.0
+
+[editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
-[editable path="Environment"]
