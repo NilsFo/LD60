@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
+[ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -14,6 +15,10 @@
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0uh5x"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_82gy4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ubvaf"]
+height = 0.6738281
+radius = 1.0
 
 [node name="Game" type="Node3D" unique_id=906284256]
 
@@ -53,6 +58,25 @@ light_energy = 0.524
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1860931207]
 light_energy = 0.0
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=882624884]
+transform = Transform3D(0.29999995, 0, 0, 0, 0.29999995, 0, 0, 0, 0.29999995, -0.1635221, 1.5539186, -4.6802897)
+node_a = NodePath("../Player/Crane/StaticBody3D")
+node_b = NodePath("../MagnetBody")
+angular_limit/enable = true
+angular_limit/upper = 0.34732053
+angular_limit/lower = -0.35081118
+
+[node name="MagnetBody" type="RigidBody3D" parent="." unique_id=916925343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38128033, 1.46219, -4.356915)
+mass = 1000.0
+
+[node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.2661798, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MagnetBody" unique_id=120903063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
+shape = SubResource("CylinderShape3D_ubvaf")
 
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
