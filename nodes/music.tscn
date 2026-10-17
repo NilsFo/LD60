@@ -6,4 +6,3 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1434190025]
 stream = ExtResource("1_svf7q")
-autoplay = true

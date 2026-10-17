@@ -24,3 +24,4 @@ current = true
 
 [editable path="Player"]
 [editable path="Environment"]
+[editable path="Music"]

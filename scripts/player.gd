@@ -25,10 +25,15 @@ func _process(delta: float) -> void:
 	rotate(Vector3.UP,rot*rotationSpeed*delta)
 	gameState.player_rotation=rotation.y
 	
-	print(viewRay.is_colliding())
+	var valid_target = false
 	if viewRay.is_colliding():
 		var target: Object=viewRay.get_collider()
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		# print(target)
+		if is_instance_of(target,PlayerConsoleButton):
+			print("console")
+			valid_target=true
+		
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and valid_target:
 		pass
 
 		
