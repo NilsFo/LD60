@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c2sxqsqxnf1ux"]
+
+[ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
+[ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
+[ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
+[ext_resource type="Texture2D" uid="uid://chy1s510vgv4d" path="res://sprites/circle.png" id="4_flw6b"]
+
+[sub_resource type="GDScript" id="GDScript_g5j3c"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	set_text(\"FPS \" + str(Engine.get_frames_per_second()))
+"
+
+[node name="Game" type="Node3D" unique_id=906284256]
+
+[node name="GameState" type="Node3D" parent="." unique_id=1449238398]
+script = ExtResource("2_cpdmu")
+
+[node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
+
+[node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
+current = true
+
+[node name="Environment" parent="." unique_id=199390501 instance=ExtResource("4_6hfer")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=603172123]
+
+[node name="FPS Label" type="Label" parent="HUD" unique_id=1065819983]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS: ?"
+script = SubResource("GDScript_g5j3c")
+
+[node name="Label" type="Label" parent="HUD" unique_id=481221050]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/Label" unique_id=587419214]
+texture = ExtResource("4_flw6b")
+
+[editable path="Player"]
+[editable path="Environment"]
