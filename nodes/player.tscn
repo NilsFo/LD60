@@ -15,10 +15,11 @@ script = ExtResource("2_bms3g")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=215548350]
-transform = Transform3D(1, 0, 0, 0, 0.943381, 0.3317111, 0, -0.3317111, 0.943381, 0, 1.5339108, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.29966295, 0.9619458, -2.8220007)
+light_color = Color(1, 0.62, 0.62, 1)
 light_energy = 6.861
 light_bake_mode = 0
 shadow_enabled = true
-spot_range = 11.393
-spot_angle = 27.18
-spot_angle_attenuation = 1.1095695
+spot_range = 4.605
+spot_angle = 16.49
+spot_angle_attenuation = 0.63728034

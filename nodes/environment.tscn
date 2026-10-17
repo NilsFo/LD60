@@ -19,6 +19,7 @@ camera_attributes = SubResource("CameraAttributesPractical_043gu")
 compositor = SubResource("Compositor_jxyld")
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=778709914]
+shadowmask_mode = 2
 light_data = ExtResource("2_1guvd")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=709459739]
