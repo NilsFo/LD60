@@ -26,14 +26,15 @@ func _process(delta: float) -> void:
 	gameState.player_rotation=rotation.y
 	
 	var valid_target = false
+	var focussed_button:PlayerButton = null
+	
 	if viewRay.is_colliding():
 		var target: Object=viewRay.get_collider()
-		# print(target)
-		if is_instance_of(target,PlayerConsoleButton):
-			print("console")
+		if is_instance_of(target,PlayerButton):
 			valid_target=true
+			focussed_button=target
 		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and valid_target:
-		pass
+		focussed_button.press()
 
 		

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djvl67svjh5qn"]
 
-[ext_resource type="Texture2D" uid="uid://chy1s510vgv4d" path="res://sprites/circle.png" id="1_0l8sm"]
+[ext_resource type="Texture2D" uid="uid://clp8ykfkwjfp4" path="res://sprites/ld60_hand.png" id="1_0l8sm"]
 
 [sub_resource type="GDScript" id="GDScript_g5j3c"]
 script/source = "extends Label
@@ -39,5 +39,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Label" unique_id=444039923]
-scale = Vector2(0.5, 0.5)
+texture_filter = 1
+scale = Vector2(2, 2)
 texture = ExtResource("1_0l8sm")
