@@ -7,6 +7,10 @@
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
 [ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
+[ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
+[ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
+[ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
+[ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scarp_body.tscn" id="11_ff8ca"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -70,6 +74,7 @@ angular_limit/lower = -0.5794493
 [node name="MagnetBody" type="RigidBody3D" parent="." unique_id=916925343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42015168, 1.0767927, -4.356915)
 mass = 1000.0
+can_sleep = false
 angular_damp = 3.0
 
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
@@ -79,5 +84,19 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.2661798, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
 shape = SubResource("CylinderShape3D_ubvaf")
 
+[node name="FirePit" parent="." unique_id=75870195 instance=ExtResource("8_ubvaf")]
+transform = Transform3D(0.28598982, 0, -0.2577495, 0, 0.385, 0, 0.2577495, 0, 0.28598982, -3.8515935, -2.1189423, 3.6090322)
+
+[node name="Crusher" parent="." unique_id=1740401113 instance=ExtResource("9_dv0a3")]
+transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 0.47701365, 4.5132146, -2.1352332, -3.3037603)
+
+[node name="ScrapSpawner" parent="." unique_id=816657280 instance=ExtResource("10_fjk5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8492737, 1.1920929e-07, 4.6659694)
+objekt_szene = ExtResource("11_ff8ca")
+
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
+[editable path="Player/Console/PlayerConsoleButton"]
+[editable path="Player/Console/PlayerConsoleButton2"]
+[editable path="Player/Console/PlayerConsoleButton3"]
+[editable path="Player/Console/PlayerConsoleButton4"]

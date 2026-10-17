@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bypj2pgh4ndtq"]
 
-[ext_resource type="Script" uid="uid://i8h28sahaxdg" path="res://script/scrap_spawner.gd" id="1_kuy21"]
+[ext_resource type="Script" uid="uid://i8h28sahaxdg" path="res://scripts/scrap_spawner.gd" id="1_kuy21"]
 
 [node name="ScrapSpawner" type="Marker3D" unique_id=816657280]
 script = ExtResource("1_kuy21")
