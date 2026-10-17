@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bfddkjgc78axk"]
+[gd_scene format=3 uid="uid://c2sxqsqxnf1ux"]
 
 [ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="1_flw6b"]
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
@@ -38,11 +38,11 @@ script = ExtResource("2_cpdmu")
 
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
 
-[node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
+[node name="PlayerCamera" parent="Player" index="4" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
 current = true
 
-[node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
+[node name="SpotLight3D" parent="Player" index="6" unique_id=215548350]
 transform = Transform3D(1, 0, 0, 0, 0.34410185, 0.93893236, 0, -0.93893236, 0.34410185, -0.29966295, 0.9619458, -2.8460069)
 light_energy = 9.237
 shadow_bias = 0.228
@@ -80,3 +80,7 @@ shape = SubResource("CylinderShape3D_ubvaf")
 
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
+[editable path="Player/PlayerConsoleButton"]
+[editable path="Player/PlayerConsoleButton2"]
+[editable path="Player/PlayerConsoleButton3"]
+[editable path="Player/PlayerConsoleButton4"]
