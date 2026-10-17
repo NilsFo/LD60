@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://c2sxqsqxnf1ux"]
 
-[ext_resource type="Script" uid="uid://70ta71ob28ql" path="res://scripts/player.gd" id="1_hneav"]
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
+[ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
+[ext_resource type="Texture2D" uid="uid://rpbk4xqjma7b" path="res://icon.svg" id="3_g5j3c"]
 
 [node name="Game" type="Node2D" unique_id=924122849]
 
-[node name="Player" type="Node3D" parent="." unique_id=901175222]
-script = ExtResource("1_hneav")
-
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1557835467]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)
-
 [node name="GameState" type="Node3D" parent="." unique_id=1449238398]
 script = ExtResource("2_cpdmu")
+
+[node name="tmp" type="Node3D" parent="." unique_id=803391118]
+
+[node name="Sprite3D" type="Sprite3D" parent="tmp" unique_id=521545961]
+transform = Transform3D(1, 0, 0, 0, 0.9597415, -0.28088492, 0, 0.28088492, 0.9597415, 0, 0.43732345, -0.99056005)
+texture = ExtResource("3_g5j3c")
+
+[node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
+
+[editable path="Player"]

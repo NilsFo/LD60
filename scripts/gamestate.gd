@@ -1,4 +1,7 @@
+class_name GameState
 extends Node3D
+
+@export var player_rotation: float=0.0
 
 
 # Called when the node enters the scene tree for the first time.
