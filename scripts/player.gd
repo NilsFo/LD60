@@ -4,12 +4,14 @@ extends Node3D
 @export var rotationSpeed: float=1.0
 @onready var viewRay:RayCast3D=$PlayerCamera/RayCast3D
 var gameState
+var mouse_clicked: bool=false
 
 @export var craneButtonForce: float = 0.0
 @export var allButtons:Array[PlayerButton] 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	mouse_clicked=false
 	gameState = $/root/Game/GameState
 	reset_buttons()
 
@@ -41,26 +43,29 @@ func _process(delta: float) -> void:
 			
 	gameState.is_player_hover_over_interactable=focussed_button!=null
 		
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and valid_target:
+	if mouse_clicked and valid_target:
 		reset_buttons()
 		focussed_button.press()
 	
 		if focussed_button.buttonType == PlayerButton.ButtonType.UNBEKANNT:
+			pass
 			print("UNBEKANNTER BUTTON GEDRÜCKT!!!")
 		if focussed_button.buttonType == PlayerButton.ButtonType.START_LINKS:
-			print("Button: Links")
 			craneButtonForce=-1.0
 		if focussed_button.buttonType == PlayerButton.ButtonType.START_RECHTS:
-			print("Button: Rechts")
 			craneButtonForce=1
 		if focussed_button.buttonType == PlayerButton.ButtonType.STOP:
-			print("Button: Stopp")
 			craneButtonForce=0
 		if focussed_button.buttonType == PlayerButton.ButtonType.MAGNET:
-			print("Button: Magnet")
+			pass
+			
+	mouse_clicked = false
 		
 func reset_buttons():
 	for button:PlayerButton in allButtons:
 		button.is_pressed=false
 
-		
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index ==MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
+			mouse_clicked=true

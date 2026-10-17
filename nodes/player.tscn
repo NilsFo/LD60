@@ -8,8 +8,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 
-[node name="Player" type="Node3D" unique_id=1268145214]
+[node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons")]
 script = ExtResource("1_u63mc")
+allButtons = [NodePath("Console/PlayerConsoleButton/StaticBody3D"), NodePath("Console/PlayerConsoleButton2/StaticBody3D"), NodePath("Console/PlayerConsoleButton3/StaticBody3D"), NodePath("Console/PlayerConsoleButton4/StaticBody3D")]
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)
