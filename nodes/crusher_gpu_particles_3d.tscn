@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dwho00b3y3ff2"]
+
+[ext_resource type="Material" uid="uid://bnf1vm3nqjntb" path="res://material/crusher_particle_process_material.tres" id="1_gejsb"]
+[ext_resource type="Script" uid="uid://b53so0cxkmda4" path="res://script/crusher_gpu_particles_3d.gd" id="1_ygu1f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqrwt"]
+albedo_color = Color(0.62, 0.18103996, 0.17359999, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a327t"]
+material = SubResource("StandardMaterial3D_aqrwt")
+radius = 0.1
+height = 0.2
+
+[node name="CrusherGPUParticles3D" type="GPUParticles3D" unique_id=1441469212]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+emitting = false
+amount = 20
+lifetime = 1.5
+one_shot = true
+speed_scale = 0.5
+randomness = 1.0
+local_coords = true
+process_material = ExtResource("1_gejsb")
+draw_pass_1 = SubResource("SphereMesh_a327t")
+script = ExtResource("1_ygu1f")
