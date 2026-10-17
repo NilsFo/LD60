@@ -2,19 +2,27 @@
 
 [ext_resource type="Script" uid="uid://cvn0pb26f3u2c" path="res://scripts/crusher_area_3d.gd" id="1_i6pr7"]
 [ext_resource type="PackedScene" uid="uid://dwho00b3y3ff2" path="res://nodes/crusher_gpu_particles_3d.tscn" id="2_4nbus"]
+[ext_resource type="PackedScene" uid="uid://yceqmbrncdn0" path="res://models/blend/Crusher.blend" id="3_4nbus"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbbk5"]
 
 [node name="Crusher" type="Node3D" unique_id=1740401113]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
 
-[node name="CrusherArea3D" type="Area3D" parent="." unique_id=574351156 node_paths=PackedStringArray("particle_spawn_point")]
+[node name="Logik" type="Node3D" parent="." unique_id=720200233]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0.5, 0)
+
+[node name="CrusherArea3D" type="Area3D" parent="Logik" unique_id=574351156 node_paths=PackedStringArray("particle_spawn_point")]
 script = ExtResource("1_i6pr7")
 particle_prefab = ExtResource("2_4nbus")
 particle_spawn_point = NodePath("../ParticleMarker3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CrusherArea3D" unique_id=1464186982]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Logik/CrusherArea3D" unique_id=1464186982]
 shape = SubResource("BoxShape3D_qbbk5")
 
-[node name="ParticleMarker3D" type="Marker3D" parent="." unique_id=1335630212]
+[node name="ParticleMarker3D" type="Marker3D" parent="Logik" unique_id=1335630212]
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0.009569395, 0)
+
+[node name="Looks" type="Node3D" parent="." unique_id=1028263055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Crusher" parent="Looks" unique_id=2038079264 instance=ExtResource("3_4nbus")]
