@@ -28,7 +28,6 @@ func _process(delta: float) -> void:
 	print(viewRay.is_colliding())
 	if viewRay.is_colliding():
 		var target: Object=viewRay.get_collider()
-		print(target)
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		pass
 
