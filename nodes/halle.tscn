@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dkludvkn1qsqo"]
+
+[ext_resource type="PackedScene" uid="uid://xgsobi4dpqxh" path="res://models/blend/halle.fbx" id="1_pqpil"]
+
+[node name="halle" unique_id=1052431382 instance=ExtResource("1_pqpil")]

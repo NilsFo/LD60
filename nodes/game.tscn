@@ -43,7 +43,7 @@ attributes = SubResource("CameraAttributesPractical_82gy4")
 current = true
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
-transform = Transform3D(1, 0, 0, 0, 0.34410185, 0.93893236, 0, -0.93893236, 0.34410185, -0.29966295, 0.9619458, -2.8460069)
+transform = Transform3D(1, 0, 0, 0, 0.41020024, 0.9119954, 0, -0.9119954, 0.41020024, -0.29966295, 0.9619458, -2.64854)
 light_energy = 9.237
 shadow_bias = 0.228
 spot_attenuation = 0.26
@@ -60,16 +60,17 @@ light_energy = 0.524
 light_energy = 0.0
 
 [node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=882624884]
-transform = Transform3D(0.29999995, 0, 0, 0, 0.29999995, 0, 0, 0, 0.29999995, -0.1635221, 1.5539186, -4.6802897)
+transform = Transform3D(0.29999995, 0, 0, 0, 0.29999995, 0, 0, 0, 0.29999995, -0.50428206, 0.8643905, -4.3546906)
 node_a = NodePath("../Player/Crane/StaticBody3D")
 node_b = NodePath("../MagnetBody")
 angular_limit/enable = true
-angular_limit/upper = 0.34732053
-angular_limit/lower = -0.35081118
+angular_limit/upper = 0.6736971
+angular_limit/lower = -0.5794493
 
 [node name="MagnetBody" type="RigidBody3D" parent="." unique_id=916925343]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38128033, 1.46219, -4.356915)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42015168, 1.0767927, -4.356915)
 mass = 1000.0
+angular_damp = 3.0
 
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.2661798, 0)

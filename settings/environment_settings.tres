@@ -12,4 +12,4 @@ tonemap_agx_contrast = 1.57
 fog_enabled = true
 fog_light_color = Color(0.41503817, 0.35236818, 0.36185414, 1)
 fog_height = 2.0
-fog_height_density = 0.3299
+fog_height_density = 0.1
