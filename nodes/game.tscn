@@ -54,6 +54,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="HUD/Label" unique_id=587419214]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_flw6b")
 
 [editable path="Player"]
