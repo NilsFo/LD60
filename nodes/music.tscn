@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b5ft0eopdlsm1"]
+
+[ext_resource type="AudioStream" uid="uid://u4ppd0pknait" path="res://music/lied1.2.ogg" id="1_svf7q"]
+
+[node name="Music" type="Node3D" unique_id=403756141]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1434190025]
+stream = ExtResource("1_svf7q")
+autoplay = true

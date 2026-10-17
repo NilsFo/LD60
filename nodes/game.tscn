@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="4_flw6b"]
+[ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="5_flw6b"]
 
 [node name="Game" type="Node3D" unique_id=906284256]
 
@@ -18,6 +19,8 @@ current = true
 [node name="Environment" parent="." unique_id=199390501 instance=ExtResource("4_6hfer")]
 
 [node name="HUD" parent="." unique_id=948412334 instance=ExtResource("4_flw6b")]
+
+[node name="Music" parent="." unique_id=403756141 instance=ExtResource("5_flw6b")]
 
 [editable path="Player"]
 [editable path="Environment"]
