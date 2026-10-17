@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bekj5anwkf215"]
+
+[ext_resource type="Script" uid="uid://d2yoqsn78j7j3" path="res://scripts/playerConsoleButton.gd" id="1_vn7vo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_smc3q"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_smc3q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hwemi"]
+
+[node name="PlayerConsoleButton" type="MeshInstance3D" unique_id=1232765926]
+mesh = SubResource("BoxMesh_smc3q")
+
+[node name="SelectableArea" type="MeshInstance3D" parent="." unique_id=1335046414]
+transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, 0, 0.78139144, 0)
+mesh = SubResource("CapsuleMesh_smc3q")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SelectableArea" unique_id=1043815935]
+transform = Transform3D(2.1505375, 0, 0, 0, 2.1505375, 0, 0, 0, 2.1505375, 0, -1.6804116, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SelectableArea/StaticBody3D" unique_id=475083571]
+transform = Transform3D(0.46500006, 0, 0, 0, 0.46500006, 0, 0, 0, 0.46500006, 0, 0.7813915, 0)
+shape = SubResource("CapsuleShape3D_hwemi")
+script = ExtResource("1_vn7vo")
+metadata/_custom_type_script = "uid://d2yoqsn78j7j3"

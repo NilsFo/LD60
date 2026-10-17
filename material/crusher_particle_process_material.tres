@@ -1,0 +1,6 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://bnf1vm3nqjntb"]
+
+[resource]
+lifetime_randomness = 0.4
+emission_shape = 1
+emission_sphere_radius = 1.0
