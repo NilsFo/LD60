@@ -44,7 +44,7 @@ spot_angle_attenuation = 0.63728034
 transform = Transform3D(-6.556708e-09, 0, -0.14999999, 0, 0.14999999, 0, 0.14999999, 0, -6.556708e-09, 0, 0, -0.3390158)
 
 [node name="PlayerConsoleButton" parent="Console" unique_id=1232765926 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.018357277, 1.6896799, 1.1150739)
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, -0.09496331, 1.6896799, 1.0482194)
 mesh = null
 
 [node name="StaticBody3D" parent="Console/PlayerConsoleButton" index="0" unique_id=1043815935]
