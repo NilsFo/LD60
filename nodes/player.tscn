@@ -14,6 +14,7 @@ script = ExtResource("1_u63mc")
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)
 script = ExtResource("2_bms3g")
+lookLimitDegreeX = 55.0
 lookLimitDegreeY = 75.0
 invertY = false
 
@@ -43,28 +44,28 @@ spot_angle_attenuation = 0.63728034
 transform = Transform3D(-6.556708e-09, 0, -0.14999999, 0, 0.14999999, 0, 0.14999999, 0, -6.556708e-09, 0, 0, -0.3390158)
 
 [node name="PlayerConsoleButton" parent="Console" unique_id=1232765926 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2971785, 1.5668344, 0.6042698)
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.018357277, 1.6896799, 1.1150739)
 mesh = null
 
 [node name="StaticBody3D" parent="Console/PlayerConsoleButton" index="0" unique_id=1043815935]
 buttonType = 1
 
 [node name="PlayerConsoleButton2" parent="Console" unique_id=13030500 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.03287816, 1.6925042, 0.05740155)
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.03287816, 1.6925042, 1.708553)
 mesh = null
 
 [node name="StaticBody3D" parent="Console/PlayerConsoleButton2" index="0" unique_id=1043815935]
 buttonType = 2
 
 [node name="PlayerConsoleButton3" parent="Console" unique_id=39696027 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.22120285, 1.4637823, -0.5635924)
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.51612127, 1.2712805, 1.3860835)
 mesh = null
 
 [node name="StaticBody3D" parent="Console/PlayerConsoleButton3" index="0" unique_id=1043815935]
 buttonType = 3
 
 [node name="PlayerConsoleButton4" parent="Console" unique_id=1020221722 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.48818576, 1.3436742, 0.024990821)
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.32134986, 1.5220327, -1.4461474)
 mesh = null
 
 [node name="StaticBody3D" parent="Console/PlayerConsoleButton4" index="0" unique_id=1043815935]

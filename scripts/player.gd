@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	rotate(Vector3.UP,rot*rotationSpeed*delta)
 	gameState.player_rotation=rotation.y
 	
-	var valid_target = false
+	var valid_target: bool = false
 	var focussed_button:PlayerButton = null
 	
 	if viewRay.is_colliding():
@@ -38,6 +38,8 @@ func _process(delta: float) -> void:
 		if is_instance_of(target,PlayerButton):
 			valid_target=true
 			focussed_button=target
+			
+	gameState.is_player_hover_over_interactable=focussed_button!=null
 		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and valid_target:
 		reset_buttons()

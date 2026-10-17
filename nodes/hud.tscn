@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://djvl67svjh5qn"]
 
 [ext_resource type="Texture2D" uid="uid://clp8ykfkwjfp4" path="res://sprites/ld60_hand.png" id="1_0l8sm"]
+[ext_resource type="Script" uid="uid://bf5eoq8rt5i56" path="res://nodes/hud.gd" id="1_17hw4"]
+[ext_resource type="Texture2D" uid="uid://chy1s510vgv4d" path="res://sprites/circle.png" id="1_s1cew"]
 
 [sub_resource type="GDScript" id="GDScript_g5j3c"]
 script/source = "extends Label
@@ -16,7 +18,10 @@ func _process(delta: float) -> void:
 	set_text(\"FPS \" + str(Engine.get_frames_per_second()))
 "
 
-[node name="HUD" type="CanvasLayer" unique_id=948412334]
+[node name="HUD" type="CanvasLayer" unique_id=948412334 node_paths=PackedStringArray("cursorNormal", "cursorSelect")]
+script = ExtResource("1_17hw4")
+cursorNormal = NodePath("Label/CursorNormal")
+cursorSelect = NodePath("Label/CursorSelect")
 
 [node name="FPS Label" type="Label" parent="." unique_id=1371958760]
 offset_right = 40.0
@@ -38,7 +43,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="Label" unique_id=444039923]
+[node name="CursorNormal" type="Sprite2D" parent="Label" unique_id=444039923]
 texture_filter = 1
-scale = Vector2(2, 2)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_s1cew")
+
+[node name="CursorSelect" type="Sprite2D" parent="Label" unique_id=980800065]
+texture_filter = 1
+position = Vector2(2.9999998, 9.499999)
+scale = Vector2(1.45, 1.45)
 texture = ExtResource("1_0l8sm")
