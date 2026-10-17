@@ -53,11 +53,6 @@ shadow_bias = 0.228
 spot_attenuation = 0.26
 spot_angle_attenuation = 0.40612632
 
-[node name="SpotLight3D2" type="OmniLight3D" parent="Player" unique_id=1485144498]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59329474, 0.122914135)
-light_color = Color(0.581, 0.8051, 0.83, 1)
-light_energy = 0.524
-
 [node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1860931207]
@@ -93,6 +88,8 @@ transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 
 [node name="ScrapSpawner" parent="." unique_id=816657280 instance=ExtResource("10_fjk5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8492737, 1.1920929e-07, 4.6659694)
 objekt_szene = ExtResource("11_ff8ca")
+
+[connection signal="on_pressed" from="Player/Console/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]

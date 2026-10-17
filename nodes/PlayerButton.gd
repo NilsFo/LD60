@@ -4,6 +4,8 @@ extends StaticBody3D
 enum ButtonType {UNBEKANNT,START_LINKS,START_RECHTS, STOP, MAGNET}
 
 @export var buttonType: int = ButtonType.UNBEKANNT
+@export var is_pressed = false
+signal on_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,3 +18,7 @@ func _process(delta: float) -> void:
 
 func press():
 	print("Gedrückt: "+str(buttonType))
+	is_pressed=true
+	
+	on_pressed.emit()
+	
