@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
+[ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -47,6 +48,8 @@ spot_angle_attenuation = 0.40612632
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59329474, 0.122914135)
 light_color = Color(0.581, 0.8051, 0.83, 1)
 light_energy = 0.524
+
+[node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1860931207]
 light_energy = 0.0
