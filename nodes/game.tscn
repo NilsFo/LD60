@@ -7,6 +7,7 @@
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
 [ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
+[ext_resource type="PackedScene" uid="uid://c2ac6wbmhsuld" path="res://nodes/roboter.tscn" id="8_ubvaf"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -70,6 +71,7 @@ angular_limit/lower = -0.5794493
 [node name="MagnetBody" type="RigidBody3D" parent="." unique_id=916925343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42015168, 1.0767927, -4.356915)
 mass = 1000.0
+can_sleep = false
 angular_damp = 3.0
 
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
@@ -78,6 +80,9 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.2661798, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MagnetBody" unique_id=120903063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
 shape = SubResource("CylinderShape3D_ubvaf")
+
+[node name="Roboter" parent="." unique_id=1915450099 instance=ExtResource("8_ubvaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7451043, -1.2557454, -3.693571)
 
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
