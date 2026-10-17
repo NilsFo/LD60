@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bhiw8pmk367ln"]
+
+[ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="1_7l4bx"]
+[ext_resource type="PackedScene" uid="uid://bhfoclxmbt4hm" path="res://nodes/drop_zone.tscn" id="2_mg6u1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a2djh"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a2djh"]
+
+[node name="MainGame3D" type="Node3D" unique_id=1434702463]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1757883587]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=2012590134]
+shape = SubResource("CapsuleShape3D_a2djh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=250193053]
+mesh = SubResource("CapsuleMesh_a2djh")
+
+[node name="ScrapSpawner" parent="." unique_id=816657280 instance=ExtResource("1_7l4bx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.130145, 7.5549707, 0)
+
+[node name="DropZone" parent="." unique_id=773720220 instance=ExtResource("2_mg6u1")]
