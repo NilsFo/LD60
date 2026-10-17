@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://djvl67svjh5qn"]
+
+[ext_resource type="Texture2D" uid="uid://chy1s510vgv4d" path="res://sprites/circle.png" id="1_0l8sm"]
+
+[sub_resource type="GDScript" id="GDScript_g5j3c"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	set_text(\"FPS \" + str(Engine.get_frames_per_second()))
+"
+
+[node name="HUD" type="CanvasLayer" unique_id=948412334]
+
+[node name="FPS Label" type="Label" parent="." unique_id=1371958760]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS: ?"
+script = SubResource("GDScript_g5j3c")
+
+[node name="Label" type="Label" parent="." unique_id=160306285]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Label" unique_id=444039923]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0l8sm")
