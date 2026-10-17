@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://g22hhfum4ol4"]
+
+[ext_resource type="Script" uid="uid://bsmovwuhx137a" path="res://scripts/firepit_area_3d.gd" id="1_p0140"]
+[ext_resource type="PackedScene" uid="uid://cqjbt26jgf0f6" path="res://models/blend/chute.blend" id="2_uijic"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hy1l3"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a2djh"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2djh"]
+albedo_color = Color(0.97433525, 0.28788272, 0.16480428, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q8k27"]
+material = SubResource("StandardMaterial3D_a2djh")
+radius = 0.1
+height = 0.2
+
+[node name="FirePit" type="Node3D" unique_id=75870195]
+
+[node name="Logik" type="Node3D" parent="." unique_id=1650169218]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0.5, 0)
+
+[node name="FirepitArea3D" type="Area3D" parent="Logik" unique_id=1357582056]
+script = ExtResource("1_p0140")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Logik/FirepitArea3D" unique_id=1635930990]
+shape = SubResource("BoxShape3D_hy1l3")
+
+[node name="Fire" type="Node3D" parent="." unique_id=839398816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Fire" unique_id=1091936274]
+transform = Transform3D(1, 0, 0, 0, -0.99999994, 8.742277e-08, 0, -8.742277e-08, -0.99999994, 0, 0, 0)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_a2djh")
+draw_pass_1 = SubResource("SphereMesh_q8k27")
+
+[node name="Looks" type="Node3D" parent="." unique_id=1928465833]
+
+[node name="chute" parent="Looks" unique_id=2011524253 instance=ExtResource("2_uijic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

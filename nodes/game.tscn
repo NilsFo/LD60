@@ -1,12 +1,37 @@
-[gd_scene format=3 uid="uid://c2sxqsqxnf1ux"]
+[gd_scene format=3 uid="uid://bfddkjgc78axk"]
 
+[ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="1_flw6b"]
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
-[ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="4_flw6b"]
-[ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="5_flw6b"]
+[ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
+[ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
+[ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
+
+[sub_resource type="Compositor" id="Compositor_jxyld"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0uh5x"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_82gy4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ubvaf"]
+height = 0.6738281
+radius = 1.0
 
 [node name="Game" type="Node3D" unique_id=906284256]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
+environment = ExtResource("1_flw6b")
+camera_attributes = SubResource("CameraAttributesPractical_043gu")
+compositor = SubResource("Compositor_jxyld")
+
+[node name="LightmapGI" type="LightmapGI" parent="WorldEnvironment" unique_id=1923249147]
+camera_attributes = SubResource("CameraAttributesPractical_0uh5x")
+light_data = ExtResource("4_flw6b")
+
+[node name="Environment" parent="WorldEnvironment/LightmapGI" unique_id=199390501 instance=ExtResource("4_6hfer")]
 
 [node name="GameState" type="Node3D" parent="." unique_id=1449238398]
 script = ExtResource("2_cpdmu")
@@ -14,14 +39,44 @@ script = ExtResource("2_cpdmu")
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
 
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
+attributes = SubResource("CameraAttributesPractical_82gy4")
 current = true
 
-[node name="Environment" parent="." unique_id=199390501 instance=ExtResource("4_6hfer")]
+[node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
+transform = Transform3D(1, 0, 0, 0, 0.34410185, 0.93893236, 0, -0.93893236, 0.34410185, -0.29966295, 0.9619458, -2.8460069)
+light_energy = 9.237
+shadow_bias = 0.228
+spot_attenuation = 0.26
+spot_angle_attenuation = 0.40612632
 
-[node name="HUD" parent="." unique_id=948412334 instance=ExtResource("4_flw6b")]
+[node name="SpotLight3D2" type="OmniLight3D" parent="Player" unique_id=1485144498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59329474, 0.122914135)
+light_color = Color(0.581, 0.8051, 0.83, 1)
+light_energy = 0.524
 
-[node name="Music" parent="." unique_id=403756141 instance=ExtResource("5_flw6b")]
+[node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1860931207]
+light_energy = 0.0
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=882624884]
+transform = Transform3D(0.29999995, 0, 0, 0, 0.29999995, 0, 0, 0, 0.29999995, -0.1635221, 1.5539186, -4.6802897)
+node_a = NodePath("../Player/Crane/StaticBody3D")
+node_b = NodePath("../MagnetBody")
+angular_limit/enable = true
+angular_limit/upper = 0.34732053
+angular_limit/lower = -0.35081118
+
+[node name="MagnetBody" type="RigidBody3D" parent="." unique_id=916925343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38128033, 1.46219, -4.356915)
+mass = 1000.0
+
+[node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.2661798, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MagnetBody" unique_id=120903063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
+shape = SubResource("CylinderShape3D_ubvaf")
+
+[editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
-[editable path="Environment"]
-[editable path="Music"]
