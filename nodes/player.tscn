@@ -31,7 +31,7 @@ target_position = Vector3(0, 0, -1)
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Crane" unique_id=1595937500]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -1.3615103, 5.05986, -14.571931)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.16012506, 5.733877, -13.7825985)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Crane/StaticBody3D" unique_id=620158222]
 shape = SubResource("BoxShape3D_ai7j4")
