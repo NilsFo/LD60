@@ -10,17 +10,25 @@ extends Node3D
 
 @onready var game: GameState = $/root/Game/GameState
 
+@export var mesh: MeshInstance3D
+
+signal zapped
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    print("Spawned " + name)
     if isBlue and dataMessage == "":
         push_warning("Blue scrap without data message spawned!")
+    if isBlue and not mesh:
+        push_warning("Blue scrap without mesh spawned!")
 
 func zap():
     print(name + " wird gezappt")
     if isBlue:
         game.push_data_message(dataMessage)
         isBlue = false
-        #TODO: remove visual blue
+        zapped.emit()
+        mesh.set_surface_override_material(1, preload("res://nodes/scraps/data_sucked.tres"))
     else:
         print("...but nothing happened")
         return
