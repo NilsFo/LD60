@@ -138,6 +138,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.146533, -0.35768318, 3.4127
 transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.30646512, -3.154164, -2.035339, -2.566783)
 
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
+[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_older_entries"]
+[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
 
 [editable path="LookAreas/LookArea - Grind"]
 [editable path="LookAreas/LookArea2 - Spawn"]
@@ -149,3 +151,5 @@ transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.
 [editable path="Player/PlayerConsoleButton2"]
 [editable path="Player/PlayerConsoleButton3"]
 [editable path="Player/PlayerConsoleButton4"]
+[editable path="Player/Journal/PlayerConsoleButton4"]
+[editable path="Player/Journal/PlayerConsoleButton5"]

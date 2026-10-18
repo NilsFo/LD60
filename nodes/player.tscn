@@ -22,7 +22,7 @@
 
 [node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons")]
 script = ExtResource("1_u63mc")
-allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D")]
+allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton5/StaticBody3D")]
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)
@@ -141,15 +141,11 @@ width = 250.0
 [node name="PlayerConsoleButton4" parent="Journal" unique_id=118169988 instance=ExtResource("4_hqdnm")]
 transform = Transform3D(0.05, 0, 5.9211896e-16, 0, 0.05, 0, -5.9211896e-16, 0, 0.05, 0.13060452, -0.116245896, 0.0037108138)
 
-[node name="StaticBody3D" parent="Journal/PlayerConsoleButton4" index="0" unique_id=1043815935]
-buttonType = 4
-
 [node name="PlayerConsoleButton5" parent="Journal" unique_id=2051406005 instance=ExtResource("4_hqdnm")]
 transform = Transform3D(0.05, 0, 5.9211896e-16, 0, 0.05, 0, -5.9211896e-16, 0, 0.05, 0.16013822, -0.11834533, -0.021776974)
 
 [node name="StaticBody3D" parent="Journal/PlayerConsoleButton5" index="0" unique_id=1043815935]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.07849765, 0, -0.22718549)
-buttonType = 4
 
 [node name="Manuel" type="Node3D" parent="." unique_id=520805951 node_paths=PackedStringArray("text_display", "page_label")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23399484, 0.18326855, -0.15702203)
@@ -179,8 +175,8 @@ vertical_alignment = 0
 autowrap_mode = 2
 width = 200.0
 
-[connection signal="on_pressed" from="Journal/PlayerConsoleButton4/StaticBody3D" to="Journal" method="to_older_entry"]
-[connection signal="on_pressed" from="Journal/PlayerConsoleButton5/StaticBody3D" to="Journal" method="to_newer_entry"]
+[connection signal="on_pressed" from="Journal/PlayerConsoleButton4/StaticBody3D" to="Journal" method="to_older_entries"]
+[connection signal="on_pressed" from="Journal/PlayerConsoleButton5/StaticBody3D" to="Journal" method="to_new_entries"]
 
 [editable path="PlayerConsoleButton"]
 [editable path="PlayerConsoleButton2"]
