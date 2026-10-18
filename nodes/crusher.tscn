@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cvn0pb26f3u2c" path="res://scripts/crusher_area_3d.gd" id="1_i6pr7"]
 [ext_resource type="PackedScene" uid="uid://dwho00b3y3ff2" path="res://nodes/crusher_gpu_particles_3d.tscn" id="2_4nbus"]
-[ext_resource type="PackedScene" uid="uid://yceqmbrncdn0" path="res://models/blend/Crusher.blend" id="3_4nbus"]
+[ext_resource type="PackedScene" uid="uid://urk4k1mc2n8a" path="res://nodes/crusher_model.tscn" id="3_4nbus"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbbk5"]
+size = Vector3(1, 1.7501221, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
+size = Vector3(0.4500122, 2.3295288, 4.0461426)
 
 [node name="Crusher" type="Node3D" unique_id=1740401113]
 
@@ -17,6 +21,7 @@ particle_prefab = ExtResource("2_4nbus")
 particle_spawn_point = NodePath("../ParticleMarker3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Logik/CrusherArea3D" unique_id=1464186982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37506104, 0)
 shape = SubResource("BoxShape3D_qbbk5")
 
 [node name="ParticleMarker3D" type="Marker3D" parent="Logik" unique_id=1335630212]
@@ -25,4 +30,22 @@ transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0.009569
 [node name="Looks" type="Node3D" parent="." unique_id=1028263055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Crusher" parent="Looks" unique_id=2038079264 instance=ExtResource("3_4nbus")]
+[node name="Crusher" parent="Looks" unique_id=1417769918 instance=ExtResource("3_4nbus")]
+
+[node name="StaticCollision" type="StaticBody3D" parent="." unique_id=1054125689]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticCollision" unique_id=1618853129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7641296, 0.6647644, -0.0059814453)
+shape = SubResource("BoxShape3D_ai7j4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticCollision" unique_id=914339875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7762752, 0.6647644, -0.0059814453)
+shape = SubResource("BoxShape3D_ai7j4")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticCollision" unique_id=957092167]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.006072837, 0.6647644, -1.7761838)
+shape = SubResource("BoxShape3D_ai7j4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticCollision" unique_id=1007497190]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0060726823, 0.6647644, 1.764221)
+shape = SubResource("BoxShape3D_ai7j4")

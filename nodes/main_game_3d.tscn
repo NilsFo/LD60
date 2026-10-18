@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhiw8pmk367ln"]
 
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="1_7l4bx"]
-[ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scarp_body.tscn" id="1_ip8eb"]
+[ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scraps/scarp_robot.tscn" id="1_ip8eb"]
 [ext_resource type="PackedScene" uid="uid://bhfoclxmbt4hm" path="res://nodes/drop_zone.tscn" id="2_mg6u1"]
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="4_a327t"]
 
