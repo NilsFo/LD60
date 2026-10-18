@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjr5hyw0tincn"]
 
-[ext_resource type="PackedScene" uid="uid://l621fr6wxksp" path="res://models/blend/halle.blend" id="1_m881r"]
+[ext_resource type="PackedScene" uid="uid://dkludvkn1qsqo" path="res://nodes/halle.tscn" id="1_1guvd"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="2_1guvd"]
 [ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="2_fka34"]
 
@@ -8,9 +8,12 @@
 
 [sub_resource type="Compositor" id="Compositor_jxyld"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_043gu"]
+size = Vector3(20, 20, 1.1503296)
+
 [node name="Environment" type="Node3D" unique_id=199390501]
 
-[node name="halle" parent="." unique_id=1071216754 instance=ExtResource("1_m881r")]
+[node name="halle" parent="." unique_id=1052431382 instance=ExtResource("1_1guvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=871154553]
@@ -84,3 +87,9 @@ light_energy = 6.733
 light_size = 0.089
 light_bake_mode = 1
 spot_range = 9.663
+
+[node name="Node3D" type="StaticBody3D" parent="." unique_id=633845425]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D" unique_id=1596863000]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -2.5808883, 2.1110008e-08)
+shape = SubResource("BoxShape3D_043gu")

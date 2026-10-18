@@ -4,15 +4,18 @@
 [ext_resource type="Script" uid="uid://dr5hstbe162mo" path="res://scripts/player_camera.gd" id="2_bms3g"]
 [ext_resource type="PackedScene" uid="uid://b4jmyhhkhxlir" path="res://models/Crane.blend" id="3_me0cc"]
 [ext_resource type="PackedScene" uid="uid://bekj5anwkf215" path="res://nodes/player_console_button.tscn" id="4_hqdnm"]
+[ext_resource type="PackedScene" uid="uid://e032x2qe65ci" path="res://models/blend/Console.blend" id="5_7lbay"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 
-[node name="Player" type="Node3D" unique_id=1268145214]
+[node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons")]
 script = ExtResource("1_u63mc")
+allButtons = [NodePath("Console/PlayerConsoleButton/StaticBody3D"), NodePath("Console/PlayerConsoleButton2/StaticBody3D"), NodePath("Console/PlayerConsoleButton3/StaticBody3D"), NodePath("Console/PlayerConsoleButton4/StaticBody3D")]
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)
 script = ExtResource("2_bms3g")
+lookLimitDegreeX = 55.0
 lookLimitDegreeY = 75.0
 invertY = false
 
@@ -38,5 +41,43 @@ spot_range = 4.605
 spot_angle = 16.49
 spot_angle_attenuation = 0.63728034
 
-[node name="PlayerConsoleButton" parent="." unique_id=1232765926 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0.13929155, -0.4296535)
+[node name="Console" parent="." unique_id=61057286 instance=ExtResource("5_7lbay")]
+transform = Transform3D(-6.556708e-09, 0, -0.14999999, 0, 0.14999999, 0, 0.14999999, 0, -6.556708e-09, 0, 0, -0.3390158)
+
+[node name="PlayerConsoleButton" parent="Console" unique_id=1232765926 instance=ExtResource("4_hqdnm")]
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, -0.09496331, 1.6896799, 1.0482194)
+mesh = null
+
+[node name="StaticBody3D" parent="Console/PlayerConsoleButton" index="0" unique_id=1043815935]
+buttonType = 1
+
+[node name="PlayerConsoleButton2" parent="Console" unique_id=13030500 instance=ExtResource("4_hqdnm")]
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.03287816, 1.6925042, 1.708553)
+mesh = null
+
+[node name="StaticBody3D" parent="Console/PlayerConsoleButton2" index="0" unique_id=1043815935]
+buttonType = 2
+
+[node name="PlayerConsoleButton3" parent="Console" unique_id=39696027 instance=ExtResource("4_hqdnm")]
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.51612127, 1.2712805, 1.3860835)
+mesh = null
+
+[node name="StaticBody3D" parent="Console/PlayerConsoleButton3" index="0" unique_id=1043815935]
+buttonType = 3
+
+[node name="PlayerConsoleButton4" parent="Console" unique_id=1020221722 instance=ExtResource("4_hqdnm")]
+transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.32134986, 1.5220327, -1.4461474)
+mesh = null
+
+[node name="StaticBody3D" parent="Console/PlayerConsoleButton4" index="0" unique_id=1043815935]
+buttonType = 4
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=72497432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8825943, 0.2925501)
+light_color = Color(0.82, 0.865, 1, 1)
+omni_range = 1.2598741
+
+[editable path="Console/PlayerConsoleButton"]
+[editable path="Console/PlayerConsoleButton2"]
+[editable path="Console/PlayerConsoleButton3"]
+[editable path="Console/PlayerConsoleButton4"]
