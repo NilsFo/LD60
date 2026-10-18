@@ -14,19 +14,40 @@ mesh = NodePath("Roboter/Armature/Skeleton3D/Cube")
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0.11639145)
 my_body = NodePath("..")
 
+[node name="Physical Bone Kopf" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="1" unique_id=1827103674]
+mass = 0.5
+
+[node name="Physical Bone Oberarm_L" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="2" unique_id=1779180814]
+mass = 0.2
+
 [node name="Physical Bone Unterarm_L" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="3" unique_id=1252102655]
-transform = Transform3D(-1.0964836e-14, -1.4210855e-14, 1, 1, 1.9470721e-07, 1.0964839e-14, -1.9470721e-07, 1, 1.4210852e-14, -0.38934475, 0.20498286, -2.5150328e-08)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7624312e-15, 4.1641864e-11, 0.16073465)
-body_offset = Transform3D(1, -1.4210855e-14, 1.0964849e-14, -1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -4.163958e-11)
+transform = Transform3D(-1.0964836e-14, -1.4210855e-14, 1, 1, 1.9470721e-07, 1.0964839e-14, -1.9470721e-07, 1, 1.4210852e-14, -0.38934475, 0.20498286, -2.523129e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7624312e-15, 1.2260466e-10, 0.16073465)
+body_offset = Transform3D(1, -1.4210855e-14, 1.0964849e-14, -1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -1.2260237e-10)
+mass = 0.2
+
+[node name="Physical Bone Oberarm_R" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="4" unique_id=249040741]
+mass = 0.2
 
 [node name="Physical Bone Unterarm_R" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="5" unique_id=67609945]
-transform = Transform3D(-1.0964836e-14, 1.4210855e-14, -1, -1, 1.9470721e-07, 1.0964839e-14, 1.9470721e-07, 1, 1.4210852e-14, 0.38934475, 0.20498286, -2.5150328e-08)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7624312e-15, 4.1641864e-11, 0.16073465)
-body_offset = Transform3D(1, 1.4210855e-14, -1.0964849e-14, 1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -4.163958e-11)
+transform = Transform3D(-1.0964836e-14, 1.4210855e-14, -1, -1, 1.9470721e-07, 1.0964839e-14, 1.9470721e-07, 1, 1.4210852e-14, 0.38934475, 0.20498286, -2.523129e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7624312e-15, 1.2260466e-10, 0.16073465)
+body_offset = Transform3D(1, 1.4210855e-14, -1.0964849e-14, 1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -1.2260237e-10)
+mass = 0.2
+
+[node name="Physical Bone Oberbein_L" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="6" unique_id=1867589949]
+mass = 0.2
 
 [node name="Physical Bone Unterbein_L" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="7" unique_id=881226949]
-transform = Transform3D(1, -6.3573026e-08, -1.146196e-14, 1.1461961e-14, 1.9730718e-14, 1, -6.3573026e-08, -1, 1.9730718e-14, -0.08672499, -0.41701764, -4.802832e-08)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5265572e-15, 8.3278e-11, 0.13318458)
-body_offset = Transform3D(1, 0, -1.1461966e-14, -1.1461961e-14, 8.690992e-15, -1, 0, 1, 8.690992e-15, 0, 0.13318458, -8.327916e-11)
+transform = Transform3D(1, -6.3573026e-08, -1.146196e-14, 1.1461961e-14, 1.9730718e-14, 1, -6.3573026e-08, -1, 1.9730718e-14, -0.08672499, -0.41701764, -4.7866394e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5265572e-15, 2.4520358e-10, 0.13318458)
+body_offset = Transform3D(1, 0, -1.1461966e-14, -1.1461961e-14, 8.690992e-15, -1, 0, 1, 8.690992e-15, 0, 0.13318458, -2.4520475e-10)
+mass = 0.2
+
+[node name="Physical Bone Oberbein_R" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="8" unique_id=528321345]
+mass = 0.2
+
+[node name="Physical Bone Unterbein_R" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="9" unique_id=2115366942]
+mass = 0.2
 
 [editable path="Roboter"]
