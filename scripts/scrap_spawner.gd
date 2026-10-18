@@ -8,6 +8,7 @@ extends Marker3D
     preload("res://nodes/scraps/scrap_green_goo.tscn"),
     preload("res://nodes/scraps/scarp_robot.tscn"),
     preload("res://nodes/scraps/scrap_gear.tscn"),
+    preload("res://nodes/scraps/scrap_torso.tscn"),
 ]
 
 func spawn() -> void:
