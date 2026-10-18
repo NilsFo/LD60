@@ -7,24 +7,24 @@ var gameState:GameState
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    pass # Replace with function body.
-    gameState = $/root/Game/GameState
+	pass # Replace with function body.
+	gameState = $/root/Game/GameState
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    pass
-    
+	pass
+	
 func attract_to_magnet(delta):
-    var dist: float = my_body.global_position.distance_to(gameState.magnet.global_position)
-    var distance_mult = min(1.0,(2.0/pow(dist,2)+0.3)*falloff_distancemultiplier)
-    
-    var dir: Vector3 = (gameState.magnet.global_position - my_body.global_position).normalized()
-    var pulse = dir *gameState.magnet_strength*delta * distance_mult
-    
-    if my_body is PhysicalBone3D:
-        var bone :PhysicalBone3D = my_body
-        bone.apply_central_impulse(pulse)
-    else:
-        print("i have nothing to push. pls fix.")
-        
+	var dist: float = my_body.global_position.distance_to(gameState.magnet.global_position)
+	var distance_mult = min(1.0,(2.0/pow(dist,2)+0.3)*falloff_distancemultiplier)
+	
+	var dir: Vector3 = (gameState.magnet.global_position - my_body.global_position).normalized()
+	var pulse = dir *gameState.magnet_strength*delta * distance_mult
+	
+	if my_body is PhysicalBone3D:
+		var bone :PhysicalBone3D = my_body
+		bone.apply_central_impulse(pulse)
+	else:
+		print("i have nothing to push. pls fix.")
+		

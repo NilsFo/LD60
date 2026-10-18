@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
 [ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scraps/scarp_robot.tscn" id="11_ff8ca"]
+[ext_resource type="PackedScene" uid="uid://b0hgheqc1f5fy" path="res://nodes/look_area.tscn" id="12_uodeg"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -94,6 +95,19 @@ transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9291252, -0.9555006, -2.6551557)
 objekt_szene = ExtResource("11_ff8ca")
 
+[node name="LookAreas" type="Node3D" parent="." unique_id=1897231688]
+
+[node name="LookArea - Grind" parent="LookAreas" unique_id=2138365582 instance=ExtResource("12_uodeg")]
+
+[node name="LookArea2 - Spawn" parent="LookAreas" unique_id=1023008519 instance=ExtResource("12_uodeg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="LookArea3 - Fire" parent="LookAreas" unique_id=617360416 instance=ExtResource("12_uodeg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="LookArea4 - Zap" parent="LookAreas" unique_id=1818737726 instance=ExtResource("12_uodeg")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
+
 [connection signal="on_pressed" from="Player/Console/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 
 [editable path="WorldEnvironment/LightmapGI/Environment"]
@@ -102,3 +116,7 @@ objekt_szene = ExtResource("11_ff8ca")
 [editable path="Player/Console/PlayerConsoleButton2"]
 [editable path="Player/Console/PlayerConsoleButton3"]
 [editable path="Player/Console/PlayerConsoleButton4"]
+[editable path="LookAreas/LookArea - Grind"]
+[editable path="LookAreas/LookArea2 - Spawn"]
+[editable path="LookAreas/LookArea3 - Fire"]
+[editable path="LookAreas/LookArea4 - Zap"]

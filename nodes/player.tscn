@@ -13,6 +13,12 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_smc3q"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_smc3q"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_smc3q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wrp4"]
+
 [node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons")]
 script = ExtResource("1_u63mc")
 allButtons = [NodePath("Console/PlayerConsoleButton/StaticBody3D"), NodePath("Console/PlayerConsoleButton2/StaticBody3D"), NodePath("Console/PlayerConsoleButton3/StaticBody3D"), NodePath("Console/PlayerConsoleButton4/StaticBody3D")]
@@ -94,6 +100,19 @@ mesh = SubResource("CapsuleMesh_smc3q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8825943, 0.2925501)
 light_color = Color(0.82, 0.865, 1, 1)
 omni_range = 1.2598741
+
+[node name="LookArea3D" type="Area3D" parent="." unique_id=951417404]
+collision_layer = 4
+collision_mask = 4
+
+[node name="LookCollisionShape3D" type="CollisionShape3D" parent="LookArea3D" unique_id=1549317605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2596245, -4.1076474)
+shape = SubResource("SphereShape3D_smc3q")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="LookArea3D/LookCollisionShape3D" unique_id=1438597991]
+visible = false
+mesh = SubResource("SphereMesh_smc3q")
+material = SubResource("StandardMaterial3D_2wrp4")
 
 [editable path="Console/PlayerConsoleButton"]
 [editable path="Console/PlayerConsoleButton2"]
