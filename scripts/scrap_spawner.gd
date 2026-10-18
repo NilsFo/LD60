@@ -1,27 +1,65 @@
 class_name ScrapSpawner
 extends Marker3D
 
-@export var objekt_szene: PackedScene
+@export var scrap_scenes: Dictionary[String,PackedScene] = {
+    "d":preload("res://nodes/scraps/scrap_datablock.tscn"), #d (DATA)
+    "s":preload("res://nodes/scraps/scrap_green_goo.tscn"), # s (SLIME)
+    "r":preload("res://nodes/scraps/scarp_robot.tscn"), #r (ROBOT)
+    "g":preload("res://nodes/scraps/scrap_gear.tscn"), #g (GEAR)
+    "t":preload("res://nodes/scraps/scrap_torso.tscn"), #t (TORSO)
+}
 
-@export var scrap_scenes: Array[PackedScene] = [
-    preload("res://nodes/scraps/scrap_datablock.tscn"),
-    preload("res://nodes/scraps/scrap_green_goo.tscn"),
-    preload("res://nodes/scraps/scarp_robot.tscn"),
-    preload("res://nodes/scraps/scrap_gear.tscn"),
-    preload("res://nodes/scraps/scrap_torso.tscn"),
-]
+# SPAWN POOLS
+@export var spawn_pool_0: String = "s" #0: Tutorial Green
+@export var spawn_pool_1:String = "d" #1: Green Spawns
+@export var spawn_pool_2:String = "r" #2: Tutorial Blue
+@export var spawn_pool_3:String = "g" #3: Blue Spawns
+@export var spawn_pool_4:String = "dsrgt" #4: Tutorial Red
+@export var spawn_pool_5:String = "" #5: Red Spawns
+
+var game_state:GameState
+
+func _ready() -> void:
+    game_state = $/root/Game/GameState
 
 func spawn() -> void:
     var level: int = $/root/Game/GameState.promotion_level
     var stage: int = $/root/Game/GameState.stage
-    #TODO: decide what spawns when
     
-    var szene = scrap_scenes.pick_random()
-    var obj = szene.instantiate()
+    # welchen pool nehmen wir?
+    # var pool_scenes: Array[PackedScene] = []
+    var pool:String = ""
+    if game_state.stage == 0:
+        pool=spawn_pool_0
+    if game_state.stage == 1:
+        pool=spawn_pool_1
+    if game_state.stage == 2:
+        pool=spawn_pool_2
+    if game_state.stage == 3:
+        pool=spawn_pool_3
+    if game_state.stage == 4:
+        pool=spawn_pool_4
+    if game_state.stage == 5:
+        pool=spawn_pool_5
+    print("Selecting from pool: "+pool.capitalize())
+    
+    # alle scenen aus dem pool in die liste
+    # for key in scrap_scenes.keys():
+    #     if key in pool:
+    #         pool_scenes.append(scrap_scenes[key])
+    
+    # zufällig wählen
+    print("Scene candidate count: "+str(int(pool.length())))
+    var random_char: String = pool[randi_range(0, pool.length() - 1)]
+    var szene: PackedScene = scrap_scenes[random_char]
+    print("Scene key picked: "+str(random_char))
+    print("Scene picked: "+str(szene))
+    
+    var obj: Node = szene.instantiate()
     get_tree().current_scene.add_child(obj)
     obj.global_position = global_position
-    if obj.has_node("Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D"):
-        var skeleton = obj.get_node("Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D")
+    if obj.has_node("Roboter/Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D"):
+        var skeleton: Node = obj.get_node("Roboter/Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D")
         skeleton.physical_bones_start_simulation()
 
 func _unhandled_input(event: InputEvent) -> void:

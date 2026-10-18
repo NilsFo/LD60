@@ -1,6 +1,7 @@
 class_name Hud
 extends CanvasLayer
 
+@export var debugLB:Label
 @export var cursorNormal:Sprite2D
 @export var cursorSelect:Sprite2D
 var gameState:GameState
@@ -19,6 +20,12 @@ func _process(delta: float) -> void:
     else:
         cursorSelect.hide()
         cursorNormal.show()
+        
+    # debug label
+    debugLB.text="
+        PromLvl: "+str(gameState.promotion_level)+"/"+str(gameState.get_next_promote_threshold())+"
+        Stage: "+str(gameState.stage)
+    
         
     
     

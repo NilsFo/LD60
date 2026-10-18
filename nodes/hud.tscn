@@ -18,8 +18,9 @@ func _process(delta: float) -> void:
 	set_text(\"FPS: \" + str(int(Engine.get_frames_per_second())))
 "
 
-[node name="HUD" type="CanvasLayer" unique_id=948412334 node_paths=PackedStringArray("cursorNormal", "cursorSelect")]
+[node name="HUD" type="CanvasLayer" unique_id=948412334 node_paths=PackedStringArray("debugLB", "cursorNormal", "cursorSelect")]
 script = ExtResource("1_17hw4")
+debugLB = NodePath("DebugLB")
 cursorNormal = NodePath("Label/CursorNormal")
 cursorSelect = NodePath("Label/CursorSelect")
 
@@ -53,3 +54,10 @@ texture_filter = 1
 position = Vector2(2.9999998, 9.499999)
 scale = Vector2(1.45, 1.45)
 texture = ExtResource("1_0l8sm")
+
+[node name="DebugLB" type="Label" parent="." unique_id=424886254]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 2
