@@ -20,9 +20,7 @@ var is_player_hover_over_interactable
 ### Stage 5: Red Spawns
 ### Stage 6: Game Over
 @export var stage: int = 0
-@export var stage1_promote: int = 3
-@export var stage3_promote: int = 5
-@export var stage5_promote: int = 8
+@export var stage_promotions: Array[int] = [1,4,5,8,9,12,15]
 
 
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
@@ -58,48 +56,16 @@ func _next_level():
 
 # promote up or down, respecting stages
 func promote_mod(d: int):
-    if d < 0:
-        if stage == 0 or stage == 2 or stage == 4:
-            # dont unpromote on tutorial
-            return
     promotion_level += d
     if d > 0:
         # check for stage advances
-        if promotion_level > stage5_promote and stage < 5:
-            stage = 5
-            next_stage.emit()
-        if promotion_level > stage5_promote and stage < 4:
-            stage = 4
-            next_stage.emit()
-        if promotion_level > stage3_promote and stage < 3:
-            stage = 3
-            next_stage.emit()
-        if promotion_level > stage3_promote and stage < 2:
-            stage = 2
-            next_stage.emit()
-        if promotion_level > stage1_promote and stage < 2:
-            stage = 2
-            next_stage.emit()
-        if promotion_level > stage1_promote and stage < 1:
-            stage = 1
+        if promotion_level >= stage_promotions[stage] and stage < len(stage_promotions) - 1:
+            stage += 1
             next_stage.emit()
 
 func get_next_promote_threshold() -> int:
-    if stage == 5:
-        return -1
-    if stage == 4:
-        return stage5_promote
-    if stage == 3:
-        return stage5_promote
-    if stage == 2:
-        return stage3_promote
-    if stage == 1:
-        return stage3_promote
-    if stage == 0:
-        return stage1_promote
+    return stage_promotions[stage]
     
-    return -1
-
 func win():
     print("A WINNER IS YOU!")
 
@@ -115,3 +81,12 @@ func report_decomission_incorrect(reason: String):
     decomission_incorrect.emit(reason)
     $NextLevelTimer.start()
     
+
+func _input(event: InputEvent) -> void:
+    if $CheatManager.cheat_mode:
+        if event is InputEventKey:
+            if event.pressed and event.keycode == KEY_N:
+                print("Cheating to the next lvl")
+                for c in $/root/Game/Scrap.get_children():
+                    c.queue_free()
+                report_decomission_correct("Cheating")

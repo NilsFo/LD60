@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
+[ext_resource type="Script" uid="uid://bfq0h51ts438o" path="res://scripts/cheat_manager.gd" id="6_b11oy"]
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
 [ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
@@ -80,6 +81,9 @@ magnet_strength = 1000.0
 one_shot = true
 autostart = true
 
+[node name="CheatManager" type="Node" parent="GameState" unique_id=526564392]
+script = ExtResource("6_b11oy")
+
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
 rotationSpeed = 0.6
 
@@ -140,6 +144,7 @@ transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.
 
 [node name="SpawnPipe" parent="." unique_id=1581680993 instance=ExtResource("13_dmoo1")]
 transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752, 0, 0.9090389, -1.0833503, 1.4142134, 3.4873843, 0.9508501, 3.653059)
+[node name="Scrap" type="Node3D" parent="." unique_id=498432697]
 
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
