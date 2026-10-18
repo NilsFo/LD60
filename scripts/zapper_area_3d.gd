@@ -30,7 +30,8 @@ func zap_ended():
     is_running = false
     for target in targets:
         var scrap: Scrap = target.find_parent("Scrap*")
-        scrap.zap()
+        if scrap:
+            scrap.zap()
     zapping_ended.emit(targets)
     return
 

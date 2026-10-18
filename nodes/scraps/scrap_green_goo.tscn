@@ -84,7 +84,9 @@ script = ExtResource("1_mxw8a")
 isGreen = true
 
 [node name="Goo" type="RigidBody3D" parent="." unique_id=1898072457]
-mass = 5.0
+
+[node name="Magnetable" parent="Goo" unique_id=629284434 node_paths=PackedStringArray("my_body") instance=ExtResource("3_bbpna")]
+my_body = NodePath("..")
 
 [node name="Cylinder" type="MeshInstance3D" parent="Goo" unique_id=834612208]
 transform = Transform3D(0.23138857, 0, 0, 0, 0.23138857, 0, 0, 0, 0.23138857, 0, 0, 0)
@@ -93,6 +95,3 @@ mesh = SubResource("ArrayMesh_qinun")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Goo" unique_id=491525019]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0051116943, 0)
 shape = SubResource("BoxShape3D_mxw8a")
-
-[node name="Magnetable" parent="." unique_id=629284434 node_paths=PackedStringArray("my_body") instance=ExtResource("3_bbpna")]
-my_body = NodePath("../Goo")

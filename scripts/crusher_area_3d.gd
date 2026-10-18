@@ -15,8 +15,9 @@ func _on_body_entered(body: Node3D) -> void:
         
     _last_body_position = body.global_position
     var scrap: Scrap = body.find_parent("Scrap*")
-    scrap.grind()
-    spawn_particles()
+    if scrap:
+        scrap.grind()
+        spawn_particles()
         
 func spawn_particles() -> void:
     if particle_prefab == null:

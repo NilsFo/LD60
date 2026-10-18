@@ -79,21 +79,22 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mkcxe")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
-size = Vector3(1.8713379, 1.3317871, 2.008789)
+size = Vector3(0.25097656, 0.15234375, 0.2783203)
 
 [node name="ScrapDatablock" type="Node3D" unique_id=612273339]
 script = ExtResource("1_1wdos")
 isBlue = true
 
 [node name="Datablock" type="RigidBody3D" parent="." unique_id=560914352]
-mass = 3.0
+mass = 0.8
 
 [node name="Cube" type="MeshInstance3D" parent="Datablock" unique_id=1282036306]
 transform = Transform3D(0.14709675, 0, 0, 0, 0.14709675, 0, 0, 0, 0.14709675, 0, 0, 0)
 mesh = SubResource("ArrayMesh_west6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Datablock" unique_id=9359361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.020019531, 0)
 shape = SubResource("BoxShape3D_ai7j4")
 
-[node name="Magnetable" parent="." unique_id=629284434 node_paths=PackedStringArray("my_body") instance=ExtResource("3_dsvyj")]
-my_body = NodePath("../Datablock")
+[node name="Magnetable" parent="Datablock" unique_id=629284434 node_paths=PackedStringArray("my_body") instance=ExtResource("3_dsvyj")]
+my_body = NodePath("..")

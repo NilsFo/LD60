@@ -9,4 +9,5 @@ func _on_body_entered(body: Node3D) -> void:
     if body is RigidBody3D:
         rigidbody_burned.emit()
         var scrap: Scrap = body.find_parent("Scrap*")
-        scrap.incinerate()
+        if scrap:
+            scrap.incinerate()

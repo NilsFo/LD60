@@ -6,11 +6,14 @@ extends Marker3D
 @export var scrap_scenes: Array[PackedScene] = [
     preload("res://nodes/scraps/scrap_datablock.tscn"),
     preload("res://nodes/scraps/scrap_green_goo.tscn"),
-    preload("res://nodes/scraps/scarp_robot.tscn")
+    preload("res://nodes/scraps/scarp_robot.tscn"),
+    preload("res://nodes/scraps/scrap_gear.tscn"),
 ]
 
 func spawn() -> void:
     var level: int = $/root/Game/GameState.promotion_level
+    var stage: int = $/root/Game/GameState.stage
+    #TODO: decide what spawns when
     
     var szene = scrap_scenes.pick_random()
     var obj = szene.instantiate()

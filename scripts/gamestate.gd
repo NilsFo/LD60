@@ -33,7 +33,7 @@ signal next_level(level: int)
 func _ready() -> void:
     magnet_active=false
     Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-    pass # Replace with function body.
+    $NextLevelTimer.timeout.connect(_next_level)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -86,11 +86,11 @@ func report_decomission_correct(reason: String):
     print("Decomission correct! " + reason)
     promote_mod(1)
     decomission_correct.emit(reason)
-    get_tree().create_timer(1.).timeout.connect(_next_level)
+    $NextLevelTimer.start()
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
     promote_mod(-1)
     decomission_incorrect.emit(reason)
-    get_tree().create_timer(1.).timeout.connect(_next_level)
+    $NextLevelTimer.start()
     
