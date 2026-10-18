@@ -25,10 +25,16 @@ allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerCons
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)
+fov = 60.0
 script = ExtResource("2_bms3g")
 lookLimitDegreeX = 55.0
 lookLimitDegreeY = 75.0
 invertY = false
+hold_speed = 80.0
+min_fov = 30.0
+max_fov = 60.0
+return_delay = 0.0
+return_speed = 70.0
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerCamera" unique_id=1195467541]
 target_position = Vector3(0, 0, -1)
