@@ -22,7 +22,7 @@ size = Vector3(11.876801, 1.0961151, 0.14944458)
 transform = Transform3D(1.9999999, 0, 0, 0, 1.9999998, 0, 0, 0, 1.9999998, 0, 0, 0)
 
 [node name="Tube" parent="." unique_id=1357272196 instance=ExtResource("1_7wi6n")]
-transform = Transform3D(1, -7.791459e-09, 0, 3.8957293e-08, 0.2, 0, 0, 0, 0.2, 1.967619, -0.039732814, -0.0029239655)
+transform = Transform3D(0.20000002, -7.791459e-09, 0, 7.791459e-09, 0.2, 0, 0, 0, 0.2, 1.1100979, -0.039732814, -0.0029239655)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1558505228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7118097, 0, 0)
