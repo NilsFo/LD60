@@ -93,3 +93,5 @@ spot_range = 9.663
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D" unique_id=1596863000]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -2.5808883, 2.1110008e-08)
 shape = SubResource("BoxShape3D_043gu")
+
+[node name="Umgebung" type="Node3D" parent="." unique_id=710690310]
