@@ -1,6 +1,9 @@
 class_name GameState
 extends Node3D
 
+@export var playerJournal: Journal
+@export var playerManuel: Journal
+
 @export var player_rotation: float=0.0
 @export var magnet:Node3D
 @export var magnet_active:bool=false
@@ -46,7 +49,7 @@ func on_magnet_button_pressed():
 
 func push_data_message(message):
     print("Data incoming: " + message)
-    #TODO: push to tablet
+    playerJournal.add_entry(message)
 
 func _next_level():
     print("Next level")

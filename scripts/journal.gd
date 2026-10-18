@@ -7,6 +7,9 @@ signal page_changed(index: int, total: int)
 
 @export var text_display: Label3D
 @export var page_label: Label3D
+
+@export var enable_debug_text = true
+@export var debug_text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
  
 var entries: Array[String] = []
 var current_index: int = 0
@@ -56,8 +59,9 @@ func clear() -> void:
     _refresh()
  
 func _refresh() -> void:
+    var default = "" if !enable_debug_text else  debug_text
     if text_display:
-        text_display.text = "" if entries.is_empty() else entries[current_index]
+        text_display.text = default if entries.is_empty() else entries[current_index]
  
     if page_label:
         if entries.is_empty():
