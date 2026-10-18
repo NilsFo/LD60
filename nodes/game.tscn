@@ -69,8 +69,10 @@ light_data = ExtResource("4_flw6b")
 
 [node name="Environment" parent="WorldEnvironment/LightmapGI" unique_id=199390501 instance=ExtResource("4_6hfer")]
 
-[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("magnet")]
+[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("playerJournal", "playerManuel", "magnet")]
 script = ExtResource("2_cpdmu")
+playerJournal = NodePath("../Player/Journal")
+playerManuel = NodePath("../Player/Manuel")
 magnet = NodePath("../MagnetBody/Magnet/Attraction Point")
 magnet_strength = 1000.0
 
@@ -91,6 +93,9 @@ light_energy = 9.237
 shadow_bias = 0.228
 spot_attenuation = 0.26
 spot_angle_attenuation = 0.40612632
+
+[node name="ManuelText" parent="Player/Manuel" parent_id_path=PackedInt32Array(1268145214, 520805951) index="1" unique_id=705993798]
+transform = Transform3D(0.059791323, 0.056678917, -0.056678914, 0, 0.07071068, 0.07071068, 0.08015609, -0.042278852, 0.04227885, 0.009975255, 0.014771283, -0.055919245)
 
 [node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
 
