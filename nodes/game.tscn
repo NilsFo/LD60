@@ -5,14 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
+[ext_resource type="Script" uid="uid://bfq0h51ts438o" path="res://scripts/cheat_manager.gd" id="6_b11oy"]
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
 [ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
-[ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scraps/scarp_robot.tscn" id="11_ff8ca"]
 [ext_resource type="PackedScene" uid="uid://b0hgheqc1f5fy" path="res://nodes/look_area.tscn" id="12_uodeg"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
+[ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -69,14 +70,19 @@ light_data = ExtResource("4_flw6b")
 
 [node name="Environment" parent="WorldEnvironment/LightmapGI" unique_id=199390501 instance=ExtResource("4_6hfer")]
 
-[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("magnet")]
+[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("playerJournal", "playerManuel", "magnet")]
 script = ExtResource("2_cpdmu")
+playerJournal = NodePath("../Player/Journal")
+playerManuel = NodePath("../Player/Manuel")
 magnet = NodePath("../MagnetBody/Magnet/Attraction Point")
 magnet_strength = 1000.0
 
 [node name="NextLevelTimer" type="Timer" parent="GameState" unique_id=378026470]
 one_shot = true
 autostart = true
+
+[node name="CheatManager" type="Node" parent="GameState" unique_id=526564392]
+script = ExtResource("6_b11oy")
 
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
 rotationSpeed = 0.6
@@ -91,6 +97,9 @@ light_energy = 9.237
 shadow_bias = 0.228
 spot_attenuation = 0.26
 spot_angle_attenuation = 0.40612632
+
+[node name="ManuelText" parent="Player/Manuel" parent_id_path=PackedInt32Array(1268145214, 520805951) index="1" unique_id=705993798]
+transform = Transform3D(0.059791323, 0.056678917, -0.056678914, 0, 0.07071068, 0.07071068, 0.08015609, -0.042278852, 0.04227885, 0.009975255, 0.014771283, -0.055919245)
 
 [node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
 
@@ -128,13 +137,18 @@ transform = Transform3D(0.28598982, 0, -0.2577495, 0, 0.385, 0, 0.2577495, 0, 0.
 transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 0.47701365, 3.5681214, -2.6863487, -2.7364626)
 
 [node name="ScrapSpawner" parent="." unique_id=816657280 instance=ExtResource("10_fjk5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.146533, -0.35768318, 3.4127793)
-objekt_szene = ExtResource("11_ff8ca")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.256436, 2.3409657, 4.5689297)
 
 [node name="Zapper" parent="." unique_id=1678356713 instance=ExtResource("13_b11oy")]
 transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.30646512, -3.154164, -2.035339, -2.566783)
 
+[node name="SpawnPipe" parent="." unique_id=1581680993 instance=ExtResource("13_dmoo1")]
+transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752, 0, 0.9090389, -1.0833503, 1.4142134, 2.6396024, 0.2149576, 2.411082)
+
+[node name="Scrap" type="Node3D" parent="." unique_id=498432697]
+
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
+[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
 
 [editable path="LookAreas/LookArea - Grind"]
 [editable path="LookAreas/LookArea2 - Spawn"]
@@ -146,3 +160,5 @@ transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.
 [editable path="Player/PlayerConsoleButton2"]
 [editable path="Player/PlayerConsoleButton3"]
 [editable path="Player/PlayerConsoleButton4"]
+[editable path="Player/Journal/PlayerConsoleButton4"]
+[editable path="Player/Journal/PlayerConsoleButton5"]

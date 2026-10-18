@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://2jpj55m77me3"]
+
+[ext_resource type="PackedScene" uid="uid://h2hef0cd66l3" path="res://models/blend/Tube.blend" id="1_7wi6n"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7wi6n"]
+friction = 0.0
+bounce = 0.09
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wi6n"]
+size = Vector3(11.876801, 0.1980896, 1.3203735)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jd3vy"]
+size = Vector3(11.876801, 0.1980896, 1.3203735)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrh82"]
+size = Vector3(11.876801, 1.0961151, 0.14944458)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymfig"]
+size = Vector3(11.876801, 1.0961151, 0.14944458)
+
+[node name="SpawnPipe" type="Node3D" unique_id=1581680993]
+transform = Transform3D(1.9999999, 0, 0, 0, 1.9999998, 0, 0, 0, 1.9999998, 0, 0, 0)
+
+[node name="Tube" parent="." unique_id=1357272196 instance=ExtResource("1_7wi6n")]
+transform = Transform3D(1, -7.791459e-09, 0, 3.8957293e-08, 0.2, 0, 0, 0, 0.2, 1.967619, -0.039732814, -0.0029239655)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1558505228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7118097, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_7wi6n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1908000375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0648103, -0.4808789, -0.035064694)
+shape = SubResource("BoxShape3D_7wi6n")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1257622292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7118097, 0.90386766, 0)
+physics_material_override = SubResource("PhysicsMaterial_7wi6n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=179893626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0648103, -0.4808789, -0.035064694)
+shape = SubResource("BoxShape3D_jd3vy")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=859696240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7118097, 0.90386766, 0)
+physics_material_override = SubResource("PhysicsMaterial_7wi6n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=275377179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0648127, -0.92989165, -0.4212613)
+shape = SubResource("BoxShape3D_rrh82")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=2073872196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7118097, 0.90386766, 0.79132825)
+physics_material_override = SubResource("PhysicsMaterial_7wi6n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=2613753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0648127, -0.92989165, -0.4212613)
+shape = SubResource("BoxShape3D_ymfig")
