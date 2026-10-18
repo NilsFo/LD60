@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
+[ext_resource type="Script" uid="uid://bfq0h51ts438o" path="res://scripts/cheat_manager.gd" id="6_b11oy"]
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
 [ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
-[ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scraps/scarp_robot.tscn" id="11_ff8ca"]
 [ext_resource type="PackedScene" uid="uid://b0hgheqc1f5fy" path="res://nodes/look_area.tscn" id="12_uodeg"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 
@@ -78,6 +78,9 @@ magnet_strength = 1000.0
 one_shot = true
 autostart = true
 
+[node name="CheatManager" type="Node" parent="GameState" unique_id=526564392]
+script = ExtResource("6_b11oy")
+
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
 rotationSpeed = 0.6
 
@@ -129,10 +132,11 @@ transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 
 
 [node name="ScrapSpawner" parent="." unique_id=816657280 instance=ExtResource("10_fjk5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.146533, -0.35768318, 3.4127793)
-objekt_szene = ExtResource("11_ff8ca")
 
 [node name="Zapper" parent="." unique_id=1678356713 instance=ExtResource("13_b11oy")]
 transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.30646512, -3.154164, -2.035339, -2.566783)
+
+[node name="Scrap" type="Node3D" parent="." unique_id=498432697]
 
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 

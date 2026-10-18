@@ -4,18 +4,22 @@ extends Marker3D
 @export var scrap_scenes: Dictionary[String,PackedScene] = {
     "d":preload("res://nodes/scraps/scrap_datablock.tscn"), #d (DATA)
     "s":preload("res://nodes/scraps/scrap_green_goo.tscn"), # s (SLIME)
-    "r":preload("res://nodes/scraps/scarp_robot.tscn"), #r (ROBOT)
+    "r":preload("res://nodes/scraps/scrap_robot_deactivate.tscn"), #r (ROBOT)
+    "m":preload("res://nodes/scraps/scrap_robot_blue.tscn"),
+    "n":preload("res://nodes/scraps/scrap_robot_greenblue.tscn"),
+    "x":preload("res://nodes/scraps/scrap_robot_red.tscn"),
+    "y":preload("res://nodes/scraps/scrap_robot_redblue.tscn"),
     "g":preload("res://nodes/scraps/scrap_gear.tscn"), #g (GEAR)
     "t":preload("res://nodes/scraps/scrap_torso.tscn"), #t (TORSO)
 }
 
 # SPAWN POOLS
-@export var spawn_pool_0: String = "s" #0: Tutorial Green
-@export var spawn_pool_1:String = "d" #1: Green Spawns
-@export var spawn_pool_2:String = "r" #2: Tutorial Blue
-@export var spawn_pool_3:String = "g" #3: Blue Spawns
-@export var spawn_pool_4:String = "dsrgt" #4: Tutorial Red
-@export var spawn_pool_5:String = "" #5: Red Spawns
+@export var spawn_pool_0: String = "g" #0: Tutorial Green
+@export var spawn_pool_1:String = "ggsst" #1: Green Spawns
+@export var spawn_pool_2:String = "d" #2: Tutorial Blue
+@export var spawn_pool_3:String = "gstddrmn" #3: Blue Spawns
+@export var spawn_pool_4:String = "x" #4: Tutorial Red
+@export var spawn_pool_5:String = "tmnxxyy" #5: Red Spawns
 
 var game_state:GameState
 
@@ -56,10 +60,10 @@ func spawn() -> void:
     print("Scene picked: "+str(szene))
     
     var obj: Node = szene.instantiate()
-    get_tree().current_scene.add_child(obj)
+    $/root/Game/Scrap.add_child(obj)
     obj.global_position = global_position
-    if obj.has_node("Roboter/Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D"):
-        var skeleton: Node = obj.get_node("Roboter/Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D")
+    if obj.has_node("Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D"):
+        var skeleton: Node = obj.get_node("Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D")
         skeleton.physical_bones_start_simulation()
 
 func _unhandled_input(event: InputEvent) -> void:
