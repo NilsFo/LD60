@@ -13,38 +13,38 @@ var timer: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    pass # Replace with function body.
-    area_entered.connect(_on_body_entered)
-    area_exited.connect(_on_body_exited)
-    is_looking=false
-    
-    for a in all_areas:
-        a.is_looking=false
+	pass # Replace with function body.
+	area_entered.connect(_on_body_entered)
+	area_exited.connect(_on_body_exited)
+	is_looking=false
+	
+	for a in all_areas:
+		a.is_looking=false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    timer+=delta
-    if timer > 0.1 and auto_turn_on:
-        for a in all_areas:
-            a.is_looking=false
-            
-        auto_turn_on=false
-        is_looking=true
+	timer+=delta
+	if timer > 0.1 and auto_turn_on:
+		for a in all_areas:
+			a.is_looking=false
+			
+		auto_turn_on=false
+		is_looking=true
 
-    for l in lights:
-        l.visible=is_looking
+	for l in lights:
+		l.visible=is_looking
 
 func _on_body_entered(body: Node3D) -> void:
-    for a in all_areas:
-        a.is_looking=false
+	for a in all_areas:
+		a.is_looking=false
 
-    if body.name == "LookArea3D":
-        print("Player looks at: "+name+" from: "+get_parent().name)
-        is_looking=true
+	if body.name == "LookArea3D":
+		print("Player looks at: "+name+" from: "+get_parent().name)
+		is_looking=true
 
 func _on_body_exited(body: Node3D) -> void:
-    if body.name == "LookArea3D":
-        print("Player stoped looking at: "+name +"from: "+get_parent().name)
-        is_looking=false
-        
+	if body.name == "LookArea3D":
+		print("Player stoped looking at: "+name +"from: "+get_parent().name)
+		is_looking=false
+		

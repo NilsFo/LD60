@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bfddkjgc78axk"]
 
+[ext_resource type="PackedScene" uid="uid://by3a12sba862k" path="res://nodes/look_areas.tscn" id="1_dmoo1"]
 [ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="1_flw6b"]
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
@@ -11,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
-[ext_resource type="PackedScene" uid="uid://b0hgheqc1f5fy" path="res://nodes/look_area.tscn" id="12_uodeg"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 
@@ -29,35 +29,7 @@ radius = 1.0
 
 [node name="Game" type="Node3D" unique_id=906284256]
 
-[node name="LookAreas" type="Node3D" parent="." unique_id=1897231688]
-
-[node name="LookArea - Grind" parent="LookAreas" unique_id=2138365582 instance=ExtResource("12_uodeg")]
-
-[node name="WideArea" parent="LookAreas/LookArea - Grind" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
-auto_turn_on = true
-lights = [NodePath(""), NodePath("")]
-all_areas = [NodePath("."), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Zap/WideArea")]
-
-[node name="LookArea2 - Spawn" parent="LookAreas" unique_id=1023008519 instance=ExtResource("12_uodeg")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-
-[node name="WideArea" parent="LookAreas/LookArea2 - Spawn" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
-lights = [NodePath(""), NodePath("")]
-all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("."), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Zap/WideArea")]
-
-[node name="LookArea3 - Fire" parent="LookAreas" unique_id=617360416 instance=ExtResource("12_uodeg")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="WideArea" parent="LookAreas/LookArea3 - Fire" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
-lights = [NodePath(""), NodePath("")]
-all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("."), NodePath("../../LookArea4 - Zap/WideArea")]
-
-[node name="LookArea4 - Zap" parent="LookAreas" unique_id=1818737726 instance=ExtResource("12_uodeg")]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
-
-[node name="WideArea" parent="LookAreas/LookArea4 - Zap" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
-lights = [NodePath(""), NodePath("")]
-all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath(".")]
+[node name="LookAreas" parent="." unique_id=529051657 instance=ExtResource("1_dmoo1")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
 environment = ExtResource("1_flw6b")
@@ -153,10 +125,6 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
 
-[editable path="LookAreas/LookArea - Grind"]
-[editable path="LookAreas/LookArea2 - Spawn"]
-[editable path="LookAreas/LookArea3 - Fire"]
-[editable path="LookAreas/LookArea4 - Zap"]
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
 [editable path="Player/PlayerConsoleButton"]
