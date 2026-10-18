@@ -4,9 +4,12 @@ extends Area3D
 signal rigidbody_enter(body: RigidBody3D)
 signal rigidbody_leave(body: RigidBody3D)
 
+@export var auto_turn_on:bool=false
 @export var is_looking:bool=false
 @export var lights: Array[Light3D]
 @export var all_areas: Array[LookArea]
+
+var timer = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,10 +17,21 @@ func _ready() -> void:
     area_entered.connect(_on_body_entered)
     area_exited.connect(_on_body_exited)
     is_looking=false
+    
+    for a in all_areas:
+        a.is_looking=false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+    timer+=delta
+    if timer > 2 and auto_turn_on:
+        for a in all_areas:
+            a.is_looking=false
+            
+        auto_turn_on=false
+        is_looking=true
+
     for l in lights:
         l.visible=is_looking
 
