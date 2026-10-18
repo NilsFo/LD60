@@ -18,7 +18,6 @@ func set_value(newValue:float):
 
 func _process(delta):
     if gamestate: 
-        print(gamestate.player_rotation)
         value = gamestate.player_rotation
 
 func _ready() -> void:
