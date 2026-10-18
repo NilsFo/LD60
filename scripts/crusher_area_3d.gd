@@ -18,6 +18,8 @@ func _on_body_entered(body: Node3D) -> void:
     if scrap:
         scrap.grind()
         spawn_particles()
+    else: 
+        print("crusher: body in not a scrap!!!")
         
 func spawn_particles() -> void:
     if particle_prefab == null:

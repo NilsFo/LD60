@@ -1,6 +1,9 @@
 class_name GameState
 extends Node3D
 
+@export var playerJournal: Journal
+@export var playerManuel: Journal
+
 @export var player_rotation: float=0.0
 @export var magnet:Node3D
 @export var magnet_active:bool=false
@@ -44,7 +47,7 @@ func on_magnet_button_pressed():
 
 func push_data_message(message):
     print("Data incoming: " + message)
-    #TODO: push to tablet
+    playerJournal.add_entry(message)
 
 func _next_level():
     print("Next level")
@@ -74,7 +77,7 @@ func report_decomission_correct(reason: String):
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
-    promote_mod(-1)
+    promote_mod(0)
     decomission_incorrect.emit(reason)
     $NextLevelTimer.start()
     
@@ -87,3 +90,8 @@ func _input(event: InputEvent) -> void:
                 for c in $/root/Game/Scrap.get_children():
                     c.queue_free()
                 report_decomission_correct("Cheating")
+            if event.pressed and event.keycode == KEY_R:
+                print("Cheating to the next lvl")
+                for c in $/root/Game/Scrap.get_children():
+                    c.queue_free()
+                report_decomission_incorrect("Cheating")
