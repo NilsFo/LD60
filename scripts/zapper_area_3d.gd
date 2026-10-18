@@ -6,7 +6,7 @@ signal start_zapper_effect()
 signal rigidbody_enters_zapper()
 signal rigidbody_exited_zapper()
 
-@export var targets: Array[RigidBody3D] = [] 
+@export var targets: Array = [] 
 @export var delay: float = 1.5
 
 @export var is_running: bool = false
