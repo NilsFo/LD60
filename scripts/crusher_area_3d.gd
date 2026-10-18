@@ -10,9 +10,9 @@ func _ready() -> void:
  
  
 func _on_body_entered(body: Node3D) -> void:
-    if not body is RigidBody3D:
+    if not body is RigidBody3D and body is not PhysicalBone3D:
         return
-        
+
     _last_body_position = body.global_position
     var scrap: Scrap = body.find_parent("Scrap*")
     if scrap:
