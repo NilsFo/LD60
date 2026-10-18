@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bv10mcefrcjpm"]
+
+[ext_resource type="Script" uid="uid://d0rd42c0xr7q8" path="res://scripts/magnetable.gd" id="1_hg3jk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hwemi"]
+radius = 0.13444258
+
+[node name="Magnetable" type="Area3D" unique_id=629284434]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_hg3jk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1863362681]
+shape = SubResource("SphereShape3D_hwemi")
