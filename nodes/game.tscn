@@ -32,26 +32,30 @@ radius = 1.0
 
 [node name="LookArea - Grind" parent="LookAreas" unique_id=2138365582 instance=ExtResource("12_uodeg")]
 
-[node name="WideArea" parent="LookAreas/LookArea - Grind" index="0" unique_id=780848897 node_paths=PackedStringArray("lights")]
+[node name="WideArea" parent="LookAreas/LookArea - Grind" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D2"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D3")]
+all_areas = [NodePath("."), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Zap/WideArea")]
 
 [node name="LookArea2 - Spawn" parent="LookAreas" unique_id=1023008519 instance=ExtResource("12_uodeg")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="WideArea" parent="LookAreas/LookArea2 - Spawn" index="0" unique_id=780848897 node_paths=PackedStringArray("lights")]
+[node name="WideArea" parent="LookAreas/LookArea2 - Spawn" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D8"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D9")]
+all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("."), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Zap/WideArea")]
 
 [node name="LookArea3 - Fire" parent="LookAreas" unique_id=617360416 instance=ExtResource("12_uodeg")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="WideArea" parent="LookAreas/LookArea3 - Fire" index="0" unique_id=780848897 node_paths=PackedStringArray("lights")]
+[node name="WideArea" parent="LookAreas/LookArea3 - Fire" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D6"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D7")]
+all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("."), NodePath("../../LookArea4 - Zap/WideArea")]
 
 [node name="LookArea4 - Zap" parent="LookAreas" unique_id=1818737726 instance=ExtResource("12_uodeg")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
 
-[node name="WideArea" parent="LookAreas/LookArea4 - Zap" index="0" unique_id=780848897 node_paths=PackedStringArray("lights")]
+[node name="WideArea" parent="LookAreas/LookArea4 - Zap" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D4"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D5")]
+all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath(".")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
 environment = ExtResource("1_flw6b")
