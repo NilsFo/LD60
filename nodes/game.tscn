@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
 [ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scarp_body.tscn" id="11_ff8ca"]
 [ext_resource type="PackedScene" uid="uid://c2ac6wbmhsuld" path="res://nodes/roboter.tscn" id="12_uodeg"]
+[ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -92,6 +93,9 @@ objekt_szene = ExtResource("11_ff8ca")
 
 [node name="Roboter" parent="." unique_id=1915450099 instance=ExtResource("12_uodeg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2454289, -1.4373085, -1.5883015)
+
+[node name="Zapper" parent="." unique_id=1678356713 instance=ExtResource("13_b11oy")]
+transform = Transform3D(0.7661628, 0, -0.64264655, 0, 1, 0, 0.64264655, 0, 0.7661628, -4.0938063, -2.4978633, -3.3502204)
 
 [connection signal="on_pressed" from="Player/Console/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 
