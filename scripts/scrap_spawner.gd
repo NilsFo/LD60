@@ -20,8 +20,8 @@ func spawn() -> void:
     var obj = szene.instantiate()
     get_tree().current_scene.add_child(obj)
     obj.global_position = global_position
-    if obj.has_node("Roboter/Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D"):
-        var skeleton = obj.get_node("Roboter/Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D")
+    if obj.has_node("Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D"):
+        var skeleton = obj.get_node("Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D")
         skeleton.physical_bones_start_simulation()
 
 func _unhandled_input(event: InputEvent) -> void:
