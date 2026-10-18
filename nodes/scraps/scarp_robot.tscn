@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ac6wbmhsuld" path="res://nodes/roboter.tscn" id="1_ykw2u"]
 [ext_resource type="PackedScene" uid="uid://bv10mcefrcjpm" path="res://nodes/scraps/magnetable.tscn" id="2_imqib"]
 
-[node name="ScarpBody" type="Node3D" unique_id=662491241]
+[node name="ScrapRobot" type="Node3D" unique_id=662491241]
 script = ExtResource("1_imqib")
 
 [node name="Roboter" parent="." unique_id=1915450099 instance=ExtResource("1_ykw2u")]
@@ -13,18 +13,18 @@ script = ExtResource("1_imqib")
 my_body = NodePath("..")
 
 [node name="Physical Bone Unterarm_L" parent="Roboter/Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 1737283531) index="3" unique_id=565785197]
-transform = Transform3D(-1.0964836e-14, -1.4210855e-14, 1, 1, 1.9470721e-07, 1.0964839e-14, -1.9470721e-07, 1, 1.4210852e-14, -0.38934475, 0.20498286, -2.5287692e-08)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7624312e-15, 1.7900577e-10, 0.16073465)
-body_offset = Transform3D(1, -1.4210855e-14, 1.0964849e-14, -1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -1.7900348e-10)
+transform = Transform3D(-1.0964836e-14, -1.4210855e-14, 1, 1, 1.9470721e-07, 1.0964839e-14, -1.9470721e-07, 1, 1.4210852e-14, -0.38934475, 0.20498286, -2.5295092e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7624312e-15, 1.8640607e-10, 0.16073465)
+body_offset = Transform3D(1, -1.4210855e-14, 1.0964849e-14, -1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -1.8640378e-10)
 
 [node name="Physical Bone Unterarm_R" parent="Roboter/Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 1737283531) index="5" unique_id=1143677793]
-transform = Transform3D(-1.0964836e-14, 1.4210855e-14, -1, -1, 1.9470721e-07, 1.0964839e-14, 1.9470721e-07, 1, 1.4210852e-14, 0.38934475, 0.20498286, -2.5287692e-08)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7624312e-15, 1.7900577e-10, 0.16073465)
-body_offset = Transform3D(1, 1.4210855e-14, -1.0964849e-14, 1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -1.7900348e-10)
+transform = Transform3D(-1.0964836e-14, 1.4210855e-14, -1, -1, 1.9470721e-07, 1.0964839e-14, 1.9470721e-07, 1, 1.4210852e-14, 0.38934475, 0.20498286, -2.5295092e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7624312e-15, 1.8640607e-10, 0.16073465)
+body_offset = Transform3D(1, 1.4210855e-14, -1.0964849e-14, 1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -1.8640378e-10)
 
 [node name="Physical Bone Unterbein_L" parent="Roboter/Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 1737283531) index="7" unique_id=2125218096]
-transform = Transform3D(1, -6.3573026e-08, -1.146196e-14, 1.1461961e-14, 1.9730718e-14, 1, -6.3573026e-08, -1, 1.9730718e-14, -0.08672499, -0.41701764, -4.775359e-08)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5265572e-15, 3.580058e-10, 0.13318458)
-body_offset = Transform3D(1, 0, -1.1461966e-14, -1.1461961e-14, 8.690992e-15, -1, 0, 1, 8.690992e-15, 0, 0.13318458, -3.5800696e-10)
+transform = Transform3D(1, -6.3573026e-08, -1.146196e-14, 1.1461961e-14, 1.9730718e-14, 1, -6.3573026e-08, -1, 1.9730718e-14, -0.08672499, -0.41701764, -4.773879e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5265572e-15, 3.728064e-10, 0.13318458)
+body_offset = Transform3D(1, 0, -1.1461966e-14, -1.1461961e-14, 8.690992e-15, -1, 0, 1, 8.690992e-15, 0, 0.13318458, -3.7280756e-10)
 
 [editable path="Roboter"]

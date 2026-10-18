@@ -8,4 +8,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D) -> void:
     if body is RigidBody3D:
         rigidbody_burned.emit()
-        body.queue_free()
+        var scrap: Scrap = body.find_parent("Scrap*")
+        scrap.incinerate()

@@ -86,10 +86,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
 shape = SubResource("CylinderShape3D_ubvaf")
 
 [node name="FirePit" parent="." unique_id=75870195 instance=ExtResource("8_ubvaf")]
-transform = Transform3D(0.28598982, 0, -0.2577495, 0, 0.385, 0, 0.2577495, 0, 0.28598982, -3.8515935, -2.1189423, 3.6090322)
+transform = Transform3D(0.28598982, 0, -0.2577495, 0, 0.385, 0, 0.2577495, 0, 0.28598982, -2.932616, -2.1189423, 3.1307573)
 
 [node name="Crusher" parent="." unique_id=1740401113 instance=ExtResource("9_dv0a3")]
-transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 0.47701365, 4.5132146, -2.1352332, -3.3037603)
+transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 0.47701365, 3.5681214, -2.6863487, -2.7364626)
 
 [node name="ScrapSpawner" parent="." unique_id=816657280 instance=ExtResource("10_fjk5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9291252, -0.9555006, -2.6551557)

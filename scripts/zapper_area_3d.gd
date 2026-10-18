@@ -28,6 +28,9 @@ func _on_body_exited(body: Node3D) -> void:
 
 func zap_ended():
     is_running = false
+    for target in targets:
+        var scrap: Scrap = target.find_parent("Scrap*")
+        scrap.zap()
     zapping_ended.emit(targets)
     return
 

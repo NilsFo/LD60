@@ -1,3 +1,4 @@
+class_name Scrap
 extends Node3D
 
 
@@ -34,6 +35,7 @@ func incinerate():
         game.report_decomission_incorrect("F_DataIncinerated")
     else:
         game.report_decomission_incorrect("F_ScrapIncinerated")
+    queue_free()
 
 func grind():
     print(name + " wird gegrinded")
@@ -45,3 +47,4 @@ func grind():
         game.report_decomission_incorrect("F_DataGrinded")
     else:
         game.report_decomission_incorrect("F_DangerousMaterialGrinded")
+    queue_free()

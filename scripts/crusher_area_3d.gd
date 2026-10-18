@@ -14,7 +14,8 @@ func _on_body_entered(body: Node3D) -> void:
         return
         
     _last_body_position = body.global_position
-    body.queue_free()
+    var scrap: Scrap = body.find_parent("Scrap*")
+    scrap.grind()
     spawn_particles()
         
 func spawn_particles() -> void:
