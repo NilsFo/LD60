@@ -22,6 +22,9 @@ func _process(delta: float) -> void:
         l.visible=is_looking
 
 func _on_body_entered(body: Node3D) -> void:
+    for a in all_areas:
+        a.is_looking=false
+
     if body.name == "LookArea3D":
         print("Player looks at: "+name+" from: "+get_parent().name)
         is_looking=true
