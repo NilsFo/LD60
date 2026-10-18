@@ -9,7 +9,7 @@ signal rigidbody_leave(body: RigidBody3D)
 @export var lights: Array[Light3D]
 @export var all_areas: Array[LookArea]
 
-var timer = 0.0
+var timer: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,7 +25,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     timer+=delta
-    if timer > 2 and auto_turn_on:
+    if timer > 0.1 and auto_turn_on:
         for a in all_areas:
             a.is_looking=false
             
