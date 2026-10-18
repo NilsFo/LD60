@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bekj5anwkf215" path="res://nodes/player_console_button.tscn" id="4_hqdnm"]
 [ext_resource type="PackedScene" uid="uid://e032x2qe65ci" path="res://models/blend/Console.blend" id="5_7lbay"]
 [ext_resource type="Script" uid="uid://l0xiengtxhgu" path="res://scripts/detector_area_3d.gd" id="6_2wrp4"]
+[ext_resource type="Script" uid="uid://wjiwhykm1db3" path="res://scripts/journal.gd" id="7_46y3y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 
@@ -92,6 +93,46 @@ mesh = SubResource("CapsuleMesh_smc3q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8825943, 0.2925501)
 light_color = Color(0.82, 0.865, 1, 1)
 omni_range = 1.2598741
+
+[node name="Journal" type="Node3D" parent="." unique_id=35664844 node_paths=PackedStringArray("text_display", "page_label")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31236076, 0.22699389, -0.100805074)
+script = ExtResource("7_46y3y")
+text_display = NodePath("JournalText")
+page_label = NodePath("JournalLabel")
+
+[node name="JournalLabel" type="Label3D" parent="Journal" unique_id=865232011]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.24051362, 0)
+text = "0/0"
+font_size = 12
+outline_size = 6
+
+[node name="JournalText" type="Label3D" parent="Journal" unique_id=1450749334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.031049907, 0)
+text = "Help Help Help Help Help Help Help HelpHelp Help Help Help"
+font_size = 12
+outline_size = 6
+autowrap_mode = 2
+width = 100.0
+
+[node name="Manuel" type="Node3D" parent="." unique_id=520805951 node_paths=PackedStringArray("text_display", "page_label")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23399484, 0.18326855, -0.15702203)
+script = ExtResource("7_46y3y")
+text_display = NodePath("JournalText")
+page_label = NodePath("JournalLabel")
+
+[node name="JournalText" type="Label3D" parent="Manuel" unique_id=705993798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.031049907, 0)
+text = "Help Help Help Help Help Help Help HelpHelp Help Help Help"
+font_size = 12
+outline_size = 6
+autowrap_mode = 2
+width = 100.0
+
+[node name="JournalLabel" type="Label3D" parent="Manuel" unique_id=2037631283]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.24051362, 0)
+text = "0/0"
+font_size = 12
+outline_size = 6
 
 [editable path="Console/PlayerConsoleButton"]
 [editable path="Console/PlayerConsoleButton2"]
