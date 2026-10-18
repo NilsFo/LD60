@@ -77,7 +77,7 @@ func report_decomission_correct(reason: String):
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
-    promote_mod(-1)
+    promote_mod(0)
     decomission_incorrect.emit(reason)
     $NextLevelTimer.start()
     
@@ -90,3 +90,8 @@ func _input(event: InputEvent) -> void:
                 for c in $/root/Game/Scrap.get_children():
                     c.queue_free()
                 report_decomission_correct("Cheating")
+            if event.pressed and event.keycode == KEY_R:
+                print("Cheating to the next lvl")
+                for c in $/root/Game/Scrap.get_children():
+                    c.queue_free()
+                report_decomission_incorrect("Cheating")
