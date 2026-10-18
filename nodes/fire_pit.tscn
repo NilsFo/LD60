@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://g22hhfum4ol4"]
 
 [ext_resource type="Script" uid="uid://bsmovwuhx137a" path="res://scripts/firepit_area_3d.gd" id="1_p0140"]
-[ext_resource type="PackedScene" uid="uid://cqjbt26jgf0f6" path="res://models/blend/chute.blend" id="2_uijic"]
+[ext_resource type="PackedScene" uid="uid://wslnmy05gouo" path="res://nodes/chute_model.tscn" id="2_uijic"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hy1l3"]
 
@@ -39,5 +39,4 @@ draw_pass_1 = SubResource("SphereMesh_q8k27")
 
 [node name="Looks" type="Node3D" parent="." unique_id=1928465833]
 
-[node name="chute" parent="Looks" unique_id=2011524253 instance=ExtResource("2_uijic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="chute" parent="Looks" unique_id=1869814619 instance=ExtResource("2_uijic")]
