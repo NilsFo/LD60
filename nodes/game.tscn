@@ -128,7 +128,7 @@ transform = Transform3D(0.28598982, 0, -0.2577495, 0, 0.385, 0, 0.2577495, 0, 0.
 transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 0.47701365, 3.5681214, -2.6863487, -2.7364626)
 
 [node name="ScrapSpawner" parent="." unique_id=816657280 instance=ExtResource("10_fjk5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9291252, -0.9555006, -2.6551557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.146533, -0.35768318, 3.4127793)
 objekt_szene = ExtResource("11_ff8ca")
 
 [node name="Zapper" parent="." unique_id=1678356713 instance=ExtResource("13_b11oy")]
