@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://wslnmy05gouo"]
+
+[ext_resource type="PackedScene" uid="uid://cqjbt26jgf0f6" path="res://models/blend/chute.blend" id="1_h3y1p"]
+[ext_resource type="Script" uid="uid://vu8cs5o4fdbj" path="res://scripts/fire_pit_animation.gd" id="2_07t53"]
+
+[sub_resource type="Animation" id="Animation_el4bw"]
+resource_name = "open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5707964, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_002:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gws8"]
+_data = {
+&"open": SubResource("Animation_el4bw")
+}
+
+[node name="chute" unique_id=1869814619 node_paths=PackedStringArray("anim_player") instance=ExtResource("1_h3y1p")]
+script = ExtResource("2_07t53")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="Cube_002" parent="." index="2" unique_id=1297253049]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.8877989, 1.5601001)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1414077950]
+libraries/ = SubResource("AnimationLibrary_4gws8")
