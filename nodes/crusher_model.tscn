@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://urk4k1mc2n8a"]
+
+[ext_resource type="PackedScene" uid="uid://yceqmbrncdn0" path="res://models/blend/Crusher.blend" id="1_bmp5s"]
+
+[sub_resource type="Animation" id="Animation_nyuve"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cylinder_007:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cylinder_012:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 1.5707964, 1.5707964)]
+}
+
+[sub_resource type="Animation" id="Animation_3612m"]
+resource_name = "Rolling"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cylinder_007:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0), Vector3(1.5707964, 3.1415927, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cylinder_012:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0), Vector3(1.5707964, -3.1415927, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2t4e4"]
+_data = {
+&"RESET": SubResource("Animation_nyuve"),
+&"Rolling": SubResource("Animation_3612m")
+}
+
+[node name="Crusher" unique_id=1417769918 instance=ExtResource("1_bmp5s")]
+
+[node name="Cylinder_007" parent="." index="1" unique_id=1402071763]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.640251, 0.35347092, -1.0974882)
+rotation_order = 4
+
+[node name="Cylinder_012" parent="." index="2" unique_id=624222686]
+transform = Transform3D(-0.8, 4.371139e-08, -6.9938224e-08, -6.9938224e-08, 1.9106855e-15, 0.8, 3.4969112e-08, 1, 1.5285484e-15, -0.69645196, 0.36171374, -1.0960829)
+rotation_order = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1371291750]
+libraries/ = SubResource("AnimationLibrary_2t4e4")
+autoplay = &"Rolling"

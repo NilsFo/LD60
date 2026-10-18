@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvn0pb26f3u2c" path="res://scripts/crusher_area_3d.gd" id="1_i6pr7"]
 [ext_resource type="PackedScene" uid="uid://dwho00b3y3ff2" path="res://nodes/crusher_gpu_particles_3d.tscn" id="2_4nbus"]
-[ext_resource type="PackedScene" uid="uid://yceqmbrncdn0" path="res://models/blend/Crusher.blend" id="3_4nbus"]
+[ext_resource type="PackedScene" uid="uid://urk4k1mc2n8a" path="res://nodes/crusher_model.tscn" id="3_4nbus"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbbk5"]
 
@@ -25,4 +25,4 @@ transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0.009569
 [node name="Looks" type="Node3D" parent="." unique_id=1028263055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Crusher" parent="Looks" unique_id=2038079264 instance=ExtResource("3_4nbus")]
+[node name="Crusher" parent="Looks" unique_id=1417769918 instance=ExtResource("3_4nbus")]

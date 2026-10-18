@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://6gsb3orb4eey"]
+
+[ext_resource type="Script" uid="uid://cbvfuj3a0bk6" path="res://scripts/zapper_area_3d.gd" id="1_4rb31"]
+[ext_resource type="Script" uid="uid://b6rf1xedr65r8" path="res://scripts/zap_effect_controller.gd" id="2_a6dmm"]
+[ext_resource type="Shader" uid="uid://cqxmhbq2so01j" path="res://shaders/zapper.gdshader" id="2_d7klv"]
+[ext_resource type="Script" uid="uid://31asox8f1kv6" path="res://scripts/zap_effect_variance.gd" id="4_a6dmm"]
+[ext_resource type="PackedScene" uid="uid://brgl661mkci4a" path="res://models/blend/Tesla_Coil.blend" id="5_8fk6y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a6dmm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q8k27"]
+render_priority = 0
+shader = ExtResource("2_d7klv")
+shader_parameter/effect_color = Color(0.2, 0.3, 0.8, 1)
+shader_parameter/octave_count = 10
+shader_parameter/amp_start = 0.5
+shader_parameter/amp_coeff = 0.5
+shader_parameter/freq_coeff = 2.0
+shader_parameter/speed = 0.5
+shader_parameter/direction = Vector2(0, 1)
+shader_parameter/thickness = 1.0
+shader_parameter/billboard = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a2djh"]
+material = SubResource("ShaderMaterial_q8k27")
+
+[node name="Zapper" type="Node3D" unique_id=1678356713]
+
+[node name="Logik" type="Node3D" parent="." unique_id=1145679599]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0.5, 0)
+
+[node name="ZapperArea3D" type="Area3D" parent="Logik" unique_id=377055305]
+script = ExtResource("1_4rb31")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Logik/ZapperArea3D" unique_id=227824086]
+shape = SubResource("BoxShape3D_a6dmm")
+
+[node name="Zap" type="Node3D" parent="." unique_id=1485146882 node_paths=PackedStringArray("listOfZaps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+script = ExtResource("2_a6dmm")
+listOfZaps = [NodePath("Zap"), NodePath("Zap2"), NodePath("Zap3"), NodePath("Zap4")]
+
+[node name="Zap" type="MeshInstance3D" parent="Zap" unique_id=1221137529 node_paths=PackedStringArray("current_mesh")]
+transform = Transform3D(0.868842, 0.6083697, -1.0606601, -0.8603647, 1.228728, 0, 0.868842, 0.6083697, 1.0606601, -1, 0.5, -1)
+mesh = SubResource("PlaneMesh_a2djh")
+script = ExtResource("4_a6dmm")
+current_mesh = NodePath(".")
+
+[node name="Zap2" type="MeshInstance3D" parent="Zap" unique_id=8350551 node_paths=PackedStringArray("current_mesh")]
+transform = Transform3D(0.868842, 0.6083697, 1.0606601, -0.8603647, 1.228728, 0, -0.868842, -0.6083697, 1.0606601, -1, 0.5, 1)
+mesh = SubResource("PlaneMesh_a2djh")
+script = ExtResource("4_a6dmm")
+current_mesh = NodePath(".")
+
+[node name="Zap3" type="MeshInstance3D" parent="Zap" unique_id=708017043 node_paths=PackedStringArray("current_mesh")]
+transform = Transform3D(-0.8823819, -0.61785054, -1.0438691, -0.8603647, 1.228728, 0, 0.85508764, 0.5987388, -1.0771894, 1, 0.5, -1)
+mesh = SubResource("PlaneMesh_a2djh")
+script = ExtResource("4_a6dmm")
+current_mesh = NodePath(".")
+
+[node name="Zap4" type="MeshInstance3D" parent="Zap" unique_id=1453922378 node_paths=PackedStringArray("current_mesh")]
+transform = Transform3D(-0.8688419, -0.60836965, 1.0606601, -0.8603646, 1.2287279, 0, -0.8688419, -0.60836965, -1.0606601, 1, 0.49999994, 1)
+mesh = SubResource("PlaneMesh_a2djh")
+script = ExtResource("4_a6dmm")
+current_mesh = NodePath(".")
+
+[node name="Looks" type="Node3D" parent="." unique_id=2032841365]
+
+[node name="Tesla_Coil" parent="Looks" unique_id=2050938076 instance=ExtResource("5_8fk6y")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2, 0, -2)
+
+[node name="Tesla_Coil2" parent="Looks" unique_id=455332689 instance=ExtResource("5_8fk6y")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2, 0, 2)
+
+[node name="Tesla_Coil3" parent="Looks" unique_id=1815214235 instance=ExtResource("5_8fk6y")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2, 0, -2)
+
+[node name="Tesla_Coil4" parent="Looks" unique_id=752066168 instance=ExtResource("5_8fk6y")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2, 0, 2)
+
+[connection signal="start_zapper_effect" from="Logik/ZapperArea3D" to="Zap" method="trigger_zap"]
+[connection signal="zapper_finished" from="Zap" to="Logik/ZapperArea3D" method="zap_ended"]
