@@ -33,6 +33,7 @@ radius = 1.0
 [node name="LookArea - Grind" parent="LookAreas" unique_id=2138365582 instance=ExtResource("12_uodeg")]
 
 [node name="WideArea" parent="LookAreas/LookArea - Grind" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
+auto_turn_on = true
 lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D2"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D3")]
 all_areas = [NodePath("."), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Zap/WideArea")]
 
@@ -78,6 +79,7 @@ one_shot = true
 autostart = true
 
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
+rotationSpeed = 0.6
 
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")

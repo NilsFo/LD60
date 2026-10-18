@@ -14,7 +14,7 @@ size = Vector3(20, 20, 1.1503296)
 [node name="Environment" type="Node3D" unique_id=199390501]
 
 [node name="halle" parent="." unique_id=1052431382 instance=ExtResource("1_1guvd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, -2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=871154553]
 environment = ExtResource("2_fka34")
@@ -28,6 +28,7 @@ light_data = ExtResource("2_1guvd")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.0953393, 2.7892356, -2.474319)
 light_color = Color(0.94, 1, 0.6, 1)
 light_energy = 6.733
+light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
@@ -35,6 +36,7 @@ spot_range = 9.663
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.673729, 2.7892356, -5.0651855)
 light_color = Color(0.94, 1, 0.6, 1)
 light_energy = 6.733
+light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
@@ -42,6 +44,7 @@ spot_range = 9.663
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.9634705, 2.789236, 2.5816832)
 light_color = Color(0.94, 1, 0.6, 1)
 light_energy = 6.733
+light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
@@ -49,6 +52,7 @@ spot_range = 9.663
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.2062933, 2.789236, 5.1643705)
 light_color = Color(0.94, 1, 0.6, 1)
 light_energy = 6.733
+light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
@@ -56,6 +60,7 @@ spot_range = 9.663
 transform = Transform3D(-0.045566555, 0.9989613, 4.3665985e-08, 0, -4.371139e-08, 1, 0.9989613, 0.045566555, 1.9917772e-09, -2.105832, 2.7892356, 5.5088215)
 light_color = Color(1, 0.6, 0.6, 1)
 light_energy = 6.733
+light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
@@ -63,6 +68,7 @@ spot_range = 9.663
 transform = Transform3D(-0.045566555, 0.9989613, 4.3665985e-08, 0, -4.371139e-08, 1, 0.9989613, 0.045566555, 1.9917772e-09, -4.5602016, 2.7892356, 2.6368237)
 light_color = Color(1, 0.6, 0.6, 1)
 light_energy = 6.733
+light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
@@ -70,6 +76,7 @@ spot_range = 9.663
 transform = Transform3D(-0.99345213, -0.11424952, -4.994005e-09, 0, -4.3711392e-08, 1, -0.11424952, 0.99345213, 4.342517e-08, -5.327306, 2.789235, -2.7772708)
 light_color = Color(0.6, 0.82000005, 1, 1)
 light_energy = 6.733
+light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
@@ -77,6 +84,7 @@ spot_range = 9.663
 transform = Transform3D(-0.99345213, -0.11424952, -4.994005e-09, 0, -4.3711392e-08, 1, -0.11424952, 0.99345213, 4.342517e-08, -2.293111, 2.789235, -5.0280404)
 light_color = Color(0.6, 0.82000005, 1, 1)
 light_energy = 6.733
+light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
