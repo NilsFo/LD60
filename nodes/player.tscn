@@ -158,7 +158,7 @@ text = "0/0"
 font_size = 12
 outline_size = 6
 
-[editable path="Console/PlayerConsoleButton"]
-[editable path="Console/PlayerConsoleButton2"]
-[editable path="Console/PlayerConsoleButton3"]
-[editable path="Console/PlayerConsoleButton4"]
+[editable path="PlayerConsoleButton"]
+[editable path="PlayerConsoleButton2"]
+[editable path="PlayerConsoleButton3"]
+[editable path="PlayerConsoleButton4"]
