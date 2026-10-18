@@ -84,6 +84,7 @@ size = Vector3(0.25097656, 0.15234375, 0.2783203)
 [node name="ScrapDatablock" type="Node3D" unique_id=612273339]
 script = ExtResource("1_1wdos")
 isBlue = true
+dataMessage = "I am data"
 
 [node name="Datablock" type="RigidBody3D" parent="." unique_id=560914352]
 mass = 0.8

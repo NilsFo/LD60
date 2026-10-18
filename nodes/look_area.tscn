@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b0hgheqc1f5fy"]
+
+[ext_resource type="Script" uid="uid://d3yl1v842efp4" path="res://nodes/look_area.gd" id="1_oriti"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_smc3q"]
+size = Vector3(7.7779465, 4.7926025, 7.7409363)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_smc3q"]
+radius = 2.9143386
+
+[node name="LookArea" type="Node3D" unique_id=2138365582]
+
+[node name="WideArea" type="Area3D" parent="." unique_id=780848897]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_oriti")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WideArea" unique_id=1802686239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0872383, 2.2599792, -4.1238556)
+shape = SubResource("BoxShape3D_smc3q")
+
+[node name="NarrowArea" type="Area3D" parent="." unique_id=2114783260]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_oriti")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NarrowArea" unique_id=377453488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8769054, 1.1805725, -5.0268326)
+shape = SubResource("SphereShape3D_smc3q")

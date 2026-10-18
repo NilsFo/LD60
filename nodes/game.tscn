@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
-[ext_resource type="PackedScene" uid="uid://dnbflbb12o2vu" path="res://nodes/scraps/scrap_green_goo.tscn" id="11_ff8ca"]
+[ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scraps/scarp_robot.tscn" id="11_ff8ca"]
+[ext_resource type="PackedScene" uid="uid://b0hgheqc1f5fy" path="res://nodes/look_area.tscn" id="12_uodeg"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
@@ -26,6 +27,31 @@ height = 0.6738281
 radius = 1.0
 
 [node name="Game" type="Node3D" unique_id=906284256]
+
+[node name="LookAreas" type="Node3D" parent="." unique_id=1897231688]
+
+[node name="LookArea - Grind" parent="LookAreas" unique_id=2138365582 instance=ExtResource("12_uodeg")]
+
+[node name="WideArea" parent="LookAreas/LookArea - Grind" index="0" unique_id=780848897 node_paths=PackedStringArray("lights")]
+lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D2"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D3")]
+
+[node name="LookArea2 - Spawn" parent="LookAreas" unique_id=1023008519 instance=ExtResource("12_uodeg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="WideArea" parent="LookAreas/LookArea2 - Spawn" index="0" unique_id=780848897 node_paths=PackedStringArray("lights")]
+lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D8"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D9")]
+
+[node name="LookArea3 - Fire" parent="LookAreas" unique_id=617360416 instance=ExtResource("12_uodeg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="WideArea" parent="LookAreas/LookArea3 - Fire" index="0" unique_id=780848897 node_paths=PackedStringArray("lights")]
+lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D6"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D7")]
+
+[node name="LookArea4 - Zap" parent="LookAreas" unique_id=1818737726 instance=ExtResource("12_uodeg")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
+
+[node name="WideArea" parent="LookAreas/LookArea4 - Zap" index="0" unique_id=780848897 node_paths=PackedStringArray("lights")]
+lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D4"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D5")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
 environment = ExtResource("1_flw6b")
@@ -102,11 +128,15 @@ objekt_szene = ExtResource("11_ff8ca")
 [node name="Zapper" parent="." unique_id=1678356713 instance=ExtResource("13_b11oy")]
 transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.30646512, -3.154164, -2.035339, -2.566783)
 
-[connection signal="on_pressed" from="Player/Console/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
+[connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 
+[editable path="LookAreas/LookArea - Grind"]
+[editable path="LookAreas/LookArea2 - Spawn"]
+[editable path="LookAreas/LookArea3 - Fire"]
+[editable path="LookAreas/LookArea4 - Zap"]
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
-[editable path="Player/Console/PlayerConsoleButton"]
-[editable path="Player/Console/PlayerConsoleButton2"]
-[editable path="Player/Console/PlayerConsoleButton3"]
-[editable path="Player/Console/PlayerConsoleButton4"]
+[editable path="Player/PlayerConsoleButton"]
+[editable path="Player/PlayerConsoleButton2"]
+[editable path="Player/PlayerConsoleButton3"]
+[editable path="Player/PlayerConsoleButton4"]
