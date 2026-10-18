@@ -5,9 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://b4jmyhhkhxlir" path="res://models/Crane.blend" id="3_me0cc"]
 [ext_resource type="PackedScene" uid="uid://bekj5anwkf215" path="res://nodes/player_console_button.tscn" id="4_hqdnm"]
 [ext_resource type="PackedScene" uid="uid://e032x2qe65ci" path="res://models/blend/Console.blend" id="5_7lbay"]
+[ext_resource type="Script" uid="uid://l0xiengtxhgu" path="res://scripts/detector_area_3d.gd" id="6_2wrp4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_46y3y"]
 [node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons")]
 script = ExtResource("1_u63mc")
 allButtons = [NodePath("Console/PlayerConsoleButton/StaticBody3D"), NodePath("Console/PlayerConsoleButton2/StaticBody3D"), NodePath("Console/PlayerConsoleButton3/StaticBody3D"), NodePath("Console/PlayerConsoleButton4/StaticBody3D")]
@@ -71,6 +73,13 @@ mesh = null
 
 [node name="StaticBody3D" parent="Console/PlayerConsoleButton4" index="0" unique_id=1043815935]
 buttonType = 4
+
+[node name="DetectorArea3D" type="Area3D" parent="." unique_id=1038822789]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -2.3223937, -4.7699933)
+script = ExtResource("6_2wrp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorArea3D" unique_id=105837325]
+shape = SubResource("CylinderShape3D_46y3y")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=72497432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8825943, 0.2925501)
