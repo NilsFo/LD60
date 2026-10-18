@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
 [ext_resource type="PackedScene" uid="uid://b0hgheqc1f5fy" path="res://nodes/look_area.tscn" id="12_uodeg"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
+[ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -132,10 +133,13 @@ transform = Transform3D(0.28598982, 0, -0.2577495, 0, 0.385, 0, 0.2577495, 0, 0.
 transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 0.47701365, 3.5681214, -2.6863487, -2.7364626)
 
 [node name="ScrapSpawner" parent="." unique_id=816657280 instance=ExtResource("10_fjk5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.146533, -0.35768318, 3.4127793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.256436, 2.407389, 4.5689297)
 
 [node name="Zapper" parent="." unique_id=1678356713 instance=ExtResource("13_b11oy")]
 transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.30646512, -3.154164, -2.035339, -2.566783)
+
+[node name="SpawnPipe" parent="." unique_id=1581680993 instance=ExtResource("13_dmoo1")]
+transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752, 0, 0.9090389, -1.0833503, 1.4142134, 3.4873843, 0.9508501, 3.653059)
 
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 
@@ -149,3 +153,5 @@ transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.
 [editable path="Player/PlayerConsoleButton2"]
 [editable path="Player/PlayerConsoleButton3"]
 [editable path="Player/PlayerConsoleButton4"]
+[editable path="Player/Journal/PlayerConsoleButton4"]
+[editable path="Player/Journal/PlayerConsoleButton5"]
