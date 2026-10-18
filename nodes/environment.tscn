@@ -3,6 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://dkludvkn1qsqo" path="res://nodes/halle.tscn" id="1_1guvd"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="2_1guvd"]
 [ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="2_fka34"]
+[ext_resource type="PackedScene" uid="uid://dfvpcnncmwucj" path="res://models/Kiste1.blend" id="4_01epy"]
+[ext_resource type="PackedScene" uid="uid://bhaouf2jpetce" path="res://models/rohr1.blend" id="5_wpn1q"]
+[ext_resource type="PackedScene" uid="uid://dwof313nus5t8" path="res://models/rohr3.blend" id="6_4r44i"]
+[ext_resource type="PackedScene" uid="uid://smlr82bhhigi" path="res://models/rohr4.blend" id="7_wpn1q"]
+[ext_resource type="PackedScene" uid="uid://bwn8rg0lomyow" path="res://models/rohr2.blend" id="8_4r44i"]
+[ext_resource type="PackedScene" uid="uid://hcnl8j2kk3t3" path="res://models/Lüftungsschacht.blend" id="9_xdrux"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -14,7 +20,7 @@ size = Vector3(20, 20, 1.1503296)
 [node name="Environment" type="Node3D" unique_id=199390501]
 
 [node name="halle" parent="." unique_id=1052431382 instance=ExtResource("1_1guvd")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, -2, 0)
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 0, -2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=871154553]
 environment = ExtResource("2_fka34")
@@ -94,4 +100,55 @@ spot_range = 9.663
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -2.5808883, 2.1110008e-08)
 shape = SubResource("BoxShape3D_043gu")
 
-[node name="Umgebung" type="Node3D" parent="." unique_id=710690310]
+[node name="Clutter" type="Node3D" parent="." unique_id=710690310]
+
+[node name="Kiste1" parent="Clutter" unique_id=630528859 instance=ExtResource("4_01epy")]
+transform = Transform3D(0.11500008, 0, 0.277083, 0, 0.3, 0, -0.277083, 0, 0.11500008, 5.4892387, -1.8919294, 1.9445217)
+
+[node name="rohr1" parent="Clutter" unique_id=1692601738 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(-0.060973868, 0, 0.079260245, 0, 0.09999999, 0, -0.079260245, 0, -0.060973868, 5.3904147, -0.85695016, 4.0294294)
+
+[node name="rohr3" parent="Clutter" unique_id=317586150 instance=ExtResource("6_4r44i")]
+transform = Transform3D(-0.09991537, 0, -0.004113503, 0, 0.1, 0, 0.004113503, 0, -0.09991537, 5.369119, -1.9315195, 2.9004998)
+
+[node name="rohr2" parent="Clutter" unique_id=1206713903 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(0.066905335, 0, -0.18847726, 0, 0.2, 0, 0.18847726, 0, 0.066905335, 3.2462769, -1.9823899, 4.9935813)
+
+[node name="rohr4" parent="Clutter" unique_id=1157767324 instance=ExtResource("7_wpn1q")]
+transform = Transform3D(0.49493313, 7.450581e-09, -0.071001366, 0.07098635, -0.010282383, 0.49482846, -0.0014601201, -0.49989426, -0.010178185, 4.8718944, 3.6843357, 4.0148745)
+
+[node name="rohr5" parent="Clutter" unique_id=1045667110 instance=ExtResource("6_4r44i")]
+transform = Transform3D(0.033989348, 0, 0.0940464, 0, 0.1, 0, -0.0940464, 0, 0.033989348, 3.3926601, 0, -6.086835)
+
+[node name="rohr6" parent="Clutter" unique_id=564374893 instance=ExtResource("7_wpn1q")]
+transform = Transform3D(-0.028480008, 0, -0.0958587, 0, 0.1, 0, 0.0958587, 0, -0.028480008, 2.3093383, 1.1451844, -6.459092)
+
+[node name="rohr7" parent="Clutter" unique_id=838153996 instance=ExtResource("7_wpn1q")]
+transform = Transform3D(0.065963835, -0.07460336, -0.0091164345, 4.4408918e-17, -0.012129642, 0.09926162, -0.07515829, -0.06547678, -0.0080011785, 4.6269894, 0.17327583, -5.0740724)
+
+[node name="rohr8" parent="Clutter" unique_id=1723454282 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(0.1, 0, 0, 0, 0.014458048, -0.098949306, 0, 0.098949306, 0.014458048, 3.41936, -0.89449984, -6.788053)
+
+[node name="rohr9" parent="Clutter" unique_id=1095871719 instance=ExtResource("8_4r44i")]
+transform = Transform3D(-2.3529894e-09, -0.053830117, 0.08427525, 0.099999994, -4.371139e-09, -2.3798661e-17, 3.6837886e-09, 0.08427525, 0.053830117, 4.143864, 1.2027485, -5.59309)
+
+[node name="rohr10" parent="Clutter" unique_id=1687014528 instance=ExtResource("8_4r44i")]
+transform = Transform3D(-0.022314467, -0.03163211, 0.0922034, 0.09724768, -0.01372934, 0.018825147, 0.0067041535, 0.09386644, 0.033825137, 2.6841946, -0.5382818, -6.4239964)
+
+[node name="rohr11" parent="Clutter" unique_id=739563032 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(0.07087478, 0, 0.0705462, 0, 0.1, 0, -0.0705462, 0, 0.07087478, 5.2907968, 0, -3.6460938)
+
+[node name="rohr12" parent="Clutter" unique_id=1947856709 instance=ExtResource("8_4r44i")]
+transform = Transform3D(0.08838442, 0.0019042044, -0.046739362, 0, -0.09991713, -0.004070715, -0.046778142, 0.0035978777, -0.08831117, 5.2840695, -0.1450705, -3.683069)
+
+[node name="rohr13" parent="Clutter" unique_id=1189584673 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(0.0525764, 0, -0.08506305, 0, 0.1, 0, 0.08506305, 0, 0.0525764, 5.592415, 0.034680083, -3.141745)
+
+[node name="rohr14" parent="Clutter" unique_id=185612119 instance=ExtResource("8_4r44i")]
+transform = Transform3D(0.073254675, -0.18564531, 0.0130219385, 0.013417773, -0.00868937, -0.19936007, 0.18561712, 0.073893934, 0.009272049, 6.4109716, 0, -2.4396806)
+
+[node name="Lüftungsschacht" parent="Clutter" unique_id=285743164 instance=ExtResource("9_xdrux")]
+transform = Transform3D(0.062377557, 0, 0.24209304, 0, 0.25, 0, -0.24209304, 0, 0.062377557, -0.18380356, 3.7595363, -6.6019807)
+
+[node name="Lüftungsschacht2" parent="Clutter" unique_id=1586816317 instance=ExtResource("9_xdrux")]
+transform = Transform3D(0.043794543, 0, 0.24613419, 0, 0.25, 0, -0.24613419, 0, 0.043794543, -1.0087026, 3.8352113, -0.33116278)
