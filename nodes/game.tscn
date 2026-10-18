@@ -75,7 +75,7 @@ script = ExtResource("2_cpdmu")
 playerJournal = NodePath("../Player/Journal")
 playerManuel = NodePath("../Player/Manuel")
 magnet = NodePath("../MagnetBody/Magnet/Attraction Point")
-magnet_strength = 1000.0
+magnet_strength = 100.0
 
 [node name="NextLevelTimer" type="Timer" parent="GameState" unique_id=378026470]
 one_shot = true
