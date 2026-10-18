@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://wc6hctrg82ga"]
+
+[ext_resource type="PackedScene" uid="uid://c2ac6wbmhsuld" path="res://nodes/roboter.tscn" id="1_gho1c"]
+
+[node name="ScarpBody" type="Node3D" unique_id=662491241]
+
+[node name="Roboter" parent="." unique_id=1915450099 instance=ExtResource("1_gho1c")]

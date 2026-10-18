@@ -22,9 +22,4 @@ func attract_to_magnet(delta):
         ).normalized()
     dir = dir *gameState.magnet_strength*delta
     
-    if my_body is PhysicalBone3D:
-        var bone :PhysicalBone3D = my_body
-        bone.apply_central_impulse(dir)
-    else:
-        print("i have nothing to push. pls fix.")
-        
+    my_body.apply_central_impulse(dir)

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
-[ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scraps/scarp_robot.tscn" id="11_ff8ca"]
+[ext_resource type="PackedScene" uid="uid://dnbflbb12o2vu" path="res://nodes/scraps/scrap_green_goo.tscn" id="11_ff8ca"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
