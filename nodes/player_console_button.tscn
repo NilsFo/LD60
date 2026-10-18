@@ -2,12 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cy4713tatjhsh" path="res://scripts/PlayerButton.gd" id="1_vn7vo"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_vn7vo"]
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_7lbay"]
 
 [node name="PlayerConsoleButton" type="MeshInstance3D" unique_id=1232765926]
-mesh = SubResource("SphereMesh_vn7vo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1043815935]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 5.9604645e-08, 0)

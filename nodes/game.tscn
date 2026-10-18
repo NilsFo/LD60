@@ -108,14 +108,14 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="LookArea4 - Zap" parent="LookAreas" unique_id=1818737726 instance=ExtResource("12_uodeg")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
 
-[connection signal="on_pressed" from="Player/Console/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
+[connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
-[editable path="Player/Console/PlayerConsoleButton"]
-[editable path="Player/Console/PlayerConsoleButton2"]
-[editable path="Player/Console/PlayerConsoleButton3"]
-[editable path="Player/Console/PlayerConsoleButton4"]
+[editable path="Player/PlayerConsoleButton"]
+[editable path="Player/PlayerConsoleButton2"]
+[editable path="Player/PlayerConsoleButton3"]
+[editable path="Player/PlayerConsoleButton4"]
 [editable path="LookAreas/LookArea - Grind"]
 [editable path="LookAreas/LookArea2 - Spawn"]
 [editable path="LookAreas/LookArea3 - Fire"]

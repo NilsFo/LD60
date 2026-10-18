@@ -21,7 +21,7 @@
 
 [node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons")]
 script = ExtResource("1_u63mc")
-allButtons = [NodePath("Console/PlayerConsoleButton/StaticBody3D"), NodePath("Console/PlayerConsoleButton2/StaticBody3D"), NodePath("Console/PlayerConsoleButton3/StaticBody3D"), NodePath("Console/PlayerConsoleButton4/StaticBody3D")]
+allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D")]
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)
@@ -54,34 +54,7 @@ spot_angle_attenuation = 0.63728034
 
 [node name="Console" parent="." unique_id=61057286 instance=ExtResource("5_7lbay")]
 transform = Transform3D(-6.556708e-09, 0, -0.14999999, 0, 0.14999999, 0, 0.14999999, 0, -6.556708e-09, 0, 0, -0.3390158)
-
-[node name="PlayerConsoleButton" parent="Console" unique_id=1232765926 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, -0.09496331, 1.6896799, 1.0482194)
-mesh = null
-
-[node name="StaticBody3D" parent="Console/PlayerConsoleButton" index="0" unique_id=1043815935]
-buttonType = 1
-
-[node name="PlayerConsoleButton2" parent="Console" unique_id=13030500 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.03287816, 1.6925042, 1.708553)
-mesh = null
-
-[node name="StaticBody3D" parent="Console/PlayerConsoleButton2" index="0" unique_id=1043815935]
-buttonType = 2
-
-[node name="PlayerConsoleButton3" parent="Console" unique_id=39696027 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.51612127, 1.2712805, 1.3860835)
-mesh = null
-
-[node name="StaticBody3D" parent="Console/PlayerConsoleButton3" index="0" unique_id=1043815935]
-buttonType = 3
-
-[node name="PlayerConsoleButton4" parent="Console" unique_id=1020221722 instance=ExtResource("4_hqdnm")]
-transform = Transform3D(-4.3711402e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711402e-08, 0.32134986, 1.5220327, -1.4461474)
-mesh = null
-
-[node name="StaticBody3D" parent="Console/PlayerConsoleButton4" index="0" unique_id=1043815935]
-buttonType = 4
+visible = false
 
 [node name="DetectorArea3D" type="Area3D" parent="." unique_id=1038822789]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -2.3223937, -4.7699933)
@@ -114,7 +87,31 @@ visible = false
 mesh = SubResource("SphereMesh_smc3q")
 material = SubResource("StandardMaterial3D_2wrp4")
 
-[editable path="Console/PlayerConsoleButton"]
-[editable path="Console/PlayerConsoleButton2"]
-[editable path="Console/PlayerConsoleButton3"]
-[editable path="Console/PlayerConsoleButton4"]
+[node name="PlayerConsoleButton" parent="." unique_id=1232765926 instance=ExtResource("4_hqdnm")]
+transform = Transform3D(0.1, 0, 1.1842379e-15, 0, 0.1, 0, -1.1842379e-15, 0, 0.1, -0.17149521, 0.31655255, -0.32079053)
+
+[node name="StaticBody3D" parent="PlayerConsoleButton" index="0" unique_id=1043815935]
+buttonType = 1
+
+[node name="PlayerConsoleButton2" parent="." unique_id=13030500 instance=ExtResource("4_hqdnm")]
+transform = Transform3D(0.1, 0, 1.1842379e-15, 0, 0.1, 0, -1.1842379e-15, 0, 0.1, -0.24670726, 0.31357232, -0.28703496)
+
+[node name="StaticBody3D" parent="PlayerConsoleButton2" index="0" unique_id=1043815935]
+buttonType = 2
+
+[node name="PlayerConsoleButton3" parent="." unique_id=39696027 instance=ExtResource("4_hqdnm")]
+transform = Transform3D(0.1, 0, 1.1842379e-15, 0, 0.1, 0, -1.1842379e-15, 0, 0.1, -0.18679397, 0.2561592, -0.24599059)
+
+[node name="StaticBody3D" parent="PlayerConsoleButton3" index="0" unique_id=1043815935]
+buttonType = 3
+
+[node name="PlayerConsoleButton4" parent="." unique_id=1020221722 instance=ExtResource("4_hqdnm")]
+transform = Transform3D(0.1, 0, 1.1842379e-15, 0, 0.1, 0, -1.1842379e-15, 0, 0.1, 0.22614162, 0.29272416, -0.27854073)
+
+[node name="StaticBody3D" parent="PlayerConsoleButton4" index="0" unique_id=1043815935]
+buttonType = 4
+
+[editable path="PlayerConsoleButton"]
+[editable path="PlayerConsoleButton2"]
+[editable path="PlayerConsoleButton3"]
+[editable path="PlayerConsoleButton4"]
