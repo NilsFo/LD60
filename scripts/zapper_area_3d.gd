@@ -1,10 +1,15 @@
 extends Area3D
 
-signal rigidbody_zapped()
+signal zapping_ended(targets: Array[RigidBody3D])
+
+signal start_zapper_effect()
 signal rigidbody_enters_zapper()
 signal rigidbody_exited_zapper()
 
 @export var targets: Array[RigidBody3D] = [] 
+@export var delay: float = 1.5
+
+@export var is_running: bool = false
 
 func _ready() -> void:
     body_entered.connect(_on_body_entered)
@@ -14,16 +19,22 @@ func _on_body_entered(body: Node3D) -> void:
     if body is RigidBody3D:
         rigidbody_enters_zapper.emit()
         targets.append(body)
+        start_zap();
 
 func _on_body_exited(body: Node3D) -> void:
     if body is RigidBody3D:
         rigidbody_exited_zapper.emit()
         targets.erase(body)
 
-func _on_start_of_zap():
+func zap_ended():
+    is_running = false
+    zapping_ended.emit(targets)
     return
 
-func _on_end_of_zap():
-    rigidbody_zapped.emit()
-    #TODO Change Properties of Bot 
-    return
+func start_zap():
+    if is_running: 
+        return
+
+    is_running = true
+    await get_tree().create_timer(delay).timeout
+    start_zapper_effect.emit()
