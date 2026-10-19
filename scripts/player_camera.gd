@@ -73,7 +73,7 @@ func _input(event):
     if gameState.gamephase == 1:
         pass
     else:
-        print("Click not allowed when in menu.")
+        # print("Click not allowed when in menu.")
         return
         
     # Mouse in viewport coordinates.
@@ -93,7 +93,7 @@ func _unhandled_input(event: InputEvent) -> void:
     if gameState.gamephase == 1:
         pass
     else:
-        print("Click not allowed when in menu.")
+        # print("Click not allowed when in menu.")
         return
 
     if _is_wheel(event):

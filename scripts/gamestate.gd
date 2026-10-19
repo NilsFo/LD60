@@ -140,14 +140,16 @@ func win_true():
 func report_decomission_correct(reason: String):
     print("Decomission correct! " + reason)
     promotion_level+=1
+    
+    if promotion_level == scrap_spawner.spanw_pools.size():
+        win()
+        return
+        
     spawn_pool_cache="?"
     update_crane_lights()
     request_spawn_on_next_look=true
     await get_tree().create_timer(2.).timeout
     decomission_correct.emit(reason)
-    
-    if promotion_level == scrap_spawner.spanw_pools.size():
-        win()
     
 func update_crane_lights():
     var last_lights_count = lights_count
