@@ -91,7 +91,7 @@ func spook():
     var spook_objects:Array[Node3D] = []
     
     if gameState.lights_count==0:
-        spook_objects=[gameState.crane_light]
+        spook_objects=[]
     elif gameState.lights_count==1:
         spook_objects=[gameState.crane_light]
     elif gameState.lights_count==2:
