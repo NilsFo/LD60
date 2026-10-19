@@ -54,6 +54,33 @@ stream = ExtResource("4_h7es2")
 [node name="OmniLight3D" parent="LookAreas/Lights" parent_id_path=PackedInt32Array(529051657, 902519498) index="12" unique_id=1117211702]
 flicker_off = "nmonqnmomnmomomno"
 
+[node name="RobotWatchers-Z" parent="LookAreas/SpookManager" parent_id_path=PackedInt32Array(529051657, 1450512059) index="0" unique_id=1078187735]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.0034210682, -1.2062562, -9.55657)
+
+[node name="RobotWatchers-Z2" parent="LookAreas/SpookManager" parent_id_path=PackedInt32Array(529051657, 1450512059) index="1" unique_id=1809716939]
+transform = Transform3D(-0.98911935, 0, -0.14711457, 0, 1, 0, 0.14711457, 0, -0.98911935, 0.5238848, -1.2104177, -19.845972)
+
+[node name="RobotWatchers-G" parent="LookAreas/SpookManager" parent_id_path=PackedInt32Array(529051657, 1450512059) index="2" unique_id=1513521141]
+transform = Transform3D(-0.116171084, 0, 0.9932292, 0, 1, 0, -0.9932292, 0, -0.116171084, 9.562245, -1.1684448, 0.10971689)
+
+[node name="RobotWatchers-P" parent="LookAreas/SpookManager" parent_id_path=PackedInt32Array(529051657, 1450512059) index="3" unique_id=995410418]
+transform = Transform3D(0.8786079, 0, 0.4775437, 0, 1, 0, -0.4775437, 0, 0.8786079, -0.5905825, -1.1715835, 11.409016)
+
+[node name="RobotWatchers-F" parent="LookAreas/SpookManager" parent_id_path=PackedInt32Array(529051657, 1450512059) index="4" unique_id=57917405]
+transform = Transform3D(-0.00977841, 0, -0.99995214, 0, 1, 0, 0.99995214, 0, -0.00977841, -9.698519, -1.2189399, -0.14555454)
+
+[node name="RobotWatchers-F2" parent="LookAreas/SpookManager" parent_id_path=PackedInt32Array(529051657, 1450512059) index="5" unique_id=2015900508]
+transform = Transform3D(0.07375819, 0, -0.9972761, 0, 1, 0, 0.9972761, 0, 0.07375819, -14.597624, -1.2051613, 0.063834906)
+
+[node name="Single Robot - P" parent="LookAreas/SpookManager" parent_id_path=PackedInt32Array(529051657, 1450512059) index="12" unique_id=2069550422]
+transform = Transform3D(1.9474573, 0, 0.45542294, 0, 2, 0, -0.45542294, 0, 1.9474573, 0.23867238, -0.069242895, 11.582849)
+
+[node name="Single Robot - F" parent="LookAreas/SpookManager" parent_id_path=PackedInt32Array(529051657, 1450512059) index="13" unique_id=2132109993]
+transform = Transform3D(-0.51509565, 0, -1.9325311, 0, 2, 0, 1.9325311, 0, -0.51509565, -10.460763, -0.065861285, 0.19639969)
+
+[node name="Single Robot - Z" parent="LookAreas/SpookManager" parent_id_path=PackedInt32Array(529051657, 1450512059) index="14" unique_id=1923674689]
+transform = Transform3D(-1.7587966, 0, 0.9521737, 0, 2, 0, -0.9521737, 0, -1.7587966, -0.25875956, -0.027152002, -10.10716)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
 environment = ExtResource("1_flw6b")
 camera_attributes = SubResource("CameraAttributesPractical_043gu")
@@ -90,13 +117,13 @@ rotationSpeed = 0.5
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
 
-[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=456467677]
+[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1467815705]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=1997744731]
+[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=345995582]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=1292671775]
+[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=155929224]
 surface_material_override/0 = ExtResource("9_827r2")
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
@@ -129,7 +156,7 @@ angular_damp = 3.0
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.2661798, 0)
 
-[node name="MagnetLights" parent="MagnetBody/Magnet" index="1" unique_id=696514719]
+[node name="MagnetLights" parent="MagnetBody/Magnet" index="1" unique_id=405826110]
 visible = false
 
 [node name="Attraction Point" type="Node3D" parent="MagnetBody/Magnet" unique_id=1711456578]
@@ -213,7 +240,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9879803, -0.15457995, 0, 0.15457995, 0.987
 [node name="Magnet" parent="WinCamera3D" unique_id=1020071121 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.09957886, 0.36396408, -2.4230776)
 
-[node name="MagnetLights" parent="WinCamera3D/Magnet" index="1" unique_id=696514719]
+[node name="MagnetLights" parent="WinCamera3D/Magnet" index="1" unique_id=405826110]
 visible = false
 
 [node name="Attraction Point" type="Node3D" parent="WinCamera3D/Magnet" unique_id=2001726229]
