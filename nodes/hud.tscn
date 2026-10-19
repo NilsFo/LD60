@@ -64,6 +64,7 @@ scale = Vector2(1.45, 1.45)
 texture = ExtResource("1_0l8sm")
 
 [node name="DebugLB" type="Label" parent="GameLayer" unique_id=424886254]
+visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
