@@ -8,8 +8,12 @@
 [ext_resource type="Script" uid="uid://vlcrnae6pw76" path="res://nodes/light_flicker.gd" id="5_q1fd1"]
 [ext_resource type="PackedScene" uid="uid://sww8hgr28q6f" path="res://nodes/spooks/robot_watchers.tscn" id="6_bbeud"]
 [ext_resource type="Texture2D" uid="uid://rpbk4xqjma7b" path="res://icon.svg" id="7_n75de"]
+[ext_resource type="Texture2D" uid="uid://cwn24ktm4erc6" path="res://material/We see you.png" id="8_ckupi"]
 [ext_resource type="PackedScene" uid="uid://o3g26mqk8ieo" path="res://models/blend/Roboter.blend" id="8_n75de"]
 [ext_resource type="Material" uid="uid://btu8l0e2ngfj4" path="res://nodes/scraps/data_sucked.tres" id="9_q1fd1"]
+[ext_resource type="Texture2D" uid="uid://dl1kdelsepg5c" path="res://material/KK-scum.png" id="9_s7lxb"]
+[ext_resource type="Texture2D" uid="uid://dta832h443t2k" path="res://material/Youarescrap.png" id="10_kgwpl"]
+[ext_resource type="Texture2D" uid="uid://cehobeuilhjdj" path="res://material/Donotbelivethem.png" id="11_0yxci"]
 
 [node name="LookAreas" type="Node3D" unique_id=529051657]
 
@@ -171,20 +175,20 @@ transform = Transform3D(-0.00977841, 0, -0.99995214, 0, 1, 0, 0.99995214, 0, -0.
 transform = Transform3D(0.07375819, 0, -0.9972761, 0, 1, 0, 0.9972761, 0, 0.07375819, -14.597624, -0.64033055, 0.063834906)
 
 [node name="Decal - Grind" type="Sprite3D" parent="SpookManager" unique_id=1235869591]
-transform = Transform3D(0.5318521, 0, -0.8468373, 0, 1, 0, 0.8468373, 0, 0.5318521, 6.0557437, 1.7843417, -3.538791)
-texture = ExtResource("7_n75de")
+transform = Transform3D(0.10637043, 0, -0.16936745, 0, 0.2, 0, 0.16936745, 0, 0.10637043, 6.0557437, 1.7843417, -3.538791)
+texture = ExtResource("8_ckupi")
 
 [node name="Decal - Pipe" type="Sprite3D" parent="SpookManager" unique_id=1401453153]
-transform = Transform3D(-0.44091776, 0, -0.8975475, 0, 1, 0, 0.8975475, 0, -0.44091776, 6.432196, 0.28295892, 2.82216)
-texture = ExtResource("7_n75de")
+transform = Transform3D(-0.044091772, 0, -0.08975475, 0, 0.1, 0, 0.08975475, 0, -0.044091772, 6.432196, 0.28295892, 2.82216)
+texture = ExtResource("9_s7lxb")
 
 [node name="Decal - Zap" type="Sprite3D" parent="SpookManager" unique_id=432402278]
-transform = Transform3D(0.89798266, 0, 0.44003078, 0, 1, 0, -0.44003078, 0, 0.89798266, -3.1547024, 0.47257733, -6.299235)
-texture = ExtResource("7_n75de")
+transform = Transform3D(0.13469741, 0, 0.06600459, 0, 0.15000002, 0, -0.06600459, 0, 0.13469741, -3.1547024, 0.47257733, -6.299235)
+texture = ExtResource("10_kgwpl")
 
 [node name="Decal - Fire1" type="Sprite3D" parent="SpookManager" unique_id=1689944426]
-transform = Transform3D(-0.31064534, 0, 0.95052594, 0, 1, 0, -0.95052594, 0, -0.31064534, -6.510692, 0.23502183, 2.5386415)
-texture = ExtResource("7_n75de")
+transform = Transform3D(-0.046596803, 0, 0.14257888, 0, 0.15, 0, -0.14257888, 0, -0.046596803, -6.510692, 0.23502183, 2.5386415)
+texture = ExtResource("11_0yxci")
 
 [node name="Decal - Fire2" type="Sprite3D" parent="SpookManager" unique_id=2098037882]
 transform = Transform3D(-0.8887739, 0, 0.45834583, 0, 1, 0, -0.45834583, 0, -0.8887739, -3.140667, 1.4463385, 6.304509)
