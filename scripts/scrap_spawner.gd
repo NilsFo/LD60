@@ -12,6 +12,7 @@ extends Marker3D
     
     "p":preload("res://nodes/scraps/scrap_robot_green.tscn"), #n (ROBO GREEN)
     "x":preload("res://nodes/scraps/scrap_robot_red.tscn"), #x (ROBO RED)
+    "z":preload("res://nodes/scraps/scrap_robot_redblue.tscn"), #x (ROBO RED)
     
     "g":preload("res://nodes/scraps/scrap_gear.tscn"), #g (GEAR)
     "t":preload("res://nodes/scraps/scrap_torso.tscn"), #t (TORSO)
@@ -28,23 +29,23 @@ extends Marker3D
     "d", #4 (DATA)
     
     "gst", #5 (normal scrap + torso)
-    "gst", #6 (normal scrap + torso)
+    "r", #6 (robot)
     
     "d", #7 (DATA)
     
-    "r", #8 (robot)
+    "p", #8 (robot)
     
     "gst", #9 (scrap)
     "r", #10 (robots)
     "rp", #11 (robots)
-    "rp", #12 (robots)
+    "xrp", #12 (robots)
     
     "m", #13 (ROBOT DATA)
     
     "xm", #14 (robots red/data)
-    "xm", #15 (robots red/data)
+    "x", #15 (robots red/data)
     
-    "n", #16 (ROBOT DATA GREEN)
+    "z", #16 (ROBOT DATA GREEN)
     
     "sssspm", #17 (slime, green / data robot)
     "sssspm" #18 (slime, green / data robot)

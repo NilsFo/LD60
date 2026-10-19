@@ -7,12 +7,15 @@
 [node name="Music" type="Node3D" unique_id=403756141]
 
 [node name="AudioFader - Music" parent="." unique_id=1999275858 instance=ExtResource("1_wupik")]
+volume_linear = 0.3
+auto_play = true
 
 [node name="AudioPlayer" parent="AudioFader - Music" index="0" unique_id=1500704816]
 stream = ExtResource("1_svf7q")
 
 [node name="AudioFader - Ambiance" parent="." unique_id=1653457417 instance=ExtResource("1_wupik")]
-volume_linear = 0.4
+volume_linear = 0.1
+auto_play = true
 
 [node name="AudioPlayer" parent="AudioFader - Ambiance" index="0" unique_id=1500704816]
 stream = ExtResource("2_bgpgu")

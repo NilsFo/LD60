@@ -63,9 +63,6 @@ light_data = ExtResource("4_flw6b")
 [node name="halle" parent="WorldEnvironment/LightmapGI/Environment" index="0" unique_id=1052431382]
 transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -0.00017857552, -1.9980507, -0.0018060207)
 
-[node name="Kiste3" parent="WorldEnvironment/LightmapGI/Environment/Clutter" parent_id_path=PackedInt32Array(199390501, 710690310) index="23" unique_id=1253514568]
-transform = Transform3D(0.47359613, 0, -0.16033313, 0, 0.5, 0, 0.16033313, 0, 0.47359613, -2.3147116, -1.5723339, 5.0061)
-
 [node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("playerJournal", "playerManuel", "magnet")]
 script = ExtResource("2_cpdmu")
 playerJournal = NodePath("../Player/Journal")
