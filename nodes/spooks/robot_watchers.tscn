@@ -6,6 +6,7 @@
 [node name="RobotWatchers" type="Node3D" unique_id=1078187735]
 
 [node name="Roboter" parent="." unique_id=102429031 instance=ExtResource("1_1ygpl")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.1292732, 0)
 
 [node name="Skeleton3D" parent="Roboter/Armature" parent_id_path=PackedInt32Array(102429031, 82420507) index="0" unique_id=828132249]
 bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
@@ -15,7 +16,7 @@ bones/6/rotation = Quaternion(0, 0, -3.097107, 0.707107)
 surface_material_override/2 = ExtResource("2_87bj7")
 
 [node name="Roboter2" parent="." unique_id=839463617 instance=ExtResource("1_1ygpl")]
-transform = Transform3D(0.98887795, 0, -0.14872944, 0, 1, 0, 0.14872944, 0, 0.98887795, -0.39287007, 0, 0.7052752)
+transform = Transform3D(1.9777559, 0, -0.2974589, 0, 2, 0, 0.2974589, 0, 1.9777559, -0.39287007, 1.1292732, 0.7052752)
 
 [node name="Skeleton3D" parent="Roboter2/Armature" parent_id_path=PackedInt32Array(839463617, 82420507) index="0" unique_id=828132249]
 bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
@@ -25,7 +26,7 @@ bones/6/rotation = Quaternion(0, 0, -3.097107, 0.707107)
 surface_material_override/2 = ExtResource("2_87bj7")
 
 [node name="Roboter3" parent="." unique_id=1386110988 instance=ExtResource("1_1ygpl")]
-transform = Transform3D(0.9425589, 0, 0.33404016, 0, 1, 0, -0.33404016, 0, 0.9425589, 0.6962756, 0, 1.3894095)
+transform = Transform3D(1.8851177, 0, 0.6680803, 0, 2, 0, -0.6680803, 0, 1.8851177, 0.6962756, 1.1292732, 1.3894095)
 
 [node name="Skeleton3D" parent="Roboter3/Armature" parent_id_path=PackedInt32Array(1386110988, 82420507) index="0" unique_id=828132249]
 bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
