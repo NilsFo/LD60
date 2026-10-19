@@ -117,13 +117,13 @@ rotationSpeed = 0.5
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
 
-[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1538964063]
+[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1467815705]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=133675926]
+[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=345995582]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=530356097]
+[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=155929224]
 surface_material_override/0 = ExtResource("9_827r2")
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
@@ -156,7 +156,7 @@ angular_damp = 3.0
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.2661798, 0)
 
-[node name="MagnetLights" parent="MagnetBody/Magnet" index="1" unique_id=1300937094]
+[node name="MagnetLights" parent="MagnetBody/Magnet" index="1" unique_id=405826110]
 visible = false
 
 [node name="Attraction Point" type="Node3D" parent="MagnetBody/Magnet" unique_id=1711456578]
@@ -247,7 +247,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9879803, -0.15457995, 0, 0.15457995, 0.987
 [node name="Magnet" parent="WinCamera3D" unique_id=1020071121 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.09957886, 0.36396408, -2.4230776)
 
-[node name="MagnetLights" parent="WinCamera3D/Magnet" index="1" unique_id=1300937094]
+[node name="MagnetLights" parent="WinCamera3D/Magnet" index="1" unique_id=405826110]
 visible = false
 
 [node name="Attraction Point" type="Node3D" parent="WinCamera3D/Magnet" unique_id=2001726229]
