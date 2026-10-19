@@ -35,24 +35,24 @@ extends Marker3D
     
     "p", #8 (ROBO GREEN)
     
-    "gst", #9 (scrap)
+    "m", #9 (ROBOT DATA)
     "r", #10 (robots)
-    "rp", #11 (robots)
+    "n", #11 (ROBOT DATA GREEN)
     
-    "n", #12 (ROBOT DATA GREEN)
-    "d", #13 (DATA)
+    "x", #12 (ROBOT RED)
+    "m", #13 (ROBOT DATA)
     
     "xrp", #14 (robots)
     
-    "m", #15 (ROBOT DATA)
+    "d", #15 (DATA)
     
-    "x", #16 (ROBO RED)
-    "z", #17 (ROBO RED BLUE)
+    "z", #16 (ROBO RED BLUE)
+    "xrppp", #17 (robots)
     "z", #18 (ROBO RED BLUE)
     
-    "ssssp", #19 (slime, green / data robot)
-    "ssssp", #20 (slime, green / data robot)
-    "ssssp" #20 (slime, green / data robot)
+    "sz", #19 (slime, green / ROBO RED BLUE)
+    "sz", #20 (slime, green / ROBO RED BLUE)
+    "sz" #21 (slime, green / ROBO RED BLUE)
 ]
 
 var game_state:GameState

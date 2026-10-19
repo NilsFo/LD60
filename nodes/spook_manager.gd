@@ -17,7 +17,7 @@ func next_spook(area: LookArea):
     var arena_name: StringName=area.get_parent().name
     print('Rolling spook for area: '+arena_name)
     
-    if roll_spook():
+    if roll_spook() or gameState.lights_count==4:
         print('SPOOKY THINGS HAPPENING IN: '+arena_name.to_upper())
         area.spook()
 
@@ -26,6 +26,6 @@ func roll_spook()->bool:
     roll_max = int((roll_max/3)+1)
     
     var roll: int = randi_range(0,roll_max)
-    var roll_success: bool = roll==0
+    var roll_success: bool = roll==1
     print('Roll result: '+str(roll)+'/'+str(roll_max))
     return roll_success

@@ -91,20 +91,21 @@ func spook():
     var spook_objects:Array[Node3D] = []
     
     if gameState.lights_count==0:
-        spook_objects=[]
-    elif gameState.lights_count==1:
         spook_objects=[gameState.crane_light]
+    elif gameState.lights_count==1:
+        spook_objects=[]
+        spook_objects.append(gameState.crane_light)
+        spook_objects.append(gameState.cabin_light)
     elif gameState.lights_count==2:
         spook_objects=spook_decals+spook_robots_1
         spook_objects.append(gameState.crane_light)
         spook_objects.append(gameState.cabin_light)
     elif gameState.lights_count==3:
-        spook_objects=spook_decals+spook_robots_3+spook_robots_3
+        spook_objects=spook_decals+spook_robots_3
         spook_objects.append(gameState.crane_light)
         spook_objects.append(gameState.cabin_light)
     elif gameState.lights_count==4:
-        spook_objects=spook_decals+spook_robots_3+spook_robots_3
-        spook_objects.append(gameState.cabin_light)
+        spook_objects=spook_decals+spook_robots_1+spook_robots_3
     
     if spook_objects.size()!=0:
         var spook_node:Node3D = spook_objects.pick_random()
@@ -119,7 +120,7 @@ func spook():
 
 func unspook(force:bool) -> void:
     if gameState:
-        if gameState.lights_count ==3 or gameState.lights_count==4:
+        if gameState.lights_count ==3 or gameState.lights_count==4 or gameState.lights_count==5:
             print('Not gonna unspook. Player is too far gone.')
             return
     else:
