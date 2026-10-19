@@ -3,10 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://by3a12sba862k" path="res://nodes/look_areas.tscn" id="1_dmoo1"]
 [ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="1_flw6b"]
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
+[ext_resource type="AudioStream" uid="uid://bti3b4h5ht5e" path="res://sfx/grinder_ambient_to_relax_and_study_to.wav" id="2_h7es2"]
 [ext_resource type="AudioStream" uid="uid://cpm3g0uh2gwjc" path="res://sfx/hum.ogg" id="2_i1818"]
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
+[ext_resource type="AudioStream" uid="uid://cnuyc603bsgjm" path="res://sfx/fire_ambient.wav" id="4_h7es2"]
 [ext_resource type="Script" uid="uid://bfq0h51ts438o" path="res://scripts/cheat_manager.gd" id="6_b11oy"]
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
 [ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
@@ -18,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 [ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="15_15wb7"]
+[ext_resource type="AudioStream" uid="uid://6fowl7ljjhbu" path="res://sfx/Dark House.wav" id="21_664bt"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -35,8 +38,16 @@ radius = 1.0
 
 [node name="LookAreas" parent="." unique_id=529051657 instance=ExtResource("1_dmoo1")]
 
+[node name="AudioPlayer" parent="LookAreas/Lights/LookArea - Grind/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(529051657, 2138365582, 1999275858) index="0" unique_id=1500704816]
+stream = ExtResource("2_h7es2")
+
 [node name="AudioPlayer" parent="LookAreas/Lights/LookArea2 - Zap/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(529051657, 1691288072, 1999275858) index="0" unique_id=1500704816]
 stream = ExtResource("2_i1818")
+volume_db = -44.647
+pitch_scale = 0.7
+
+[node name="AudioPlayer" parent="LookAreas/Lights/LookArea3 - Fire/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(529051657, 1107494178, 1999275858) index="0" unique_id=1500704816]
+stream = ExtResource("4_h7es2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
 environment = ExtResource("1_flw6b")
@@ -170,6 +181,11 @@ visible = false
 [node name="Label3D" type="Label3D" parent="TrueWinCamera3D" unique_id=1717911553]
 transform = Transform3D(0.99923, 0.027232826, -0.02824539, -0.02102229, 0.9794415, 0.2006303, 0.03312844, -0.199882, 0.9792598, 0.07087517, 0.012023926, -1.5372391)
 text = "Ich bin ein Win Screen"
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1185822932]
+stream = ExtResource("21_664bt")
+volume_db = -10.908
+autoplay = true
 
 [connection signal="decomission_correct" from="GameState" to="Player" method="trigger_good_lamp" unbinds=1]
 [connection signal="decomission_incorrect" from="GameState" to="Player" method="trigger_bad_lamp" unbinds=1]
