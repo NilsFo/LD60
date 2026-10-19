@@ -18,19 +18,24 @@ func _process(delta: float) -> void:
     set_text(\"FPS: \" + str(int(Engine.get_frames_per_second())))
 "
 
-[node name="HUD" type="CanvasLayer" unique_id=948412334 node_paths=PackedStringArray("debugLB", "cursorNormal", "cursorSelect")]
+[node name="HUD" type="CanvasLayer" unique_id=948412334 node_paths=PackedStringArray("main_menu", "game_menu", "debugLB", "cursorNormal", "cursorSelect")]
 script = ExtResource("1_17hw4")
-debugLB = NodePath("DebugLB")
-cursorNormal = NodePath("Label/CursorNormal")
-cursorSelect = NodePath("Label/CursorSelect")
+main_menu = NodePath("MainLayer")
+game_menu = NodePath("GameLayer")
+debugLB = NodePath("GameLayer/DebugLB")
+cursorNormal = NodePath("GameLayer/Label/CursorNormal")
+cursorSelect = NodePath("GameLayer/Label/CursorSelect")
 
-[node name="FPS Label" type="Label" parent="." unique_id=1371958760]
-offset_right = 40.0
+[node name="GameLayer" type="CanvasLayer" parent="." unique_id=1165587669]
+visible = false
+
+[node name="FPS Label" type="Label" parent="GameLayer" unique_id=1371958760]
+offset_right = 43.0
 offset_bottom = 23.0
 text = "FPS: ?"
 script = SubResource("GDScript_g5j3c")
 
-[node name="Label" type="Label" parent="." unique_id=160306285]
+[node name="Label" type="Label" parent="GameLayer" unique_id=160306285]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -44,20 +49,91 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="CursorNormal" type="Sprite2D" parent="Label" unique_id=444039923]
+[node name="CursorNormal" type="Sprite2D" parent="GameLayer/Label" unique_id=444039923]
 texture_filter = 1
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_s1cew")
 
-[node name="CursorSelect" type="Sprite2D" parent="Label" unique_id=980800065]
+[node name="CursorSelect" type="Sprite2D" parent="GameLayer/Label" unique_id=980800065]
 texture_filter = 1
 position = Vector2(2.9999998, 9.499999)
 scale = Vector2(1.45, 1.45)
 texture = ExtResource("1_0l8sm")
 
-[node name="DebugLB" type="Label" parent="." unique_id=424886254]
+[node name="DebugLB" type="Label" parent="GameLayer" unique_id=424886254]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 horizontal_alignment = 2
+
+[node name="MainLayer" type="CanvasLayer" parent="." unique_id=1257721236]
+
+[node name="Panel" type="Panel" parent="MainLayer" unique_id=789954631]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="MainLayer/Panel" unique_id=695003874]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -54.0
+offset_right = -33.0
+offset_bottom = -12.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+text = "Start Shift!
+"
+
+[node name="Label" type="Label" parent="MainLayer/Panel" unique_id=438997921]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -187.0
+offset_right = 799.0
+offset_bottom = -138.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+text = "Game created by Nils Förster, Adrian Herbers, Patrick Herbers, 
+Patrick Quiskamp, Dragona Mortoria."
+
+[node name="Label2" type="Label" parent="MainLayer/Panel" unique_id=957542701]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -79.0
+offset_right = 500.0
+offset_bottom = -56.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+text = "Original music composed for this game by: Dragona Mortoria!"
+
+[node name="Label3" type="Label" parent="MainLayer/Panel" unique_id=547396355]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 83.0
+offset_right = -157.0
+offset_bottom = 106.0
+grow_horizontal = 2
+scale = Vector2(5, 5)
+text = "Decon Protocol"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MainLayer/Panel/Button" to="." method="start_game"]

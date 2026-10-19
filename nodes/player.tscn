@@ -30,11 +30,17 @@ point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wrp4"]
 
-[node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons")]
+[node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons", "promo_lamp_one", "promo_lamp_two", "promo_lamp_three", "promo_lamp_four", "promo_lamp_five", "rad_scale")]
 script = ExtResource("1_u63mc")
 allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton4/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D")]
 curve_accelaration = SubResource("Curve_46y3y")
 curve_decelaration = SubResource("Curve_qbdof")
+promo_lamp_one = NodePath("Crane/Lamp1")
+promo_lamp_two = NodePath("Crane/Lamp2")
+promo_lamp_three = NodePath("Crane/Lamp3")
+promo_lamp_four = NodePath("Crane/Lamp4")
+promo_lamp_five = NodePath("Crane/Lamp5")
+rad_scale = NodePath("Crane/RadiationMeter")
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)

@@ -17,13 +17,26 @@ var mode_timer:float=0
 @export var curve_decelaration:Curve 
 @export var deceleration_speed: float=2.1337
 
+@export var promo_lamp_one: Node3D
+@export var promo_lamp_two: Node3D
+@export var promo_lamp_three: Node3D
+@export var promo_lamp_four: Node3D
+@export var promo_lamp_five: Node3D
+
+signal promo_level_change()
+
+@export var rad_scale: Node3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     mode_timer=0
     mouse_clicked=false
     gameState = $/root/Game/GameState
     reset_buttons()
-    
+
+    set_rad_level(0.0)
+    set_promo_level_zero()
+
     curve_accelaration.bake()
     curve_decelaration.bake()
 
@@ -95,3 +108,53 @@ func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton:
         if event.button_index ==MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
             mouse_clicked=true
+
+func set_promo_level_zero():
+    promo_lamp_one.hide()
+    promo_lamp_two.hide()
+    promo_lamp_three.hide()
+    promo_lamp_four.hide()
+    promo_lamp_five.hide()
+
+func set_promo_level_one():
+    promo_lamp_one.show()
+    promo_lamp_two.show()
+    promo_lamp_three.hide()
+    promo_lamp_four.hide()
+    promo_lamp_five.hide()
+    promo_level_change.emit()
+
+func set_promo_level_two():
+    promo_lamp_one.show()
+    promo_lamp_two.show()
+    promo_lamp_three.hide()
+    promo_lamp_four.hide()
+    promo_lamp_five.hide()
+    promo_level_change.emit()
+
+func set_promo_level_three():
+    promo_lamp_one.show()
+    promo_lamp_two.show()
+    promo_lamp_three.show()
+    promo_lamp_four.hide()
+    promo_lamp_five.hide()
+    promo_level_change.emit()
+
+func set_promo_level_four():
+    promo_lamp_one.show()
+    promo_lamp_two.show()
+    promo_lamp_three.show()
+    promo_lamp_four.show()
+    promo_lamp_five.hide()
+    promo_level_change.emit()
+
+func set_promo_level_five():
+    promo_lamp_one.show()
+    promo_lamp_two.show()
+    promo_lamp_three.show()
+    promo_lamp_four.show()
+    promo_lamp_five.show()
+    promo_level_change.emit()
+
+func set_rad_level(level:float):
+    rad_scale.scale = Vector3(rad_scale.scale.x, level, rad_scale.scale.z)

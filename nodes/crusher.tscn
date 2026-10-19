@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cvn0pb26f3u2c" path="res://scripts/crusher_area_3d.gd" id="1_i6pr7"]
 [ext_resource type="PackedScene" uid="uid://dwho00b3y3ff2" path="res://nodes/crusher_gpu_particles_3d.tscn" id="2_4nbus"]
 [ext_resource type="PackedScene" uid="uid://urk4k1mc2n8a" path="res://nodes/crusher_model.tscn" id="3_4nbus"]
+[ext_resource type="AudioStream" uid="uid://cdahsiy8jg4v2" path="res://sfx/metal_interactions/metal_interaction1.wav" id="4_80onj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbbk5"]
 size = Vector3(1, 1.7501221, 1)
@@ -49,3 +50,9 @@ shape = SubResource("BoxShape3D_ai7j4")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticCollision" unique_id=1007497190]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0060726823, 0.6647644, 1.764221)
 shape = SubResource("BoxShape3D_ai7j4")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=569865051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9391513, 0)
+stream = ExtResource("4_80onj")
+
+[connection signal="play_scrap_grind_sound" from="Logik/CrusherArea3D" to="AudioStreamPlayer3D" method="play"]

@@ -6,7 +6,7 @@ extends Node3D
 @export var listOfGPUParticles: Array[GPUParticles3D]
 
 var _in_range: bool = false
-var gamestate :GameState
+var gamestate: GameState
 
 var value: float = 0.0:
     set(v):

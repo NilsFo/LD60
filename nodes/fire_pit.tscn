@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bsmovwuhx137a" path="res://scripts/firepit_area_3d.gd" id="1_p0140"]
 [ext_resource type="PackedScene" uid="uid://wslnmy05gouo" path="res://nodes/chute_model.tscn" id="2_uijic"]
 [ext_resource type="Script" uid="uid://bvac6u6276yxk" path="res://scripts/fire_effect.gd" id="2_w1jhp"]
+[ext_resource type="AudioStream" uid="uid://dkmaqak3tuxoq" path="res://sfx/ignite1.wav" id="4_2ro4j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hy1l3"]
 
@@ -15,8 +16,16 @@ albedo_color = Color(0.97433525, 0.28788272, 0.16480428, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_q8k27"]
 material = SubResource("StandardMaterial3D_a2djh")
-radius = 0.1
-height = 0.2
+radius = 0.01
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8k27"]
+albedo_color = Color(0.89807326, 0.366152, 0.16969806, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a2djh"]
+material = SubResource("StandardMaterial3D_q8k27")
+radius = 0.01
+height = 0.01
 
 [node name="FirePit" type="Node3D" unique_id=75870195]
 
@@ -32,9 +41,21 @@ shape = SubResource("BoxShape3D_hy1l3")
 [node name="Fire" type="Node3D" parent="." unique_id=839398816 node_paths=PackedStringArray("listOfGPUParticles")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 script = ExtResource("2_w1jhp")
-listOfGPUParticles = [NodePath("GPUParticles3D")]
+listOfGPUParticles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D3")]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Fire" unique_id=1091936274]
+transform = Transform3D(1, 0, 0, 0, -0.99999994, 8.742277e-08, 0, -8.742277e-08, -0.99999994, 0, 0, 0)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_a2djh")
+draw_pass_1 = SubResource("SphereMesh_q8k27")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Fire" unique_id=1622762633]
+transform = Transform3D(1, 0, 0, 0, -0.99999994, 8.742277e-08, 0, -8.742277e-08, -0.99999994, 0, 0, 0)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_a2djh")
+draw_pass_1 = SubResource("SphereMesh_a2djh")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="Fire" unique_id=967786826]
 transform = Transform3D(1, 0, 0, 0, -0.99999994, 8.742277e-08, 0, -8.742277e-08, -0.99999994, 0, 0, 0)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_a2djh")
@@ -43,3 +64,8 @@ draw_pass_1 = SubResource("SphereMesh_q8k27")
 [node name="Looks" type="Node3D" parent="." unique_id=1928465833]
 
 [node name="chute" parent="Looks" unique_id=1869814619 instance=ExtResource("2_uijic")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1024801212]
+stream = ExtResource("4_2ro4j")
+
+[connection signal="play_scrap_incinerate_sound" from="Logik/FirepitArea3D" to="AudioStreamPlayer3D" method="play"]

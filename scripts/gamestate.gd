@@ -15,6 +15,27 @@ var request_spawn_on_next_look:bool=false
 
 @export var spawn_pool_cache:String=""
 @export var promotion_level: int = 0
+### Stage 0: Tutorial Green
+### Stage 1: Green Spawns
+### Stage 2: Tutorial Blue
+### Stage 3: Blue Spawns
+### Stage 4: Tutorial Red
+### Stage 5: Red Spawns
+### Stage 6: Game Over
+@export var stage: int = 0
+@export var stage_promotions: Array[int] = [1,4,5,8,9,12,15]
+
+### Phase 0: Start Screen
+### Phase 1: Play
+### Phase 2: Win
+### Phase 3: Win_True
+@export var gamephase: int = 0
+
+signal phase_game_change(old: int, new: int)
+signal phase_game_start()
+signal phase_game_play()
+signal phase_game_win()
+signal phase_game_win_true()
 
 var lights_count: int=0
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
@@ -25,6 +46,9 @@ signal next_level(level: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    gamephase = 0
+    phase_game_change.emit(gamephase)
+    phase_game_start.emit()
     magnet_active=false
     $NextLevelTimer.timeout.connect(_next_level)
     request_spawn_on_next_look=true
@@ -52,8 +76,23 @@ func _next_level():
     scrap_spawner.spawn()
     next_level.emit()
 
+func play():
+    gamephase = 1;
+    phase_game_change.emit(gamephase)
+    phase_game_play.emit()
+    print("GAME ON!")
+
 func win():
+    gamephase = 2;
+    phase_game_change.emit(gamephase)
+    phase_game_win.emit()
     print("A WINNER IS YOU!")
+
+func win_true():
+    gamephase = 3;
+    phase_game_change.emit(gamephase)
+    phase_game_win_true.emit()
+    print("A TRUE WINNER IS YOU!")
 
 func report_decomission_correct(reason: String):
     print("Decomission correct! " + reason)

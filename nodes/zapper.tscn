@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://cqxmhbq2so01j" path="res://shaders/zapper.gdshader" id="2_d7klv"]
 [ext_resource type="Script" uid="uid://31asox8f1kv6" path="res://scripts/zap_effect_variance.gd" id="4_a6dmm"]
 [ext_resource type="PackedScene" uid="uid://brgl661mkci4a" path="res://models/blend/Tesla_Coil.blend" id="5_8fk6y"]
+[ext_resource type="AudioStream" uid="uid://cg8tpujw2xwbp" path="res://sfx/spark/continuousspark.wav" id="6_7fn7w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a6dmm"]
 
@@ -78,5 +79,11 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2, 0, -2)
 [node name="Tesla_Coil4" parent="Looks" unique_id=752066168 instance=ExtResource("5_8fk6y")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2, 0, 2)
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1419069093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2023418, 0)
+stream = ExtResource("6_7fn7w")
+
 [connection signal="start_zapper_effect" from="Logik/ZapperArea3D" to="Zap" method="trigger_zap"]
+[connection signal="play_scrap_zapping_sound_end" from="Zap" to="AudioStreamPlayer3D" method="stop"]
+[connection signal="play_scrap_zapping_sound_start" from="Zap" to="AudioStreamPlayer3D" method="play"]
 [connection signal="zapper_finished" from="Zap" to="Logik/ZapperArea3D" method="zap_ended"]
