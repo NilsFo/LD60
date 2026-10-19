@@ -128,6 +128,8 @@ func report_decomission_correct(reason: String):
     request_spawn_on_next_look=true
     await get_tree().create_timer(1.).timeout
     decomission_correct.emit(reason)
+    if promotion_level == 18:
+        win()
     
 func update_crane_lights():
     if promotion_level < 4:
