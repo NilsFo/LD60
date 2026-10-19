@@ -122,11 +122,11 @@ angular_damp = 3.0
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.2661798, 0)
 
+[node name="MagnetLights" parent="MagnetBody/Magnet" index="1" unique_id=405826110]
+visible = false
+
 [node name="Attraction Point" type="Node3D" parent="MagnetBody/Magnet" unique_id=1711456578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27018404, 0)
-
-[node name="MagnetLights" parent="MagnetBody/Magnet" index="2" unique_id=1300937094]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MagnetBody" unique_id=120903063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
@@ -214,6 +214,10 @@ autoplay = true
 [editable path="LookAreas/Lights/LookArea3 - Fire/NarrowArea/AmbianceFader"]
 [editable path="LookAreas/Lights/LookArea4 - Pipe"]
 [editable path="LookAreas/Lights/LookArea4 - Pipe/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/SpookManager/Single Robot - G"]
+[editable path="LookAreas/SpookManager/Single Robot - P"]
+[editable path="LookAreas/SpookManager/Single Robot - F"]
+[editable path="LookAreas/SpookManager/Single Robot - Z"]
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
 [editable path="Player/Crane"]

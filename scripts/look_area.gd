@@ -35,9 +35,8 @@ func _ready() -> void:
         for a in all_areas:
             if a:
                 a.is_looking=false
-            
-    if opposite_look_area:
-        opposite_look_area.unspook()
+
+    unspook()
 
     lightsSFX=get_node_or_null("LightsSFX")
     ambianceSFX=get_node_or_null("AmbianceFader")
@@ -106,8 +105,9 @@ func spook():
         spook_node.show()
 
 func unspook():
-    if gameState.lights_count >=4:
-        print('Not gonna unspook. Player is too far gone.')
+    if gameState:
+        if gameState.lights_count >=4:
+            print('Not gonna unspook. Player is too far gone.')
 
     for n in (spook_decals):
         n.hide()
