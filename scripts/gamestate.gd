@@ -39,6 +39,7 @@ signal phase_game_win_true()
 
 var lights_count: int=0
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
+@onready var spook_manager: SpookManager = $/root/Game/LookAreas/SpookManager
 
 signal decomission_correct(reason: String)
 signal decomission_incorrect(reason: String)
@@ -142,6 +143,10 @@ func on_look_area_entered(area:LookArea):
         if request_spawn_on_next_look:
             $NextLevelTimer.start()
             request_spawn_on_next_look=false
+            
+    if area.is_narrow:
+        spook_manager.roll_spook(area.opposite_look_area)
+        
 
 func _input(event: InputEvent) -> void:
     if $CheatManager.cheat_mode:
