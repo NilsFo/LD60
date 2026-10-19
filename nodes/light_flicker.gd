@@ -1,11 +1,12 @@
 class_name LightFlicker
 extends Light3D
 
-var flicker_code:String="mmamammmmammamamaaamammma"
-var flicker_off:String="aaaaaaaaaaaaaaaaaaaaaaaaa"
+@export var flicker_code:String="mmamammmmammamamaaamammma"
+@export var flicker_off:String="aaaaaaaaaaaaaaaaaaaaaaaaa"
 @export var flicker_next:bool = true
 
 var light_string_current:String
+var intensity_max: float
 
 @export var read_speed: float=10
 var timer:float=0
@@ -14,8 +15,8 @@ var timer:float=0
 func _ready() -> void:
     timer = randi_range(0,10)
     light_string_current=flicker_off
-    pass # Replace with function body.
-
+    
+    intensity_max = light_energy
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -32,7 +33,5 @@ func _process(delta: float) -> void:
             flicker_next=false
         
     var c: String = light_string_current[cursor]
-    if c == "a":
-        show()
-    else:
-        hide()
+    var value = inverse_lerp(ord("z"), ord("a"), ord(c))
+    light_energy = lerpf(0, intensity_max, value)

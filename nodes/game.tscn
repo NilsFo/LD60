@@ -51,6 +51,9 @@ pitch_scale = 0.7
 [node name="AudioPlayer" parent="LookAreas/Lights/LookArea3 - Fire/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(529051657, 1107494178, 1999275858) index="0" unique_id=1500704816]
 stream = ExtResource("4_h7es2")
 
+[node name="OmniLight3D" parent="LookAreas/Lights" parent_id_path=PackedInt32Array(529051657, 902519498) index="12" unique_id=1117211702]
+flicker_off = "nmonqnmomnmomomno"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
 environment = ExtResource("1_flw6b")
 camera_attributes = SubResource("CameraAttributesPractical_043gu")
