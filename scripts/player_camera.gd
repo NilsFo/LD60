@@ -21,9 +21,11 @@ var target_fov: float
 var zoom_in_held := false
 var zoom_out_held := false
 var idle_time := 0.0
+var gameState:GameState
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    gameState = $/root/Game/GameState
     default_fov = fov
     target_fov = fov
     pass # Replace with function body.
@@ -68,6 +70,12 @@ func _prosses_zoom(delta):
     fov = lerp(fov, target_fov, smoothing * delta)
 
 func _input(event):
+    if gameState.gamephase == 1:
+        pass
+    else:
+        print("Click not allowed when in menu.")
+        return
+        
     # Mouse in viewport coordinates.
     if event is InputEventMouseButton:
         pass
@@ -82,6 +90,12 @@ func _is_wheel(event: InputEvent) -> bool:
     ]
 
 func _unhandled_input(event: InputEvent) -> void:
+    if gameState.gamephase == 1:
+        pass
+    else:
+        print("Click not allowed when in menu.")
+        return
+
     if _is_wheel(event):
         # Mausrad: schrittweise
         if event.is_action_pressed("zoom_in"):
