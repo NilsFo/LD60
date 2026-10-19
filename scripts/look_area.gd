@@ -95,20 +95,23 @@ func spook():
     elif gameState.lights_count==1:
         spook_objects=[gameState.crane_light]
     elif gameState.lights_count==2:
-        spook_objects=spook_decals + [gameState.crane_light]
+        spook_objects=spook_decals+spook_robots_1
+        spook_objects.append(gameState.crane_light)
     elif gameState.lights_count==3:
-        spook_objects=spook_decals+spook_robots_1 + [gameState.crane_light]
+        spook_objects=spook_decals+spook_robots_3
+        spook_objects.append(gameState.crane_light)
     elif gameState.lights_count==4:
         spook_objects=spook_decals+spook_robots_3
     
     if spook_objects.size()!=0:
-        var spook_node = spook_objects.pick_random()
+        var spook_node:Node3D = spook_objects.pick_random()
     
         if spook_node is LightFlicker:
             var flicker:LightFlicker=spook_node
             flicker.flicker_next=true
             print("PLAYER LIGHT CONNA FLICKER ANY SECOND NOW!")
         else:
+            print("SPOOKY OBJECT NOW VISIBLE: "+str(spook_node.get_path()))
             spook_node.show()
 
 func unspook():

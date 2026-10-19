@@ -18,7 +18,7 @@ func roll_spook(area: LookArea):
     print('Rolling spook for area: '+arena_name)
     
     var roll_max: int=6-gameState.lights_count
-    roll_max = int((roll_max/2)+1)
+    roll_max = int((roll_max/3)+1)
     
     var roll: int = randi_range(0,roll_max)
     var roll_success: bool = roll==0
