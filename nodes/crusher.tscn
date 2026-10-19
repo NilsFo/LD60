@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cvn0pb26f3u2c" path="res://scripts/crusher_area_3d.gd" id="1_i6pr7"]
 [ext_resource type="PackedScene" uid="uid://dwho00b3y3ff2" path="res://nodes/crusher_gpu_particles_3d.tscn" id="2_4nbus"]
 [ext_resource type="PackedScene" uid="uid://urk4k1mc2n8a" path="res://nodes/crusher_model.tscn" id="3_4nbus"]
-[ext_resource type="AudioStream" uid="uid://cdahsiy8jg4v2" path="res://sfx/metal_interactions/metal_interaction1.wav" id="4_80onj"]
+[ext_resource type="AudioStream" uid="uid://oo1gr45vfr66" path="res://sfx/grind.wav" id="4_80onj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbbk5"]
 size = Vector3(1, 1.7501221, 1)

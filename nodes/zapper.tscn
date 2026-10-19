@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://cqxmhbq2so01j" path="res://shaders/zapper.gdshader" id="2_d7klv"]
 [ext_resource type="Script" uid="uid://31asox8f1kv6" path="res://scripts/zap_effect_variance.gd" id="4_a6dmm"]
 [ext_resource type="PackedScene" uid="uid://brgl661mkci4a" path="res://models/blend/Tesla_Coil.blend" id="5_8fk6y"]
-[ext_resource type="AudioStream" uid="uid://cg8tpujw2xwbp" path="res://sfx/spark/continuousspark.wav" id="6_7fn7w"]
+[ext_resource type="AudioStream" uid="uid://faunrjf5n6em" path="res://sfx/zapper.wav" id="6_7fn7w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a6dmm"]
 
@@ -24,6 +24,15 @@ shader_parameter/billboard = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a2djh"]
 material = SubResource("ShaderMaterial_q8k27")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
+size = Vector3(5.4140625, 0.5046387, 4.433838)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7kwa5"]
+size = Vector3(5.4140625, 0.9193115, 0.44732666)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fn7w"]
+size = Vector3(1.2890625, 2.640503, 1.3174438)
 
 [node name="Zapper" type="Node3D" unique_id=1678356713]
 
@@ -83,7 +92,44 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2, 0, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2023418, 0)
 stream = ExtResource("6_7fn7w")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1310461266]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1412035749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24768066, 0)
+shape = SubResource("BoxShape3D_ai7j4")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=1997554050]
+transform = Transform3D(1, 0, 0, 0, 0.6770579, -0.7359297, 0, 0.7359297, 0.6770579, 0, -0.04034424, 2.4247742)
+shape = SubResource("BoxShape3D_7kwa5")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D" unique_id=687150689]
+transform = Transform3D(-4.371139e-08, -0.7359297, -0.6770579, 0, 0.6770579, -0.7359297, 1, -3.216851e-08, -2.9595142e-08, -2.3049853, -0.04034424, 0.074738026)
+shape = SubResource("BoxShape3D_7kwa5")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D" unique_id=557553350]
+transform = Transform3D(-1, 6.433702e-08, 5.9190285e-08, 0, 0.6770579, -0.7359297, -8.742278e-08, -0.7359297, -0.6770579, -0.041694403, -0.04034424, -2.1261537)
+shape = SubResource("BoxShape3D_7kwa5")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="StaticBody3D" unique_id=614838982]
+transform = Transform3D(1.3113416e-07, 0.7359297, 0.6770579, 0, 0.6770579, -0.7359297, -1, 9.650553e-08, 8.878543e-08, 2.2632904, -0.04034424, 0.22388244)
+shape = SubResource("BoxShape3D_7kwa5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1049757160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0625, 0.82025146, 2.075714)
+shape = SubResource("BoxShape3D_7fn7w")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1135355126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0248477, 0.82025146, 2.075714)
+shape = SubResource("BoxShape3D_7fn7w")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=719714591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0625, 0.82025146, -1.9870586)
+shape = SubResource("BoxShape3D_7fn7w")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=2134160587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0248477, 0.82025146, -1.9870586)
+shape = SubResource("BoxShape3D_7fn7w")
+
 [connection signal="start_zapper_effect" from="Logik/ZapperArea3D" to="Zap" method="trigger_zap"]
-[connection signal="play_scrap_zapping_sound_end" from="Zap" to="AudioStreamPlayer3D" method="stop"]
 [connection signal="play_scrap_zapping_sound_start" from="Zap" to="AudioStreamPlayer3D" method="play"]
 [connection signal="zapper_finished" from="Zap" to="Logik/ZapperArea3D" method="zap_ended"]

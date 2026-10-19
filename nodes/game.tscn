@@ -14,6 +14,7 @@
 [ext_resource type="Material" uid="uid://d3g7utmtuh33m" path="res://models/blend/magnet_mat.tres" id="9_827r2"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
+[ext_resource type="AudioStream" uid="uid://cxdw6qvbedtx8" path="res://sfx/hum_exit.wav" id="11_4axws"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 [ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="15_15wb7"]
@@ -114,9 +115,20 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.2661798, 0)
 [node name="Attraction Point" type="Node3D" parent="MagnetBody/Magnet" unique_id=1711456578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27018404, 0)
 
+[node name="MagnetLights" parent="MagnetBody/Magnet" index="2" unique_id=1300937094]
+visible = false
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MagnetBody" unique_id=120903063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
 shape = SubResource("CylinderShape3D_ubvaf")
+
+[node name="MagnetHum" type="AudioStreamPlayer3D" parent="MagnetBody" unique_id=1784968614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3811245, 0)
+stream = ExtResource("2_i1818")
+
+[node name="MagnetHumExit" type="AudioStreamPlayer3D" parent="MagnetBody" unique_id=919007622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3811245, 0)
+stream = ExtResource("11_4axws")
 
 [node name="FirePit" parent="." unique_id=75870195 instance=ExtResource("8_ubvaf")]
 transform = Transform3D(0.2744413, 0, -0.2700128, 0, 0.38499993, 0, 0.2700128, 0, 0.2744413, -2.7711623, -2.1189423, 2.859571)
@@ -162,6 +174,11 @@ text = "Ich bin ein Win Screen"
 [connection signal="decomission_correct" from="GameState" to="Player" method="trigger_good_lamp" unbinds=1]
 [connection signal="decomission_incorrect" from="GameState" to="Player" method="trigger_bad_lamp" unbinds=1]
 [connection signal="lights_count_changed" from="GameState" to="Player" method="set_promo_level"]
+[connection signal="magnet_activate" from="GameState" to="MagnetBody/MagnetHum" method="play"]
+[connection signal="magnet_activate" from="GameState" to="MagnetBody/Magnet/MagnetLights" method="set_visible" binds= [true]]
+[connection signal="magnet_deactivate" from="GameState" to="MagnetBody/MagnetHum" method="stop"]
+[connection signal="magnet_deactivate" from="GameState" to="MagnetBody/MagnetHumExit" method="play"]
+[connection signal="magnet_deactivate" from="GameState" to="MagnetBody/Magnet/MagnetLights" method="set_visible" binds= [false]]
 [connection signal="phase_game_play" from="GameState" to="Player" method="show"]
 [connection signal="phase_game_play" from="GameState" to="Player/PlayerCamera" method="make_current"]
 [connection signal="phase_game_win" from="GameState" to="WinCamera3D" method="show"]
@@ -191,3 +208,4 @@ text = "Ich bin ein Win Screen"
 [editable path="Player/Journal/PlayerConsoleButton4"]
 [editable path="Player/Journal/PlayerConsoleButton5"]
 [editable path="Player/AudioFader"]
+[editable path="MagnetBody/Magnet"]

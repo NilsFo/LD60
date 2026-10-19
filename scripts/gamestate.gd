@@ -45,6 +45,9 @@ signal decomission_incorrect(reason: String)
 signal next_level(level: int)
 signal lights_count_changed(lights_count: int)
 
+signal magnet_activate
+signal magnet_deactivate
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     gamephase = 0
@@ -56,13 +59,17 @@ func _ready() -> void:
     
     update_crane_lights()
     Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
-
+    
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     pass
 
 func on_magnet_button_pressed():
     magnet_active=not magnet_active
+    if magnet_active:
+        magnet_activate.emit()
+    else:
+        magnet_deactivate.emit()
     print("gamestate: magnet pressed. Magnet is now active: "+str(magnet_active))
 
 func push_data_message(message):
@@ -104,11 +111,12 @@ func win_true():
 
 func report_decomission_correct(reason: String):
     print("Decomission correct! " + reason)
-    decomission_correct.emit(reason)
     promotion_level+=1
     spawn_pool_cache="?"
     update_crane_lights()
     request_spawn_on_next_look=true
+    await get_tree().create_timer(1.).timeout
+    decomission_correct.emit(reason)
     
 func update_crane_lights():
     if promotion_level < 4:
@@ -129,8 +137,9 @@ func update_crane_lights():
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
     spawn_pool_cache="?"
-    decomission_incorrect.emit(reason)
     request_spawn_on_next_look=true
+    await get_tree().create_timer(1.).timeout
+    decomission_incorrect.emit(reason)
 
 func on_look_area_entered(area:LookArea):
     playerLookArea=area
