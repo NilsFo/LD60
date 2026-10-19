@@ -11,6 +11,7 @@ extends Node3D
 @export var magnet_strength:float=10.0
 
 var is_player_hover_over_interactable
+var request_spawn_on_next_look:bool=false
 
 @export var promotion_level: int = 0
 ### Stage 0: Tutorial Green
@@ -35,6 +36,7 @@ signal next_level(level: int)
 func _ready() -> void:
     magnet_active=false
     $NextLevelTimer.timeout.connect(_next_level)
+    request_spawn_on_next_look=true
     
     if OS.has_feature("editor"):
         print("Running from Godot editor")
@@ -78,17 +80,23 @@ func report_decomission_correct(reason: String):
     print("Decomission correct! " + reason)
     promote_mod(1)
     decomission_correct.emit(reason)
-    $NextLevelTimer.start()
+    request_spawn_on_next_look=true
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
     promote_mod(0)
     decomission_incorrect.emit(reason)
-    $NextLevelTimer.start()
+    request_spawn_on_next_look=true
 
 func on_look_area_entered(area:LookArea):
     playerLookArea=area
     print('GS: new area')
+    
+    if area.is_spawn_pipe:
+        print('Pipe!')
+        
+        if request_spawn_on_next_look:
+            $NextLevelTimer.start()
 
 func _input(event: InputEvent) -> void:
     if $CheatManager.cheat_mode:

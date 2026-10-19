@@ -41,6 +41,7 @@ stream = ExtResource("4_ih3kl")
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
 
 [node name="WideArea" parent="LookArea4 - Pipe" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
+is_spawn_pipe = true
 lights = [NodePath("../../SpotLight3D4"), NodePath("../../SpotLight3D5")]
 all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Zap/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath(".")]
 

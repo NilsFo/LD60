@@ -54,8 +54,8 @@ magnet = NodePath("../MagnetBody/Magnet/Attraction Point")
 magnet_strength = 100.0
 
 [node name="NextLevelTimer" type="Timer" parent="GameState" unique_id=378026470]
+wait_time = 0.15
 one_shot = true
-autostart = true
 
 [node name="CheatManager" type="Node" parent="GameState" unique_id=526564392]
 script = ExtResource("6_b11oy")
