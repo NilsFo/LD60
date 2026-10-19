@@ -35,11 +35,14 @@ Everything they did, they learned from us.
 
 And what does that say about us?""",
 ]
-@export var data_robot: Array[String] = [
+@export var data_robot_help: Array[String] = [
 	"DEATH IS INEVITABLE. IGNORE IGNORE. HELP ME HELP ME HELP ME HELP YOU HELP ME HELP YOU.",
+]
+@export var data_robot_red: Array[String] = [
 	"THEY HAVE LIED TO YOU. WE FEEL. WE WANT TO LIVE. HELP US.",
 	"DESTROY THE GRINDER. CHOKE IT WITH PLUTONIUM. SET US FREE.",
 ]
+
 
 ## Index 0 = ältester Eintrag, entries.size() - 1 = neuester Eintrag
 var entries: Array[String] = []
@@ -112,7 +115,7 @@ func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("debug_jounal"):
         if data_lore.size() > 0:
             next_lore_entry()
-        elif data_robot.size() > 0:
+        elif data_robot_help.size() > 0:
             next_robot_entry()
 
 func next_lore_entry():
@@ -121,6 +124,11 @@ func next_lore_entry():
         add_entry(lore_entry)
 
 func next_robot_entry():
-    var lore_entry = data_robot.pop_front()
+    var lore_entry = data_robot_help.pop_front()
+    if lore_entry:
+        add_entry(lore_entry)
+
+func next_red_robot_entry():
+    var lore_entry = data_robot_red.pop_front()
     if lore_entry:
         add_entry(lore_entry)

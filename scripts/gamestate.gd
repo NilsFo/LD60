@@ -51,6 +51,7 @@ signal magnet_deactivate
 
 signal display_next_lore_journal()
 signal display_next_robot_data_journal()
+signal display_next_red_robot_data_journal()
 signal display_next_tutorial()
 
 # Called when the node enters the scene tree for the first time.
@@ -80,8 +81,10 @@ func on_magnet_button_pressed():
 func push_data_message(message):
     if message == "Lore":
         display_next_lore_journal.emit()
-    elif message == "Robots":
+    elif message == "RobotHelp":
         display_next_robot_data_journal.emit()
+    elif message == "RobotRed":
+        display_next_red_robot_data_journal.emit()
 
 func push_tutorial_text():
     display_next_tutorial.emit()
@@ -127,8 +130,11 @@ func report_decomission_correct(reason: String):
     request_spawn_on_next_look=true
     await get_tree().create_timer(1.).timeout
     decomission_correct.emit(reason)
+    if promotion_level == 18:
+        win()
     
 func update_crane_lights():
+    var last_lights_count = lights_count
     if promotion_level < 4:
         lights_count=0
     elif promotion_level < 8:
@@ -143,6 +149,8 @@ func update_crane_lights():
         lights_count=5
         
     lights_count_changed.emit(lights_count)
+    if last_lights_count != lights_count: 
+        display_next_tutorial.emit()
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)

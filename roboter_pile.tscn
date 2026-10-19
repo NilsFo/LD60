@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dgp1a8p6klvp3"]
+
+[ext_resource type="PackedScene" uid="uid://o3g26mqk8ieo" path="res://models/blend/Roboter.blend" id="1_333ot"]
+[ext_resource type="Material" uid="uid://btu8l0e2ngfj4" path="res://nodes/scraps/data_sucked.tres" id="2_fpeni"]
+
+[node name="RoboterPile" type="Node3D" unique_id=434549027]
+
+[node name="Roboter" parent="." unique_id=1942140171 instance=ExtResource("1_333ot")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.2796797, 0, 0)
+
+[node name="Skeleton3D" parent="Roboter/Armature" parent_id_path=PackedInt32Array(1942140171, 96389763) index="0" unique_id=1380968289]
+bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
+bones/6/rotation = Quaternion(0, 0, -3.097107, 0.707107)
+
+[node name="Cube" parent="Roboter/Armature/Skeleton3D" index="0" unique_id=294061400]
+surface_material_override/2 = ExtResource("2_fpeni")
+
+[node name="Roboter2" parent="." unique_id=1992610868 instance=ExtResource("1_333ot")]
+transform = Transform3D(-0.64563054, 0.76364994, 3.33802e-08, 0, -4.371139e-08, 1, 0.76364994, 0.64563054, 2.8221407e-08, 0.24488246, 0.029098153, 0)
+
+[node name="Skeleton3D" parent="Roboter2/Armature" parent_id_path=PackedInt32Array(1992610868, 96389763) index="0" unique_id=1380968289]
+bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
+bones/6/rotation = Quaternion(0, 0, -3.097107, 0.707107)
+
+[node name="Cube" parent="Roboter2/Armature/Skeleton3D" index="0" unique_id=294061400]
+surface_material_override/2 = ExtResource("2_fpeni")
+
+[node name="Roboter3" parent="." unique_id=1988678226 instance=ExtResource("1_333ot")]
+transform = Transform3D(-0.13352874, 0.99104494, 4.331995e-08, 0, -4.371139e-08, 1, 0.99104494, 0.13352874, 5.8367267e-09, 0, 0.0648247, 0.31257474)
+
+[node name="Skeleton3D" parent="Roboter3/Armature" parent_id_path=PackedInt32Array(1988678226, 96389763) index="0" unique_id=1380968289]
+bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
+bones/6/rotation = Quaternion(0, 0, -3.097107, 0.707107)
+
+[node name="Cube" parent="Roboter3/Armature/Skeleton3D" index="0" unique_id=294061400]
+surface_material_override/2 = ExtResource("2_fpeni")
+
+[node name="Roboter4" parent="." unique_id=50901188 instance=ExtResource("1_333ot")]
+transform = Transform3D(0.7996624, -0.60044986, -2.6246497e-08, 0, -4.371139e-08, 1, -0.60044986, -0.7996624, -3.4954354e-08, 0, 0.125539, -0.033273757)
+
+[node name="Skeleton3D" parent="Roboter4/Armature" parent_id_path=PackedInt32Array(50901188, 96389763) index="0" unique_id=1380968289]
+bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
+bones/6/rotation = Quaternion(0, 0, -3.097107, 0.707107)
+
+[node name="Cube" parent="Roboter4/Armature/Skeleton3D" index="0" unique_id=294061400]
+surface_material_override/2 = ExtResource("2_fpeni")
+
+[editable path="Roboter"]
+[editable path="Roboter2"]
+[editable path="Roboter3"]
+[editable path="Roboter4"]
