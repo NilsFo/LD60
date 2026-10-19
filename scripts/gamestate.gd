@@ -43,6 +43,7 @@ var lights_count: int=0
 signal decomission_correct(reason: String)
 signal decomission_incorrect(reason: String)
 signal next_level(level: int)
+signal lights_count_changed(lights_count: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,11 +54,8 @@ func _ready() -> void:
     $NextLevelTimer.timeout.connect(_next_level)
     request_spawn_on_next_look=true
     
-    if OS.has_feature("editor"):
-        print("Running from Godot editor")
-    else:
-        print("Running as exported standalone game")
-        Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) 
+    update_crane_lights()
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -81,25 +79,52 @@ func play():
     phase_game_change.emit(gamephase)
     phase_game_play.emit()
     print("GAME ON!")
+    
+    if OS.has_feature("editor"):
+        print("Running from Godot editor")
+    else:
+        print("Running as exported standalone game")
+        Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) 
 
 func win():
+    print("A WINNER IS YOU!")
     gamephase = 2;
     phase_game_change.emit(gamephase)
     phase_game_win.emit()
-    print("A WINNER IS YOU!")
+    
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 
 func win_true():
+    print("A TRUE WINNER IS YOU!")
     gamephase = 3;
     phase_game_change.emit(gamephase)
     phase_game_win_true.emit()
-    print("A TRUE WINNER IS YOU!")
+    
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 
 func report_decomission_correct(reason: String):
     print("Decomission correct! " + reason)
     decomission_correct.emit(reason)
     promotion_level+=1
     spawn_pool_cache="?"
+    update_crane_lights()
     request_spawn_on_next_look=true
+    
+func update_crane_lights():
+    if promotion_level < 4:
+        lights_count=0
+    elif promotion_level < 8:
+        lights_count=1
+    elif promotion_level < 12:
+        lights_count=2
+    elif promotion_level < 15:
+        lights_count=3
+    elif promotion_level < 18:
+        lights_count=4
+    else:
+        lights_count=5
+        
+    lights_count_changed.emit(lights_count)
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
