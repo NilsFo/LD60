@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://by3a12sba862k" path="res://nodes/look_areas.tscn" id="1_dmoo1"]
 [ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="1_flw6b"]
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
+[ext_resource type="AudioStream" uid="uid://cpm3g0uh2gwjc" path="res://sfx/hum.ogg" id="2_i1818"]
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
@@ -31,6 +32,9 @@ radius = 1.0
 [node name="Game" type="Node3D" unique_id=906284256]
 
 [node name="LookAreas" parent="." unique_id=529051657 instance=ExtResource("1_dmoo1")]
+
+[node name="AudioPlayer" parent="LookAreas/LookArea2 - Zap/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(529051657, 1691288072, 1999275858) index="0" unique_id=1500704816]
+stream = ExtResource("2_i1818")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
 environment = ExtResource("1_flw6b")
@@ -127,7 +131,6 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
-[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_older_entries"]
 
 [editable path="LookAreas"]
 [editable path="LookAreas/LookArea - Grind"]
