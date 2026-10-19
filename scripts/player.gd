@@ -12,9 +12,7 @@ var crane_button_force_target: float = 0.0
 var mode_timer:float=0
 @export var allButtons:Array[PlayerButton] 
 
-@export var curve_accelaration:Curve 
 @export var acceleration_speed: float=0.9
-@export var curve_decelaration:Curve 
 @export var deceleration_speed: float=2.1337
 
 @export var promo_lamp_one: Node3D
@@ -53,9 +51,6 @@ func _ready() -> void:
 
     set_rad_level(0.0)
     set_promo_level(0)
-
-    curve_accelaration.bake()
-    curve_decelaration.bake()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

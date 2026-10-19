@@ -24,14 +24,6 @@
 [ext_resource type="AudioStream" uid="uid://d4f2y57y0qlgj" path="res://sfx/computer_bitte_melden.wav" id="18_54qb2"]
 [ext_resource type="AudioStream" uid="uid://ba1mlpn1vavpk" path="res://sfx/printer.wav" id="19_wl8ra"]
 
-[sub_resource type="Curve" id="Curve_46y3y"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_qbdof"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_46y3y"]
@@ -56,8 +48,6 @@ stream_1/weight = 2.0
 [node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons", "promo_lamp_one", "promo_lamp_two", "promo_lamp_three", "promo_lamp_four", "promo_lamp_five", "rad_scale", "good_lamp", "bad_lamp", "real_lamp")]
 script = ExtResource("1_u63mc")
 allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton4/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D")]
-curve_accelaration = SubResource("Curve_46y3y")
-curve_decelaration = SubResource("Curve_qbdof")
 promo_lamp_one = NodePath("Crane/Lamp1")
 promo_lamp_two = NodePath("Crane/Lamp2")
 promo_lamp_three = NodePath("Crane/Lamp3")
@@ -241,7 +231,7 @@ autowrap_mode = 2
 width = 200.0
 
 [node name="Sprite3D" type="Sprite3D" parent="Manuel" unique_id=1771206919]
-transform = Transform3D(0.059791327, 0.056678917, -0.056678902, 0, 0.070710674, 0.07071069, 0.08015608, -0.04227886, 0.04227885, 0.009975255, 0.014771283, -0.055919245)
+transform = Transform3D(0.011958264, 0.011335784, -0.011335782, 0, 0.014142134, 0.014142137, 0.016031217, -0.008455771, 0.008455768, 0.0022960305, -0.03270769, 0.01160869)
 texture = ExtResource("14_rfehu")
 
 [node name="ManuelAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Manuel" unique_id=1641892453]

@@ -13,15 +13,7 @@ var request_spawn_on_next_look:bool=false
 
 @export var spawn_pool_cache:String=""
 @export var promotion_level: int = 0
-### Stage 0: Tutorial Green
-### Stage 1: Green Spawns
-### Stage 2: Tutorial Blue
-### Stage 3: Blue Spawns
-### Stage 4: Tutorial Red
-### Stage 5: Red Spawns
-### Stage 6: Game Over
 @export var stage: int = 0
-@export var stage_promotions: Array[int] = [1,4,5,8,9,12,15]
 
 ### Phase 0: Start Screen
 ### Phase 1: Play
@@ -38,6 +30,9 @@ signal phase_game_win_true()
 var lights_count: int=0
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
 @onready var spook_manager: SpookManager = $/root/Game/LookAreas/SpookManager
+
+@onready var music_gameplay: AudioFader = $/root/Game/Music/AudioFaderGameplayMusic
+@onready var music_menu: AudioFader = $/root/Game/Music/AudioFaderAmbiance
 
 @onready var crane_light: LightFlicker = $/root/Game/Player/SpotLight3D
 @onready var cabin_light: LightFlicker = $/root/Game/Player/CabinLight3D
@@ -68,6 +63,9 @@ func _ready() -> void:
     magnet_active=false
     $NextLevelTimer.timeout.connect(_next_level)
     request_spawn_on_next_look=true
+    
+    music_gameplay.stop()
+    music_menu.play()
     
     update_crane_lights()
     Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
@@ -106,6 +104,9 @@ func play():
     phase_game_play.emit()
     print("GAME ON!")
     
+    music_gameplay.play()
+    music_menu.stop()
+    
     if OS.has_feature("editor"):
         print("Running from Godot editor")
     else:
@@ -136,7 +137,8 @@ func report_decomission_correct(reason: String):
     request_spawn_on_next_look=true
     await get_tree().create_timer(2.).timeout
     decomission_correct.emit(reason)
-    if promotion_level == 18:
+    
+    if promotion_level == scrap_spawner.spanw_pools.size():
         win()
     
 func update_crane_lights():

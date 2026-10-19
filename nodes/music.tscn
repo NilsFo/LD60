@@ -1,24 +1,31 @@
 [gd_scene format=3 uid="uid://b5ft0eopdlsm1"]
 
-[ext_resource type="AudioStream" uid="uid://u4ppd0pknait" path="res://music/lied1.2.ogg" id="1_svf7q"]
 [ext_resource type="PackedScene" uid="uid://7yhvl3sgnlhm" path="res://nodes/audio_fader.tscn" id="1_wupik"]
 [ext_resource type="AudioStream" uid="uid://6fowl7ljjhbu" path="res://sfx/Dark House.wav" id="2_bgpgu"]
+[ext_resource type="AudioStream" uid="uid://dqrhtyj42gvmi" path="res://music/lied1.3.ogg" id="2_ylyia"]
+[ext_resource type="AudioStream" uid="uid://bt6doo7ave5ec" path="res://music/ldjam60 hauptmenü.ogg" id="3_xcdsc"]
 
 [node name="Music" type="Node3D" unique_id=403756141]
 
-[node name="AudioFader - Music" parent="." unique_id=1999275858 instance=ExtResource("1_wupik")]
+[node name="AudioFaderGameplayMusic" parent="." unique_id=1999275858 instance=ExtResource("1_wupik")]
 volume_linear = 0.3
-auto_play = true
 
-[node name="AudioPlayer" parent="AudioFader - Music" index="0" unique_id=1500704816]
-stream = ExtResource("1_svf7q")
+[node name="AudioPlayer" parent="AudioFaderGameplayMusic" index="0" unique_id=1500704816]
+stream = ExtResource("2_ylyia")
 
-[node name="AudioFader - Ambiance" parent="." unique_id=1653457417 instance=ExtResource("1_wupik")]
+[node name="AudioFaderMenu" parent="." unique_id=1422855688 instance=ExtResource("1_wupik")]
+volume_linear = 0.3
+
+[node name="AudioPlayer" parent="AudioFaderMenu" index="0" unique_id=1500704816]
+stream = ExtResource("3_xcdsc")
+
+[node name="AudioFaderAmbiance" parent="." unique_id=1653457417 instance=ExtResource("1_wupik")]
 volume_linear = 0.1
 auto_play = true
 
-[node name="AudioPlayer" parent="AudioFader - Ambiance" index="0" unique_id=1500704816]
+[node name="AudioPlayer" parent="AudioFaderAmbiance" index="0" unique_id=1500704816]
 stream = ExtResource("2_bgpgu")
 
-[editable path="AudioFader - Music"]
-[editable path="AudioFader - Ambiance"]
+[editable path="AudioFaderGameplayMusic"]
+[editable path="AudioFaderMenu"]
+[editable path="AudioFaderAmbiance"]
