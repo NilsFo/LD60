@@ -3,10 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://by3a12sba862k" path="res://nodes/look_areas.tscn" id="1_dmoo1"]
 [ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="1_flw6b"]
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
+[ext_resource type="AudioStream" uid="uid://bti3b4h5ht5e" path="res://sfx/grinder_ambient_to_relax_and_study_to.wav" id="2_h7es2"]
 [ext_resource type="AudioStream" uid="uid://cpm3g0uh2gwjc" path="res://sfx/hum.ogg" id="2_i1818"]
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
 [ext_resource type="PackedScene" uid="uid://bjr5hyw0tincn" path="res://nodes/environment.tscn" id="4_6hfer"]
 [ext_resource type="LightmapGIData" uid="uid://yuij73mhil04" path="res://nodes/environment.lmbake" id="4_flw6b"]
+[ext_resource type="AudioStream" uid="uid://cnuyc603bsgjm" path="res://sfx/fire_ambient.wav" id="4_h7es2"]
 [ext_resource type="Script" uid="uid://bfq0h51ts438o" path="res://scripts/cheat_manager.gd" id="6_b11oy"]
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
 [ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
@@ -14,9 +16,11 @@
 [ext_resource type="Material" uid="uid://d3g7utmtuh33m" path="res://models/blend/magnet_mat.tres" id="9_827r2"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
+[ext_resource type="AudioStream" uid="uid://cxdw6qvbedtx8" path="res://sfx/hum_exit.wav" id="11_4axws"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 [ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="15_15wb7"]
+[ext_resource type="AudioStream" uid="uid://6fowl7ljjhbu" path="res://sfx/Dark House.wav" id="21_664bt"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -34,8 +38,16 @@ radius = 1.0
 
 [node name="LookAreas" parent="." unique_id=529051657 instance=ExtResource("1_dmoo1")]
 
+[node name="AudioPlayer" parent="LookAreas/Lights/LookArea - Grind/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(529051657, 2138365582, 1999275858) index="0" unique_id=1500704816]
+stream = ExtResource("2_h7es2")
+
 [node name="AudioPlayer" parent="LookAreas/Lights/LookArea2 - Zap/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(529051657, 1691288072, 1999275858) index="0" unique_id=1500704816]
 stream = ExtResource("2_i1818")
+volume_db = -44.647
+pitch_scale = 0.7
+
+[node name="AudioPlayer" parent="LookAreas/Lights/LookArea3 - Fire/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(529051657, 1107494178, 1999275858) index="0" unique_id=1500704816]
+stream = ExtResource("4_h7es2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
 environment = ExtResource("1_flw6b")
@@ -69,13 +81,13 @@ rotationSpeed = 0.6
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
 
-[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=2113291629]
+[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=852174145]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=1226853572]
+[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=1558837847]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="46" unique_id=1910152802]
+[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=200894739]
 surface_material_override/0 = ExtResource("9_827r2")
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
@@ -108,12 +120,23 @@ angular_damp = 3.0
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.2661798, 0)
 
+[node name="MagnetLights" parent="MagnetBody/Magnet" index="1" unique_id=1300937094]
+visible = false
+
 [node name="Attraction Point" type="Node3D" parent="MagnetBody/Magnet" unique_id=1711456578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27018404, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MagnetBody" unique_id=120903063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
 shape = SubResource("CylinderShape3D_ubvaf")
+
+[node name="MagnetHum" type="AudioStreamPlayer3D" parent="MagnetBody" unique_id=1784968614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3811245, 0)
+stream = ExtResource("2_i1818")
+
+[node name="MagnetHumExit" type="AudioStreamPlayer3D" parent="MagnetBody" unique_id=919007622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3811245, 0)
+stream = ExtResource("11_4axws")
 
 [node name="FirePit" parent="." unique_id=75870195 instance=ExtResource("8_ubvaf")]
 transform = Transform3D(0.2744413, 0, -0.2700128, 0, 0.38499993, 0, 0.2700128, 0, 0.2744413, -2.7711623, -2.1189423, 2.859571)
@@ -137,8 +160,9 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 [node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
 
 [node name="MainMenuCamera3D" type="Camera3D" parent="." unique_id=2027263710]
-transform = Transform3D(0.99848944, 0.020672966, 0.050906133, 0, 0.9265151, -0.3762575, -0.054943662, 0.37568915, 0.9251155, -0.23209482, -1.7146964, 4.558077)
+transform = Transform3D(0.5187598, 0.3409041, -0.78401047, 0, 0.9170573, 0.39875555, 0.8549199, -0.20685835, 0.4757324, -4.180849, 2.9592166, -0.9413434)
 current = true
+fov = 38.3
 
 [node name="WinCamera3D" type="Camera3D" parent="." unique_id=1166313206]
 transform = Transform3D(0.64410454, -0.4098508, 0.64587283, 0, 0.8443472, 0.53579646, -0.7649375, -0.34510893, 0.54384786, 37.734894, -7.043611, 33.180252)
@@ -156,12 +180,22 @@ visible = false
 transform = Transform3D(0.99923, 0.027232826, -0.02824539, -0.02102229, 0.9794415, 0.2006303, 0.03312844, -0.199882, 0.9792598, 0.07087517, 0.012023926, -1.5372391)
 text = "Ich bin ein Win Screen"
 
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1185822932]
+stream = ExtResource("21_664bt")
+volume_db = -10.908
+autoplay = true
+
 [connection signal="decomission_correct" from="GameState" to="Player" method="trigger_good_lamp" unbinds=1]
 [connection signal="decomission_incorrect" from="GameState" to="Player" method="trigger_bad_lamp" unbinds=1]
 [connection signal="display_next_lore_journal" from="GameState" to="Player" method="next_lore_entry"]
 [connection signal="display_next_robot_data_journal" from="GameState" to="Player" method="next_robot_entry"]
 [connection signal="display_next_tutorial" from="GameState" to="Player" method="next_manuel_entry"]
 [connection signal="lights_count_changed" from="GameState" to="Player" method="set_promo_level"]
+[connection signal="magnet_activate" from="GameState" to="MagnetBody/MagnetHum" method="play"]
+[connection signal="magnet_activate" from="GameState" to="MagnetBody/Magnet/MagnetLights" method="set_visible" binds= [true]]
+[connection signal="magnet_deactivate" from="GameState" to="MagnetBody/MagnetHum" method="stop"]
+[connection signal="magnet_deactivate" from="GameState" to="MagnetBody/MagnetHumExit" method="play"]
+[connection signal="magnet_deactivate" from="GameState" to="MagnetBody/Magnet/MagnetLights" method="set_visible" binds= [false]]
 [connection signal="phase_game_play" from="GameState" to="Player" method="show"]
 [connection signal="phase_game_play" from="GameState" to="Player/PlayerCamera" method="make_current"]
 [connection signal="phase_game_win" from="GameState" to="WinCamera3D" method="show"]
@@ -182,6 +216,10 @@ text = "Ich bin ein Win Screen"
 [editable path="LookAreas/Lights/LookArea3 - Fire/NarrowArea/AmbianceFader"]
 [editable path="LookAreas/Lights/LookArea4 - Pipe"]
 [editable path="LookAreas/Lights/LookArea4 - Pipe/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/SpookManager/Single Robot - G"]
+[editable path="LookAreas/SpookManager/Single Robot - P"]
+[editable path="LookAreas/SpookManager/Single Robot - F"]
+[editable path="LookAreas/SpookManager/Single Robot - Z"]
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
 [editable path="Player/Crane"]
@@ -192,3 +230,4 @@ text = "Ich bin ein Win Screen"
 [editable path="Player/Journal/PlayerConsoleButton4"]
 [editable path="Player/Journal/PlayerConsoleButton5"]
 [editable path="Player/AudioFader"]
+[editable path="MagnetBody/Magnet"]

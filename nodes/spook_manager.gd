@@ -12,3 +12,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     pass
+
+func roll_spook(area: LookArea):
+    var arena_name: StringName=area.get_parent().name
+    print('Rolling spook for area: '+arena_name)
+    
+    var roll_max: int=6-gameState.lights_count
+    var roll: int = randi_range(0,roll_max)
+    var roll_success: bool = roll==0
+    print('Roll result: '+str(roll)+'/'+str(roll_max))
+    
+    if roll_success:
+        print('SPOOKY THINGS HAPPENING IN: '+arena_name.to_upper())
+        area.spook()

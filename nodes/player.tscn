@@ -73,10 +73,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46167737, 0)
 [node name="Crane" parent="." unique_id=1531356480 instance=ExtResource("3_me0cc")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
-[node name="LampCorrect" parent="Crane" index="40" unique_id=1537471898]
+[node name="LampCorrect" parent="Crane" index="40" unique_id=95780979]
 visible = false
 
-[node name="LampIncorrect" parent="Crane" index="41" unique_id=493878989]
+[node name="LampIncorrect" parent="Crane" index="45" unique_id=1248187619]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Crane" unique_id=1595937500]
