@@ -137,7 +137,8 @@ func report_decomission_correct(reason: String):
     request_spawn_on_next_look=true
     await get_tree().create_timer(2.).timeout
     decomission_correct.emit(reason)
-    if promotion_level == 18:
+    
+    if promotion_level == scrap_spawner.spanw_pools.size():
         win()
     
 func update_crane_lights():

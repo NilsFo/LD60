@@ -12,7 +12,7 @@ extends Marker3D
     
     "p":preload("res://nodes/scraps/scrap_robot_green.tscn"), #n (ROBO GREEN)
     "x":preload("res://nodes/scraps/scrap_robot_red.tscn"), #x (ROBO RED)
-    "z":preload("res://nodes/scraps/scrap_robot_redblue.tscn"), #x (ROBO RED)
+    "z":preload("res://nodes/scraps/scrap_robot_redblue.tscn"), #x (ROBO RED BLUE)
     
     "g":preload("res://nodes/scraps/scrap_gear.tscn"), #g (GEAR)
     "t":preload("res://nodes/scraps/scrap_torso.tscn"), #t (TORSO)
@@ -21,7 +21,7 @@ extends Marker3D
 # SPAWN POOLS
 @export var spanw_pools:Array[String]=[
     "g", #0 tutorial (gear)
-    "s", #1 # tutorial (slime)
+    "s", #1 tutorial (slime)
     
     "gss", #2 # normal scrap
     "t", #3 (nromal torso)
@@ -33,22 +33,26 @@ extends Marker3D
     
     "d", #7 (DATA)
     
-    "p", #8 (robot)
+    "p", #8 (ROBO GREEN)
     
     "gst", #9 (scrap)
     "r", #10 (robots)
     "rp", #11 (robots)
-    "xrp", #12 (robots)
     
-    "m", #13 (ROBOT DATA)
+    "n", #12 (ROBOT DATA GREEN)
+    "d", #13 (DATA)
     
-    "xm", #14 (robots red/data)
-    "x", #15 (robots red/data)
+    "xrp", #14 (robots)
     
-    "z", #16 (ROBOT DATA GREEN)
+    "m", #15 (ROBOT DATA)
     
-    "sssspm", #17 (slime, green / data robot)
-    "sssspm" #18 (slime, green / data robot)
+    "x", #16 (ROBO RED)
+    "z", #17 (ROBO RED BLUE)
+    "z", #18 (ROBO RED BLUE)
+    
+    "ssssp", #19 (slime, green / data robot)
+    "ssssp", #20 (slime, green / data robot)
+    "ssssp" #20 (slime, green / data robot)
 ]
 
 var game_state:GameState
@@ -57,6 +61,10 @@ func _ready() -> void:
     game_state = $/root/Game/GameState
 
 func spawn() -> void:
+    if game_state.gamephase!=1:
+        print("Not the right phase, kiddo.")
+        return
+
     var level: int = $/root/Game/GameState.promotion_level
     # var stage: int = $/root/Game/GameState.promotion_level
     
