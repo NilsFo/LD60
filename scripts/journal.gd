@@ -4,6 +4,7 @@ class_name Journal
 
 signal entry_added(text: String)
 signal page_changed(index: int, total: int)
+signal new_entry()
 
 @export var text_display: Label3D
 @export var page_label: Label3D
@@ -55,6 +56,7 @@ func add_entry(text: String) -> void:
     entries.append(text)
     current_index = entries.size() - 1
     entry_added.emit(text)
+    new_entry.emit()
     _refresh()
 
 ## Eine Seite zurück (zu älteren Einträgen)
