@@ -68,10 +68,11 @@ transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.70710
 [node name="kiste4" parent="WorldEnvironment/LightmapGI/Environment/Clutter" parent_id_path=PackedInt32Array(199390501, 710690310) index="33" unique_id=363438134]
 transform = Transform3D(0.5293096, 0, 0.2825445, 0, 0.59999996, 0, -0.2825445, 0, 0.5293096, -4.8161645, -1.4794506, 2.0019658)
 
-[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("magnet")]
+[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("magnet", "tutorial_timer")]
 script = ExtResource("2_cpdmu")
 magnet = NodePath("../MagnetBody/Magnet/Attraction Point")
 magnet_strength = 100.0
+tutorial_timer = NodePath("../HUD/TutorialTimer")
 
 [node name="NextLevelTimer" type="Timer" parent="GameState" unique_id=378026470]
 wait_time = 0.15
@@ -81,7 +82,7 @@ one_shot = true
 script = ExtResource("6_b11oy")
 
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
-rotationSpeed = 0.6
+rotationSpeed = 0.5
 
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
@@ -261,7 +262,6 @@ autoplay = true
 [connection signal="phase_game_win_true" from="GameState" to="TrueWinCamera3D" method="make_current"]
 [connection signal="rad_level_changed" from="GameState" to="Player" method="set_rad_level_int"]
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
-[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_older_entries"]
 [connection signal="start_game_button_pressed" from="HUD" to="GameState" method="play"]
 
 [editable path="LookAreas"]
@@ -288,3 +288,8 @@ autoplay = true
 [editable path="Player/Journal/PlayerConsoleButton5"]
 [editable path="Player/AudioFader"]
 [editable path="MagnetBody/Magnet"]
+[editable path="Music"]
+[editable path="Music/AudioFaderGameplayMusic"]
+[editable path="Music/AudioFaderMenu"]
+[editable path="Music/AudioFaderAmbiance"]
+[editable path="HUD"]

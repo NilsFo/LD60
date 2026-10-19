@@ -23,8 +23,12 @@ func _ready() -> void:
     volume_current = player.volume_linear
     player.finished.connect(_on_sound_finished)
 
-func play():
+func play(from_beginning:bool=false):
     playing=true
+    
+    if from_beginning:
+        player.play(0.0)
+    
 func stop():
     playing=false
 
