@@ -15,13 +15,6 @@ var request_spawn_on_next_look:bool=false
 
 @export var spawn_pool_cache:String=""
 @export var promotion_level: int = 0
-### Stage 0: Tutorial Green
-### Stage 1: Green Spawns
-### Stage 2: Tutorial Blue
-### Stage 3: Blue Spawns
-### Stage 4: Tutorial Red
-### Stage 5: Red Spawns
-### Stage 6: Game Over
 
 var lights_count: int=0
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
@@ -65,10 +58,13 @@ func win():
 func report_decomission_correct(reason: String):
     print("Decomission correct! " + reason)
     decomission_correct.emit(reason)
+    promotion_level+=1
+    spawn_pool_cache="?"
     request_spawn_on_next_look=true
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
+    spawn_pool_cache="?"
     decomission_incorrect.emit(reason)
     request_spawn_on_next_look=true
 
@@ -81,6 +77,7 @@ func on_look_area_entered(area:LookArea):
         
         if request_spawn_on_next_look:
             $NextLevelTimer.start()
+            request_spawn_on_next_look=false
 
 func _input(event: InputEvent) -> void:
     if $CheatManager.cheat_mode:

@@ -18,37 +18,37 @@ extends Marker3D
 }
 
 # SPAWN POOLS
-@export var spanw_pools:Array[int]=[]
+@export var spanw_pools:Array[String]=[
+"g", #0 tutorial (gear)
+"s", #1 # tutorial (slime)
 
-@export var spawn_pool_0: String = "g" #0 tutorial (gear)
-@export var spawn_pool_1:String = "s" #1 # tutorial (slime)
+"gss", #2 # normal scrap
+"t", #3 (nromal torso)
 
-@export var spawn_pool_2:String = "gss" #2 # normal scrap
-@export var spawn_pool_3:String = "t" #3 (nromal torso)
+"d", #4 (DATA)
 
-@export var spawn_pool_4:String = "d" #4 (DATA)
+"gst", #5 (normal scrap + torso)
+"gst", #6 (normal scrap + torso)
 
-@export var spawn_pool_5:String = "gst" #5 (normal scrap + torso)
-@export var spawn_pool_6:String = "gst" #6 (normal scrap + torso)
+"d", # (DATA)
 
-@export var spawn_pool_7:String = "d" # (DATA)
+"r", #8 (robot)
 
-@export var spawn_pool_8:String = "r" #8 (robot)
+"gst", #9
+"r", #10
+"rp", #11
+"rp", #12
 
-@export var spawn_pool_9:String = "gst" #9
-@export var spawn_pool_10:String = "r" #10
-@export var spawn_pool_11:String = "rp" #11
-@export var spawn_pool_12:String = "rp" #12
+"m", #13 (ROBOT DATA)
 
-@export var spawn_pool_13:String = "m" #13 (ROBOT DATA)
+"x", #14
+"x", #15
 
-@export var spawn_pool_14:String = "x" #14
-@export var spawn_pool_15:String = "x" #15
+"n", #13 (ROBOT DATA GREEN)
 
-@export var spawn_pool_16:String = "n" #13 (ROBOT DATA GREEN)
-
-@export var spawn_pool_17:String = "sssp" #17 (slime, green robot)
-@export var spawn_pool_18:String = "sssp" #18 (slime, green robot)
+"sssp", #17 (slime, green robot)
+"sssp" #18 (slime, green robot)
+]
 
 var game_state:GameState
 
@@ -61,19 +61,7 @@ func spawn() -> void:
     
     # welchen pool nehmen wir?
     # var pool_scenes: Array[PackedScene] = []
-    var pool:String = ""
-    if game_state.stage == 0:
-        pool=spawn_pool_0
-    if game_state.stage == 1:
-        pool=spawn_pool_1
-    if game_state.stage == 2:
-        pool=spawn_pool_2
-    if game_state.stage == 3:
-        pool=spawn_pool_3
-    if game_state.stage == 4:
-        pool=spawn_pool_4
-    if game_state.stage == 5:
-        pool=spawn_pool_5
+    var pool:String = spanw_pools[game_state.promotion_level]
     print("Selecting from pool: "+pool.capitalize())
     game_state.spawn_pool_cache=pool.capitalize()
     
