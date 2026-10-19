@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://b0hgheqc1f5fy"]
 
-[ext_resource type="Script" uid="uid://d3yl1v842efp4" path="res://nodes/look_area.gd" id="1_oriti"]
+[ext_resource type="Script" uid="uid://d3yl1v842efp4" path="res://scripts/look_area.gd" id="1_oriti"]
+[ext_resource type="PackedScene" uid="uid://7yhvl3sgnlhm" path="res://nodes/audio_fader.tscn" id="2_rkdbm"]
+[ext_resource type="AudioStream" uid="uid://dewul7qxygqt" path="res://sfx/metal_interactions/metal_button_press1.wav" id="3_dggb7"]
+[ext_resource type="AudioStream" uid="uid://bx3osv3f0s76j" path="res://sfx/metal_interactions/metal_interaction2.wav" id="3_djsqn"]
+[ext_resource type="AudioStream" uid="uid://kjh3ddl5ibmh" path="res://sfx/metal_interactions/metal_button_press2.wav" id="4_e0rnq"]
+[ext_resource type="AudioStream" uid="uid://cdahsiy8jg4v2" path="res://sfx/metal_interactions/metal_interaction1.wav" id="5_p2fk5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_smc3q"]
 size = Vector3(7.7779465, 4.7926025, 7.7409363)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_djsqn"]
+random_pitch = 1.005793
+streams_count = 4
+stream_0/stream = ExtResource("3_djsqn")
+stream_1/stream = ExtResource("3_dggb7")
+stream_2/stream = ExtResource("4_e0rnq")
+stream_3/stream = ExtResource("5_p2fk5")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_smc3q"]
 radius = 2.9143386
@@ -19,11 +32,20 @@ script = ExtResource("1_oriti")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0872383, 2.2599792, -4.1238556)
 shape = SubResource("BoxShape3D_smc3q")
 
+[node name="LightsSFX" type="AudioStreamPlayer" parent="WideArea" unique_id=915793496]
+stream = SubResource("AudioStreamRandomizer_djsqn")
+
 [node name="NarrowArea" type="Area3D" parent="." unique_id=2114783260]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_oriti")
+is_narrow = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NarrowArea" unique_id=377453488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8769054, 1.1805725, -5.0268326)
 shape = SubResource("SphereShape3D_smc3q")
+
+[node name="AmbianceFader" parent="NarrowArea" unique_id=1999275858 instance=ExtResource("2_rkdbm")]
+volume_linear = 0.5
+
+[editable path="NarrowArea/AmbianceFader"]

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
+[ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="15_15wb7"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -122,9 +123,16 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 
 [node name="Scrap" type="Node3D" parent="." unique_id=498432697]
 
+[node name="Music" parent="." unique_id=403756141 instance=ExtResource("15_15wb7")]
+
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
 
+[editable path="LookAreas"]
+[editable path="LookAreas/LookArea - Grind"]
+[editable path="LookAreas/LookArea2 - Spawn"]
+[editable path="LookAreas/LookArea3 - Fire"]
+[editable path="LookAreas/LookArea4 - Zap"]
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
 [editable path="Player/PlayerConsoleButton"]
@@ -133,3 +141,4 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 [editable path="Player/PlayerConsoleButton4"]
 [editable path="Player/Journal/PlayerConsoleButton4"]
 [editable path="Player/Journal/PlayerConsoleButton5"]
+[editable path="Player/AudioFader"]

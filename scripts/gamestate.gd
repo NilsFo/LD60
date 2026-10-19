@@ -33,9 +33,13 @@ signal next_level(level: int)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     magnet_active=false
-    Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
     $NextLevelTimer.timeout.connect(_next_level)
-
+    
+    if OS.has_feature("editor"):
+        print("Running from Godot editor")
+    else:
+        print("Running as exported standalone game")
+        Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djvl67svjh5qn"]
 
 [ext_resource type="Texture2D" uid="uid://clp8ykfkwjfp4" path="res://sprites/ld60_hand.png" id="1_0l8sm"]
-[ext_resource type="Script" uid="uid://bf5eoq8rt5i56" path="res://nodes/hud.gd" id="1_17hw4"]
+[ext_resource type="Script" uid="uid://bf5eoq8rt5i56" path="res://scripts/hud.gd" id="1_17hw4"]
 [ext_resource type="Texture2D" uid="uid://chy1s510vgv4d" path="res://sprites/circle.png" id="1_s1cew"]
 
 [sub_resource type="GDScript" id="GDScript_g5j3c"]

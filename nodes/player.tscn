@@ -7,6 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://e032x2qe65ci" path="res://models/blend/Console.blend" id="5_7lbay"]
 [ext_resource type="Script" uid="uid://l0xiengtxhgu" path="res://scripts/detector_area_3d.gd" id="6_2wrp4"]
 [ext_resource type="Script" uid="uid://wjiwhykm1db3" path="res://scripts/journal.gd" id="7_46y3y"]
+[ext_resource type="PackedScene" uid="uid://7yhvl3sgnlhm" path="res://nodes/audio_fader.tscn" id="8_ejohg"]
+[ext_resource type="AudioStream" uid="uid://cusiscf22u28r" path="res://sfx/crane/127826__martats__rail_city.wav" id="9_qbdof"]
+
+[sub_resource type="Curve" id="Curve_46y3y"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_qbdof"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 
@@ -20,9 +30,10 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wrp4"]
 
-[node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons")]
+[node name="Player" type="Node3D" unique_id=1268145214]
 script = ExtResource("1_u63mc")
-allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton5/StaticBody3D")]
+curve_accelaration = SubResource("Curve_46y3y")
+curve_decelaration = SubResource("Curve_qbdof")
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)
@@ -39,6 +50,9 @@ return_speed = 70.0
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerCamera" unique_id=1195467541]
 target_position = Vector3(0, 0, -1)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="PlayerCamera" unique_id=1081813597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46167737, 0)
 
 [node name="Crane" parent="." unique_id=1531356480 instance=ExtResource("3_me0cc")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -175,6 +189,12 @@ vertical_alignment = 0
 autowrap_mode = 2
 width = 200.0
 
+[node name="AudioFader" parent="." unique_id=1999275858 instance=ExtResource("8_ejohg")]
+fade_speed = 5.0
+
+[node name="AudioPlayer" parent="AudioFader" index="0" unique_id=1500704816]
+stream = ExtResource("9_qbdof")
+
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton4/StaticBody3D" to="Journal" method="to_older_entries"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton5/StaticBody3D" to="Journal" method="to_new_entries"]
 
@@ -184,3 +204,4 @@ width = 200.0
 [editable path="PlayerConsoleButton4"]
 [editable path="Journal/PlayerConsoleButton4"]
 [editable path="Journal/PlayerConsoleButton5"]
+[editable path="AudioFader"]

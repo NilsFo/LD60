@@ -9,17 +9,17 @@ signal on_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+    pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+    pass
 
 func press():
-	if !is_pressed:
-		print("Gedrückt: "+str(buttonType))
-		on_pressed.emit()
-		
-	is_pressed=true
-	
+    if !is_pressed:
+        print("Gedrückt: "+str(buttonType))
+        on_pressed.emit()
+        
+    is_pressed=true
+    

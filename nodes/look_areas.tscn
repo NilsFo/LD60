@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://by3a12sba862k"]
 
 [ext_resource type="PackedScene" uid="uid://b0hgheqc1f5fy" path="res://nodes/look_area.tscn" id="1_hn1re"]
+[ext_resource type="AudioStream" uid="uid://cnpse8in4ahsg" path="res://sfx/saw.ogg" id="2_0uiq7"]
+[ext_resource type="AudioStream" uid="uid://cg8tpujw2xwbp" path="res://sfx/spark/continuousspark.wav" id="3_hgpyw"]
+[ext_resource type="AudioStream" uid="uid://eitpho6t3q47" path="res://sfx/fire-1.ogg" id="4_ih3kl"]
 
 [node name="LookAreas" type="Node3D" unique_id=529051657]
 
@@ -9,28 +12,37 @@
 [node name="WideArea" parent="LookArea - Grind" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 auto_turn_on = true
 lights = [NodePath("../../SpotLight3D2"), NodePath("../../SpotLight3D3")]
-all_areas = [NodePath("."), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Zap/WideArea")]
+all_areas = [NodePath("."), NodePath("../../LookArea2 - Zap/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Pipe/WideArea")]
 
-[node name="LookArea2 - Spawn" parent="." unique_id=1691288072 instance=ExtResource("1_hn1re")]
+[node name="AudioPlayer" parent="LookArea - Grind/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(2138365582, 1999275858) index="0" unique_id=1500704816]
+stream = ExtResource("2_0uiq7")
+
+[node name="LookArea2 - Zap" parent="." unique_id=1691288072 instance=ExtResource("1_hn1re")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="WideArea" parent="LookArea2 - Spawn" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
+[node name="WideArea" parent="LookArea2 - Zap" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 lights = [NodePath("../../SpotLight3D8"), NodePath("../../SpotLight3D9")]
-all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("."), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Zap/WideArea")]
+all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("."), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Pipe/WideArea")]
+
+[node name="AudioPlayer" parent="LookArea2 - Zap/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(1691288072, 1999275858) index="0" unique_id=1500704816]
+stream = ExtResource("3_hgpyw")
 
 [node name="LookArea3 - Fire" parent="." unique_id=1107494178 instance=ExtResource("1_hn1re")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="WideArea" parent="LookArea3 - Fire" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 lights = [NodePath("../../SpotLight3D6"), NodePath("../../SpotLight3D7")]
-all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("."), NodePath("../../LookArea4 - Zap/WideArea")]
+all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Zap/WideArea"), NodePath("."), NodePath("../../LookArea4 - Pipe/WideArea")]
 
-[node name="LookArea4 - Zap" parent="." unique_id=397361550 instance=ExtResource("1_hn1re")]
+[node name="AudioPlayer" parent="LookArea3 - Fire/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(1107494178, 1999275858) index="0" unique_id=1500704816]
+stream = ExtResource("4_ih3kl")
+
+[node name="LookArea4 - Pipe" parent="." unique_id=397361550 instance=ExtResource("1_hn1re")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
 
-[node name="WideArea" parent="LookArea4 - Zap" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
+[node name="WideArea" parent="LookArea4 - Pipe" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 lights = [NodePath("../../SpotLight3D4"), NodePath("../../SpotLight3D5")]
-all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath(".")]
+all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Zap/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath(".")]
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1604593816]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.0953393, 2.7892356, -2.474319)
@@ -97,6 +109,10 @@ light_size = 0.089
 spot_range = 9.663
 
 [editable path="LookArea - Grind"]
-[editable path="LookArea2 - Spawn"]
+[editable path="LookArea - Grind/NarrowArea/AmbianceFader"]
+[editable path="LookArea2 - Zap"]
+[editable path="LookArea2 - Zap/NarrowArea/AmbianceFader"]
 [editable path="LookArea3 - Fire"]
-[editable path="LookArea4 - Zap"]
+[editable path="LookArea3 - Fire/NarrowArea/AmbianceFader"]
+[editable path="LookArea4 - Pipe"]
+[editable path="LookArea4 - Pipe/NarrowArea/AmbianceFader"]
