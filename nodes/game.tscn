@@ -241,3 +241,7 @@ autoplay = true
 [editable path="Player/Journal/PlayerConsoleButton5"]
 [editable path="Player/AudioFader"]
 [editable path="MagnetBody/Magnet"]
+[editable path="Music"]
+[editable path="Music/AudioFaderGameplayMusic"]
+[editable path="Music/AudioFaderMenu"]
+[editable path="Music/AudioFaderAmbiance"]
