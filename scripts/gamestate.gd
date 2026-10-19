@@ -32,8 +32,9 @@ var lights_count: int=0
 @onready var spook_manager: SpookManager = $/root/Game/LookAreas/SpookManager
 @export var tutorial_timer: Timer 
 
+@onready var music_ambience: AudioFader = $/root/Game/Music/AudioFaderAmbiance
 @onready var music_gameplay: AudioFader = $/root/Game/Music/AudioFaderGameplayMusic
-@onready var music_menu: AudioFader = $/root/Game/Music/AudioFaderAmbiance
+@onready var music_menu: AudioFader = $/root/Game/Music/AudioFaderMenu
 
 @onready var crane_light: LightFlicker = $/root/Game/Player/SpotLight3D
 @onready var cabin_light: LightFlicker = $/root/Game/Player/CabinLight3D
@@ -67,6 +68,8 @@ func _ready() -> void:
     
     music_gameplay.stop()
     music_menu.play()
+    music_ambience.play()
+    print("Music playing")
     
     if OS.has_feature("editor"):
         print("Running from Godot editor")
@@ -117,6 +120,7 @@ func play():
     
     if OS.has_feature("editor"):
         print("Running from Godot editor")
+        print("No more confining")
     else:
         print("Running as exported standalone game")
         Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) 

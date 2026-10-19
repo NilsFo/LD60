@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 [ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="15_15wb7"]
-[ext_resource type="AudioStream" uid="uid://6fowl7ljjhbu" path="res://sfx/Dark House.wav" id="21_664bt"]
 [ext_resource type="FontFile" uid="uid://bw6rjkuxq7g3w" path="res://fonts/IBMPlexMono-Regular.ttf" id="21_engdv"]
 [ext_resource type="PackedScene" uid="uid://sww8hgr28q6f" path="res://nodes/spooks/robot_watchers.tscn" id="21_tvltm"]
 [ext_resource type="PackedScene" uid="uid://dgp1a8p6klvp3" path="res://roboter_pile.tscn" id="22_engdv"]
@@ -303,11 +302,6 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.73
 light_color = Color(1, 0.69, 0.69, 1)
 light_energy = 2.297
 omni_range = 6.248127
-
-[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1185822932]
-stream = ExtResource("21_664bt")
-volume_db = -10.908
-autoplay = true
 
 [connection signal="decomission_correct" from="GameState" to="Player" method="trigger_good_lamp" unbinds=1]
 [connection signal="decomission_incorrect" from="GameState" to="Player" method="trigger_bad_lamp" unbinds=1]

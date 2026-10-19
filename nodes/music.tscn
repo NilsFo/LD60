@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://7yhvl3sgnlhm" path="res://nodes/audio_fader.tscn" id="1_wupik"]
 [ext_resource type="AudioStream" uid="uid://6fowl7ljjhbu" path="res://sfx/Dark House.wav" id="2_bgpgu"]
 [ext_resource type="AudioStream" uid="uid://dqrhtyj42gvmi" path="res://music/lied1.3.ogg" id="2_ylyia"]
-[ext_resource type="AudioStream" uid="uid://bt6doo7ave5ec" path="res://music/ldjam60 hauptmenü.ogg" id="3_xcdsc"]
+[ext_resource type="AudioStream" uid="uid://bt6doo7ave5ec" path="res://music/menu.ogg" id="3_xcdsc"]
 
 [node name="Music" type="Node3D" unique_id=403756141]
 
@@ -14,7 +14,9 @@ volume_linear = 0.3
 stream = ExtResource("2_ylyia")
 
 [node name="AudioFaderMenu" parent="." unique_id=1422855688 instance=ExtResource("1_wupik")]
-volume_linear = 0.3
+volume_linear = 2.0
+auto_play = true
+fade_speed = 2.0
 
 [node name="AudioPlayer" parent="AudioFaderMenu" index="0" unique_id=1500704816]
 stream = ExtResource("3_xcdsc")
