@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cg8tpujw2xwbp" path="res://sfx/spark/continuousspark.wav" id="3_hgpyw"]
 [ext_resource type="AudioStream" uid="uid://eitpho6t3q47" path="res://sfx/fire-1.ogg" id="4_ih3kl"]
 [ext_resource type="Script" uid="uid://cx5sn7gmvpv0q" path="res://nodes/spook_manager.gd" id="5_mwpre"]
+[ext_resource type="Script" uid="uid://vlcrnae6pw76" path="res://nodes/light_flicker.gd" id="5_q1fd1"]
 [ext_resource type="PackedScene" uid="uid://sww8hgr28q6f" path="res://nodes/spooks/robot_watchers.tscn" id="6_bbeud"]
 [ext_resource type="Texture2D" uid="uid://rpbk4xqjma7b" path="res://icon.svg" id="7_n75de"]
 [ext_resource type="PackedScene" uid="uid://o3g26mqk8ieo" path="res://models/blend/Roboter.blend" id="8_n75de"]
@@ -50,7 +51,7 @@ stream = ExtResource("3_hgpyw")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="WideArea" parent="Lights/LookArea3 - Fire" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas", "spook_decals", "spook_robots_1", "spook_robots_3")]
-lights = [NodePath("../../SpotLight3D6"), NodePath("../../SpotLight3D7")]
+lights = [NodePath("../../SpotLight3D6"), NodePath("../../SpotLight3D7"), NodePath("../../OmniLight3D")]
 all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Zap/WideArea"), NodePath("."), NodePath("../../LookArea4 - Pipe/WideArea")]
 spook_decals = [NodePath("../../../SpookManager/Decal - Fire1"), NodePath("../../../SpookManager/Decal - Fire2")]
 spook_robots_1 = [NodePath("../../../SpookManager/Single Robot - F")]
@@ -140,6 +141,14 @@ light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=1117211702]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5153823, -1.108922, 2.37549)
+light_color = Color(0.74, 0.27133334, 0, 1)
+light_energy = 10.0
+script = ExtResource("5_q1fd1")
+flicker_code = "nmonqnmomnmomomno"
+read_speed = 5.0
+
 [node name="SpookManager" type="Node3D" parent="." unique_id=1450512059]
 script = ExtResource("5_mwpre")
 
@@ -184,25 +193,25 @@ texture = ExtResource("7_n75de")
 [node name="Single Robot - G" parent="SpookManager" unique_id=102429031 instance=ExtResource("8_n75de")]
 transform = Transform3D(-0.70157087, 0, 1.8729117, 0, 2, 0, -1.8729117, 0, -0.70157087, 10.009138, 0.5312204, -0.43133605)
 
-[node name="Cube" parent="SpookManager/Single Robot - G/Armature/Skeleton3D" parent_id_path=PackedInt32Array(102429031, 828132249) index="0" unique_id=1321862665]
+[node name="Cube" parent="SpookManager/Single Robot - G/Armature/Skeleton3D" parent_id_path=PackedInt32Array(102429031, 2070598462) index="0" unique_id=175561203]
 surface_material_override/2 = ExtResource("9_q1fd1")
 
 [node name="Single Robot - P" parent="SpookManager" unique_id=2069550422 instance=ExtResource("8_n75de")]
 transform = Transform3D(1.9474573, 0, 0.45542294, 0, 2, 0, -0.45542294, 0, 1.9474573, 0.23867238, 0.5312204, 11.582849)
 
-[node name="Cube" parent="SpookManager/Single Robot - P/Armature/Skeleton3D" parent_id_path=PackedInt32Array(2069550422, 828132249) index="0" unique_id=1321862665]
+[node name="Cube" parent="SpookManager/Single Robot - P/Armature/Skeleton3D" parent_id_path=PackedInt32Array(2069550422, 2070598462) index="0" unique_id=175561203]
 surface_material_override/2 = ExtResource("9_q1fd1")
 
 [node name="Single Robot - F" parent="SpookManager" unique_id=2132109993 instance=ExtResource("8_n75de")]
 transform = Transform3D(-0.51509565, 0, -1.9325311, 0, 2, 0, 1.9325311, 0, -0.51509565, -10.460763, 0.5312204, 0.19639969)
 
-[node name="Cube" parent="SpookManager/Single Robot - F/Armature/Skeleton3D" parent_id_path=PackedInt32Array(2132109993, 828132249) index="0" unique_id=1321862665]
+[node name="Cube" parent="SpookManager/Single Robot - F/Armature/Skeleton3D" parent_id_path=PackedInt32Array(2132109993, 2070598462) index="0" unique_id=175561203]
 surface_material_override/2 = ExtResource("9_q1fd1")
 
 [node name="Single Robot - Z" parent="SpookManager" unique_id=1923674689 instance=ExtResource("8_n75de")]
 transform = Transform3D(-1.7587966, 0, 0.9521737, 0, 2, 0, -0.9521737, 0, -1.7587966, -0.25875956, 0.53122026, -10.10716)
 
-[node name="Cube" parent="SpookManager/Single Robot - Z/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1923674689, 828132249) index="0" unique_id=1321862665]
+[node name="Cube" parent="SpookManager/Single Robot - Z/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1923674689, 2070598462) index="0" unique_id=175561203]
 surface_material_override/2 = ExtResource("9_q1fd1")
 
 [editable path="Lights/LookArea - Grind"]

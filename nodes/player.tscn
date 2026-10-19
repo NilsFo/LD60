@@ -231,7 +231,7 @@ autowrap_mode = 2
 width = 200.0
 
 [node name="Sprite3D" type="Sprite3D" parent="Manuel" unique_id=1771206919]
-transform = Transform3D(0.059791327, 0.056678917, -0.056678902, 0, 0.070710674, 0.07071069, 0.08015608, -0.04227886, 0.04227885, 0.009975255, 0.014771283, -0.055919245)
+transform = Transform3D(0.011958264, 0.011335784, -0.011335782, 0, 0.014142134, 0.014142137, 0.016031217, -0.008455771, 0.008455768, 0.0022960305, -0.03270769, 0.01160869)
 texture = ExtResource("14_rfehu")
 
 [node name="ManuelAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Manuel" unique_id=1641892453]

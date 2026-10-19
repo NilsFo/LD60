@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cw45lsr40gy6j"]
+
+[ext_resource type="Texture2D" uid="uid://ee27wdcn0d3y" path="res://models/blend/UV-Cube.png" id="1_yt2vk"]
+[ext_resource type="Texture2D" uid="uid://b6nv8ibjwg3n" path="res://models/blend/UV-Cube_emit.png" id="2_a1r53"]
+
+[resource]
+albedo_texture = ExtResource("1_yt2vk")
+emission_enabled = true
+emission_energy_multiplier = 1.6
+emission_texture = ExtResource("2_a1r53")
