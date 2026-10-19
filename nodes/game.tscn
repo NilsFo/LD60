@@ -84,13 +84,13 @@ rotationSpeed = 0.6
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
 
-[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1707537393]
+[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=852174145]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=587942216]
+[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=1558837847]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="46" unique_id=1968666047]
+[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=200894739]
 surface_material_override/0 = ExtResource("9_827r2")
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
@@ -123,11 +123,11 @@ angular_damp = 3.0
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.2661798, 0)
 
+[node name="MagnetLights" parent="MagnetBody/Magnet" index="1" unique_id=1300937094]
+visible = false
+
 [node name="Attraction Point" type="Node3D" parent="MagnetBody/Magnet" unique_id=1711456578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27018404, 0)
-
-[node name="MagnetLights" parent="MagnetBody/Magnet" index="2" unique_id=1300937094]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MagnetBody" unique_id=120903063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
