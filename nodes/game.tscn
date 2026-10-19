@@ -83,13 +83,13 @@ rotationSpeed = 0.6
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
 
-[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1834055145]
+[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=456467677]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=479057466]
+[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=1997744731]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=1697243397]
+[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=1292671775]
 surface_material_override/0 = ExtResource("9_827r2")
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
