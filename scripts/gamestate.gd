@@ -30,6 +30,7 @@ signal phase_game_win_true()
 var lights_count: int=0
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
 @onready var spook_manager: SpookManager = $/root/Game/LookAreas/SpookManager
+@export var tutorial_timer: Timer 
 
 @onready var music_gameplay: AudioFader = $/root/Game/Music/AudioFaderGameplayMusic
 @onready var music_menu: AudioFader = $/root/Game/Music/AudioFaderAmbiance
@@ -66,6 +67,13 @@ func _ready() -> void:
     
     music_gameplay.stop()
     music_menu.play()
+    
+    if OS.has_feature("editor"):
+        print("Running from Godot editor")
+        tutorial_timer.wait_time=0.2
+    else:
+        tutorial_timer.wait_time=4
+        print("Running as exported standalone game")
     
     update_crane_lights()
     Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
