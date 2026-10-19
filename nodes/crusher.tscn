@@ -1,12 +1,29 @@
 [gd_scene format=3 uid="uid://bxcp4a3qsx3pv"]
 
 [ext_resource type="Script" uid="uid://cvn0pb26f3u2c" path="res://scripts/crusher_area_3d.gd" id="1_i6pr7"]
-[ext_resource type="PackedScene" uid="uid://dwho00b3y3ff2" path="res://nodes/crusher_gpu_particles_3d.tscn" id="2_4nbus"]
 [ext_resource type="PackedScene" uid="uid://urk4k1mc2n8a" path="res://nodes/crusher_model.tscn" id="3_4nbus"]
+[ext_resource type="Material" uid="uid://bnf1vm3nqjntb" path="res://material/crusher_particle_process_material.tres" id="3_idhsf"]
 [ext_resource type="AudioStream" uid="uid://cdahsiy8jg4v2" path="res://sfx/metal_interactions/metal_interaction1.wav" id="4_80onj"]
+[ext_resource type="Script" uid="uid://b53so0cxkmda4" path="res://scripts/crusher_gpu_particles_3d.gd" id="4_prt00"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbbk5"]
 size = Vector3(1, 1.7501221, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqrwt"]
+albedo_color = Color(0.19, 0.17917, 0.17289999, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ky6jn"]
+material = SubResource("StandardMaterial3D_aqrwt")
+radius = 0.01
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kulxv"]
+albedo_color = Color(0.52, 0.5044, 0.5044, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4poc2"]
+material = SubResource("StandardMaterial3D_kulxv")
+radius = 0.02
+height = 0.02
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 size = Vector3(0.4500122, 2.3295288, 4.0461426)
@@ -16,22 +33,44 @@ size = Vector3(0.4500122, 2.3295288, 4.0461426)
 [node name="Logik" type="Node3D" parent="." unique_id=720200233]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0.5, 0)
 
-[node name="CrusherArea3D" type="Area3D" parent="Logik" unique_id=574351156 node_paths=PackedStringArray("particle_spawn_point")]
+[node name="CrusherArea3D" type="Area3D" parent="Logik" unique_id=574351156 node_paths=PackedStringArray("particles")]
 script = ExtResource("1_i6pr7")
-particle_prefab = ExtResource("2_4nbus")
-particle_spawn_point = NodePath("../ParticleMarker3D")
+particles = [NodePath("../../Looks/CrusherGPUParticles3D"), NodePath("../../Looks/CrusherGPUParticles3D2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Logik/CrusherArea3D" unique_id=1464186982]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37506104, 0)
 shape = SubResource("BoxShape3D_qbbk5")
 
-[node name="ParticleMarker3D" type="Marker3D" parent="Logik" unique_id=1335630212]
-transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0.009569395, 0)
-
 [node name="Looks" type="Node3D" parent="." unique_id=1028263055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Crusher" parent="Looks" unique_id=1417769918 instance=ExtResource("3_4nbus")]
+
+[node name="CrusherGPUParticles3D" type="GPUParticles3D" parent="Looks" unique_id=2127765801]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, -1, 0)
+emitting = false
+amount = 20
+lifetime = 1.5
+one_shot = true
+speed_scale = 0.5
+randomness = 1.0
+local_coords = true
+process_material = ExtResource("3_idhsf")
+draw_pass_1 = SubResource("SphereMesh_ky6jn")
+script = ExtResource("4_prt00")
+
+[node name="CrusherGPUParticles3D2" type="GPUParticles3D" parent="Looks" unique_id=922578425]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, -1, 0)
+emitting = false
+amount = 20
+lifetime = 1.5
+one_shot = true
+speed_scale = 0.5
+randomness = 1.0
+local_coords = true
+process_material = ExtResource("3_idhsf")
+draw_pass_1 = SubResource("SphereMesh_4poc2")
+script = ExtResource("4_prt00")
 
 [node name="StaticCollision" type="StaticBody3D" parent="." unique_id=1054125689]
 
