@@ -199,6 +199,6 @@ func _input(event: InputEvent) -> void:
 
 func add_rad_level(add_value:int):
     rad_level += add_value
-    rad_level_changed.emit(rad_level)
+    rad_level_changed.emit(rad_level, max_rad_level)
     if rad_level >= max_rad_level:
         win_true()
