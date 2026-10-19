@@ -17,6 +17,8 @@
 [ext_resource type="AudioStream" uid="uid://cicp2befkein2" path="res://sfx/rad_sound.ogg" id="14_5q1j8"]
 [ext_resource type="AudioStream" uid="uid://dh4n8lcjp2eqd" path="res://sfx/crane_stop.wav" id="14_k5sjp"]
 [ext_resource type="AudioStream" uid="uid://drd4aaggmt2rp" path="res://sfx/small_squeak.wav" id="15_ea43s"]
+[ext_resource type="AudioStream" uid="uid://d4f2y57y0qlgj" path="res://sfx/computer_bitte_melden.wav" id="18_54qb2"]
+[ext_resource type="AudioStream" uid="uid://ba1mlpn1vavpk" path="res://sfx/printer.wav" id="19_wl8ra"]
 
 [sub_resource type="Curve" id="Curve_46y3y"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
@@ -250,11 +252,20 @@ stream = ExtResource("10_4n5g4")
 stream = SubResource("AudioStreamRandomizer_k5sjp")
 volume_db = -16.754
 
+[node name="ComputerMessageAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1394810356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21810253, 0.078374356, -0.22651172)
+stream = ExtResource("18_54qb2")
+
+[node name="PrinterAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=2017736899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24989942, 0.10482219, -0.18669882)
+stream = ExtResource("19_wl8ra")
+
 [connection signal="crane_stop" from="." to="CraneStopAudioPlayer" method="play"]
 [connection signal="play_sound_good_action" from="." to="GoodLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_promo_sound" from="." to="PromoLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_rad_warning" from="." to="RadAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_wrong_action" from="." to="WrongLampAudioStreamPlayer3D" method="play"]
+[connection signal="entry_added" from="Journal" to="ComputerMessageAudioPlayer" method="play"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton4/StaticBody3D" to="Journal" method="to_older_entries"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton5/StaticBody3D" to="Journal" method="to_new_entries"]
 

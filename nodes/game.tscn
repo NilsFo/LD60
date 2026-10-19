@@ -201,6 +201,7 @@ autoplay = true
 [connection signal="display_next_red_robot_data_journal" from="GameState" to="Player/Journal" method="next_red_robot_entry"]
 [connection signal="display_next_robot_data_journal" from="GameState" to="Player/Journal" method="next_robot_entry"]
 [connection signal="display_next_tutorial" from="GameState" to="Player/Manuel" method="next_entry"]
+[connection signal="display_next_tutorial" from="GameState" to="Player/PrinterAudioPlayer" method="play"]
 [connection signal="lights_count_changed" from="GameState" to="Player" method="set_promo_level"]
 [connection signal="magnet_activate" from="GameState" to="MagnetBody/MagnetHum" method="play"]
 [connection signal="magnet_activate" from="GameState" to="MagnetBody/Magnet/MagnetLights" method="set_visible" binds= [true]]
@@ -215,6 +216,7 @@ autoplay = true
 [connection signal="phase_game_win_true" from="GameState" to="TrueWinCamera3D" method="make_current"]
 [connection signal="rad_level_changed" from="GameState" to="Player" method="set_rad_level_int"]
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
+[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_older_entries"]
 [connection signal="start_game_button_pressed" from="HUD" to="GameState" method="play"]
 
 [editable path="LookAreas"]
