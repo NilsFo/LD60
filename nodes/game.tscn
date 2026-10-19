@@ -65,11 +65,11 @@ autostart = true
 script = ExtResource("6_b11oy")
 
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
+visible = false
 rotationSpeed = 0.6
 
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
-current = true
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
 transform = Transform3D(1, 0, 0, 0, 0.41020024, 0.9119954, 0, -0.9119954, 0.41020024, -0.29966295, 0.9619458, -2.64854)
@@ -80,8 +80,6 @@ spot_angle_attenuation = 0.40612632
 
 [node name="ManuelText" parent="Player/Manuel" parent_id_path=PackedInt32Array(1268145214, 520805951) index="1" unique_id=705993798]
 transform = Transform3D(0.059791323, 0.056678917, -0.056678914, 0, 0.07071068, 0.07071068, 0.08015609, -0.042278852, 0.04227885, 0.009975255, 0.014771283, -0.055919245)
-
-[node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1860931207]
 light_energy = 0.0
@@ -129,8 +127,37 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 
 [node name="Music" parent="." unique_id=403756141 instance=ExtResource("15_15wb7")]
 
+[node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
+
+[node name="MainMenuCamera3D" type="Camera3D" parent="." unique_id=2027263710]
+transform = Transform3D(0.99848944, 0.020672966, 0.050906133, 0, 0.9265151, -0.3762575, -0.054943662, 0.37568915, 0.9251155, -0.23209482, -1.7146964, 4.558077)
+current = true
+
+[node name="WinCamera3D" type="Camera3D" parent="." unique_id=1166313206]
+transform = Transform3D(0.64410454, -0.4098508, 0.64587283, 0, 0.8443472, 0.53579646, -0.7649375, -0.34510893, 0.54384786, 37.734894, -7.043611, 33.180252)
+visible = false
+
+[node name="Label3D" type="Label3D" parent="WinCamera3D" unique_id=1037369256]
+transform = Transform3D(0.99923, 0.027232826, -0.02824539, -0.02102229, 0.9794415, 0.2006303, 0.03312844, -0.199882, 0.9792598, 0.07087517, 0.012023926, -1.5372391)
+text = "Ich bin ein Win Screen"
+
+[node name="TrueWinCamera3D" type="Camera3D" parent="." unique_id=795894613]
+transform = Transform3D(0.64410454, -0.4098508, 0.64587283, 0, 0.8443472, 0.53579646, -0.7649375, -0.34510893, 0.54384786, 23.5788, -7.043611, 40.730408)
+visible = false
+
+[node name="Label3D" type="Label3D" parent="TrueWinCamera3D" unique_id=1717911553]
+transform = Transform3D(0.99923, 0.027232826, -0.02824539, -0.02102229, 0.9794415, 0.2006303, 0.03312844, -0.199882, 0.9792598, 0.07087517, 0.012023926, -1.5372391)
+text = "Ich bin ein Win Screen"
+
+[connection signal="phase_game_play" from="GameState" to="Player" method="show"]
+[connection signal="phase_game_play" from="GameState" to="Player/PlayerCamera" method="make_current"]
+[connection signal="phase_game_win" from="GameState" to="WinCamera3D" method="show"]
+[connection signal="phase_game_win" from="GameState" to="WinCamera3D" method="make_current"]
+[connection signal="phase_game_win_true" from="GameState" to="TrueWinCamera3D" method="show"]
+[connection signal="phase_game_win_true" from="GameState" to="TrueWinCamera3D" method="make_current"]
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
+[connection signal="start_game_button_pressed" from="HUD" to="GameState" method="play"]
 
 [editable path="LookAreas"]
 [editable path="LookAreas/LookArea - Grind"]
