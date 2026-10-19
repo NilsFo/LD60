@@ -26,14 +26,14 @@ debugLB = NodePath("GameLayer/DebugLB")
 cursorNormal = NodePath("GameLayer/Label/CursorNormal")
 cursorSelect = NodePath("GameLayer/Label/CursorSelect")
 
-[node name="GameLayer" type="CanvasLayer" parent="." unique_id=1165587669]
-visible = false
-
-[node name="FPS Label" type="Label" parent="GameLayer" unique_id=1371958760]
+[node name="FPS Label" type="Label" parent="." unique_id=1371958760]
 offset_right = 43.0
 offset_bottom = 23.0
 text = "FPS: ?"
 script = SubResource("GDScript_g5j3c")
+
+[node name="GameLayer" type="CanvasLayer" parent="." unique_id=1165587669]
+visible = false
 
 [node name="Label" type="Label" parent="GameLayer" unique_id=160306285]
 anchors_preset = 8
@@ -68,6 +68,7 @@ grow_horizontal = 2
 horizontal_alignment = 2
 
 [node name="MainLayer" type="CanvasLayer" parent="." unique_id=1257721236]
+visible = false
 
 [node name="Panel" type="Panel" parent="MainLayer" unique_id=789954631]
 anchors_preset = 15
@@ -106,7 +107,8 @@ offset_right = 799.0
 offset_bottom = -138.0
 grow_vertical = 0
 scale = Vector2(2, 2)
-text = "Game created by Nils Förster, Adrian Herbers, Patrick Herbers, 
+text = "Created for Ludum Dare 60. Theme: Old Tech
+Game created by Nils Förster, Adrian Herbers, Patrick Herbers, 
 Patrick Quiskamp, Dragona Mortoria."
 
 [node name="Label2" type="Label" parent="MainLayer/Panel" unique_id=957542701]
@@ -136,4 +138,49 @@ scale = Vector2(5, 5)
 text = "Decon Protocol"
 horizontal_alignment = 1
 
+[node name="Tutorial Layer" type="CanvasLayer" parent="." unique_id=760140221]
+visible = false
+
+[node name="Panel" type="Panel" parent="Tutorial Layer" unique_id=153193151]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial Layer/Panel" unique_id=1964661697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="Tutorial Layer/Panel" unique_id=2102984499]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -24.5
+offset_right = 52.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "LMB: Interact
+RMB: Zoom"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="Tutorial Layer" unique_id=80744087]
+wait_time = 4.0
+
 [connection signal="pressed" from="MainLayer/Panel/Button" to="." method="start_game"]
+[connection signal="pressed" from="MainLayer/Panel/Button" to="Tutorial Layer" method="show"]
+[connection signal="pressed" from="MainLayer/Panel/Button" to="Tutorial Layer/Timer" method="start"]
+[connection signal="timeout" from="Tutorial Layer/Timer" to="Tutorial Layer" method="hide"]
