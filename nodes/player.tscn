@@ -14,9 +14,15 @@
 [ext_resource type="AudioStream" uid="uid://kq8lhgb7unjo" path="res://sfx/wrong_action.ogg" id="10_5m3aa"]
 [ext_resource type="AudioStream" uid="uid://s3uufjcmf573" path="res://sfx/crane_move.wav" id="10_gggum"]
 [ext_resource type="AudioStream" uid="uid://co4kmtbcun1kr" path="res://sfx/good_action.ogg" id="11_gggum"]
+[ext_resource type="Texture2D" uid="uid://mqdl7mpyg0yo" path="res://sprites/manual/protocol_1.png" id="11_wbqmi"]
+[ext_resource type="Texture2D" uid="uid://bcehp0axfq1hy" path="res://sprites/manual/protocol_2.png" id="12_h7dm3"]
+[ext_resource type="Texture2D" uid="uid://cedi0h1bqnpod" path="res://sprites/manual/protocol_3.png" id="13_a813b"]
 [ext_resource type="AudioStream" uid="uid://cicp2befkein2" path="res://sfx/rad_sound.ogg" id="14_5q1j8"]
 [ext_resource type="AudioStream" uid="uid://dh4n8lcjp2eqd" path="res://sfx/crane_stop.wav" id="14_k5sjp"]
+[ext_resource type="Texture2D" uid="uid://b6ksmoyfbvyyl" path="res://sprites/manual/protocol_4.png" id="14_rfehu"]
 [ext_resource type="AudioStream" uid="uid://drd4aaggmt2rp" path="res://sfx/small_squeak.wav" id="15_ea43s"]
+[ext_resource type="AudioStream" uid="uid://d4f2y57y0qlgj" path="res://sfx/computer_bitte_melden.wav" id="18_54qb2"]
+[ext_resource type="AudioStream" uid="uid://ba1mlpn1vavpk" path="res://sfx/printer.wav" id="19_wl8ra"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 
@@ -76,10 +82,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46167737, 0)
 [node name="Crane" parent="." unique_id=1531356480 instance=ExtResource("3_me0cc")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
-[node name="LampCorrect" parent="Crane" index="40" unique_id=70487255]
+[node name="LampCorrect" parent="Crane" index="40" unique_id=987044254]
 visible = false
 
-[node name="LampIncorrect" parent="Crane" index="45" unique_id=1876498371]
+[node name="LampIncorrect" parent="Crane" index="45" unique_id=1094601885]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Crane" unique_id=1595937500]
@@ -190,12 +196,16 @@ transform = Transform3D(0.05, 0, 5.9211896e-16, 0, 0.05, 0, -5.9211896e-16, 0, 0
 [node name="StaticBody3D" parent="Journal/PlayerConsoleButton5" index="0" unique_id=1043815935]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.07849765, 0, -0.22718549)
 
-[node name="Manuel" type="Node3D" parent="." unique_id=520805951 node_paths=PackedStringArray("text_display", "page_label")]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Journal" unique_id=1464757590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11002438, -0.023125961, -0.05415672)
+stream = ExtResource("14_5q1j8")
+
+[node name="Manuel" type="Node3D" parent="." unique_id=520805951 node_paths=PackedStringArray("text_sprite", "page_label")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23399484, 0.18326855, -0.15702203)
 script = ExtResource("8_gggum")
-text_display = NodePath("ManuelText")
+text_sprite = NodePath("Sprite3D")
 page_label = NodePath("ManuelLabel")
-enable_debug_text = false
+data_lore = Array[Texture2D]([ExtResource("11_wbqmi"), ExtResource("12_h7dm3"), ExtResource("13_a813b"), ExtResource("14_rfehu")])
 
 [node name="ManuelLabel" type="Label3D" parent="Manuel" unique_id=2037631283]
 transform = Transform3D(0.057357647, 0.0579228, -0.0579228, 0, 0.07071068, 0.07071068, 0.08191521, -0.04055798, 0.04055798, 0.077947795, 0.024992868, 0.019901752)
@@ -208,6 +218,7 @@ outline_size = 0
 
 [node name="ManuelText" type="Label3D" parent="Manuel" unique_id=705993798]
 transform = Transform3D(0.059791323, 0.05667892, -0.05667891, 0, 0.070710674, 0.07071068, 0.08015609, -0.042278852, 0.042278845, 0.009975255, 0.014771283, -0.055919245)
+visible = false
 modulate = Color(0, 0, 0, 1)
 outline_modulate = Color(0.71, 0.71, 0.71, 1)
 text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren"
@@ -218,6 +229,14 @@ vertical_alignment = 0
 line_spacing = 0.05
 autowrap_mode = 2
 width = 200.0
+
+[node name="Sprite3D" type="Sprite3D" parent="Manuel" unique_id=1771206919]
+transform = Transform3D(0.059791327, 0.056678917, -0.056678902, 0, 0.070710674, 0.07071069, 0.08015608, -0.04227886, 0.04227885, 0.009975255, 0.014771283, -0.055919245)
+texture = ExtResource("14_rfehu")
+
+[node name="ManuelAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Manuel" unique_id=1641892453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018760383, 0, -0.003419429)
+stream = ExtResource("14_5q1j8")
 
 [node name="AudioFader" parent="." unique_id=1999275858 instance=ExtResource("8_ejohg")]
 fade_speed = 5.0
@@ -241,13 +260,23 @@ stream = ExtResource("10_4n5g4")
 stream = SubResource("AudioStreamRandomizer_k5sjp")
 volume_db = -16.754
 
+[node name="ComputerMessageAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1394810356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21810253, 0.078374356, -0.22651172)
+stream = ExtResource("18_54qb2")
+
+[node name="PrinterAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=2017736899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24989942, 0.10482219, -0.18669882)
+stream = ExtResource("19_wl8ra")
+
 [connection signal="crane_stop" from="." to="CraneStopAudioPlayer" method="play"]
 [connection signal="play_sound_good_action" from="." to="GoodLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_promo_sound" from="." to="PromoLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_rad_warning" from="." to="RadAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_wrong_action" from="." to="WrongLampAudioStreamPlayer3D" method="play"]
+[connection signal="entry_added" from="Journal" to="ComputerMessageAudioPlayer" method="play"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton4/StaticBody3D" to="Journal" method="to_older_entries"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton5/StaticBody3D" to="Journal" method="to_new_entries"]
+[connection signal="new_entry" from="Manuel" to="Manuel/ManuelAudioStreamPlayer3D" method="play"]
 
 [editable path="Crane"]
 [editable path="PlayerConsoleButton"]
