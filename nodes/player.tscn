@@ -17,11 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://mqdl7mpyg0yo" path="res://sprites/manual/protocol_1.png" id="11_wbqmi"]
 [ext_resource type="Texture2D" uid="uid://bcehp0axfq1hy" path="res://sprites/manual/protocol_2.png" id="12_h7dm3"]
 [ext_resource type="Texture2D" uid="uid://cedi0h1bqnpod" path="res://sprites/manual/protocol_3.png" id="13_a813b"]
-[ext_resource type="AudioStream" uid="uid://cicp2befkein2" path="res://sfx/rad_sound.ogg" id="14_5q1j8"]
 [ext_resource type="AudioStream" uid="uid://dh4n8lcjp2eqd" path="res://sfx/crane_stop.wav" id="14_k5sjp"]
 [ext_resource type="Texture2D" uid="uid://b6ksmoyfbvyyl" path="res://sprites/manual/protocol_4.png" id="14_rfehu"]
 [ext_resource type="AudioStream" uid="uid://drd4aaggmt2rp" path="res://sfx/small_squeak.wav" id="15_ea43s"]
 [ext_resource type="AudioStream" uid="uid://d4f2y57y0qlgj" path="res://sfx/computer_bitte_melden.wav" id="18_54qb2"]
+[ext_resource type="AudioStream" uid="uid://bflsvvxt3y1dw" path="res://sfx/alarm.wav" id="19_h7dm3"]
 [ext_resource type="AudioStream" uid="uid://ba1mlpn1vavpk" path="res://sfx/printer.wav" id="19_wl8ra"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
@@ -82,10 +82,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46167737, 0)
 [node name="Crane" parent="." unique_id=1531356480 instance=ExtResource("3_me0cc")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
-[node name="LampCorrect" parent="Crane" index="40" unique_id=987044254]
+[node name="LampCorrect" parent="Crane" index="40" unique_id=700915996]
 visible = false
 
-[node name="LampIncorrect" parent="Crane" index="45" unique_id=1094601885]
+[node name="LampIncorrect" parent="Crane" index="45" unique_id=12600344]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Crane" unique_id=1595937500]
@@ -196,10 +196,6 @@ transform = Transform3D(0.05, 0, 5.9211896e-16, 0, 0.05, 0, -5.9211896e-16, 0, 0
 [node name="StaticBody3D" parent="Journal/PlayerConsoleButton5" index="0" unique_id=1043815935]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.07849765, 0, -0.22718549)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Journal" unique_id=1464757590]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11002438, -0.023125961, -0.05415672)
-stream = ExtResource("14_5q1j8")
-
 [node name="Manuel" type="Node3D" parent="." unique_id=520805951 node_paths=PackedStringArray("text_sprite", "page_label")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23399484, 0.18326855, -0.15702203)
 script = ExtResource("8_gggum")
@@ -236,7 +232,7 @@ texture = ExtResource("14_rfehu")
 
 [node name="ManuelAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Manuel" unique_id=1641892453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018760383, 0, -0.003419429)
-stream = ExtResource("14_5q1j8")
+stream = ExtResource("19_wl8ra")
 
 [node name="AudioFader" parent="." unique_id=1999275858 instance=ExtResource("8_ejohg")]
 fade_speed = 5.0
@@ -251,7 +247,8 @@ stream = ExtResource("10_5m3aa")
 stream = ExtResource("11_gggum")
 
 [node name="RadAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=270422500]
-stream = ExtResource("14_5q1j8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55366766, 0.38013622, -0.27686396)
+stream = ExtResource("19_h7dm3")
 
 [node name="PromoLampAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1276911779]
 stream = ExtResource("10_4n5g4")
@@ -263,17 +260,14 @@ volume_db = -16.754
 [node name="ComputerMessageAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1394810356]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21810253, 0.078374356, -0.22651172)
 stream = ExtResource("18_54qb2")
-
-[node name="PrinterAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=2017736899]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24989942, 0.10482219, -0.18669882)
-stream = ExtResource("19_wl8ra")
+volume_db = 7.0
 
 [connection signal="crane_stop" from="." to="CraneStopAudioPlayer" method="play"]
 [connection signal="play_sound_good_action" from="." to="GoodLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_promo_sound" from="." to="PromoLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_rad_warning" from="." to="RadAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_wrong_action" from="." to="WrongLampAudioStreamPlayer3D" method="play"]
-[connection signal="entry_added" from="Journal" to="ComputerMessageAudioPlayer" method="play"]
+[connection signal="entry_added" from="Journal" to="ComputerMessageAudioPlayer" method="play" unbinds=1]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton4/StaticBody3D" to="Journal" method="to_older_entries"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton5/StaticBody3D" to="Journal" method="to_new_entries"]
 [connection signal="new_entry" from="Manuel" to="Manuel/ManuelAudioStreamPlayer3D" method="play"]
