@@ -7,7 +7,7 @@ signal rigidbody_enters_zapper()
 signal rigidbody_exited_zapper()
 
 @export var targets: Array = [] 
-@export var delay: float = 1.5
+@export var delay: float = 0.5
 
 @export var is_running: bool = false
 
