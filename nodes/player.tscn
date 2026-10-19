@@ -30,8 +30,9 @@ point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wrp4"]
 
-[node name="Player" type="Node3D" unique_id=1268145214]
+[node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons")]
 script = ExtResource("1_u63mc")
+allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton4/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D")]
 curve_accelaration = SubResource("Curve_46y3y")
 curve_decelaration = SubResource("Curve_qbdof")
 

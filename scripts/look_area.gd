@@ -4,6 +4,7 @@ extends Area3D
 signal rigidbody_enter(body: RigidBody3D)
 signal rigidbody_leave(body: RigidBody3D)
 
+@export var is_spawn_pipe:bool=false
 @export var is_narrow:bool=false
 @export var auto_turn_on:bool=false
 @export var is_looking:bool=false
@@ -11,11 +12,13 @@ signal rigidbody_leave(body: RigidBody3D)
 @export var all_areas: Array[LookArea]
 @onready var lightsSFX:AudioStreamPlayer=$LightsSFX
 @onready var ambianceSFX:AudioFader=$AmbianceFader
+var gameState:GameState
 
 var timer: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    gameState = $/root/Game/GameState
     pass # Replace with function body.
     area_entered.connect(_on_body_entered)
     area_exited.connect(_on_body_exited)
@@ -52,6 +55,7 @@ func _on_body_entered(body: Node3D) -> void:
     if body.name == "LookArea3D":
         print("Player looks at: "+name+" from: "+get_parent().name)
         is_looking=true
+        gameState.on_look_area_entered(self)
         
         if lightsSFX:
             lightsSFX.play()

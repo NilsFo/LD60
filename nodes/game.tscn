@@ -127,6 +127,7 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
+[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_older_entries"]
 
 [editable path="LookAreas"]
 [editable path="LookAreas/LookArea - Grind"]

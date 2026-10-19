@@ -3,6 +3,7 @@ extends Node3D
 
 @export var playerJournal: Journal
 @export var playerManuel: Journal
+@export var playerLookArea:LookArea
 
 @export var player_rotation: float=0.0
 @export var magnet:Node3D
@@ -84,7 +85,10 @@ func report_decomission_incorrect(reason: String):
     promote_mod(0)
     decomission_incorrect.emit(reason)
     $NextLevelTimer.start()
-    
+
+func on_look_area_entered(area:LookArea):
+    playerLookArea=area
+    print('GS: new area')
 
 func _input(event: InputEvent) -> void:
     if $CheatManager.cheat_mode:
