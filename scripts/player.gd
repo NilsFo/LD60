@@ -42,10 +42,6 @@ signal play_sound_good_action()
 signal play_sound_rad_warning()
 signal play_sound_promo_sound()
 
-signal next_lore_journal()
-signal next_robot_journal()
-signal next_manuel()
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     mode_timer=0
@@ -210,12 +206,3 @@ func trigger_bad_lamp():
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("debug_promo_three"):
         set_promo_level(4)
-
-func next_lore_entry():
-    next_lore_journal.emit()
-
-func next_robot_entry():
-    next_robot_journal.emit()
-
-func next_manuel_entry():
-    next_manuel.emit()
