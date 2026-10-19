@@ -47,7 +47,7 @@ stream_1/weight = 2.0
 
 [node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons", "promo_lamp_one", "promo_lamp_two", "promo_lamp_three", "promo_lamp_four", "promo_lamp_five", "rad_scale", "good_lamp", "bad_lamp", "real_lamp")]
 script = ExtResource("1_u63mc")
-allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton4/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D")]
+allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton5/StaticBody3D")]
 promo_lamp_one = NodePath("Crane/Lamp1")
 promo_lamp_two = NodePath("Crane/Lamp2")
 promo_lamp_three = NodePath("Crane/Lamp3")
@@ -201,7 +201,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23399484, 0.18326855, -0.15
 script = ExtResource("8_gggum")
 text_sprite = NodePath("Sprite3D")
 page_label = NodePath("ManuelLabel")
-data_lore = Array[Texture2D]([ExtResource("11_wbqmi"), ExtResource("12_h7dm3"), ExtResource("13_a813b"), ExtResource("14_rfehu")])
+data_lore = Array[Texture2D]([ExtResource("11_wbqmi"), ExtResource("12_h7dm3"), ExtResource("13_a813b"), ExtResource("13_a813b"), ExtResource("14_rfehu")])
 
 [node name="ManuelLabel" type="Label3D" parent="Manuel" unique_id=2037631283]
 transform = Transform3D(0.057357647, 0.0579228, -0.0579228, 0, 0.07071068, 0.07071068, 0.08191521, -0.04055798, 0.04055798, 0.077947795, 0.024992868, 0.019901752)

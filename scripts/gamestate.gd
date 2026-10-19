@@ -123,6 +123,7 @@ func play():
 
 func win():
     print("A WINNER IS YOU!")
+    await get_tree().create_timer(5.).timeout
     gamephase = 2;
     phase_game_change.emit(gamephase)
     phase_game_win.emit()
@@ -131,6 +132,7 @@ func win():
 
 func win_true():
     print("A TRUE WINNER IS YOU!")
+    await get_tree().create_timer(5.).timeout
     gamephase = 3;
     phase_game_change.emit(gamephase)
     phase_game_win_true.emit()
@@ -155,13 +157,13 @@ func update_crane_lights():
     var last_lights_count = lights_count
     if promotion_level < 4:
         lights_count=0
-    elif promotion_level < 8:
-        lights_count=1
     elif promotion_level < 12:
+        lights_count=1
+    elif promotion_level < 16:
         lights_count=2
-    elif promotion_level < 15:
-        lights_count=3
     elif promotion_level < 18:
+        lights_count=3
+    elif promotion_level < 21:
         lights_count=4
     else:
         lights_count=5

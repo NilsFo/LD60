@@ -42,9 +42,9 @@ extends Marker3D
     "x", #12 (ROBOT RED)
     "m", #13 (ROBOT DATA)
     
-    "xrp", #14 (robots)
+    "d", #14 (DATA)
+    "xrp", #15 (robots)
     
-    "d", #15 (DATA)
     
     "z", #16 (ROBO RED BLUE)
     "xrppp", #17 (robots)
@@ -52,7 +52,7 @@ extends Marker3D
     
     "sz", #19 (slime, green / ROBO RED BLUE)
     "sz", #20 (slime, green / ROBO RED BLUE)
-    "sz" #21 (slime, green / ROBO RED BLUE)
+    "s" #21 (slime, green / ROBO RED BLUE)
 ]
 
 var game_state:GameState
