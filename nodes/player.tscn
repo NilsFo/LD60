@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://wjiwhykm1db3" path="res://scripts/journal.gd" id="7_46y3y"]
 [ext_resource type="PackedScene" uid="uid://7yhvl3sgnlhm" path="res://nodes/audio_fader.tscn" id="8_ejohg"]
 [ext_resource type="AudioStream" uid="uid://cusiscf22u28r" path="res://sfx/crane/127826__martats__rail_city.wav" id="9_qbdof"]
+[ext_resource type="AudioStream" uid="uid://dewul7qxygqt" path="res://sfx/metal_interactions/metal_button_press1.wav" id="10_4n5g4"]
+[ext_resource type="AudioStream" uid="uid://kq8lhgb7unjo" path="res://sfx/wrong_action.ogg" id="10_5m3aa"]
+[ext_resource type="AudioStream" uid="uid://co4kmtbcun1kr" path="res://sfx/good_action.ogg" id="11_gggum"]
 
 [sub_resource type="Curve" id="Curve_46y3y"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
@@ -202,6 +205,22 @@ fade_speed = 5.0
 [node name="AudioPlayer" parent="AudioFader" index="0" unique_id=1500704816]
 stream = ExtResource("9_qbdof")
 
+[node name="WrongLampAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1699646776]
+stream = ExtResource("10_5m3aa")
+
+[node name="GoodLampAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=815928261]
+stream = ExtResource("11_gggum")
+
+[node name="RadAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=270422500]
+stream = ExtResource("10_4n5g4")
+
+[node name="PromoLampAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1276911779]
+stream = ExtResource("10_4n5g4")
+
+[connection signal="play_sound_good_action" from="." to="GoodLampAudioStreamPlayer3D" method="play"]
+[connection signal="play_sound_promo_sound" from="." to="PromoLampAudioStreamPlayer3D" method="play"]
+[connection signal="play_sound_rad_warning" from="." to="RadAudioStreamPlayer3D" method="play"]
+[connection signal="play_sound_wrong_action" from="." to="WrongLampAudioStreamPlayer3D" method="play"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton4/StaticBody3D" to="Journal" method="to_older_entries"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton5/StaticBody3D" to="Journal" method="to_new_entries"]
 
