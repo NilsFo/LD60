@@ -40,9 +40,16 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Light": {
-"import/skip_import": true
+"materials": {
+"Metall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/blend/halle_mat.tres",
+"use_external/path": "uid://dptls4dbpy7ep"
+},
+"Supertex": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/blend/halle_mat.tres",
+"use_external/path": "uid://dptls4dbpy7ep"
 }
 }
 }

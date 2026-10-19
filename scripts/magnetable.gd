@@ -10,7 +10,6 @@ func _ready() -> void:
     pass # Replace with function body.
     gameState = $/root/Game/GameState
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     pass
@@ -22,4 +21,4 @@ func attract_to_magnet(delta):
     var dir: Vector3 = (gameState.magnet.global_position - my_body.global_position).normalized()
     var pulse = dir *gameState.magnet_strength*delta * distance_mult
     
-    my_body.apply_central_impulse(dir)
+    my_body.apply_central_impulse(pulse)

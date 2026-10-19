@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://k2875pg441cr"]
+
+[ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scraps/scarp_robot.tscn" id="1_uldib"]
+[ext_resource type="Material" uid="uid://btu8l0e2ngfj4" path="res://nodes/scraps/data_sucked.tres" id="2_8ds58"]
+
+[node name="ScrapRobotRed" unique_id=662491241 instance=ExtResource("1_uldib")]
+isRed = true
+
+[node name="Cube" parent="Roboter/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1915450099, 1876978954) index="0" unique_id=333821038]
+surface_material_override/1 = ExtResource("2_8ds58")
+surface_material_override/2 = ExtResource("2_8ds58")
+
+[node name="Physical Bone Kopf" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="1" unique_id=1827103674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2919977, 0)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0592148, 0)
+body_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0592148, 0)
+
+[node name="Physical Bone Unterarm_L" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="3" unique_id=1252102655]
+transform = Transform3D(-1.9475537e-14, 4.371139e-08, 1, 1, 1.9470718e-07, 1.0964616e-14, -1.9470718e-07, 1, -4.371139e-08, -0.38934475, 0.20498286, -2.5398347e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.130396e-15, 7.3155975e-09, 0.16073465)
+body_offset = Transform3D(1, -4.2632564e-14, 1.9475552e-14, -6.6850928e-15, -4.3711402e-08, -1, 2.842171e-14, 1, -4.3711417e-08, 0, 0.16073465, -2.8965808e-10)
+
+[node name="Physical Bone Unterarm_R" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="5" unique_id=67609945]
+transform = Transform3D(-1.0964836e-14, 1.4210855e-14, -1, -1, 1.9470721e-07, 1.0964839e-14, 1.9470721e-07, 1, 1.4210852e-14, 0.38934475, 0.20498286, -2.5400777e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7624312e-15, 2.920904e-10, 0.16073465)
+body_offset = Transform3D(1, 1.4210855e-14, -1.0964849e-14, 1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -2.9208813e-10)
+
+[node name="Physical Bone Unterbein_L" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="7" unique_id=881226949]
+transform = Transform3D(1, -6.3573026e-08, -1.146196e-14, 1.1461961e-14, 1.9730718e-14, 1, -6.3573026e-08, -1, 1.9730718e-14, -0.08672499, -0.41701764, -4.7527422e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5265572e-15, 5.841751e-10, 0.13318458)
+body_offset = Transform3D(1, 0, -1.1461966e-14, -1.1461961e-14, 8.690992e-15, -1, 0, 1, 8.690992e-15, 0, 0.13318458, -5.8417626e-10)
+
+[editable path="Roboter"]

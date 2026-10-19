@@ -1,13 +1,19 @@
 class_name GameState
 extends Node3D
 
+@export var playerJournal: Journal
+@export var playerManuel: Journal
+@export var playerLookArea:LookArea
+
 @export var player_rotation: float=0.0
 @export var magnet:Node3D
 @export var magnet_active:bool=false
 @export var magnet_strength:float=10.0
 
 var is_player_hover_over_interactable
+var request_spawn_on_next_look:bool=false
 
+@export var spawn_pool_cache:String=""
 @export var promotion_level: int = 0
 ### Stage 0: Tutorial Green
 ### Stage 1: Green Spawns
@@ -17,24 +23,39 @@ var is_player_hover_over_interactable
 ### Stage 5: Red Spawns
 ### Stage 6: Game Over
 @export var stage: int = 0
-@export var stage1_promote = 5
-@export var stage3_promote = 10
-@export var stage5_promote = 15
+@export var stage_promotions: Array[int] = [1,4,5,8,9,12,15]
 
+### Phase 0: Start Screen
+### Phase 1: Play
+### Phase 2: Win
+### Phase 3: Win_True
+@export var gamephase: int = 0
 
+signal phase_game_change(old: int, new: int)
+signal phase_game_start()
+signal phase_game_play()
+signal phase_game_win()
+signal phase_game_win_true()
+
+var lights_count: int=0
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
 
 signal decomission_correct(reason: String)
 signal decomission_incorrect(reason: String)
-signal next_stage(level: int)
 signal next_level(level: int)
+signal lights_count_changed(lights_count: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    gamephase = 0
+    phase_game_change.emit(gamephase)
+    phase_game_start.emit()
     magnet_active=false
-    Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
     $NextLevelTimer.timeout.connect(_next_level)
-
+    request_spawn_on_next_look=true
+    
+    update_crane_lights()
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -46,51 +67,92 @@ func on_magnet_button_pressed():
 
 func push_data_message(message):
     print("Data incoming: " + message)
-    #TODO: push to tablet
+    playerJournal.add_entry(message)
 
 func _next_level():
     print("Next level")
     scrap_spawner.spawn()
     next_level.emit()
 
-# promote up or down, respecting stages
-func promote_mod(d: int):
-    if d < 0:
-        if stage == 0 or stage == 2 or stage == 4:
-            # dont unpromote on tutorial
-            return
-    promotion_level += d
-    if d > 0:
-        # check for stage advances
-        if promotion_level > stage5_promote and stage < 5:
-            stage = 5
-            next_stage.emit()
-        if promotion_level > stage5_promote and stage < 4:
-            stage = 4
-            next_stage.emit()
-        if promotion_level > stage3_promote and stage < 3:
-            stage = 3
-            next_stage.emit()
-        if promotion_level > stage3_promote and stage < 2:
-            stage = 2
-            next_stage.emit()
-        if promotion_level > stage1_promote and stage < 2:
-            stage = 2
-            next_stage.emit()
-        if promotion_level > stage1_promote and stage < 1:
-            stage = 1
-            next_stage.emit()
+func play():
+    gamephase = 1;
+    phase_game_change.emit(gamephase)
+    phase_game_play.emit()
+    print("GAME ON!")
+    
+    if OS.has_feature("editor"):
+        print("Running from Godot editor")
+    else:
+        print("Running as exported standalone game")
+        Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) 
 
+func win():
+    print("A WINNER IS YOU!")
+    gamephase = 2;
+    phase_game_change.emit(gamephase)
+    phase_game_win.emit()
+    
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
+
+func win_true():
+    print("A TRUE WINNER IS YOU!")
+    gamephase = 3;
+    phase_game_change.emit(gamephase)
+    phase_game_win_true.emit()
+    
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 
 func report_decomission_correct(reason: String):
     print("Decomission correct! " + reason)
-    promote_mod(1)
     decomission_correct.emit(reason)
-    $NextLevelTimer.start()
+    promotion_level+=1
+    spawn_pool_cache="?"
+    update_crane_lights()
+    request_spawn_on_next_look=true
+    
+func update_crane_lights():
+    if promotion_level < 4:
+        lights_count=0
+    elif promotion_level < 8:
+        lights_count=1
+    elif promotion_level < 12:
+        lights_count=2
+    elif promotion_level < 15:
+        lights_count=3
+    elif promotion_level < 18:
+        lights_count=4
+    else:
+        lights_count=5
+        
+    lights_count_changed.emit(lights_count)
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
-    promote_mod(-1)
+    spawn_pool_cache="?"
     decomission_incorrect.emit(reason)
-    $NextLevelTimer.start()
+    request_spawn_on_next_look=true
+
+func on_look_area_entered(area:LookArea):
+    playerLookArea=area
+    print('GS: new area')
     
+    if area.is_spawn_pipe:
+        print('Pipe!')
+        
+        if request_spawn_on_next_look:
+            $NextLevelTimer.start()
+            request_spawn_on_next_look=false
+
+func _input(event: InputEvent) -> void:
+    if $CheatManager.cheat_mode:
+        if event is InputEventKey:
+            if event.pressed and event.keycode == KEY_N:
+                print("Cheating to the next lvl")
+                for c in $/root/Game/Scrap.get_children():
+                    c.queue_free()
+                report_decomission_correct("Cheating")
+            if event.pressed and event.keycode == KEY_R:
+                print("Cheating to the next lvl")
+                for c in $/root/Game/Scrap.get_children():
+                    c.queue_free()
+                report_decomission_incorrect("Cheating")
