@@ -49,7 +49,7 @@ transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0.5, 0)
 script = ExtResource("1_p0140")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Logik/FirepitArea3D" unique_id=1635930990]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8598404, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1446009, 0)
 shape = SubResource("BoxShape3D_hy1l3")
 
 [node name="Fire" type="Node3D" parent="." unique_id=839398816 node_paths=PackedStringArray("listOfGPUParticles")]

@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
     timer+=delta*read_speed
     
     var cursor: int=int(timer)
-    if cursor == light_string_current.length():
+    if cursor >= light_string_current.length():
         timer=0
         cursor=0
         
