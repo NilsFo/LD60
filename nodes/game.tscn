@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 [ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="15_15wb7"]
+[ext_resource type="Script" uid="uid://cx5sn7gmvpv0q" path="res://nodes/spook_manager.gd" id="16_i1818"]
+[ext_resource type="PackedScene" uid="uid://sww8hgr28q6f" path="res://nodes/spooks/robot_watchers.tscn" id="17_827r2"]
+[ext_resource type="Texture2D" uid="uid://rpbk4xqjma7b" path="res://icon.svg" id="18_4axws"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -126,9 +129,49 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 [node name="Music" parent="." unique_id=403756141 instance=ExtResource("15_15wb7")]
 
 [node name="SpookManager" type="Node3D" parent="." unique_id=332292885]
+script = ExtResource("16_i1818")
+
+[node name="RobotWatchers" parent="SpookManager" unique_id=1078187735 instance=ExtResource("17_827r2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.0034210682, -0.6403308, -9.55657)
+
+[node name="RobotWatchers2" parent="SpookManager" unique_id=1143375105 instance=ExtResource("17_827r2")]
+transform = Transform3D(-0.116171084, 0, 0.9932292, 0, 1, 0, -0.9932292, 0, -0.116171084, 9.562245, -0.6403308, 0.10971689)
+
+[node name="RobotWatchers3" parent="SpookManager" unique_id=1977292147 instance=ExtResource("17_827r2")]
+transform = Transform3D(0.8786079, 0, 0.4775437, 0, 1, 0, -0.4775437, 0, 0.8786079, -0.5905825, -0.6403308, 11.409016)
+
+[node name="RobotWatchers4" parent="SpookManager" unique_id=35218288 instance=ExtResource("17_827r2")]
+transform = Transform3D(-0.00977841, 0, -0.99995214, 0, 1, 0, 0.99995214, 0, -0.00977841, -9.698519, -0.6403308, -0.14555454)
+
+[node name="RobotWatchers5" parent="SpookManager" unique_id=493861091 instance=ExtResource("17_827r2")]
+transform = Transform3D(0.07375819, 0, -0.9972761, 0, 1, 0, 0.9972761, 0, 0.07375819, -14.597624, -0.64033055, 0.063834906)
+
+[node name="RobotWatchers6" parent="SpookManager" unique_id=265169237 instance=ExtResource("17_827r2")]
+transform = Transform3D(-0.98911935, 0, -0.14711457, 0, 1, 0, 0.14711457, 0, -0.98911935, 0.5238848, -0.6443906, -19.845972)
+
+[node name="Sprite3D" type="Sprite3D" parent="SpookManager" unique_id=1526406137]
+transform = Transform3D(0.5318521, 0, -0.8468373, 0, 1, 0, 0.8468373, 0, 0.5318521, 6.0557437, 1.7843417, -3.538791)
+texture = ExtResource("18_4axws")
+
+[node name="Sprite3D2" type="Sprite3D" parent="SpookManager" unique_id=214101818]
+transform = Transform3D(-0.44091776, 0, -0.8975475, 0, 1, 0, 0.8975475, 0, -0.44091776, 6.432196, 0.28295892, 2.82216)
+texture = ExtResource("18_4axws")
+
+[node name="Sprite3D3" type="Sprite3D" parent="SpookManager" unique_id=1765217749]
+transform = Transform3D(0.89798266, 0, 0.44003078, 0, 1, 0, -0.44003078, 0, 0.89798266, -3.1547024, 0.47257733, -6.299235)
+texture = ExtResource("18_4axws")
+
+[node name="Sprite3D4" type="Sprite3D" parent="SpookManager" unique_id=505236729]
+transform = Transform3D(-0.31064534, 0, 0.95052594, 0, 1, 0, -0.95052594, 0, -0.31064534, -6.510692, 0.23502183, 2.5386415)
+texture = ExtResource("18_4axws")
+
+[node name="Sprite3D5" type="Sprite3D" parent="SpookManager" unique_id=1694756689]
+transform = Transform3D(-0.8887739, 0, 0.45834583, 0, 1, 0, -0.45834583, 0, -0.8887739, -3.140667, 1.4463385, 6.304509)
+texture = ExtResource("18_4axws")
 
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
+[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_older_entries"]
 
 [editable path="LookAreas"]
 [editable path="LookAreas/LookArea - Grind"]
