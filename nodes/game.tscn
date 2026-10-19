@@ -125,6 +125,8 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 
 [node name="Music" parent="." unique_id=403756141 instance=ExtResource("15_15wb7")]
 
+[node name="SpookManager" type="Node3D" parent="." unique_id=332292885]
+
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
 
