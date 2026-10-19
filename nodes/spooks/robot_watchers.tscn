@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://sww8hgr28q6f"]
+
+[ext_resource type="PackedScene" uid="uid://o3g26mqk8ieo" path="res://models/blend/Roboter.blend" id="1_1ygpl"]
+[ext_resource type="Material" uid="uid://btu8l0e2ngfj4" path="res://nodes/scraps/data_sucked.tres" id="2_87bj7"]
+
+[node name="RobotWatchers" type="Node3D" unique_id=1078187735]
+
+[node name="Roboter" parent="." unique_id=102429031 instance=ExtResource("1_1ygpl")]
+
+[node name="Skeleton3D" parent="Roboter/Armature" parent_id_path=PackedInt32Array(102429031, 82420507) index="0" unique_id=828132249]
+bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
+bones/6/rotation = Quaternion(0, 0, -3.097107, 0.707107)
+
+[node name="Cube" parent="Roboter/Armature/Skeleton3D" index="0" unique_id=1321862665]
+surface_material_override/2 = ExtResource("2_87bj7")
+
+[node name="Roboter2" parent="." unique_id=839463617 instance=ExtResource("1_1ygpl")]
+transform = Transform3D(0.98887795, 0, -0.14872944, 0, 1, 0, 0.14872944, 0, 0.98887795, -0.39287007, 0, 0.7052752)
+
+[node name="Skeleton3D" parent="Roboter2/Armature" parent_id_path=PackedInt32Array(839463617, 82420507) index="0" unique_id=828132249]
+bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
+bones/6/rotation = Quaternion(0, 0, -3.097107, 0.707107)
+
+[node name="Cube" parent="Roboter2/Armature/Skeleton3D" index="0" unique_id=1321862665]
+surface_material_override/2 = ExtResource("2_87bj7")
+
+[node name="Roboter3" parent="." unique_id=1386110988 instance=ExtResource("1_1ygpl")]
+transform = Transform3D(0.9425589, 0, 0.33404016, 0, 1, 0, -0.33404016, 0, 0.9425589, 0.6962756, 0, 1.3894095)
+
+[node name="Skeleton3D" parent="Roboter3/Armature" parent_id_path=PackedInt32Array(1386110988, 82420507) index="0" unique_id=828132249]
+bones/3/rotation = Quaternion(0, 0, 3.097107, 0.707107)
+bones/6/rotation = Quaternion(0, 0, -3.097107, 0.707107)
+
+[node name="Cube" parent="Roboter3/Armature/Skeleton3D" index="0" unique_id=1321862665]
+surface_material_override/2 = ExtResource("2_87bj7")
+
+[editable path="Roboter"]
+[editable path="Roboter2"]
+[editable path="Roboter3"]

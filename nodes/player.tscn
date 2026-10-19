@@ -94,7 +94,7 @@ mesh = SubResource("CapsuleMesh_smc3q")
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=72497432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8825943, 0.2925501)
 light_color = Color(0.82, 0.865, 1, 1)
-omni_range = 1.2598741
+omni_range = 2.0467403
 
 [node name="LookArea3D" type="Area3D" parent="." unique_id=951417404]
 collision_layer = 4
@@ -199,6 +199,7 @@ stream = ExtResource("9_qbdof")
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton4/StaticBody3D" to="Journal" method="to_older_entries"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton5/StaticBody3D" to="Journal" method="to_new_entries"]
 
+[editable path="Crane"]
 [editable path="PlayerConsoleButton"]
 [editable path="PlayerConsoleButton2"]
 [editable path="PlayerConsoleButton3"]

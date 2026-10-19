@@ -58,8 +58,8 @@ magnet = NodePath("../MagnetBody/Magnet/Attraction Point")
 magnet_strength = 100.0
 
 [node name="NextLevelTimer" type="Timer" parent="GameState" unique_id=378026470]
+wait_time = 0.15
 one_shot = true
-autostart = true
 
 [node name="CheatManager" type="Node" parent="GameState" unique_id=526564392]
 script = ExtResource("6_b11oy")
@@ -160,14 +160,14 @@ text = "Ich bin ein Win Screen"
 [connection signal="start_game_button_pressed" from="HUD" to="GameState" method="play"]
 
 [editable path="LookAreas"]
-[editable path="LookAreas/LookArea - Grind"]
-[editable path="LookAreas/LookArea - Grind/NarrowArea/AmbianceFader"]
-[editable path="LookAreas/LookArea2 - Zap"]
-[editable path="LookAreas/LookArea2 - Zap/NarrowArea/AmbianceFader"]
-[editable path="LookAreas/LookArea3 - Fire"]
-[editable path="LookAreas/LookArea3 - Fire/NarrowArea/AmbianceFader"]
-[editable path="LookAreas/LookArea4 - Pipe"]
-[editable path="LookAreas/LookArea4 - Pipe/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/Lights/LookArea - Grind"]
+[editable path="LookAreas/Lights/LookArea - Grind/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/Lights/LookArea2 - Zap"]
+[editable path="LookAreas/Lights/LookArea2 - Zap/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/Lights/LookArea3 - Fire"]
+[editable path="LookAreas/Lights/LookArea3 - Fire/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/Lights/LookArea4 - Pipe"]
+[editable path="LookAreas/Lights/LookArea4 - Pipe/NarrowArea/AmbianceFader"]
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
 [editable path="Player/PlayerConsoleButton"]

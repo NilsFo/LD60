@@ -35,9 +35,7 @@ func _process(delta: float) -> void:
             cursorNormal.show()
             
         # debug label
-        debugLB.text="
-            PromLvl: "+str(gameState.promotion_level)+"/"+str(gameState.get_next_promote_threshold())+"
-            Stage: "+str(gameState.stage)
+        debugLB.text="PromLvl: "+str(gameState.promotion_level)+" - "+gameState.spawn_pool_cache
     
 func start_game():
     start_game_button_pressed.emit()

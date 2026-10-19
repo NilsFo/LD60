@@ -4,47 +4,53 @@
 [ext_resource type="AudioStream" uid="uid://cnpse8in4ahsg" path="res://sfx/saw.ogg" id="2_0uiq7"]
 [ext_resource type="AudioStream" uid="uid://cg8tpujw2xwbp" path="res://sfx/spark/continuousspark.wav" id="3_hgpyw"]
 [ext_resource type="AudioStream" uid="uid://eitpho6t3q47" path="res://sfx/fire-1.ogg" id="4_ih3kl"]
+[ext_resource type="Script" uid="uid://cx5sn7gmvpv0q" path="res://nodes/spook_manager.gd" id="5_mwpre"]
+[ext_resource type="PackedScene" uid="uid://sww8hgr28q6f" path="res://nodes/spooks/robot_watchers.tscn" id="6_bbeud"]
+[ext_resource type="Texture2D" uid="uid://rpbk4xqjma7b" path="res://icon.svg" id="7_n75de"]
 
 [node name="LookAreas" type="Node3D" unique_id=529051657]
 
-[node name="LookArea - Grind" parent="." unique_id=2138365582 instance=ExtResource("1_hn1re")]
+[node name="Lights" type="Node3D" parent="." unique_id=902519498]
 
-[node name="WideArea" parent="LookArea - Grind" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
+[node name="LookArea - Grind" parent="Lights" unique_id=2138365582 instance=ExtResource("1_hn1re")]
+
+[node name="WideArea" parent="Lights/LookArea - Grind" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 auto_turn_on = true
 lights = [NodePath("../../SpotLight3D2"), NodePath("../../SpotLight3D3")]
 all_areas = [NodePath("."), NodePath("../../LookArea2 - Zap/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Pipe/WideArea")]
 
-[node name="AudioPlayer" parent="LookArea - Grind/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(2138365582, 1999275858) index="0" unique_id=1500704816]
+[node name="AudioPlayer" parent="Lights/LookArea - Grind/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(2138365582, 1999275858) index="0" unique_id=1500704816]
 stream = ExtResource("2_0uiq7")
 
-[node name="LookArea2 - Zap" parent="." unique_id=1691288072 instance=ExtResource("1_hn1re")]
+[node name="LookArea2 - Zap" parent="Lights" unique_id=1691288072 instance=ExtResource("1_hn1re")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="WideArea" parent="LookArea2 - Zap" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
+[node name="WideArea" parent="Lights/LookArea2 - Zap" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 lights = [NodePath("../../SpotLight3D8"), NodePath("../../SpotLight3D9")]
 all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("."), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Pipe/WideArea")]
 
-[node name="AudioPlayer" parent="LookArea2 - Zap/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(1691288072, 1999275858) index="0" unique_id=1500704816]
+[node name="AudioPlayer" parent="Lights/LookArea2 - Zap/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(1691288072, 1999275858) index="0" unique_id=1500704816]
 stream = ExtResource("3_hgpyw")
 
-[node name="LookArea3 - Fire" parent="." unique_id=1107494178 instance=ExtResource("1_hn1re")]
+[node name="LookArea3 - Fire" parent="Lights" unique_id=1107494178 instance=ExtResource("1_hn1re")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="WideArea" parent="LookArea3 - Fire" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
+[node name="WideArea" parent="Lights/LookArea3 - Fire" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
 lights = [NodePath("../../SpotLight3D6"), NodePath("../../SpotLight3D7")]
 all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Zap/WideArea"), NodePath("."), NodePath("../../LookArea4 - Pipe/WideArea")]
 
-[node name="AudioPlayer" parent="LookArea3 - Fire/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(1107494178, 1999275858) index="0" unique_id=1500704816]
+[node name="AudioPlayer" parent="Lights/LookArea3 - Fire/NarrowArea/AmbianceFader" parent_id_path=PackedInt32Array(1107494178, 1999275858) index="0" unique_id=1500704816]
 stream = ExtResource("4_ih3kl")
 
-[node name="LookArea4 - Pipe" parent="." unique_id=397361550 instance=ExtResource("1_hn1re")]
+[node name="LookArea4 - Pipe" parent="Lights" unique_id=397361550 instance=ExtResource("1_hn1re")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
 
-[node name="WideArea" parent="LookArea4 - Pipe" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
+[node name="WideArea" parent="Lights/LookArea4 - Pipe" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
+is_spawn_pipe = true
 lights = [NodePath("../../SpotLight3D4"), NodePath("../../SpotLight3D5")]
 all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Zap/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath(".")]
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1604593816]
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" unique_id=1604593816]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.0953393, 2.7892356, -2.474319)
 light_color = Color(0.94, 1, 0.6, 1)
 light_energy = 6.733
@@ -52,7 +58,7 @@ light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=1802420452]
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights" unique_id=1802420452]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.673729, 2.7892356, -5.0651855)
 light_color = Color(0.94, 1, 0.6, 1)
 light_energy = 6.733
@@ -60,7 +66,7 @@ light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="." unique_id=179281874]
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights" unique_id=179281874]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.9634705, 2.789236, 2.5816832)
 light_color = Color(0.94, 1, 0.6, 1)
 light_energy = 6.733
@@ -68,7 +74,7 @@ light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="." unique_id=916064063]
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lights" unique_id=916064063]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.2062933, 2.789236, 5.1643705)
 light_color = Color(0.94, 1, 0.6, 1)
 light_energy = 6.733
@@ -76,7 +82,7 @@ light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
-[node name="SpotLight3D6" type="SpotLight3D" parent="." unique_id=804038533]
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lights" unique_id=804038533]
 transform = Transform3D(-0.045566555, 0.9989613, 4.3665985e-08, 0, -4.371139e-08, 1, 0.9989613, 0.045566555, 1.9917772e-09, -2.105832, 2.7892356, 5.5088215)
 light_color = Color(1, 0.6, 0.6, 1)
 light_energy = 6.733
@@ -84,7 +90,7 @@ light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
-[node name="SpotLight3D7" type="SpotLight3D" parent="." unique_id=1471832055]
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lights" unique_id=1471832055]
 transform = Transform3D(-0.045566555, 0.9989613, 4.3665985e-08, 0, -4.371139e-08, 1, 0.9989613, 0.045566555, 1.9917772e-09, -4.5602016, 2.7892356, 2.6368237)
 light_color = Color(1, 0.6, 0.6, 1)
 light_energy = 6.733
@@ -92,7 +98,7 @@ light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
-[node name="SpotLight3D8" type="SpotLight3D" parent="." unique_id=1929590203]
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lights" unique_id=1929590203]
 transform = Transform3D(-0.99345213, -0.11424952, -4.994005e-09, 0, -4.3711392e-08, 1, -0.11424952, 0.99345213, 4.342517e-08, -5.327306, 2.789235, -2.7772708)
 light_color = Color(0.6, 0.82000005, 1, 1)
 light_energy = 6.733
@@ -100,7 +106,7 @@ light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
-[node name="SpotLight3D9" type="SpotLight3D" parent="." unique_id=1812950379]
+[node name="SpotLight3D9" type="SpotLight3D" parent="Lights" unique_id=1812950379]
 transform = Transform3D(-0.99345213, -0.11424952, -4.994005e-09, 0, -4.3711392e-08, 1, -0.11424952, 0.99345213, 4.342517e-08, -2.293111, 2.789235, -5.0280404)
 light_color = Color(0.6, 0.82000005, 1, 1)
 light_energy = 6.733
@@ -108,11 +114,52 @@ light_indirect_energy = 0.0
 light_size = 0.089
 spot_range = 9.663
 
-[editable path="LookArea - Grind"]
-[editable path="LookArea - Grind/NarrowArea/AmbianceFader"]
-[editable path="LookArea2 - Zap"]
-[editable path="LookArea2 - Zap/NarrowArea/AmbianceFader"]
-[editable path="LookArea3 - Fire"]
-[editable path="LookArea3 - Fire/NarrowArea/AmbianceFader"]
-[editable path="LookArea4 - Pipe"]
-[editable path="LookArea4 - Pipe/NarrowArea/AmbianceFader"]
+[node name="SpookManager" type="Node3D" parent="." unique_id=1450512059]
+script = ExtResource("5_mwpre")
+
+[node name="RobotWatchers" parent="SpookManager" unique_id=1078187735 instance=ExtResource("6_bbeud")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.0034210682, -0.6403308, -9.55657)
+
+[node name="RobotWatchers2" parent="SpookManager" unique_id=1513521141 instance=ExtResource("6_bbeud")]
+transform = Transform3D(-0.116171084, 0, 0.9932292, 0, 1, 0, -0.9932292, 0, -0.116171084, 9.562245, -0.6403308, 0.10971689)
+
+[node name="RobotWatchers3" parent="SpookManager" unique_id=995410418 instance=ExtResource("6_bbeud")]
+transform = Transform3D(0.8786079, 0, 0.4775437, 0, 1, 0, -0.4775437, 0, 0.8786079, -0.5905825, -0.6403308, 11.409016)
+
+[node name="RobotWatchers4" parent="SpookManager" unique_id=57917405 instance=ExtResource("6_bbeud")]
+transform = Transform3D(-0.00977841, 0, -0.99995214, 0, 1, 0, 0.99995214, 0, -0.00977841, -9.698519, -0.6403308, -0.14555454)
+
+[node name="RobotWatchers5" parent="SpookManager" unique_id=2015900508 instance=ExtResource("6_bbeud")]
+transform = Transform3D(0.07375819, 0, -0.9972761, 0, 1, 0, 0.9972761, 0, 0.07375819, -14.597624, -0.64033055, 0.063834906)
+
+[node name="RobotWatchers6" parent="SpookManager" unique_id=1809716939 instance=ExtResource("6_bbeud")]
+transform = Transform3D(-0.98911935, 0, -0.14711457, 0, 1, 0, 0.14711457, 0, -0.98911935, 0.5238848, -0.6443906, -19.845972)
+
+[node name="Sprite3D" type="Sprite3D" parent="SpookManager" unique_id=1235869591]
+transform = Transform3D(0.5318521, 0, -0.8468373, 0, 1, 0, 0.8468373, 0, 0.5318521, 6.0557437, 1.7843417, -3.538791)
+texture = ExtResource("7_n75de")
+
+[node name="Sprite3D2" type="Sprite3D" parent="SpookManager" unique_id=1401453153]
+transform = Transform3D(-0.44091776, 0, -0.8975475, 0, 1, 0, 0.8975475, 0, -0.44091776, 6.432196, 0.28295892, 2.82216)
+texture = ExtResource("7_n75de")
+
+[node name="Sprite3D3" type="Sprite3D" parent="SpookManager" unique_id=432402278]
+transform = Transform3D(0.89798266, 0, 0.44003078, 0, 1, 0, -0.44003078, 0, 0.89798266, -3.1547024, 0.47257733, -6.299235)
+texture = ExtResource("7_n75de")
+
+[node name="Sprite3D4" type="Sprite3D" parent="SpookManager" unique_id=1689944426]
+transform = Transform3D(-0.31064534, 0, 0.95052594, 0, 1, 0, -0.95052594, 0, -0.31064534, -6.510692, 0.23502183, 2.5386415)
+texture = ExtResource("7_n75de")
+
+[node name="Sprite3D5" type="Sprite3D" parent="SpookManager" unique_id=2098037882]
+transform = Transform3D(-0.8887739, 0, 0.45834583, 0, 1, 0, -0.45834583, 0, -0.8887739, -3.140667, 1.4463385, 6.304509)
+texture = ExtResource("7_n75de")
+
+[editable path="Lights/LookArea - Grind"]
+[editable path="Lights/LookArea - Grind/NarrowArea/AmbianceFader"]
+[editable path="Lights/LookArea2 - Zap"]
+[editable path="Lights/LookArea2 - Zap/NarrowArea/AmbianceFader"]
+[editable path="Lights/LookArea3 - Fire"]
+[editable path="Lights/LookArea3 - Fire/NarrowArea/AmbianceFader"]
+[editable path="Lights/LookArea4 - Pipe"]
+[editable path="Lights/LookArea4 - Pipe/NarrowArea/AmbianceFader"]

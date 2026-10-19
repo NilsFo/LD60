@@ -10,6 +10,6 @@ tonemap_exposure = 0.67
 tonemap_agx_white = 14.94
 tonemap_agx_contrast = 1.57
 fog_enabled = true
-fog_light_color = Color(0.41503817, 0.35236818, 0.36185414, 1)
+fog_light_color = Color(0.27, 0.22950001, 0.23557499, 1)
 fog_height = 2.0
 fog_height_density = 0.1
