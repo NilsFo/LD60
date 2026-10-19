@@ -39,6 +39,8 @@ var lights_count: int=0
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
 @onready var spook_manager: SpookManager = $/root/Game/LookAreas/SpookManager
 
+@onready var crane_light: LightFlicker = $/root/Game/Player/SpotLight3D
+
 signal decomission_correct(reason: String)
 signal decomission_incorrect(reason: String)
 signal next_level(level: int)
