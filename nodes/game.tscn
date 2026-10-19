@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 [ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="15_15wb7"]
 [ext_resource type="AudioStream" uid="uid://6fowl7ljjhbu" path="res://sfx/Dark House.wav" id="21_664bt"]
+[ext_resource type="FontFile" uid="uid://bw6rjkuxq7g3w" path="res://fonts/IBMPlexMono-Regular.ttf" id="21_engdv"]
 [ext_resource type="PackedScene" uid="uid://sww8hgr28q6f" path="res://nodes/spooks/robot_watchers.tscn" id="21_tvltm"]
 [ext_resource type="PackedScene" uid="uid://dgp1a8p6klvp3" path="res://roboter_pile.tscn" id="22_engdv"]
 
@@ -90,13 +91,13 @@ rotationSpeed = 0.5
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
 
-[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=456467677]
+[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1538964063]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=1997744731]
+[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=133675926]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=1292671775]
+[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=530356097]
 surface_material_override/0 = ExtResource("9_827r2")
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
@@ -129,7 +130,7 @@ angular_damp = 3.0
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.2661798, 0)
 
-[node name="MagnetLights" parent="MagnetBody/Magnet" index="1" unique_id=696514719]
+[node name="MagnetLights" parent="MagnetBody/Magnet" index="1" unique_id=1300937094]
 visible = false
 
 [node name="Attraction Point" type="Node3D" parent="MagnetBody/Magnet" unique_id=1711456578]
@@ -177,27 +178,34 @@ fov = 38.3
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 37.734894, -7.043611, 33.328587)
 
 [node name="Label3D2" type="Label3D" parent="WinCamera3D" unique_id=158620162]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88365936, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4254837, -2.000001)
 text = "Thanks for playing!"
+font = ExtResource("21_engdv")
 
 [node name="Label3D6" type="Label3D" parent="WinCamera3D" unique_id=1042765394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6689377, -2)
-text = "the scrapper worked tireless and all robots were scraped!"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89188004, -2)
+text = "The grinder worked without mercy 
+and all robots were decommissioned"
+font = ExtResource("21_engdv")
 
 [node name="Label3D3" type="Label3D" parent="WinCamera3D" unique_id=1530247142]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.1583252, -2)
-text = "LD60"
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.2922287, -2)
+text = "DECOM PROTOCOL SUCCESSFUL"
+font = ExtResource("21_engdv")
 
 [node name="Label3D4" type="Label3D" parent="WinCamera3D" unique_id=523618205]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40835, -0.558445, -2)
-text = "Game created by Nils Förster, Adrian Herbers, Patrick Herbers, 
-Patrick Quiskamp, Dragona Mortoria."
+text = "Game created by Nils Förster, Adrian Herbers, 
+Patrick Herbers, Patrick Quiskamp, Dragona Mortoria."
+font = ExtResource("21_engdv")
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="Label3D5" type="Label3D" parent="WinCamera3D" unique_id=1487344034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40835, -1.02388, -2)
 text = "Original music composed for this game by: Dragona Mortoria!"
+font = ExtResource("21_engdv")
+font_size = 28
 horizontal_alignment = 0
 vertical_alignment = 0
 
@@ -213,37 +221,45 @@ transform = Transform3D(1, 0, 0, 0, 0.9879803, -0.15457995, 0, 0.15457995, 0.987
 [node name="Magnet" parent="WinCamera3D" unique_id=1020071121 instance=ExtResource("7_7idfb")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.09957886, 0.36396408, -2.4230776)
 
-[node name="MagnetLights" parent="WinCamera3D/Magnet" index="1" unique_id=696514719]
+[node name="MagnetLights" parent="WinCamera3D/Magnet" index="1" unique_id=1300937094]
 visible = false
 
 [node name="Attraction Point" type="Node3D" parent="WinCamera3D/Magnet" unique_id=2001726229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27018404, 0)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="WinCamera3D" unique_id=927658785]
+light_color = Color(0.99999994, 0.72975475, 0.44521385, 1)
+
 [node name="TrueWinCamera3D" type="Camera3D" parent="." unique_id=795894613]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 25, -8, 40)
 
 [node name="Label3D" type="Label3D" parent="TrueWinCamera3D" unique_id=1717911553]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88365936, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41337204, -2)
 text = "Thanks for playing!"
+font = ExtResource("21_engdv")
 
 [node name="Label3D6" type="Label3D" parent="TrueWinCamera3D" unique_id=339712238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6689377, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87508774, -2)
 text = "The scrapper broke down and the robots were freed!"
+font = ExtResource("21_engdv")
 
 [node name="Label3D3" type="Label3D" parent="TrueWinCamera3D" unique_id=787573912]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.1583252, -2)
-text = "LD60"
+text = "DECOM PROTOCOL FAILED"
 
 [node name="Label3D4" type="Label3D" parent="TrueWinCamera3D" unique_id=381461784]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40835, -0.558445, -2)
-text = "Game created by Nils Förster, Adrian Herbers, Patrick Herbers, 
-Patrick Quiskamp, Dragona Mortoria."
+text = "Game created by Nils Förster, Adrian Herbers, 
+Patrick Herbers, Patrick Quiskamp, Dragona Mortoria."
+font = ExtResource("21_engdv")
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="Label3D5" type="Label3D" parent="TrueWinCamera3D" unique_id=134332857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40835, -1.02388, -2)
 text = "Original music composed for this game by: Dragona Mortoria!"
+font = ExtResource("21_engdv")
+font_size = 28
 horizontal_alignment = 0
 vertical_alignment = 0
 
@@ -255,6 +271,11 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.4
 
 [node name="RobotWatchers-Z3" parent="TrueWinCamera3D" unique_id=1121372900 instance=ExtResource("21_tvltm")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.7334442, -1.1413422, -4.292821)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="TrueWinCamera3D" unique_id=1790771067]
+light_color = Color(1, 0.69, 0.69, 1)
+light_energy = 2.297
+omni_range = 6.248127
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1185822932]
 stream = ExtResource("21_664bt")
