@@ -66,19 +66,18 @@ one_shot = true
 script = ExtResource("6_b11oy")
 
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
-visible = false
 rotationSpeed = 0.6
 
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
 
-[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1707537393]
+[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1884895101]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=587942216]
+[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=1322595220]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="46" unique_id=1968666047]
+[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="46" unique_id=1272145317]
 surface_material_override/0 = ExtResource("9_827r2")
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
@@ -140,8 +139,9 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 [node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
 
 [node name="MainMenuCamera3D" type="Camera3D" parent="." unique_id=2027263710]
-transform = Transform3D(0.99848944, 0.020672966, 0.050906133, 0, 0.9265151, -0.3762575, -0.054943662, 0.37568915, 0.9251155, -0.23209482, -1.7146964, 4.558077)
+transform = Transform3D(0.5187598, 0.3409041, -0.78401047, 0, 0.9170573, 0.39875555, 0.8549199, -0.20685835, 0.4757324, -4.180849, 2.9592166, -0.9413434)
 current = true
+fov = 38.3
 
 [node name="WinCamera3D" type="Camera3D" parent="." unique_id=1166313206]
 transform = Transform3D(0.64410454, -0.4098508, 0.64587283, 0, 0.8443472, 0.53579646, -0.7649375, -0.34510893, 0.54384786, 37.734894, -7.043611, 33.180252)

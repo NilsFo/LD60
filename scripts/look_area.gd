@@ -25,7 +25,8 @@ func _ready() -> void:
     is_looking=false
     
     for a in all_areas:
-        a.is_looking=false
+        if a:
+            a.is_looking=false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,10 +44,10 @@ func _process(delta: float) -> void:
             ambianceSFX.play()
         else:
             ambianceSFX.stop()
-        
 
     for l in lights:
-        l.visible=is_looking
+        if l:
+            l.visible=is_looking
 
 func _on_body_entered(body: Node3D) -> void:
     for a in all_areas:

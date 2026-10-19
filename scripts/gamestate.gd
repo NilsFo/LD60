@@ -151,8 +151,10 @@ func _input(event: InputEvent) -> void:
                 for c in $/root/Game/Scrap.get_children():
                     c.queue_free()
                 report_decomission_correct("Cheating")
+                $NextLevelTimer.start()
             if event.pressed and event.keycode == KEY_R:
                 print("Cheating to the next lvl")
                 for c in $/root/Game/Scrap.get_children():
                     c.queue_free()
                 report_decomission_incorrect("Cheating")
+                $NextLevelTimer.start()
