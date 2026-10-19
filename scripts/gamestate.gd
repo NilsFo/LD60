@@ -40,6 +40,7 @@ var lights_count: int=0
 @onready var spook_manager: SpookManager = $/root/Game/LookAreas/SpookManager
 
 @onready var crane_light: LightFlicker = $/root/Game/Player/SpotLight3D
+@onready var cabin_light: LightFlicker = $/root/Game/Player/CabinLight3D
 
 signal decomission_correct(reason: String)
 signal decomission_incorrect(reason: String)
@@ -133,7 +134,7 @@ func report_decomission_correct(reason: String):
     spawn_pool_cache="?"
     update_crane_lights()
     request_spawn_on_next_look=true
-    await get_tree().create_timer(1.).timeout
+    await get_tree().create_timer(2.).timeout
     decomission_correct.emit(reason)
     if promotion_level == 18:
         win()
@@ -161,7 +162,7 @@ func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
     spawn_pool_cache="?"
     request_spawn_on_next_look=true
-    await get_tree().create_timer(1.).timeout
+    await get_tree().create_timer(2.).timeout
     decomission_incorrect.emit(reason)
     if reason == "F_DangerousMaterialGrinded": 
         add_rad_level(1)
@@ -178,7 +179,7 @@ func on_look_area_entered(area:LookArea):
             request_spawn_on_next_look=false
             
     if area.is_narrow:
-        spook_manager.roll_spook(area.opposite_look_area)
+        spook_manager.next_spook(area.opposite_look_area)
         
 
 func _input(event: InputEvent) -> void:
@@ -199,6 +200,6 @@ func _input(event: InputEvent) -> void:
 
 func add_rad_level(add_value:int):
     rad_level += add_value
-    rad_level_changed.emit(rad_level)
+    rad_level_changed.emit(rad_level, max_rad_level)
     if rad_level >= max_rad_level:
         win_true()

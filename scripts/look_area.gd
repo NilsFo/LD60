@@ -37,7 +37,7 @@ func _ready() -> void:
             if a:
                 a.is_looking=false
 
-    unspook()
+    unspook(true)
 
     lightsSFX=get_node_or_null("LightsSFX")
     ambianceSFX=get_node_or_null("AmbianceFader")
@@ -72,7 +72,7 @@ func _on_body_entered(body: Node3D) -> void:
         
         # we unspook opposite area to clean up
         if opposite_look_area:
-            opposite_look_area.unspook()
+            opposite_look_area.unspook(false)
             
         # then we roll to spook (again)
         gameState.on_look_area_entered(self)
@@ -95,30 +95,45 @@ func spook():
     elif gameState.lights_count==1:
         spook_objects=[gameState.crane_light]
     elif gameState.lights_count==2:
-        spook_objects=spook_decals + [gameState.crane_light]
+        spook_objects=spook_decals+spook_robots_1
+        spook_objects.append(gameState.crane_light)
+        spook_objects.append(gameState.cabin_light)
     elif gameState.lights_count==3:
-        spook_objects=spook_decals+spook_robots_1 + [gameState.crane_light]
+        spook_objects=spook_decals+spook_robots_3+spook_robots_3
+        spook_objects.append(gameState.crane_light)
+        spook_objects.append(gameState.cabin_light)
     elif gameState.lights_count==4:
-        spook_objects=spook_decals+spook_robots_3
+        spook_objects=spook_decals+spook_robots_3+spook_robots_3
+        spook_objects.append(gameState.cabin_light)
     
     if spook_objects.size()!=0:
-        var spook_node = spook_objects.pick_random()
+        var spook_node:Node3D = spook_objects.pick_random()
     
         if spook_node is LightFlicker:
             var flicker:LightFlicker=spook_node
             flicker.flicker_next=true
             print("PLAYER LIGHT CONNA FLICKER ANY SECOND NOW!")
         else:
+            print("SPOOKY OBJECT NOW VISIBLE: "+str(spook_node.get_path()))
             spook_node.show()
 
-func unspook():
+func unspook(force:bool) -> void:
     if gameState:
-        if gameState.lights_count >=3:
+        if gameState.lights_count ==3 or gameState.lights_count==4:
             print('Not gonna unspook. Player is too far gone.')
+            return
+    else:
+        force=true
 
-    for n in (spook_decals):
-        n.hide()
-    for n in (spook_robots_1):
-        n.hide()
-    for n in (spook_robots_3):
-        n.hide()
+    if force or not gameState.spook_manager.roll_spook():
+        print("Unspooking")
+        for n in (spook_decals):
+            n.hide()
+        for n in (spook_robots_1):
+            n.hide()
+        for n in (spook_robots_3):
+            n.hide()
+    else:
+        print("Not unspooking. The roll was lost.")
+        
+    return

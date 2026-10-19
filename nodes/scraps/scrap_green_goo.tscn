@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://dnbflbb12o2vu"]
 
 [ext_resource type="Script" uid="uid://boh525kk7pfso" path="res://scripts/scrap.gd" id="1_mxw8a"]
+[ext_resource type="Script" uid="uid://bqlnst52px5dm" path="res://scripts/scrap_phys.gd" id="2_bbpna"]
 [ext_resource type="Texture2D" uid="uid://o0qfpiusdnln" path="res://models/blend/supertex.png" id="2_j4g3n"]
 [ext_resource type="PackedScene" uid="uid://bv10mcefrcjpm" path="res://nodes/scraps/magnetable.tscn" id="3_bbpna"]
+[ext_resource type="AudioStream" uid="uid://cdahsiy8jg4v2" path="res://sfx/metal_interactions/metal_interaction1.wav" id="4_j4g3n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0hlt"]
 resource_name = "Material"
@@ -79,11 +81,14 @@ shadow_mesh = SubResource("ArrayMesh_b1af4")
 [sub_resource type="BoxShape3D" id="BoxShape3D_mxw8a"]
 size = Vector3(0.38500977, 0.62109375, 0.39672852)
 
-[node name="ScrapGreenGoo" type="Node3D" unique_id=612273339]
+[node name="ScrapGreenGoo2" type="Node3D" unique_id=612273339]
 script = ExtResource("1_mxw8a")
 isGreen = true
 
 [node name="Goo" type="RigidBody3D" parent="." unique_id=1898072457]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_bbpna")
 
 [node name="Magnetable" parent="Goo" unique_id=629284434 node_paths=PackedStringArray("my_body") instance=ExtResource("3_bbpna")]
 my_body = NodePath("..")
@@ -95,3 +100,7 @@ mesh = SubResource("ArrayMesh_qinun")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Goo" unique_id=491525019]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0051116943, 0)
 shape = SubResource("BoxShape3D_mxw8a")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="Goo" unique_id=1089199426]
+stream = ExtResource("4_j4g3n")
+pitch_scale = 0.87

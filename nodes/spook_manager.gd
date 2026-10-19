@@ -13,17 +13,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     pass
 
-func roll_spook(area: LookArea):
+func next_spook(area: LookArea):
     var arena_name: StringName=area.get_parent().name
     print('Rolling spook for area: '+arena_name)
     
+    if roll_spook():
+        print('SPOOKY THINGS HAPPENING IN: '+arena_name.to_upper())
+        area.spook()
+
+func roll_spook()->bool:
     var roll_max: int=6-gameState.lights_count
-    roll_max = int((roll_max/2)+1)
+    roll_max = int((roll_max/3)+1)
     
     var roll: int = randi_range(0,roll_max)
     var roll_success: bool = roll==0
     print('Roll result: '+str(roll)+'/'+str(roll_max))
-    
-    if roll_success:
-        print('SPOOKY THINGS HAPPENING IN: '+arena_name.to_upper())
-        area.spook()
+    return roll_success

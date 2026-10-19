@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://01xdve8e60ge" path="res://nodes/scraps/scarp_robot.tscn" id="1_5tn1i"]
 [ext_resource type="Material" uid="uid://btu8l0e2ngfj4" path="res://nodes/scraps/data_sucked.tres" id="2_jux2j"]
+[ext_resource type="Script" uid="uid://dkuxutnuutf3g" path="res://scripts/bone_phys.gd" id="3_1glyn"]
+[ext_resource type="AudioStream" uid="uid://cdahsiy8jg4v2" path="res://sfx/metal_interactions/metal_interaction1.wav" id="4_3qobk"]
 
 [node name="ScrapRobotDeactivate" unique_id=662491241 instance=ExtResource("1_5tn1i")]
 dataMessage = "RobotHelp"
@@ -11,19 +13,25 @@ surface_material_override/1 = ExtResource("2_jux2j")
 surface_material_override/2 = ExtResource("2_jux2j")
 surface_material_override/3 = ExtResource("2_jux2j")
 
+[node name="Physical Bone Koerper" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="0" unique_id=1948642713]
+script = ExtResource("3_1glyn")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D/Physical Bone Koerper" index="2" unique_id=543732310]
+stream = ExtResource("4_3qobk")
+
 [node name="Physical Bone Unterarm_L" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="3" unique_id=1252102655]
-transform = Transform3D(-1.0964836e-14, -1.4210855e-14, 1, 1, 1.9470721e-07, 1.0964839e-14, -1.9470721e-07, 1, 1.4210852e-14, -0.38934475, 0.20498286, -2.5231488e-08)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7624312e-15, 1.2280184e-10, 0.16073465)
-body_offset = Transform3D(1, -1.4210855e-14, 1.0964849e-14, -1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -1.2279955e-10)
+transform = Transform3D(-1.0964836e-14, -1.4210855e-14, 1, 1, 1.9470721e-07, 1.0964839e-14, -1.9470721e-07, 1, 1.4210852e-14, -0.38934475, 0.20498286, -2.533104e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7624312e-15, 2.223542e-10, 0.16073465)
+body_offset = Transform3D(1, -1.4210855e-14, 1.0964849e-14, -1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -2.2235191e-10)
 
 [node name="Physical Bone Unterarm_R" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="5" unique_id=67609945]
-transform = Transform3D(-1.0964836e-14, 1.4210855e-14, -1, -1, 1.9470721e-07, 1.0964839e-14, 1.9470721e-07, 1, 1.4210852e-14, 0.38934475, 0.20498286, -2.5231488e-08)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7624312e-15, 1.2280184e-10, 0.16073465)
-body_offset = Transform3D(1, 1.4210855e-14, -1.0964849e-14, 1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -1.2279955e-10)
+transform = Transform3D(-1.0964836e-14, 1.4210855e-14, -1, -1, 1.9470721e-07, 1.0964839e-14, 1.9470721e-07, 1, 1.4210852e-14, 0.38934475, 0.20498286, -2.533104e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7624312e-15, 2.223542e-10, 0.16073465)
+body_offset = Transform3D(1, 1.4210855e-14, -1.0964849e-14, 1.5195793e-14, 0, -1, 0, 1, -1.4210855e-14, 0, 0.16073465, -2.2235191e-10)
 
 [node name="Physical Bone Unterbein_L" parent="Roboter/Armature/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(1915450099, 917649124) index="7" unique_id=881226949]
-transform = Transform3D(1, -6.3573026e-08, -1.146196e-14, 1.1461961e-14, 1.9730718e-14, 1, -6.3573026e-08, -1, 1.9730718e-14, -0.08672499, -0.41701764, -4.7866e-08)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5265572e-15, 2.4559793e-10, 0.13318458)
-body_offset = Transform3D(1, 0, -1.1461966e-14, -1.1461961e-14, 8.690992e-15, -1, 0, 1, 8.690992e-15, 0, 0.13318458, -2.455991e-10)
+transform = Transform3D(1, -6.3573026e-08, -1.146196e-14, 1.1461961e-14, 1.9730718e-14, 1, -6.3573026e-08, -1, 1.9730718e-14, -0.08672499, -0.41701764, -4.7666894e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5265572e-15, 4.4470266e-10, 0.13318458)
+body_offset = Transform3D(1, 0, -1.1461966e-14, -1.1461961e-14, 8.690992e-15, -1, 0, 1, 8.690992e-15, 0, 0.13318458, -4.4470383e-10)
 
 [editable path="Roboter"]

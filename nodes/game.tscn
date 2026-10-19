@@ -65,6 +65,9 @@ light_data = ExtResource("4_flw6b")
 [node name="halle" parent="WorldEnvironment/LightmapGI/Environment" index="0" unique_id=1052431382]
 transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -0.00017857552, -1.9980507, -0.0018060207)
 
+[node name="kiste4" parent="WorldEnvironment/LightmapGI/Environment/Clutter" parent_id_path=PackedInt32Array(199390501, 710690310) index="33" unique_id=363438134]
+transform = Transform3D(0.5293096, 0, 0.2825445, 0, 0.59999996, 0, -0.2825445, 0, 0.5293096, -4.8161645, -1.4794506, 2.0019658)
+
 [node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("magnet")]
 script = ExtResource("2_cpdmu")
 magnet = NodePath("../MagnetBody/Magnet/Attraction Point")
@@ -83,13 +86,13 @@ rotationSpeed = 0.6
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
 
-[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1834055145]
+[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=456467677]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=479057466]
+[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=1997744731]
 surface_material_override/0 = ExtResource("9_827r2")
 
-[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=1697243397]
+[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="50" unique_id=1292671775]
 surface_material_override/0 = ExtResource("9_827r2")
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
@@ -141,7 +144,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3811245, 0)
 stream = ExtResource("11_4axws")
 
 [node name="FirePit" parent="." unique_id=75870195 instance=ExtResource("8_ubvaf")]
-transform = Transform3D(0.2744413, 0, -0.2700128, 0, 0.38499993, 0, 0.2700128, 0, 0.2744413, -2.7711623, -2.1189423, 2.859571)
+transform = Transform3D(0.2744413, 0, -0.2700128, 0, 0.38499993, 0, 0.2700128, 0, 0.2744413, -2.7711623, -1.8123753, 2.859571)
 
 [node name="Crusher" parent="." unique_id=1740401113 instance=ExtResource("9_dv0a3")]
 transform = Transform3D(0.44664335, 0, 0.40808672, 0, 0.605, 0, -0.40808672, 0, 0.44664335, 2.8706372, -2.6863487, -2.9486113)
