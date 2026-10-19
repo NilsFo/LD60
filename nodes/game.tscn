@@ -213,6 +213,7 @@ autoplay = true
 [connection signal="phase_game_win" from="GameState" to="WinCamera3D" method="make_current"]
 [connection signal="phase_game_win_true" from="GameState" to="TrueWinCamera3D" method="show"]
 [connection signal="phase_game_win_true" from="GameState" to="TrueWinCamera3D" method="make_current"]
+[connection signal="rad_level_changed" from="GameState" to="Player" method="set_rad_level_int"]
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="start_game_button_pressed" from="HUD" to="GameState" method="play"]
 

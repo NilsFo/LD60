@@ -54,6 +54,11 @@ signal display_next_robot_data_journal()
 signal display_next_red_robot_data_journal()
 signal display_next_tutorial()
 
+@export var max_rad_level: int = 5
+@export var rad_level: int = 0
+
+signal rad_level_changed(current_rad_level: int, max_rad_level:int)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     gamephase = 0
@@ -158,6 +163,8 @@ func report_decomission_incorrect(reason: String):
     request_spawn_on_next_look=true
     await get_tree().create_timer(1.).timeout
     decomission_incorrect.emit(reason)
+    if reason == "F_DangerousMaterialGrinded": 
+        add_rad_level(1)
 
 func on_look_area_entered(area:LookArea):
     playerLookArea=area
@@ -189,3 +196,9 @@ func _input(event: InputEvent) -> void:
                     c.queue_free()
                 report_decomission_incorrect("Cheating")
                 $NextLevelTimer.start()
+
+func add_rad_level(add_value:int):
+    rad_level += add_value
+    rad_level_changed.emit(rad_level)
+    if rad_level >= max_rad_level:
+        win_true()

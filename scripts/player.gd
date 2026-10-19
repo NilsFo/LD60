@@ -167,6 +167,10 @@ func set_rad_level(level:float):
     if(is_bigger):
          play_sound_rad_warning.emit()
 
+func set_rad_level_int(current_rad_level: int, max_rad_level:int):
+    var value:float = float(current_rad_level)/float(max_rad_level)
+    set_rad_level(value)
+
 func trigger_good_lamp():
     if is_lamp_on: 
         return
