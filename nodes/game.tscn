@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://djvl67svjh5qn" path="res://nodes/hud.tscn" id="6_iae2t"]
 [ext_resource type="PackedScene" uid="uid://ylf7uiclxjq8" path="res://models/blend/Magnet.blend" id="7_7idfb"]
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
+[ext_resource type="Material" uid="uid://d3g7utmtuh33m" path="res://models/blend/magnet_mat.tres" id="9_827r2"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
@@ -70,6 +71,15 @@ rotationSpeed = 0.6
 
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
 attributes = SubResource("CameraAttributesPractical_82gy4")
+
+[node name="Ausleger" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="0" unique_id=1707537393]
+surface_material_override/0 = ExtResource("9_827r2")
+
+[node name="Katze" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="33" unique_id=587942216]
+surface_material_override/0 = ExtResource("9_827r2")
+
+[node name="Oese" parent="Player/Crane" parent_id_path=PackedInt32Array(1268145214, 1531356480) index="46" unique_id=1968666047]
+surface_material_override/0 = ExtResource("9_827r2")
 
 [node name="SpotLight3D" parent="Player" index="2" unique_id=215548350]
 transform = Transform3D(1, 0, 0, 0, 0.41020024, 0.9119954, 0, -0.9119954, 0.41020024, -0.29966295, 0.9619458, -2.64854)

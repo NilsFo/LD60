@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d3g7utmtuh33m"]
+
+[ext_resource type="Texture2D" uid="uid://o0qfpiusdnln" path="res://models/blend/supertex.png" id="1_v2pgk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6q605"]
+load_path = "res://.godot/imported/supertex.png-583a728c896854e3f3aedc864cde5279.s3tc.ctex"
+
+[resource]
+albedo_texture = ExtResource("1_v2pgk")
+emission_enabled = true
+emission = Color(0.096204825, 0.09620472, 0.096204735, 1)
+emission_energy_multiplier = 0.3
+emission_texture = SubResource("CompressedTexture2D_6q605")
+texture_filter = 0
