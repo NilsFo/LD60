@@ -1,5 +1,5 @@
 class_name LightFlicker
-extends SpotLight3D
+extends Light3D
 
 var flicker_code:String="mmamammmmammamamaaamammma"
 var flicker_off:String="aaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -12,6 +12,7 @@ var timer:float=0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    timer = randi_range(0,10)
     light_string_current=flicker_off
     pass # Replace with function body.
 
@@ -22,7 +23,6 @@ func _process(delta: float) -> void:
     
     var cursor: int=int(timer)
     if cursor == light_string_current.length():
-        print("LIGHT RESTART")
         timer=0
         cursor=0
         

@@ -40,6 +40,7 @@ var lights_count: int=0
 @onready var spook_manager: SpookManager = $/root/Game/LookAreas/SpookManager
 
 @onready var crane_light: LightFlicker = $/root/Game/Player/SpotLight3D
+@onready var cabin_light: LightFlicker = $/root/Game/Player/CabinLight3D
 
 signal decomission_correct(reason: String)
 signal decomission_incorrect(reason: String)
@@ -171,7 +172,7 @@ func on_look_area_entered(area:LookArea):
             request_spawn_on_next_look=false
             
     if area.is_narrow:
-        spook_manager.roll_spook(area.opposite_look_area)
+        spook_manager.next_spook(area.opposite_look_area)
         
 
 func _input(event: InputEvent) -> void:

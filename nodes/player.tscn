@@ -50,7 +50,7 @@ good_lamp = NodePath("Crane/LampCorrect")
 bad_lamp = NodePath("Crane/LampIncorrect")
 good_color = Color(0.47046298, 0.96903485, 0.47528106, 1)
 bad_color = Color(0.9840165, 0.27241343, 0.22938198, 1)
-real_lamp = NodePath("OmniLight3D")
+real_lamp = NodePath("CabinLight3D")
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46167737, 0)
@@ -114,10 +114,11 @@ shape = SubResource("CylinderShape3D_46y3y")
 visible = false
 mesh = SubResource("CapsuleMesh_smc3q")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=72497432]
+[node name="CabinLight3D" type="OmniLight3D" parent="." unique_id=72497432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8825943, 0.2925501)
 light_color = Color(0.82, 0.865, 1, 1)
 omni_range = 2.0467403
+script = ExtResource("4_k5sjp")
 
 [node name="LookArea3D" type="Area3D" parent="." unique_id=951417404]
 collision_layer = 4
@@ -234,9 +235,6 @@ stream = ExtResource("10_4n5g4")
 [node name="PromoLampAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1276911779]
 stream = ExtResource("10_4n5g4")
 
-[connection signal="next_lore_journal" from="." to="Journal" method="next_lore_entry"]
-[connection signal="next_manuel" from="." to="Manuel" method="next_entry"]
-[connection signal="next_robot_journal" from="." to="Journal" method="next_robot_entry"]
 [connection signal="play_sound_good_action" from="." to="GoodLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_promo_sound" from="." to="PromoLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_rad_warning" from="." to="RadAudioStreamPlayer3D" method="play"]
