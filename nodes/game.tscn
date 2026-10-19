@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
 [ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="15_15wb7"]
 [ext_resource type="AudioStream" uid="uid://6fowl7ljjhbu" path="res://sfx/Dark House.wav" id="21_664bt"]
+[ext_resource type="PackedScene" uid="uid://sww8hgr28q6f" path="res://nodes/spooks/robot_watchers.tscn" id="21_tvltm"]
+[ext_resource type="PackedScene" uid="uid://dgp1a8p6klvp3" path="res://roboter_pile.tscn" id="22_engdv"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -165,20 +167,28 @@ current = true
 fov = 38.3
 
 [node name="WinCamera3D" type="Camera3D" parent="." unique_id=1166313206]
-transform = Transform3D(0.64410454, -0.4098508, 0.64587283, 0, 0.8443472, 0.53579646, -0.7649375, -0.34510893, 0.54384786, 37.734894, -7.043611, 33.180252)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 37.734894, -7.043611, 33.328587)
 
 [node name="Label3D" type="Label3D" parent="WinCamera3D" unique_id=1037369256]
 transform = Transform3D(0.99923, 0.027232826, -0.02824539, -0.02102229, 0.9794415, 0.2006303, 0.03312844, -0.199882, 0.9792598, 0.07087517, 0.012023926, -1.5372391)
 text = "Ich bin ein Win Screen"
 
-[node name="TrueWinCamera3D" type="Camera3D" parent="." unique_id=795894613]
-transform = Transform3D(0.64410454, -0.4098508, 0.64587283, 0, 0.8443472, 0.53579646, -0.7649375, -0.34510893, 0.54384786, 23.5788, -7.043611, 40.730408)
+[node name="RobotWatchers-Z" parent="WinCamera3D" unique_id=1078187735 instance=ExtResource("21_tvltm")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.55531263, -2)
 visible = false
+
+[node name="RoboterPile" parent="WinCamera3D" unique_id=434549027 instance=ExtResource("22_engdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7187195, -1.7020178)
+
+[node name="TrueWinCamera3D" type="Camera3D" parent="." unique_id=795894613]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 25, -8, 40)
 
 [node name="Label3D" type="Label3D" parent="TrueWinCamera3D" unique_id=1717911553]
 transform = Transform3D(0.99923, 0.027232826, -0.02824539, -0.02102229, 0.9794415, 0.2006303, 0.03312844, -0.199882, 0.9792598, 0.07087517, 0.012023926, -1.5372391)
-text = "Ich bin ein Win Screen"
+text = "Ich bin ein True Win Screen"
+
+[node name="RobotWatchers-Z" parent="TrueWinCamera3D" unique_id=1364264599 instance=ExtResource("21_tvltm")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.55531263, -2)
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1185822932]
 stream = ExtResource("21_664bt")
@@ -187,9 +197,10 @@ autoplay = true
 
 [connection signal="decomission_correct" from="GameState" to="Player" method="trigger_good_lamp" unbinds=1]
 [connection signal="decomission_incorrect" from="GameState" to="Player" method="trigger_bad_lamp" unbinds=1]
-[connection signal="display_next_lore_journal" from="GameState" to="Player" method="next_lore_entry"]
-[connection signal="display_next_robot_data_journal" from="GameState" to="Player" method="next_robot_entry"]
-[connection signal="display_next_tutorial" from="GameState" to="Player" method="next_manuel_entry"]
+[connection signal="display_next_lore_journal" from="GameState" to="Player/Journal" method="next_lore_entry"]
+[connection signal="display_next_red_robot_data_journal" from="GameState" to="Player/Journal" method="next_red_robot_entry"]
+[connection signal="display_next_robot_data_journal" from="GameState" to="Player/Journal" method="next_robot_entry"]
+[connection signal="display_next_tutorial" from="GameState" to="Player/Manuel" method="next_entry"]
 [connection signal="lights_count_changed" from="GameState" to="Player" method="set_promo_level"]
 [connection signal="magnet_activate" from="GameState" to="MagnetBody/MagnetHum" method="play"]
 [connection signal="magnet_activate" from="GameState" to="MagnetBody/Magnet/MagnetLights" method="set_visible" binds= [true]]
@@ -202,6 +213,7 @@ autoplay = true
 [connection signal="phase_game_win" from="GameState" to="WinCamera3D" method="make_current"]
 [connection signal="phase_game_win_true" from="GameState" to="TrueWinCamera3D" method="show"]
 [connection signal="phase_game_win_true" from="GameState" to="TrueWinCamera3D" method="make_current"]
+[connection signal="rad_level_changed" from="GameState" to="Player" method="set_rad_level_int"]
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="start_game_button_pressed" from="HUD" to="GameState" method="play"]
 

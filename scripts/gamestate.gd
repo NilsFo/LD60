@@ -39,6 +39,8 @@ var lights_count: int=0
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
 @onready var spook_manager: SpookManager = $/root/Game/LookAreas/SpookManager
 
+@onready var crane_light: LightFlicker = $/root/Game/Player/SpotLight3D
+
 signal decomission_correct(reason: String)
 signal decomission_incorrect(reason: String)
 signal next_level(level: int)
@@ -51,6 +53,11 @@ signal display_next_lore_journal()
 signal display_next_robot_data_journal()
 signal display_next_red_robot_data_journal()
 signal display_next_tutorial()
+
+@export var max_rad_level: int = 5
+@export var rad_level: int = 0
+
+signal rad_level_changed(current_rad_level: int, max_rad_level:int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -128,8 +135,11 @@ func report_decomission_correct(reason: String):
     request_spawn_on_next_look=true
     await get_tree().create_timer(2.).timeout
     decomission_correct.emit(reason)
+    if promotion_level == 18:
+        win()
     
 func update_crane_lights():
+    var last_lights_count = lights_count
     if promotion_level < 4:
         lights_count=0
     elif promotion_level < 8:
@@ -144,6 +154,8 @@ func update_crane_lights():
         lights_count=5
         
     lights_count_changed.emit(lights_count)
+    if last_lights_count != lights_count: 
+        display_next_tutorial.emit()
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
@@ -151,6 +163,8 @@ func report_decomission_incorrect(reason: String):
     request_spawn_on_next_look=true
     await get_tree().create_timer(2.).timeout
     decomission_incorrect.emit(reason)
+    if reason == "F_DangerousMaterialGrinded": 
+        add_rad_level(1)
 
 func on_look_area_entered(area:LookArea):
     playerLookArea=area
@@ -182,3 +196,9 @@ func _input(event: InputEvent) -> void:
                     c.queue_free()
                 report_decomission_incorrect("Cheating")
                 $NextLevelTimer.start()
+
+func add_rad_level(add_value:int):
+    rad_level += add_value
+    rad_level_changed.emit(rad_level)
+    if rad_level >= max_rad_level:
+        win_true()

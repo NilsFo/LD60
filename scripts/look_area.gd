@@ -18,6 +18,7 @@ var gameState:GameState
 
 var timer: float = 0.0
 
+@export var spook_flicker:Array[Node3D]
 @export var spook_decals:Array[Node3D]
 @export var spook_robots_1:Array[Node3D]
 @export var spook_robots_3:Array[Node3D]
@@ -90,23 +91,29 @@ func spook():
     var spook_objects:Array[Node3D] = []
     
     if gameState.lights_count==0:
-        pass
+        spook_objects=[]
     elif gameState.lights_count==1:
-        pass
+        spook_objects=[gameState.crane_light]
     elif gameState.lights_count==2:
-        spook_objects=spook_objects+spook_decals
+        spook_objects=spook_decals + [gameState.crane_light]
     elif gameState.lights_count==3:
-        spook_objects=spook_objects+spook_decals+spook_robots_1
+        spook_objects=spook_decals+spook_robots_1 + [gameState.crane_light]
     elif gameState.lights_count==4:
-        spook_objects=spook_objects+spook_decals+spook_robots_3
+        spook_objects=spook_decals+spook_robots_3
     
     if spook_objects.size()!=0:
         var spook_node = spook_objects.pick_random()
-        spook_node.show()
+    
+        if spook_node is LightFlicker:
+            var flicker:LightFlicker=spook_node
+            flicker.flicker_next=true
+            print("PLAYER LIGHT CONNA FLICKER ANY SECOND NOW!")
+        else:
+            spook_node.show()
 
 func unspook():
     if gameState:
-        if gameState.lights_count >=4:
+        if gameState.lights_count >=3:
             print('Not gonna unspook. Player is too far gone.')
 
     for n in (spook_decals):

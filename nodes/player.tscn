@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dr5hstbe162mo" path="res://scripts/player_camera.gd" id="2_bms3g"]
 [ext_resource type="PackedScene" uid="uid://b4jmyhhkhxlir" path="res://models/Crane.blend" id="3_me0cc"]
 [ext_resource type="PackedScene" uid="uid://bekj5anwkf215" path="res://nodes/player_console_button.tscn" id="4_hqdnm"]
+[ext_resource type="Script" uid="uid://vlcrnae6pw76" path="res://nodes/light_flicker.gd" id="4_k5sjp"]
 [ext_resource type="PackedScene" uid="uid://e032x2qe65ci" path="res://models/blend/Console.blend" id="5_7lbay"]
 [ext_resource type="Script" uid="uid://l0xiengtxhgu" path="res://scripts/detector_area_3d.gd" id="6_2wrp4"]
 [ext_resource type="Script" uid="uid://wjiwhykm1db3" path="res://scripts/journal.gd" id="7_46y3y"]
@@ -84,10 +85,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46167737, 0)
 [node name="Crane" parent="." unique_id=1531356480 instance=ExtResource("3_me0cc")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
-[node name="LampCorrect" parent="Crane" index="40" unique_id=95780979]
+[node name="LampCorrect" parent="Crane" index="40" unique_id=1257428795]
 visible = false
 
-[node name="LampIncorrect" parent="Crane" index="45" unique_id=1248187619]
+[node name="LampIncorrect" parent="Crane" index="45" unique_id=2082142758]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Crane" unique_id=1595937500]
@@ -105,6 +106,7 @@ shadow_enabled = true
 spot_range = 4.605
 spot_angle = 16.49
 spot_angle_attenuation = 0.63728034
+script = ExtResource("4_k5sjp")
 
 [node name="Console" parent="." unique_id=61057286 instance=ExtResource("5_7lbay")]
 transform = Transform3D(-6.556708e-09, 0, -0.14999999, 0, 0.14999999, 0, 0.14999999, 0, -6.556708e-09, 0, 0, -0.3390158)
