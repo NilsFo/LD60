@@ -46,8 +46,8 @@ promo_lamp_five = NodePath("Crane/Lamp5")
 rad_scale = NodePath("Crane/RadiationMeter")
 good_lamp = NodePath("Crane/LampCorrect")
 bad_lamp = NodePath("Crane/LampIncorrect")
-good_color = Color(0.3053, 0.71, 0.31204498, 1)
-bad_color = Color(0.74, 0.074000016, 0.074000016, 1)
+good_color = Color(0.47046298, 0.96903485, 0.47528106, 1)
+bad_color = Color(0.9840165, 0.27241343, 0.22938198, 1)
 real_lamp = NodePath("OmniLight3D")
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1901099082]

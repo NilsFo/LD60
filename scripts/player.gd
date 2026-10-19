@@ -154,7 +154,7 @@ func set_promo_level(level: int) -> void:
         play_sound_promo_sound.emit()
 
 
-func _blink(lamp: CanvasItem, times: int = 4, interval: float = 0.25) -> void:
+func _blink(lamp: Node3D, times: int = 4, interval: float = 0.25) -> void:
     _blink_tween = create_tween().set_loops(times)
     _blink_tween.tween_callback(lamp.hide)
     _blink_tween.tween_interval(interval)
@@ -176,6 +176,8 @@ func trigger_good_lamp():
     base_color = real_lamp.light_color
     real_lamp.light_color = good_color
     is_lamp_on = true
+    
+    _blink(good_lamp)
 
     await get_tree().create_timer(default_dauer).timeout
 
@@ -193,6 +195,8 @@ func trigger_bad_lamp():
     real_lamp.light_color = bad_color
     is_lamp_on = true
 
+    _blink(bad_lamp)
+    
     await get_tree().create_timer(default_dauer).timeout
 
     bad_lamp.hide()
