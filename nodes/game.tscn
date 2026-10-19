@@ -46,14 +46,16 @@ light_data = ExtResource("4_flw6b")
 [node name="halle" parent="WorldEnvironment/LightmapGI/Environment" index="0" unique_id=1052431382]
 transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -0.00017857552, -1.9980507, -0.0018060207)
 
-[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("magnet")]
+[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("playerJournal", "playerManuel", "magnet")]
 script = ExtResource("2_cpdmu")
+playerJournal = NodePath("../Player/Journal")
+playerManuel = NodePath("../Player/Manuel")
 magnet = NodePath("../MagnetBody/Magnet/Attraction Point")
 magnet_strength = 100.0
 
 [node name="NextLevelTimer" type="Timer" parent="GameState" unique_id=378026470]
+wait_time = 0.15
 one_shot = true
-autostart = true
 
 [node name="CheatManager" type="Node" parent="GameState" unique_id=526564392]
 script = ExtResource("6_b11oy")
@@ -124,16 +126,17 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 [node name="Music" parent="." unique_id=403756141 instance=ExtResource("15_15wb7")]
 
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
+[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
 
 [editable path="LookAreas"]
-[editable path="LookAreas/LookArea - Grind"]
-[editable path="LookAreas/LookArea - Grind/NarrowArea/AmbianceFader"]
-[editable path="LookAreas/LookArea2 - Zap"]
-[editable path="LookAreas/LookArea2 - Zap/NarrowArea/AmbianceFader"]
-[editable path="LookAreas/LookArea3 - Fire"]
-[editable path="LookAreas/LookArea3 - Fire/NarrowArea/AmbianceFader"]
-[editable path="LookAreas/LookArea4 - Pipe"]
-[editable path="LookAreas/LookArea4 - Pipe/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/Lights/LookArea - Grind"]
+[editable path="LookAreas/Lights/LookArea - Grind/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/Lights/LookArea2 - Zap"]
+[editable path="LookAreas/Lights/LookArea2 - Zap/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/Lights/LookArea3 - Fire"]
+[editable path="LookAreas/Lights/LookArea3 - Fire/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/Lights/LookArea4 - Pipe"]
+[editable path="LookAreas/Lights/LookArea4 - Pipe/NarrowArea/AmbianceFader"]
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
 [editable path="Player/PlayerConsoleButton"]
