@@ -3,6 +3,9 @@ extends Node3D
 signal zapper_triggered()
 signal zapper_finished()
 
+signal play_scrap_zapping_sound_start()
+signal play_scrap_zapping_sound_end()
+
 @export var listOfZaps: Array[Node3D] = []  
 @export var default_dauer: float = 3.0
 
@@ -19,6 +22,7 @@ func trigger_zap(visual_only: bool = false, dauer: float = default_dauer) -> voi
     if !visual_only: zapper_triggered.emit()
 
     is_triggert = true;
+    play_scrap_zapping_sound_start.emit()
 
     for zap in listOfZaps:
         zap.show()
@@ -30,6 +34,7 @@ func trigger_zap(visual_only: bool = false, dauer: float = default_dauer) -> voi
             zap.hide()
     
     is_triggert = false;
+    play_scrap_zapping_sound_end.emit()
     
     if !visual_only: zapper_finished.emit()
 
