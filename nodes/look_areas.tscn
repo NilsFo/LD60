@@ -7,13 +7,13 @@
 [ext_resource type="Script" uid="uid://cx5sn7gmvpv0q" path="res://nodes/spook_manager.gd" id="5_mwpre"]
 [ext_resource type="Script" uid="uid://vlcrnae6pw76" path="res://nodes/light_flicker.gd" id="5_q1fd1"]
 [ext_resource type="PackedScene" uid="uid://sww8hgr28q6f" path="res://nodes/spooks/robot_watchers.tscn" id="6_bbeud"]
-[ext_resource type="Texture2D" uid="uid://rpbk4xqjma7b" path="res://icon.svg" id="7_n75de"]
 [ext_resource type="Texture2D" uid="uid://cwn24ktm4erc6" path="res://material/We see you.png" id="8_ckupi"]
 [ext_resource type="PackedScene" uid="uid://o3g26mqk8ieo" path="res://models/blend/Roboter.blend" id="8_n75de"]
 [ext_resource type="Material" uid="uid://btu8l0e2ngfj4" path="res://nodes/scraps/data_sucked.tres" id="9_q1fd1"]
 [ext_resource type="Texture2D" uid="uid://dl1kdelsepg5c" path="res://material/KK-scum.png" id="9_s7lxb"]
 [ext_resource type="Texture2D" uid="uid://dta832h443t2k" path="res://material/Youarescrap.png" id="10_kgwpl"]
 [ext_resource type="Texture2D" uid="uid://cehobeuilhjdj" path="res://material/Donotbelivethem.png" id="11_0yxci"]
+[ext_resource type="Texture2D" uid="uid://ddc7jlhh8l6ib" path="res://material/ceaseoperations.png" id="12_0yxci"]
 
 [node name="LookAreas" type="Node3D" unique_id=529051657]
 
@@ -175,7 +175,7 @@ transform = Transform3D(-0.00977841, 0, -0.99995214, 0, 1, 0, 0.99995214, 0, -0.
 transform = Transform3D(0.07375819, 0, -0.9972761, 0, 1, 0, 0.9972761, 0, 0.07375819, -14.597624, -0.64033055, 0.063834906)
 
 [node name="Decal - Grind" type="Sprite3D" parent="SpookManager" unique_id=1235869591]
-transform = Transform3D(0.10637043, 0, -0.16936745, 0, 0.2, 0, 0.16936745, 0, 0.10637043, 6.0557437, 1.7843417, -3.538791)
+transform = Transform3D(0.07977782, 0, -0.12702559, 0, 0.15, 0, 0.12702559, 0, 0.07977782, 6.0557437, 1.7917178, -3.538791)
 texture = ExtResource("8_ckupi")
 
 [node name="Decal - Pipe" type="Sprite3D" parent="SpookManager" unique_id=1401453153]
@@ -191,8 +191,8 @@ transform = Transform3D(-0.046596803, 0, 0.14257888, 0, 0.15, 0, -0.14257888, 0,
 texture = ExtResource("11_0yxci")
 
 [node name="Decal - Fire2" type="Sprite3D" parent="SpookManager" unique_id=2098037882]
-transform = Transform3D(-0.8887739, 0, 0.45834583, 0, 1, 0, -0.45834583, 0, -0.8887739, -3.140667, 1.4463385, 6.304509)
-texture = ExtResource("7_n75de")
+transform = Transform3D(-0.1333161, 0, 0.068751864, 0, 0.15, 0, -0.068751864, 0, -0.1333161, -3.140667, 1.4463385, 6.304509)
+texture = ExtResource("12_0yxci")
 
 [node name="Single Robot - G" parent="SpookManager" unique_id=102429031 instance=ExtResource("8_n75de")]
 transform = Transform3D(-0.70157087, 0, 1.8729117, 0, 2, 0, -1.8729117, 0, -0.70157087, 10.009138, 0.5312204, -0.43133605)
