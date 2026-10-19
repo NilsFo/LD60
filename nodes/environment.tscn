@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwof313nus5t8" path="res://models/rohr3.blend" id="6_4r44i"]
 [ext_resource type="PackedScene" uid="uid://smlr82bhhigi" path="res://models/rohr4.blend" id="7_wpn1q"]
 [ext_resource type="PackedScene" uid="uid://bwn8rg0lomyow" path="res://models/rohr2.blend" id="8_4r44i"]
+[ext_resource type="PackedScene" uid="uid://br3dquw4vsti" path="res://models/Fass.blend" id="8_xdrux"]
 [ext_resource type="PackedScene" uid="uid://hcnl8j2kk3t3" path="res://models/Lüftungsschacht.blend" id="9_xdrux"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_043gu"]
@@ -21,7 +22,7 @@ radius = 2.7089844
 [node name="Environment" type="Node3D" unique_id=199390501]
 
 [node name="halle" parent="." unique_id=1052431382 instance=ExtResource("1_1guvd")]
-transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 0, -2, 0)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, -2, 0)
 
 [node name="WorldColliders" type="Node3D" parent="." unique_id=2003557556]
 
@@ -102,7 +103,7 @@ shape = SubResource("BoxShape3D_xdrux")
 [node name="Clutter" type="Node3D" parent="." unique_id=710690310]
 
 [node name="Kiste1" parent="Clutter" unique_id=630528859 instance=ExtResource("4_01epy")]
-transform = Transform3D(0.11500008, 0, 0.277083, 0, 0.3, 0, -0.277083, 0, 0.11500008, 5.4892387, -1.8919294, 1.9445217)
+transform = Transform3D(0.11500008, 0, 0.277083, 0, 0.3, 0, -0.277083, 0, 0.11500008, 5.4892387, -1.8116966, 1.9445217)
 
 [node name="rohr1" parent="Clutter" unique_id=1692601738 instance=ExtResource("5_wpn1q")]
 transform = Transform3D(-0.060973868, 0, 0.079260245, 0, 0.09999999, 0, -0.079260245, 0, -0.060973868, 5.3904147, -0.85695016, 4.0294294)
@@ -128,12 +129,6 @@ transform = Transform3D(0.065963835, -0.07460336, -0.0091164345, 4.4408918e-17, 
 [node name="rohr8" parent="Clutter" unique_id=1723454282 instance=ExtResource("5_wpn1q")]
 transform = Transform3D(0.1, 0, 0, 0, 0.014458048, -0.098949306, 0, 0.098949306, 0.014458048, 3.41936, -0.89449984, -6.788053)
 
-[node name="rohr9" parent="Clutter" unique_id=1095871719 instance=ExtResource("8_4r44i")]
-transform = Transform3D(-2.3529894e-09, -0.053830117, 0.08427525, 0.099999994, -4.371139e-09, -2.3798661e-17, 3.6837886e-09, 0.08427525, 0.053830117, 4.143864, 1.2027485, -5.59309)
-
-[node name="rohr10" parent="Clutter" unique_id=1687014528 instance=ExtResource("8_4r44i")]
-transform = Transform3D(-0.022314467, -0.03163211, 0.0922034, 0.09724768, -0.01372934, 0.018825147, 0.0067041535, 0.09386644, 0.033825137, 2.6841946, -0.5382818, -6.4239964)
-
 [node name="rohr11" parent="Clutter" unique_id=739563032 instance=ExtResource("5_wpn1q")]
 transform = Transform3D(0.07087478, 0, 0.0705462, 0, 0.1, 0, -0.0705462, 0, 0.07087478, 5.2907968, 0, -3.6460938)
 
@@ -143,11 +138,71 @@ transform = Transform3D(0.08838442, 0.0019042044, -0.046739362, 0, -0.09991713, 
 [node name="rohr13" parent="Clutter" unique_id=1189584673 instance=ExtResource("5_wpn1q")]
 transform = Transform3D(0.0525764, 0, -0.08506305, 0, 0.1, 0, 0.08506305, 0, 0.0525764, 5.592415, 0.034680083, -3.141745)
 
-[node name="rohr14" parent="Clutter" unique_id=185612119 instance=ExtResource("8_4r44i")]
-transform = Transform3D(0.073254675, -0.18564531, 0.0130219385, 0.013417773, -0.00868937, -0.19936007, 0.18561712, 0.073893934, 0.009272049, 6.4109716, 0, -2.4396806)
-
 [node name="Lüftungsschacht" parent="Clutter" unique_id=285743164 instance=ExtResource("9_xdrux")]
 transform = Transform3D(0.062377557, 0, 0.24209304, 0, 0.25, 0, -0.24209304, 0, 0.062377557, -0.18380356, 3.7595363, -6.6019807)
 
 [node name="Lüftungsschacht2" parent="Clutter" unique_id=1586816317 instance=ExtResource("9_xdrux")]
 transform = Transform3D(0.043794543, 0, 0.24613419, 0, 0.25, 0, -0.24613419, 0, 0.043794543, -1.0087026, 3.8352113, -0.33116278)
+
+[node name="rohr15" parent="Clutter" unique_id=402773612 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.2605567, 2.7594774, -6.4941072)
+
+[node name="rohr9" parent="Clutter" unique_id=166582101 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(0.0020640371, -0.08835804, 0.046782423, 0.09997273, 0.0023353554, 2.0151124e-11, -0.0010925357, 0.04676966, 0.08838215, -1.297339, 0.43883657, -6.5051947)
+
+[node name="rohr10" parent="Clutter" unique_id=1478512242 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(-4.13635e-09, 0.094628654, 0.03233294, -0.1, -4.371139e-09, 0, 1.4133176e-09, -0.03233294, 0.094628654, -1.599754, 0.42064136, -6.3680797)
+
+[node name="rohr14" parent="Clutter" unique_id=1434346585 instance=ExtResource("6_4r44i")]
+transform = Transform3D(-0.09999999, -8.742277e-09, -4.371138e-09, 4.371138e-09, 1.9106853e-16, -0.09999999, 8.742276e-09, -0.099999994, 1.9106852e-16, -1.0498068, 0.41836768, -7.3376746)
+
+[node name="rohr16" parent="Clutter" unique_id=962569152 instance=ExtResource("7_wpn1q")]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -1.0331222, 1.5696818, -8.549808)
+
+[node name="rohr17" parent="Clutter" unique_id=1095871719 instance=ExtResource("8_4r44i")]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.09999999, -0.099999994, -4.371139e-09, 0, 4.3711386e-09, -0.1, -4.371138e-09, -1.0485895, 1.6253866, -10.269245)
+
+[node name="rohr18" parent="Clutter" unique_id=643093250 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, 1.021742, -1.136482, -15.10553)
+
+[node name="rohr19" parent="Clutter" unique_id=696050868 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(0.08320876, 0, 0.18186893, 0, 0.2, 0, -0.18186893, 0, 0.08320876, -5.1840577, -2.0411868, -2.5316453)
+
+[node name="Kiste2" parent="Clutter" unique_id=918305979 instance=ExtResource("4_01epy")]
+transform = Transform3D(-2.1855692e-08, 0, 0.49999997, 0, 0.5, 0, -0.49999997, 0, -2.1855692e-08, 0.9119674, -0.6555284, 15.7311735)
+
+[node name="Kiste3" parent="Clutter" unique_id=1253514568 instance=ExtResource("4_01epy")]
+transform = Transform3D(0.16953038, 0, -0.36229745, 0, 0.4, 0, 0.36229745, 0, 0.16953038, -5.2551937, -1.5723339, 2.222239)
+
+[node name="Kiste4" parent="Clutter" unique_id=529991097 instance=ExtResource("4_01epy")]
+transform = Transform3D(-0.2688666, 0, 0.13308173, 0, 0.3, 0, -0.13308173, 0, -0.2688666, 2.3148339, -1.8734984, -5.316331)
+
+[node name="rohr20" parent="Clutter" unique_id=869519745 instance=ExtResource("6_4r44i")]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 11.846236, 0.6771809, -1.3552638)
+
+[node name="rohr21" parent="Clutter" unique_id=538292543 instance=ExtResource("7_wpn1q")]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 11.850844, 1.8079684, -0.13433665)
+
+[node name="rohr22" parent="Clutter" unique_id=287618940 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(0.006648475, 0, 0.19988947, 0, 0.2, 0, -0.19988947, 0, 0.006648475, -3.0507398, -2.0570745, 4.6369514)
+
+[node name="rohr23" parent="Clutter" unique_id=607254717 instance=ExtResource("7_wpn1q")]
+transform = Transform3D(-0.096034735, 0, -0.027880624, 0, 0.099999994, 0, 0.027880624, 0, -0.096034735, -1.1612709, -1.0453386, 8.724981)
+
+[node name="rohr24" parent="Clutter" unique_id=1426665701 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(-0.012717575, 0, 0.09918802, 0, 0.1, 0, -0.09918802, 0, -0.012717575, -1.1442995, 0.58799416, 8.670832)
+
+[node name="rohr25" parent="Clutter" unique_id=1851407323 instance=ExtResource("5_wpn1q")]
+transform = Transform3D(-0.19999999, -1.7484556e-08, 7.642742e-16, 0, -8.742278e-09, -0.2, 1.7484554e-08, -0.2, 8.742278e-09, -10.944761, 1.2213122, 1.4426558)
+
+[node name="Fass" parent="Clutter" unique_id=38450987 instance=ExtResource("8_xdrux")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 14.106328, -0.64184594, 0.92743707)
+
+[node name="Fass2" parent="Clutter" unique_id=2106082905 instance=ExtResource("8_xdrux")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 5.2268324, -1.4896517, -2.1265776)
+
+[node name="Fass3" parent="Clutter" unique_id=25541243 instance=ExtResource("8_xdrux")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 2.1269474, -1.5581025, 5.1104846)
+
+[node name="Fass4" parent="Clutter" unique_id=1409215326 instance=ExtResource("8_xdrux")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.2276397, -1.4157263, 5.1760645)

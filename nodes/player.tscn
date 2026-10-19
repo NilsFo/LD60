@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://l0xiengtxhgu" path="res://scripts/detector_area_3d.gd" id="6_2wrp4"]
 [ext_resource type="Script" uid="uid://wjiwhykm1db3" path="res://scripts/journal.gd" id="7_46y3y"]
 [ext_resource type="PackedScene" uid="uid://7yhvl3sgnlhm" path="res://nodes/audio_fader.tscn" id="8_ejohg"]
+[ext_resource type="Script" uid="uid://bsn1diaeu0rwk" path="res://scripts/manuel.gd" id="8_gggum"]
 [ext_resource type="AudioStream" uid="uid://cusiscf22u28r" path="res://sfx/crane/127826__martats__rail_city.wav" id="9_qbdof"]
 [ext_resource type="AudioStream" uid="uid://dewul7qxygqt" path="res://sfx/metal_interactions/metal_button_press1.wav" id="10_4n5g4"]
 [ext_resource type="AudioStream" uid="uid://kq8lhgb7unjo" path="res://sfx/wrong_action.ogg" id="10_5m3aa"]
@@ -158,6 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31236076, 0.22699389, -0.1
 script = ExtResource("7_46y3y")
 text_display = NodePath("JournalText")
 page_label = NodePath("JournalLabel")
+enable_debug_text = false
 
 [node name="JournalLabel" type="Label3D" parent="Journal" unique_id=865232011]
 transform = Transform3D(0.0797584, -0.042653244, 0.04265324, 0, 0.070710674, 0.07071068, -0.060320795, -0.056397706, 0.056397703, 0.051791966, -0.03481573, -0.025743127)
@@ -170,6 +172,7 @@ transform = Transform3D(0.07660445, -0.04545195, 0.04545195, 0, 0.07071068, 0.07
 text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 font_size = 8
 outline_size = 4
+line_spacing = 0.05
 autowrap_mode = 2
 width = 250.0
 
@@ -184,10 +187,10 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0
 
 [node name="Manuel" type="Node3D" parent="." unique_id=520805951 node_paths=PackedStringArray("text_display", "page_label")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23399484, 0.18326855, -0.15702203)
-script = ExtResource("7_46y3y")
+script = ExtResource("8_gggum")
 text_display = NodePath("ManuelText")
 page_label = NodePath("ManuelLabel")
-debug_text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren"
+enable_debug_text = false
 
 [node name="ManuelLabel" type="Label3D" parent="Manuel" unique_id=2037631283]
 transform = Transform3D(0.057357647, 0.0579228, -0.0579228, 0, 0.07071068, 0.07071068, 0.08191521, -0.04055798, 0.04055798, 0.077947795, 0.024992868, 0.019901752)
@@ -207,6 +210,7 @@ font_size = 8
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
+line_spacing = 0.05
 autowrap_mode = 2
 width = 200.0
 
@@ -228,6 +232,9 @@ stream = ExtResource("10_4n5g4")
 [node name="PromoLampAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1276911779]
 stream = ExtResource("10_4n5g4")
 
+[connection signal="next_lore_journal" from="." to="Journal" method="next_lore_entry"]
+[connection signal="next_manuel" from="." to="Manuel" method="next_entry"]
+[connection signal="next_robot_journal" from="." to="Journal" method="next_robot_entry"]
 [connection signal="play_sound_good_action" from="." to="GoodLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_promo_sound" from="." to="PromoLampAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_rad_warning" from="." to="RadAudioStreamPlayer3D" method="play"]

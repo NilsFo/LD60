@@ -63,10 +63,8 @@ light_data = ExtResource("4_flw6b")
 [node name="halle" parent="WorldEnvironment/LightmapGI/Environment" index="0" unique_id=1052431382]
 transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -0.00017857552, -1.9980507, -0.0018060207)
 
-[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("playerJournal", "playerManuel", "magnet")]
+[node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("magnet")]
 script = ExtResource("2_cpdmu")
-playerJournal = NodePath("../Player/Journal")
-playerManuel = NodePath("../Player/Manuel")
 magnet = NodePath("../MagnetBody/Magnet/Attraction Point")
 magnet_strength = 100.0
 
@@ -78,7 +76,6 @@ one_shot = true
 script = ExtResource("6_b11oy")
 
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
-visible = false
 rotationSpeed = 0.6
 
 [node name="PlayerCamera" parent="Player" index="0" unique_id=1901099082]
@@ -163,8 +160,9 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 [node name="HUD" parent="." unique_id=948412334 instance=ExtResource("6_iae2t")]
 
 [node name="MainMenuCamera3D" type="Camera3D" parent="." unique_id=2027263710]
-transform = Transform3D(0.99848944, 0.020672966, 0.050906133, 0, 0.9265151, -0.3762575, -0.054943662, 0.37568915, 0.9251155, -0.23209482, -1.7146964, 4.558077)
+transform = Transform3D(0.5187598, 0.3409041, -0.78401047, 0, 0.9170573, 0.39875555, 0.8549199, -0.20685835, 0.4757324, -4.180849, 2.9592166, -0.9413434)
 current = true
+fov = 38.3
 
 [node name="WinCamera3D" type="Camera3D" parent="." unique_id=1166313206]
 transform = Transform3D(0.64410454, -0.4098508, 0.64587283, 0, 0.8443472, 0.53579646, -0.7649375, -0.34510893, 0.54384786, 37.734894, -7.043611, 33.180252)
@@ -189,6 +187,9 @@ autoplay = true
 
 [connection signal="decomission_correct" from="GameState" to="Player" method="trigger_good_lamp" unbinds=1]
 [connection signal="decomission_incorrect" from="GameState" to="Player" method="trigger_bad_lamp" unbinds=1]
+[connection signal="display_next_lore_journal" from="GameState" to="Player" method="next_lore_entry"]
+[connection signal="display_next_robot_data_journal" from="GameState" to="Player" method="next_robot_entry"]
+[connection signal="display_next_tutorial" from="GameState" to="Player" method="next_manuel_entry"]
 [connection signal="lights_count_changed" from="GameState" to="Player" method="set_promo_level"]
 [connection signal="magnet_activate" from="GameState" to="MagnetBody/MagnetHum" method="play"]
 [connection signal="magnet_activate" from="GameState" to="MagnetBody/Magnet/MagnetLights" method="set_visible" binds= [true]]
@@ -203,6 +204,7 @@ autoplay = true
 [connection signal="phase_game_win_true" from="GameState" to="TrueWinCamera3D" method="make_current"]
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
+[connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_older_entries"]
 [connection signal="start_game_button_pressed" from="HUD" to="GameState" method="play"]
 
 [editable path="LookAreas"]
@@ -214,6 +216,10 @@ autoplay = true
 [editable path="LookAreas/Lights/LookArea3 - Fire/NarrowArea/AmbianceFader"]
 [editable path="LookAreas/Lights/LookArea4 - Pipe"]
 [editable path="LookAreas/Lights/LookArea4 - Pipe/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/SpookManager/Single Robot - G"]
+[editable path="LookAreas/SpookManager/Single Robot - P"]
+[editable path="LookAreas/SpookManager/Single Robot - F"]
+[editable path="LookAreas/SpookManager/Single Robot - Z"]
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
 [editable path="Player/Crane"]

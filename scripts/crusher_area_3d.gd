@@ -1,7 +1,6 @@
 extends Area3D
 
-@export var particle_prefab: PackedScene
-@export var particle_spawn_point: Node3D
+@export var particles: Array[GPUParticles3D]
 
 signal play_scrap_grind_sound()
  
@@ -24,15 +23,8 @@ func _on_body_entered(body: Node3D) -> void:
         print("crusher: body in not a scrap!!!")
         
 func spawn_particles() -> void:
-    if particle_prefab == null:
-        return
-        
-    var particles := particle_prefab.instantiate() as GPUParticles3D
-    
     if particles == null:
-        push_warning("particle_scene hat keinen GPUParticles3D als Root!")
         return
-        
-    get_tree().current_scene.add_child(particles)
-    particles.global_position = particle_spawn_point.position
-    particles.emitting = true
+
+    for particl in particles:
+        particl.emitting = true

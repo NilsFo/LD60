@@ -1,8 +1,6 @@
 class_name GameState
 extends Node3D
 
-@export var playerJournal: Journal
-@export var playerManuel: Journal
 @export var playerLookArea:LookArea
 
 @export var player_rotation: float=0.0
@@ -39,6 +37,7 @@ signal phase_game_win_true()
 
 var lights_count: int=0
 @onready var scrap_spawner: ScrapSpawner = $/root/Game/ScrapSpawner
+@onready var spook_manager: SpookManager = $/root/Game/LookAreas/SpookManager
 
 signal decomission_correct(reason: String)
 signal decomission_incorrect(reason: String)
@@ -47,6 +46,10 @@ signal lights_count_changed(lights_count: int)
 
 signal magnet_activate
 signal magnet_deactivate
+
+signal display_next_lore_journal()
+signal display_next_robot_data_journal()
+signal display_next_tutorial()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -73,8 +76,13 @@ func on_magnet_button_pressed():
     print("gamestate: magnet pressed. Magnet is now active: "+str(magnet_active))
 
 func push_data_message(message):
-    print("Data incoming: " + message)
-    playerJournal.add_entry(message)
+    if message == "Lore":
+        display_next_lore_journal.emit()
+    elif message == "Robots":
+        display_next_robot_data_journal.emit()
+
+func push_tutorial_text():
+    display_next_tutorial.emit()
 
 func _next_level():
     print("Next level")
@@ -151,6 +159,10 @@ func on_look_area_entered(area:LookArea):
         if request_spawn_on_next_look:
             $NextLevelTimer.start()
             request_spawn_on_next_look=false
+            
+    if area.is_narrow:
+        spook_manager.roll_spook(area.opposite_look_area)
+        
 
 func _input(event: InputEvent) -> void:
     if $CheatManager.cheat_mode:
@@ -160,8 +172,10 @@ func _input(event: InputEvent) -> void:
                 for c in $/root/Game/Scrap.get_children():
                     c.queue_free()
                 report_decomission_correct("Cheating")
+                $NextLevelTimer.start()
             if event.pressed and event.keycode == KEY_R:
                 print("Cheating to the next lvl")
                 for c in $/root/Game/Scrap.get_children():
                     c.queue_free()
                 report_decomission_incorrect("Cheating")
+                $NextLevelTimer.start()

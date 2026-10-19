@@ -12,6 +12,7 @@ extends Marker3D
     
     "p":preload("res://nodes/scraps/scrap_robot_green.tscn"), #n (ROBO GREEN)
     "x":preload("res://nodes/scraps/scrap_robot_red.tscn"), #x (ROBO RED)
+    "z":preload("res://nodes/scraps/scrap_robot_redblue.tscn"), #x (ROBO RED)
     
     "g":preload("res://nodes/scraps/scrap_gear.tscn"), #g (GEAR)
     "t":preload("res://nodes/scraps/scrap_torso.tscn"), #t (TORSO)
@@ -19,35 +20,35 @@ extends Marker3D
 
 # SPAWN POOLS
 @export var spanw_pools:Array[String]=[
-"g", #0 tutorial (gear)
-"s", #1 # tutorial (slime)
-
-"gss", #2 # normal scrap
-"t", #3 (nromal torso)
-
-"d", #4 (DATA)
-
-"gst", #5 (normal scrap + torso)
-"gst", #6 (normal scrap + torso)
-
-"d", # (DATA)
-
-"r", #8 (robot)
-
-"gst", #9
-"r", #10
-"rp", #11
-"rp", #12
-
-"m", #13 (ROBOT DATA)
-
-"x", #14
-"x", #15
-
-"n", #13 (ROBOT DATA GREEN)
-
-"sssp", #17 (slime, green robot)
-"sssp" #18 (slime, green robot)
+    "g", #0 tutorial (gear)
+    "s", #1 # tutorial (slime)
+    
+    "gss", #2 # normal scrap
+    "t", #3 (nromal torso)
+    
+    "d", #4 (DATA)
+    
+    "gst", #5 (normal scrap + torso)
+    "r", #6 (robot)
+    
+    "d", #7 (DATA)
+    
+    "p", #8 (robot)
+    
+    "gst", #9 (scrap)
+    "r", #10 (robots)
+    "rp", #11 (robots)
+    "xrp", #12 (robots)
+    
+    "m", #13 (ROBOT DATA)
+    
+    "xm", #14 (robots red/data)
+    "x", #15 (robots red/data)
+    
+    "z", #16 (ROBOT DATA GREEN)
+    
+    "sssspm", #17 (slime, green / data robot)
+    "sssspm" #18 (slime, green / data robot)
 ]
 
 var game_state:GameState
