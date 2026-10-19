@@ -1,8 +1,6 @@
 class_name GameState
 extends Node3D
 
-@export var playerJournal: Journal
-@export var playerManuel: Journal
 @export var playerLookArea:LookArea
 
 @export var player_rotation: float=0.0
@@ -49,6 +47,10 @@ signal lights_count_changed(lights_count: int)
 signal magnet_activate
 signal magnet_deactivate
 
+signal display_next_lore_journal()
+signal display_next_robot_data_journal()
+signal display_next_tutorial()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     gamephase = 0
@@ -74,8 +76,13 @@ func on_magnet_button_pressed():
     print("gamestate: magnet pressed. Magnet is now active: "+str(magnet_active))
 
 func push_data_message(message):
-    print("Data incoming: " + message)
-    playerJournal.add_entry(message)
+    if message == "Lore":
+        display_next_lore_journal.emit()
+    elif message == "Robots":
+        display_next_robot_data_journal.emit()
+
+func push_tutorial_text():
+    display_next_tutorial.emit()
 
 func _next_level():
     print("Next level")
