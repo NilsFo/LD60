@@ -35,7 +35,7 @@ var is_lamp_on: bool = false
 var base_color: Color
 @export var good_color: Color
 @export var bad_color: Color
-@export var real_lamp: SpotLight3D
+@export var real_lamp: Light3D
 
 signal play_sound_wrong_action()
 signal play_sound_good_action()

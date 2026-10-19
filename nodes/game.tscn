@@ -159,6 +159,9 @@ visible = false
 transform = Transform3D(0.99923, 0.027232826, -0.02824539, -0.02102229, 0.9794415, 0.2006303, 0.03312844, -0.199882, 0.9792598, 0.07087517, 0.012023926, -1.5372391)
 text = "Ich bin ein Win Screen"
 
+[connection signal="decomission_correct" from="GameState" to="Player" method="trigger_good_lamp" unbinds=1]
+[connection signal="decomission_incorrect" from="GameState" to="Player" method="trigger_bad_lamp" unbinds=1]
+[connection signal="lights_count_changed" from="GameState" to="Player" method="set_promo_level"]
 [connection signal="phase_game_play" from="GameState" to="Player" method="show"]
 [connection signal="phase_game_play" from="GameState" to="Player/PlayerCamera" method="make_current"]
 [connection signal="phase_game_win" from="GameState" to="WinCamera3D" method="show"]
