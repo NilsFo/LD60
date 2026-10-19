@@ -132,6 +132,7 @@ func report_decomission_correct(reason: String):
         win()
     
 func update_crane_lights():
+    var last_lights_count = lights_count
     if promotion_level < 4:
         lights_count=0
     elif promotion_level < 8:
@@ -146,6 +147,8 @@ func update_crane_lights():
         lights_count=5
         
     lights_count_changed.emit(lights_count)
+    if last_lights_count != lights_count: 
+        display_next_tutorial.emit()
     
 func report_decomission_incorrect(reason: String):
     print("Decomission incorrect! " + reason)
