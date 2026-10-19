@@ -27,6 +27,21 @@ signal promo_level_change()
 
 @export var rad_scale: Node3D
 
+var is_lamp_on: bool = false
+@export var default_dauer: float = 3.0
+@export var good_lamp: Node3D
+@export var bad_lamp: Node3D
+
+var base_color: Color
+@export var good_color: Color
+@export var bad_color: Color
+@export var real_lamp: SpotLight3D
+
+signal play_sound_wrong_action()
+signal play_sound_good_action()
+signal play_sound_rad_warning()
+signal play_sound_promo_sound()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     mode_timer=0
@@ -35,7 +50,7 @@ func _ready() -> void:
     reset_buttons()
 
     set_rad_level(0.0)
-    set_promo_level_zero()
+    set_promo_level(0)
 
     curve_accelaration.bake()
     curve_decelaration.bake()
@@ -109,52 +124,81 @@ func _input(event: InputEvent) -> void:
         if event.button_index ==MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
             mouse_clicked=true
 
-func set_promo_level_zero():
-    promo_lamp_one.hide()
-    promo_lamp_two.hide()
-    promo_lamp_three.hide()
-    promo_lamp_four.hide()
-    promo_lamp_five.hide()
+@onready var promo_lamps: Array[Node] = [
+    promo_lamp_one,
+    promo_lamp_two,
+    promo_lamp_three,
+    promo_lamp_four,
+    promo_lamp_five,
+]
 
-func set_promo_level_one():
-    promo_lamp_one.show()
-    promo_lamp_two.show()
-    promo_lamp_three.hide()
-    promo_lamp_four.hide()
-    promo_lamp_five.hide()
+var _promo_level := 0
+var _blink_tween: Tween
+
+func set_promo_level(level: int) -> void:
+    level = clampi(level, 0, promo_lamps.size())
+
+    if _blink_tween and _blink_tween.is_valid():
+        _blink_tween.kill()
+
+    for i in promo_lamps.size():
+        promo_lamps[i].visible = i < level
+
+    if level > _promo_level:
+        _blink(promo_lamps[level - 1])
+
+    _promo_level = level
     promo_level_change.emit()
 
-func set_promo_level_two():
-    promo_lamp_one.show()
-    promo_lamp_two.show()
-    promo_lamp_three.hide()
-    promo_lamp_four.hide()
-    promo_lamp_five.hide()
-    promo_level_change.emit()
+    if level > 0:
+        play_sound_promo_sound.emit()
 
-func set_promo_level_three():
-    promo_lamp_one.show()
-    promo_lamp_two.show()
-    promo_lamp_three.show()
-    promo_lamp_four.hide()
-    promo_lamp_five.hide()
-    promo_level_change.emit()
 
-func set_promo_level_four():
-    promo_lamp_one.show()
-    promo_lamp_two.show()
-    promo_lamp_three.show()
-    promo_lamp_four.show()
-    promo_lamp_five.hide()
-    promo_level_change.emit()
-
-func set_promo_level_five():
-    promo_lamp_one.show()
-    promo_lamp_two.show()
-    promo_lamp_three.show()
-    promo_lamp_four.show()
-    promo_lamp_five.show()
-    promo_level_change.emit()
+func _blink(lamp: CanvasItem, times: int = 4, interval: float = 0.25) -> void:
+    _blink_tween = create_tween().set_loops(times)
+    _blink_tween.tween_callback(lamp.hide)
+    _blink_tween.tween_interval(interval)
+    _blink_tween.tween_callback(lamp.show)
+    _blink_tween.tween_interval(interval)
 
 func set_rad_level(level:float):
+    var is_bigger = level > rad_scale.scale.y
     rad_scale.scale = Vector3(rad_scale.scale.x, level, rad_scale.scale.z)
+    if(is_bigger):
+         play_sound_rad_warning.emit()
+
+func trigger_good_lamp():
+    if is_lamp_on: 
+        return
+
+    good_lamp.show()
+    play_sound_good_action.emit()
+    base_color = real_lamp.light_color
+    real_lamp.light_color = good_color
+    is_lamp_on = true
+
+    await get_tree().create_timer(default_dauer).timeout
+
+    good_lamp.hide()
+    is_lamp_on = false
+    real_lamp.light_color = base_color
+
+func trigger_bad_lamp():
+    if is_lamp_on: 
+        return
+
+    bad_lamp.show()
+    play_sound_wrong_action.emit()
+    base_color = real_lamp.light_color
+    real_lamp.light_color = bad_color
+    is_lamp_on = true
+
+    await get_tree().create_timer(default_dauer).timeout
+
+    bad_lamp.hide()
+    is_lamp_on = false
+    real_lamp.light_color = base_color
+
+func _unhandled_input(event: InputEvent) -> void:
+    if event.is_action_pressed("debug_promo_three"):
+        set_promo_level(4)
