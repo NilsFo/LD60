@@ -14,7 +14,7 @@ volume_linear = 0.3
 stream = ExtResource("2_ylyia")
 
 [node name="AudioFaderMenu" parent="." unique_id=1422855688 instance=ExtResource("1_wupik")]
-volume_linear = 2.0
+volume_linear = 1.5
 auto_play = true
 fade_speed = 2.0
 

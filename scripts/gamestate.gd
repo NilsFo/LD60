@@ -123,7 +123,7 @@ func play():
         print("No more confining")
     else:
         print("Running as exported standalone game")
-        Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) 
+        Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN) 
 
 func win():
     print("A WINNER IS YOU!")
@@ -196,9 +196,13 @@ func on_look_area_entered(area:LookArea):
             
     if area.is_narrow:
         spook_manager.next_spook(area.opposite_look_area)
-        
 
 func _input(event: InputEvent) -> void:
+    if gamephase==1 and false:
+        # TODO capture mouse on web build
+        if event is InputEventMouseButton:
+            Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
     if $CheatManager.cheat_mode:
         if event is InputEventKey:
             if event.pressed and event.keycode == KEY_N:
