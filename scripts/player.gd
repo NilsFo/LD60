@@ -42,6 +42,8 @@ signal play_sound_good_action()
 signal play_sound_rad_warning()
 signal play_sound_promo_sound()
 
+signal crane_stop
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     mode_timer=0
@@ -107,7 +109,10 @@ func _process(delta: float) -> void:
             crane_button_force_target=1.0
             mode_timer=0
         if focussed_button.buttonType == PlayerButton.ButtonType.STOP:
+            if crane_button_force_current > 0.1 or crane_button_force_current < -0.1:
+                crane_stop.emit()
             crane_button_force_target=0.0
+            
             mode_timer=0
         if focussed_button.buttonType == PlayerButton.ButtonType.MAGNET:
             print("mm")
@@ -166,6 +171,10 @@ func set_rad_level(level:float):
     rad_scale.scale = Vector3(rad_scale.scale.x, level, rad_scale.scale.z)
     if(is_bigger):
          play_sound_rad_warning.emit()
+
+func set_rad_level_int(current_rad_level: int, max_rad_level:int):
+    var value:float = float(current_rad_level)/float(max_rad_level)
+    set_rad_level(value)
 
 func trigger_good_lamp():
     if is_lamp_on: 

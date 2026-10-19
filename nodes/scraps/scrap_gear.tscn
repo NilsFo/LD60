@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://dkrjakrilram7"]
 
 [ext_resource type="Script" uid="uid://boh525kk7pfso" path="res://scripts/scrap.gd" id="1_y0d0s"]
+[ext_resource type="Script" uid="uid://bqlnst52px5dm" path="res://scripts/scrap_phys.gd" id="2_bol08"]
 [ext_resource type="PackedScene" uid="uid://bv10mcefrcjpm" path="res://nodes/scraps/magnetable.tscn" id="2_clb85"]
 [ext_resource type="Texture2D" uid="uid://o0qfpiusdnln" path="res://models/blend/supertex.png" id="3_y0d0s"]
+[ext_resource type="AudioStream" uid="uid://cdahsiy8jg4v2" path="res://sfx/metal_interactions/metal_interaction1.wav" id="4_clb85"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s34rn"]
 resource_name = "Material"
@@ -60,6 +62,9 @@ transform = Transform3D(0.22400779, 0, 0, 0, 0.22400779, 0, 0, 0, 0.22400779, 0,
 
 [node name="Gear" type="RigidBody3D" parent="Gear" unique_id=1481638376]
 transform = Transform3D(-1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0)
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_bol08")
 
 [node name="Magnetable" parent="Gear/Gear" unique_id=629284434 node_paths=PackedStringArray("my_body") instance=ExtResource("2_clb85")]
 transform = Transform3D(-4.4641314, 0, 0, 0, 0, 4.4641314, 0, 4.4641314, 0, 0, 0, 0)
@@ -75,3 +80,6 @@ shape = SubResource("BoxShape3D_i1818")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Gear/Gear" unique_id=2099105131]
 transform = Transform3D(1.000001, 0, 0, 0, 1.000001, 0, 0, 0, 1.000001, 0.0067903, 1.5920027, 0.0002126211)
 shape = SubResource("BoxShape3D_y0d0s")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="Gear/Gear" unique_id=203724495]
+stream = ExtResource("4_clb85")

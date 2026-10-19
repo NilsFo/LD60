@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://db8ldkrsq0gct"]
 
 [ext_resource type="Script" uid="uid://boh525kk7pfso" path="res://scripts/scrap.gd" id="1_ef7d6"]
+[ext_resource type="Script" uid="uid://bqlnst52px5dm" path="res://scripts/scrap_phys.gd" id="2_4db53"]
 [ext_resource type="PackedScene" uid="uid://bv10mcefrcjpm" path="res://nodes/scraps/magnetable.tscn" id="2_iwf3d"]
 [ext_resource type="PackedScene" uid="uid://c3pdw2102ke76" path="res://models/blend/FBXs/Torso.fbx" id="3_ef7d6"]
+[ext_resource type="AudioStream" uid="uid://cdahsiy8jg4v2" path="res://sfx/metal_interactions/metal_interaction1.wav" id="5_sllkq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 size = Vector3(0.2109375, 0.62109375, 0.42211914)
@@ -12,6 +14,9 @@ script = ExtResource("1_ef7d6")
 isGreen = true
 
 [node name="Torso" type="RigidBody3D" parent="." unique_id=2096955014]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_4db53")
 
 [node name="Magnetable" parent="Torso" unique_id=629284434 node_paths=PackedStringArray("my_body") instance=ExtResource("2_iwf3d")]
 my_body = NodePath("..")
@@ -22,3 +27,6 @@ transform = Transform3D(-0.1955539, 0, 0, 0, 0.1955539, -8.547932e-09, 0, -8.547
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Torso" unique_id=308104458]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020996094, 0)
 shape = SubResource("BoxShape3D_ai7j4")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="Torso" unique_id=399210957]
+stream = ExtResource("5_sllkq")
