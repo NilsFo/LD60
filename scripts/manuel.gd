@@ -72,6 +72,7 @@ func _refresh() -> void:
 
     if current_index >= 0:
         entry_changed.emit(current_index, data_lore[current_index])
+    if current_index > 0:  
         new_entry.emit()
     page_changed.emit(current_index, total)
 
