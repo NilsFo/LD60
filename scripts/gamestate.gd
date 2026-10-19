@@ -49,6 +49,7 @@ signal magnet_deactivate
 
 signal display_next_lore_journal()
 signal display_next_robot_data_journal()
+signal display_next_red_robot_data_journal()
 signal display_next_tutorial()
 
 # Called when the node enters the scene tree for the first time.
@@ -78,8 +79,10 @@ func on_magnet_button_pressed():
 func push_data_message(message):
     if message == "Lore":
         display_next_lore_journal.emit()
-    elif message == "Robots":
+    elif message == "RobotHelp":
         display_next_robot_data_journal.emit()
+    elif message == "RobotRed":
+        display_next_red_robot_data_journal.emit()
 
 func push_tutorial_text():
     display_next_tutorial.emit()
