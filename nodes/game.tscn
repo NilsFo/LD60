@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bfddkjgc78axk"]
 
+[ext_resource type="PackedScene" uid="uid://by3a12sba862k" path="res://nodes/look_areas.tscn" id="1_dmoo1"]
 [ext_resource type="Environment" uid="uid://bh0kqhdhlgnco" path="res://settings/environment_settings.tres" id="1_flw6b"]
 [ext_resource type="Script" uid="uid://ctfrfnftrv50v" path="res://scripts/gamestate.gd" id="2_cpdmu"]
 [ext_resource type="PackedScene" uid="uid://cp1rnw7w042c" path="res://nodes/player.tscn" id="3_6hfer"]
@@ -11,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
-[ext_resource type="PackedScene" uid="uid://b0hgheqc1f5fy" path="res://nodes/look_area.tscn" id="12_uodeg"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
 [ext_resource type="PackedScene" uid="uid://2jpj55m77me3" path="res://nodes/spawn_pipe.tscn" id="13_dmoo1"]
+[ext_resource type="PackedScene" uid="uid://b5ft0eopdlsm1" path="res://nodes/music.tscn" id="15_15wb7"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_043gu"]
 
@@ -29,35 +30,7 @@ radius = 1.0
 
 [node name="Game" type="Node3D" unique_id=906284256]
 
-[node name="LookAreas" type="Node3D" parent="." unique_id=1897231688]
-
-[node name="LookArea - Grind" parent="LookAreas" unique_id=2138365582 instance=ExtResource("12_uodeg")]
-
-[node name="WideArea" parent="LookAreas/LookArea - Grind" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
-auto_turn_on = true
-lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D2"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D3")]
-all_areas = [NodePath("."), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Zap/WideArea")]
-
-[node name="LookArea2 - Spawn" parent="LookAreas" unique_id=1023008519 instance=ExtResource("12_uodeg")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-
-[node name="WideArea" parent="LookAreas/LookArea2 - Spawn" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
-lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D8"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D9")]
-all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("."), NodePath("../../LookArea3 - Fire/WideArea"), NodePath("../../LookArea4 - Zap/WideArea")]
-
-[node name="LookArea3 - Fire" parent="LookAreas" unique_id=617360416 instance=ExtResource("12_uodeg")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="WideArea" parent="LookAreas/LookArea3 - Fire" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
-lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D6"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D7")]
-all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("."), NodePath("../../LookArea4 - Zap/WideArea")]
-
-[node name="LookArea4 - Zap" parent="LookAreas" unique_id=1818737726 instance=ExtResource("12_uodeg")]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
-
-[node name="WideArea" parent="LookAreas/LookArea4 - Zap" index="0" unique_id=780848897 node_paths=PackedStringArray("lights", "all_areas")]
-lights = [NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D4"), NodePath("../../../WorldEnvironment/LightmapGI/Environment/SpotLight3D5")]
-all_areas = [NodePath("../../LookArea - Grind/WideArea"), NodePath("../../LookArea2 - Spawn/WideArea"), NodePath("../../LookArea3 - Fire/WideArea"), NodePath(".")]
+[node name="LookAreas" parent="." unique_id=529051657 instance=ExtResource("1_dmoo1")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2092325777]
 environment = ExtResource("1_flw6b")
@@ -69,6 +42,9 @@ camera_attributes = SubResource("CameraAttributesPractical_0uh5x")
 light_data = ExtResource("4_flw6b")
 
 [node name="Environment" parent="WorldEnvironment/LightmapGI" unique_id=199390501 instance=ExtResource("4_6hfer")]
+
+[node name="halle" parent="WorldEnvironment/LightmapGI/Environment" index="0" unique_id=1052431382]
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -0.00017857552, -1.9980507, -0.0018060207)
 
 [node name="GameState" type="Node3D" parent="." unique_id=1449238398 node_paths=PackedStringArray("playerJournal", "playerManuel", "magnet")]
 script = ExtResource("2_cpdmu")
@@ -121,7 +97,7 @@ can_sleep = false
 angular_damp = 3.0
 
 [node name="Magnet" parent="MagnetBody" unique_id=897211138 instance=ExtResource("7_7idfb")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.2661798, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.2661798, 0)
 
 [node name="Attraction Point" type="Node3D" parent="MagnetBody/Magnet" unique_id=1711456578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27018404, 0)
@@ -131,29 +107,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0630767, 0)
 shape = SubResource("CylinderShape3D_ubvaf")
 
 [node name="FirePit" parent="." unique_id=75870195 instance=ExtResource("8_ubvaf")]
-transform = Transform3D(0.28598982, 0, -0.2577495, 0, 0.385, 0, 0.2577495, 0, 0.28598982, -2.932616, -2.1189423, 3.1307573)
+transform = Transform3D(0.2744413, 0, -0.2700128, 0, 0.38499993, 0, 0.2700128, 0, 0.2744413, -2.7711623, -2.1189423, 2.859571)
 
 [node name="Crusher" parent="." unique_id=1740401113 instance=ExtResource("9_dv0a3")]
-transform = Transform3D(0.47701365, 0, 0.37213308, 0, 0.605, 0, -0.37213308, 0, 0.47701365, 3.5681214, -2.6863487, -2.7364626)
+transform = Transform3D(0.44664335, 0, 0.40808672, 0, 0.605, 0, -0.40808672, 0, 0.44664335, 2.8706372, -2.6863487, -2.9486113)
 
 [node name="ScrapSpawner" parent="." unique_id=816657280 instance=ExtResource("10_fjk5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.256436, 2.3409657, 4.5689297)
 
 [node name="Zapper" parent="." unique_id=1678356713 instance=ExtResource("13_b11oy")]
-transform = Transform3D(0.30646512, 0, -0.25705862, 0, 0.4, 0, 0.25705862, 0, 0.30646512, -3.154164, -2.035339, -2.566783)
+transform = Transform3D(0.29030266, 0, -0.27518064, 0, 0.39999998, 0, 0.27518064, 0, 0.29030266, -2.8414373, -1.7680194, -2.829777)
 
 [node name="SpawnPipe" parent="." unique_id=1581680993 instance=ExtResource("13_dmoo1")]
-transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752, 0, 0.9090389, -1.0833503, 1.4142134, 2.764476, 0.2149576, 2.5237312)
+transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752, 0, 0.9090389, -1.0833503, 1.4142134, 2.8309252, -0.5978645, 2.8427377)
 
 [node name="Scrap" type="Node3D" parent="." unique_id=498432697]
+
+[node name="Music" parent="." unique_id=403756141 instance=ExtResource("15_15wb7")]
 
 [connection signal="on_pressed" from="Player/PlayerConsoleButton4/StaticBody3D" to="GameState" method="on_magnet_button_pressed"]
 [connection signal="on_pressed" from="Player/Journal/PlayerConsoleButton4/StaticBody3D" to="Player/Journal" method="to_newer_entry"]
 
+[editable path="LookAreas"]
 [editable path="LookAreas/LookArea - Grind"]
-[editable path="LookAreas/LookArea2 - Spawn"]
+[editable path="LookAreas/LookArea - Grind/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/LookArea2 - Zap"]
+[editable path="LookAreas/LookArea2 - Zap/NarrowArea/AmbianceFader"]
 [editable path="LookAreas/LookArea3 - Fire"]
-[editable path="LookAreas/LookArea4 - Zap"]
+[editable path="LookAreas/LookArea3 - Fire/NarrowArea/AmbianceFader"]
+[editable path="LookAreas/LookArea4 - Pipe"]
+[editable path="LookAreas/LookArea4 - Pipe/NarrowArea/AmbianceFader"]
 [editable path="WorldEnvironment/LightmapGI/Environment"]
 [editable path="Player"]
 [editable path="Player/PlayerConsoleButton"]
@@ -162,3 +145,4 @@ transform = Transform3D(0.9090389, -1.0833503, -1.4142134, 1.5320888, 1.2855752,
 [editable path="Player/PlayerConsoleButton4"]
 [editable path="Player/Journal/PlayerConsoleButton4"]
 [editable path="Player/Journal/PlayerConsoleButton5"]
+[editable path="Player/AudioFader"]

@@ -67,5 +67,6 @@ func spawn() -> void:
         skeleton.physical_bones_start_simulation()
 
 func _unhandled_input(event: InputEvent) -> void:
-    if event.is_action_pressed("debug_spawn"):
-        spawn()
+    pass
+    # if event.is_action_pressed("debug_spawn"):
+    #     spawn()

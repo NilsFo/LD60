@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://7yhvl3sgnlhm"]
+
+[ext_resource type="Script" uid="uid://c40rr7eqind5b" path="res://scripts/audio_fader.gd" id="1_py2ln"]
+
+[node name="AudioFader" type="Node3D" unique_id=1999275858]
+script = ExtResource("1_py2ln")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1500704816]
