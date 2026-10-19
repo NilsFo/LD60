@@ -195,23 +195,29 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="RoboterPile" parent="WinCamera3D" unique_id=434549027 instance=ExtResource("22_engdv")]
-transform = Transform3D(1, 0, 0, 0, 0.9879803, -0.15457995, 0, 0.15457995, 0.9879803, 0, -0.3129692, -1.864193)
+transform = Transform3D(0.92934287, -0.057073675, -0.36478, -1.6139028e-08, 0.9879803, -0.15457997, 0.3692179, 0.14365779, 0.9181725, -0.113349915, -0.293087, -2.4809122)
 
 [node name="RoboterPile2" parent="WinCamera3D" unique_id=1403875915 instance=ExtResource("22_engdv")]
-transform = Transform3D(1, 0, 0, 0, 0.9879803, -0.15457995, 0, 0.15457995, 0.9879803, -0.51733017, -0.31930542, -2.2673645)
+transform = Transform3D(0.51419264, -0.13257928, -0.84736574, -3.7490153e-08, 0.9879803, -0.15457994, 0.8576747, 0.079483904, 0.5080122, -0.7836304, -0.31930542, -2.90024)
 
 [node name="RoboterPile3" parent="WinCamera3D" unique_id=926244068 instance=ExtResource("22_engdv")]
-transform = Transform3D(1, 0, 0, 0, 0.9879803, -0.15457995, 0, 0.15457995, 0.9879803, 0.41293335, -0.31930542, -2.2673645)
+transform = Transform3D(1, 0, 0, 0, 0.9879803, -0.15457995, 0, 0.15457995, 0.9879803, 0.5203781, -0.31930542, -3.201108)
+
+[node name="Magnet" parent="WinCamera3D" unique_id=1020071121 instance=ExtResource("7_7idfb")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.09957886, 0.36396408, -2.4230776)
+
+[node name="MagnetLights" parent="WinCamera3D/Magnet" index="1" unique_id=12378982]
+visible = false
+
+[node name="Attraction Point" type="Node3D" parent="WinCamera3D/Magnet" unique_id=2001726229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27018404, 0)
 
 [node name="TrueWinCamera3D" type="Camera3D" parent="." unique_id=795894613]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 25, -8, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -8, 40)
 
 [node name="Label3D" type="Label3D" parent="TrueWinCamera3D" unique_id=1717911553]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88365936, -2)
 text = "Thanks for playing!"
-
-[node name="RobotWatchers-Z" parent="TrueWinCamera3D" unique_id=1364264599 instance=ExtResource("21_tvltm")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.11660385, -2)
 
 [node name="Label3D3" type="Label3D" parent="TrueWinCamera3D" unique_id=787573912]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.1583252, -2)
@@ -230,11 +236,14 @@ text = "Original music composed for this game by: Dragona Mortoria!"
 horizontal_alignment = 0
 vertical_alignment = 0
 
+[node name="RobotWatchers-Z" parent="TrueWinCamera3D" unique_id=1364264599 instance=ExtResource("21_tvltm")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.43177795, -3.7859535)
+
 [node name="RobotWatchers-Z2" parent="TrueWinCamera3D" unique_id=1454982722 instance=ExtResource("21_tvltm")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.45511627, 0.11660385, -2.4823895)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.45511627, -0.43177795, -4.268343)
 
 [node name="RobotWatchers-Z3" parent="TrueWinCamera3D" unique_id=1121372900 instance=ExtResource("21_tvltm")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.7334442, 0.11660385, -2.5068674)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.7334442, -0.43177795, -4.292821)
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1185822932]
 stream = ExtResource("21_664bt")
@@ -288,6 +297,7 @@ autoplay = true
 [editable path="Player/Journal/PlayerConsoleButton5"]
 [editable path="Player/AudioFader"]
 [editable path="MagnetBody/Magnet"]
+[editable path="WinCamera3D/Magnet"]
 [editable path="Music"]
 [editable path="Music/AudioFaderGameplayMusic"]
 [editable path="Music/AudioFaderMenu"]
