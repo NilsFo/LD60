@@ -52,7 +52,8 @@ extends Marker3D
     
     "sz", #19 (slime, green / ROBO RED BLUE)
     "sz", #20 (slime, green / ROBO RED BLUE)
-    "s" #21 (slime, green / ROBO RED BLUE)
+    "s", #21 (slime)
+    "s" #end
 ]
 
 var game_state:GameState
