@@ -80,7 +80,7 @@ func _ready() -> void:
         print("Running as exported standalone game")
     
     update_crane_lights()
-    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
     
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -125,6 +125,7 @@ func play():
     else:
         print("Running as exported standalone game")
         Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN) 
+    display_next_tutorial.emit()
 
 func win():
     print("A WINNER IS YOU!")

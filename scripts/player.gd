@@ -163,9 +163,16 @@ func _blink(lamp: Node3D, times: int = 4, interval: float = 0.25) -> void:
 
 func set_rad_level(level:float):
     var is_bigger = level > rad_scale.scale.y
-    rad_scale.scale = Vector3(rad_scale.scale.x, level, rad_scale.scale.z)
+    
+    var new_scale = Vector3(rad_scale.scale.x, level, rad_scale.scale.z)
     if(is_bigger):
-         play_sound_rad_warning.emit()
+        var tween = create_tween()
+        tween.tween_property(rad_scale, "scale", new_scale, 5.0)
+        tween.play()
+        
+        play_sound_rad_warning.emit()
+    else:
+        rad_scale.scale = new_scale
 
 func set_rad_level_int(current_rad_level: int, max_rad_level:int):
     var value:float = float(current_rad_level)/float(max_rad_level)
