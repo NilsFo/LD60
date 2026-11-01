@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://chy1s510vgv4d" path="res://sprites/circle.png" id="1_s1cew"]
 [ext_resource type="Script" uid="uid://bd3un6gux3l4a" path="res://nodes/volume_slider.gd" id="4_nnmls"]
 [ext_resource type="FontFile" uid="uid://bw6rjkuxq7g3w" path="res://fonts/IBMPlexMono-Regular.ttf" id="4_nwhxe"]
+[ext_resource type="Shader" uid="uid://crn06to7rr0yl" path="res://shaders/vignette_shader.gdshader" id="6_1odhw"]
 
 [sub_resource type="GDScript" id="GDScript_g5j3c"]
 script/source = "extends Label
@@ -19,6 +20,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     set_text(\"FPS: \" + str(int(Engine.get_frames_per_second())))
 "
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffqy3"]
+shader = ExtResource("6_1odhw")
+shader_parameter/vignette_intensity = 0.8
+shader_parameter/vignette_opacity = 0.330000015675
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_m5wrp"]
 
 [node name="HUD" type="CanvasLayer" unique_id=948412334 node_paths=PackedStringArray("main_menu", "game_menu", "debugLB", "cursorNormal", "cursorSelect")]
 script = ExtResource("1_17hw4")
@@ -106,7 +115,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -127.0
+offset_left = 22.0
+offset_top = -194.0
+offset_right = -22.0
+offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_nwhxe")
@@ -205,6 +217,16 @@ horizontal_alignment = 1
 
 [node name="TutorialTimer" type="Timer" parent="." unique_id=80744087]
 wait_time = 4.0
+
+[node name="Vignette" type="TextureRect" parent="." unique_id=1200811059]
+material = SubResource("ShaderMaterial_ffqy3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_m5wrp")
 
 [connection signal="pressed" from="MainLayer/Panel/Button" to="." method="start_game"]
 [connection signal="pressed" from="MainLayer/Panel/Button" to="Tutorial Layer" method="show"]
