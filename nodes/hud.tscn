@@ -3,22 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://clp8ykfkwjfp4" path="res://sprites/ld60_hand.png" id="1_0l8sm"]
 [ext_resource type="Script" uid="uid://bf5eoq8rt5i56" path="res://scripts/hud.gd" id="1_17hw4"]
 [ext_resource type="Texture2D" uid="uid://chy1s510vgv4d" path="res://sprites/circle.png" id="1_s1cew"]
+[ext_resource type="Script" uid="uid://degap3wjr5nlf" path="res://scripts/hud_logger.gd" id="3_1odhw"]
 [ext_resource type="Script" uid="uid://bd3un6gux3l4a" path="res://nodes/volume_slider.gd" id="4_nnmls"]
 [ext_resource type="FontFile" uid="uid://bw6rjkuxq7g3w" path="res://fonts/IBMPlexMono-Regular.ttf" id="4_nwhxe"]
-
-[sub_resource type="GDScript" id="GDScript_g5j3c"]
-script/source = "extends Label
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-    pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    set_text(\"FPS: \" + str(int(Engine.get_frames_per_second())))
-"
 
 [node name="HUD" type="CanvasLayer" unique_id=948412334 node_paths=PackedStringArray("main_menu", "game_menu", "debugLB", "cursorNormal", "cursorSelect")]
 script = ExtResource("1_17hw4")
@@ -28,12 +15,18 @@ debugLB = NodePath("GameLayer/DebugLB")
 cursorNormal = NodePath("GameLayer/Label/CursorNormal")
 cursorSelect = NodePath("GameLayer/Label/CursorSelect")
 
-[node name="FPS Label" type="Label" parent="." unique_id=1371958760]
-offset_right = 43.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("4_nwhxe")
-text = "FPS: ?"
-script = SubResource("GDScript_g5j3c")
+[node name="HUDLogger" type="RichTextLabel" parent="." unique_id=2025737110]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_fonts/normal_font = ExtResource("4_nwhxe")
+scroll_active = false
+script = ExtResource("3_1odhw")
+show_console = false
 
 [node name="GameLayer" type="CanvasLayer" parent="." unique_id=1165587669]
 visible = false
