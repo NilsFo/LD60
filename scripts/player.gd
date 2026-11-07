@@ -15,11 +15,16 @@ var mode_timer:float=0
 @export var acceleration_speed: float=0.9
 @export var deceleration_speed: float=2.1337
 
-@export var promo_lamp_one: Node3D
-@export var promo_lamp_two: Node3D
-@export var promo_lamp_three: Node3D
-@export var promo_lamp_four: Node3D
-@export var promo_lamp_five: Node3D
+@export var promo_lamp_one: Indikator
+@export var promo_lamp_two: Indikator
+@export var promo_lamp_three: Indikator
+@export var promo_lamp_four: Indikator
+@export var promo_lamp_five: Indikator
+
+@export var control_lamp_left: Indikator
+@export var control_lamp_right: Indikator
+@export var control_lamp_stop: Indikator
+@export var control_lamp_magnet: Indikator
 
 signal promo_level_change()
 
@@ -27,8 +32,8 @@ signal promo_level_change()
 
 var is_lamp_on: bool = false
 @export var default_dauer: float = 3.0
-@export var good_lamp: Node3D
-@export var bad_lamp: Node3D
+@export var good_lamp: Indikator
+@export var bad_lamp: Indikator
 
 var base_color: Color
 @export var good_color: Color
@@ -100,13 +105,20 @@ func _process(delta: float) -> void:
         if focussed_button.buttonType == PlayerButton.ButtonType.START_LINKS:
             crane_button_force_target=-1.0
             mode_timer=0
+            control_lamp_left.turn_off()
+            control_lamp_right.turn_on()
         if focussed_button.buttonType == PlayerButton.ButtonType.START_RECHTS:
             crane_button_force_target=1.0
             mode_timer=0
+            control_lamp_left.turn_on()
+            control_lamp_right.turn_off()
         if focussed_button.buttonType == PlayerButton.ButtonType.STOP:
             if crane_button_force_current > 0.1 or crane_button_force_current < -0.1:
                 crane_stop.emit()
             crane_button_force_target=0.0
+            control_lamp_left.turn_off()
+            control_lamp_right.turn_off()
+            control_lamp_stop.blink(1)
             
             mode_timer=0
         if focussed_button.buttonType == PlayerButton.ButtonType.MAGNET:
@@ -124,7 +136,7 @@ func _input(event: InputEvent) -> void:
         if event.button_index ==MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
             mouse_clicked=true
 
-@onready var promo_lamps: Array[Node] = [
+@onready var promo_lamps: Array[Indikator] = [
     promo_lamp_one,
     promo_lamp_two,
     promo_lamp_three,
@@ -145,7 +157,7 @@ func set_promo_level(level: int) -> void:
         promo_lamps[i].visible = i < level
 
     if level > _promo_level:
-        _blink(promo_lamps[level - 1])
+        promo_lamps[level - 1].blink_on()
 
     _promo_level = level
     promo_level_change.emit()
@@ -153,19 +165,18 @@ func set_promo_level(level: int) -> void:
     if level > 0:
         play_sound_promo_sound.emit()
 
-
-func _blink(lamp: Node3D, times: int = 4, interval: float = 0.25) -> void:
-    _blink_tween = create_tween().set_loops(times)
-    _blink_tween.tween_callback(lamp.hide)
-    _blink_tween.tween_interval(interval)
-    _blink_tween.tween_callback(lamp.show)
-    _blink_tween.tween_interval(interval)
-
 func set_rad_level(level:float):
     var is_bigger = level > rad_scale.scale.y
-    rad_scale.scale = Vector3(rad_scale.scale.x, level, rad_scale.scale.z)
+    
+    var new_scale = Vector3(rad_scale.scale.x, level, rad_scale.scale.z)
     if(is_bigger):
-         play_sound_rad_warning.emit()
+        var tween = create_tween()
+        tween.tween_property(rad_scale, "scale", new_scale, 5.0)
+        tween.play()
+        
+        play_sound_rad_warning.emit()
+    else:
+        rad_scale.scale = new_scale
 
 func set_rad_level_int(current_rad_level: int, max_rad_level:int):
     var value:float = float(current_rad_level)/float(max_rad_level)
@@ -181,7 +192,7 @@ func trigger_good_lamp():
     real_lamp.light_color = good_color
     is_lamp_on = true
     
-    _blink(good_lamp)
+    good_lamp.blink()
 
     await get_tree().create_timer(default_dauer).timeout
 
@@ -199,7 +210,7 @@ func trigger_bad_lamp():
     real_lamp.light_color = bad_color
     is_lamp_on = true
 
-    _blink(bad_lamp)
+    bad_lamp.blink()
     
     await get_tree().create_timer(default_dauer).timeout
 

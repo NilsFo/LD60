@@ -26,7 +26,7 @@ shader_parameter/billboard = false
 material = SubResource("ShaderMaterial_q8k27")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
-size = Vector3(7.126709, 0.5046387, 6.027588)
+size = Vector3(7.126709, 1.8952026, 6.027588)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7kwa5"]
 size = Vector3(7.161133, 1.4614868, 0.44732666)
@@ -95,7 +95,7 @@ stream = ExtResource("6_7fn7w")
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1310461266]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1412035749]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24768066, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.94296265, 0)
 shape = SubResource("BoxShape3D_ai7j4")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=1997554050]

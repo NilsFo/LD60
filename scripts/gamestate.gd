@@ -10,6 +10,7 @@ extends Node3D
 
 var is_player_hover_over_interactable
 var request_spawn_on_next_look:bool=false
+var between_levels:bool=false
 
 @export var spawn_pool_cache:String=""
 @export var promotion_level: int = 0
@@ -79,7 +80,7 @@ func _ready() -> void:
         print("Running as exported standalone game")
     
     update_crane_lights()
-    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
     
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -118,6 +119,7 @@ func play():
     music_gameplay.play()
     music_menu.stop()
     
+    display_next_tutorial.emit()
     Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN) 
 
 func win():
@@ -139,6 +141,9 @@ func win_true():
     Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 
 func report_decomission_correct(reason: String):
+    if between_levels:
+        return
+    between_levels = true
     print("Decomission correct! " + reason)
     promotion_level+=1
     
@@ -150,6 +155,7 @@ func report_decomission_correct(reason: String):
     update_crane_lights()
     request_spawn_on_next_look=true
     await get_tree().create_timer(2.).timeout
+    between_levels = false
     decomission_correct.emit(reason)
     
 func update_crane_lights():

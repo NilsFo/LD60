@@ -20,6 +20,7 @@ func press():
     if !is_pressed:
         print("Gedrückt: "+str(buttonType))
         on_pressed.emit()
+        $AudioStreamPlayer3D.play()
         
     is_pressed=true
     

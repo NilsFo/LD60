@@ -1,13 +1,15 @@
-[gd_scene format=3 uid="uid://cp1rnw7w042c"]
+[gd_scene format=4 uid="uid://cp1rnw7w042c"]
 
 [ext_resource type="Script" uid="uid://70ta71ob28ql" path="res://scripts/player.gd" id="1_u63mc"]
 [ext_resource type="Script" uid="uid://dr5hstbe162mo" path="res://scripts/player_camera.gd" id="2_bms3g"]
 [ext_resource type="Script" uid="uid://bgowyhv5f00k3" path="res://scripts/player_camera_ray.gd" id="3_h7dm3"]
 [ext_resource type="PackedScene" uid="uid://b4jmyhhkhxlir" path="res://models/Crane.blend" id="3_me0cc"]
 [ext_resource type="PackedScene" uid="uid://bekj5anwkf215" path="res://nodes/player_console_button.tscn" id="4_hqdnm"]
-[ext_resource type="Script" uid="uid://vlcrnae6pw76" path="res://nodes/light_flicker.gd" id="4_k5sjp"]
+[ext_resource type="Script" uid="uid://vlcrnae6pw76" path="res://scripts/light_flicker.gd" id="4_k5sjp"]
 [ext_resource type="PackedScene" uid="uid://e032x2qe65ci" path="res://models/blend/Console.blend" id="5_7lbay"]
+[ext_resource type="Script" uid="uid://cx5xlc8sm1q35" path="res://scripts/indikator.gd" id="5_a813b"]
 [ext_resource type="Script" uid="uid://l0xiengtxhgu" path="res://scripts/detector_area_3d.gd" id="6_2wrp4"]
+[ext_resource type="Texture2D" uid="uid://o0qfpiusdnln" path="res://models/blend/supertex.png" id="6_rfehu"]
 [ext_resource type="Script" uid="uid://wjiwhykm1db3" path="res://scripts/journal.gd" id="7_46y3y"]
 [ext_resource type="PackedScene" uid="uid://7yhvl3sgnlhm" path="res://nodes/audio_fader.tscn" id="8_ejohg"]
 [ext_resource type="Script" uid="uid://bsn1diaeu0rwk" path="res://scripts/manuel.gd" id="8_gggum"]
@@ -21,9 +23,58 @@
 [ext_resource type="AudioStream" uid="uid://dh4n8lcjp2eqd" path="res://sfx/crane_stop.wav" id="14_k5sjp"]
 [ext_resource type="Texture2D" uid="uid://b6ksmoyfbvyyl" path="res://sprites/manual/protocol_4.png" id="14_rfehu"]
 [ext_resource type="AudioStream" uid="uid://drd4aaggmt2rp" path="res://sfx/small_squeak.wav" id="15_ea43s"]
+[ext_resource type="AudioStream" uid="uid://brlxaicoi227q" path="res://sfx/Inventory Quest Notes C.wav" id="15_h7dm3"]
 [ext_resource type="AudioStream" uid="uid://d4f2y57y0qlgj" path="res://sfx/computer_bitte_melden.wav" id="18_54qb2"]
 [ext_resource type="AudioStream" uid="uid://bflsvvxt3y1dw" path="res://sfx/alarm.wav" id="19_h7dm3"]
 [ext_resource type="AudioStream" uid="uid://ba1mlpn1vavpk" path="res://sfx/printer.wav" id="19_wl8ra"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l24l3"]
+resource_name = "SupertexEmit"
+cull_mode = 2
+albedo_texture = ExtResource("6_rfehu")
+metallic = 0.45666668
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.5
+emission_operator = 1
+emission_texture = ExtResource("6_rfehu")
+texture_filter = 2
+metadata/extras = {
+"yp": {}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qnuam"]
+_surfaces = [{
+"aabb": AABB(0, -0.114666685, -0.1146667, 1e-05, 0.2293334, 0.2293334),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQADAAQABQAAAAYABwAAAAUAAwAAAAcABwAFAAgAAwAHAAkACQAHAAoAAwAJAAsA"),
+"name": "SupertexEmit",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AADY7v8/AAAAAP9/AAAAAAAA/78mEQAAAAAmEf8/AAAAAP8/JhEAAAAA2O7/vwAAAAD///9/AAAAAP9///8AAAAA/7/Z7gAAAAAmEf+/AAAAAP8/2e4AAAAAAAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qm6qk"]
+resource_name = "Crane_Cylinder_019"
+_surfaces = [{
+"aabb": AABB(0, -0.114666685, -0.1146667, 1e-05, 0.2293334, 0.2293334),
+"attribute_data": PackedByteArray("PbfZqfmvp6UqtMemtajZqcerx6Y9tz2yXLgLrvmvbrYqtE+1tag9sserT7WVpwuu"),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQADAAQABQAAAAYABwAAAAUAAwAAAAcABwAFAAgAAwAHAAkACQAHAAoAAwAJAAsA"),
+"material": SubResource("StandardMaterial3D_l24l3"),
+"name": "SupertexEmit",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AADY7v8/VNUAAP9/AABU1QAA/78mEVTVAAAmEf8/VNUAAP8/JhFU1QAA2O7/v1TVAAD///9/VNUAAP9///9U1QAA/7/Z7lTVAAAmEf+/VNUAAP8/2e5U1QAAAAD/f1TVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qnuam")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai7j4"]
 
@@ -46,7 +97,7 @@ stream_0/stream = ExtResource("14_k5sjp")
 stream_1/stream = ExtResource("15_ea43s")
 stream_1/weight = 2.0
 
-[node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons", "promo_lamp_one", "promo_lamp_two", "promo_lamp_three", "promo_lamp_four", "promo_lamp_five", "rad_scale", "good_lamp", "bad_lamp", "real_lamp")]
+[node name="Player" type="Node3D" unique_id=1268145214 node_paths=PackedStringArray("allButtons", "promo_lamp_one", "promo_lamp_two", "promo_lamp_three", "promo_lamp_four", "promo_lamp_five", "control_lamp_left", "control_lamp_right", "control_lamp_stop", "control_lamp_magnet", "rad_scale", "good_lamp", "bad_lamp", "real_lamp")]
 script = ExtResource("1_u63mc")
 allButtons = [NodePath("PlayerConsoleButton/StaticBody3D"), NodePath("PlayerConsoleButton2/StaticBody3D"), NodePath("PlayerConsoleButton3/StaticBody3D"), NodePath("PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton4/StaticBody3D"), NodePath("Journal/PlayerConsoleButton5/StaticBody3D")]
 promo_lamp_one = NodePath("Crane/Lamp1")
@@ -54,6 +105,10 @@ promo_lamp_two = NodePath("Crane/Lamp2")
 promo_lamp_three = NodePath("Crane/Lamp3")
 promo_lamp_four = NodePath("Crane/Lamp4")
 promo_lamp_five = NodePath("Crane/Lamp5")
+control_lamp_left = NodePath("Crane/Lampe Links Pfeil")
+control_lamp_right = NodePath("Crane/Lampe Rechts Pfeil")
+control_lamp_stop = NodePath("Crane/Lampe Stop")
+control_lamp_magnet = NodePath("Crane/Lampe Magnet")
 rad_scale = NodePath("Crane/RadiationMeter")
 good_lamp = NodePath("Crane/LampCorrect")
 bad_lamp = NodePath("Crane/LampIncorrect")
@@ -81,14 +136,64 @@ script = ExtResource("3_h7dm3")
 [node name="AudioListener3D" type="AudioListener3D" parent="PlayerCamera" unique_id=1081813597]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46167737, 0)
 
+[node name="ManualAttachmentPoint" type="Node3D" parent="PlayerCamera" unique_id=1323024074]
+transform = Transform3D(1, 0, 0, 0, 0.9914449, 0.1305262, 0, -0.1305262, 0.9914449, 0, 0, -0.22848283)
+
+[node name="ManualSprite" type="Sprite3D" parent="PlayerCamera/ManualAttachmentPoint" unique_id=572521497]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, -0.25, 0)
+texture = ExtResource("14_rfehu")
+
 [node name="Crane" parent="." unique_id=1531356480 instance=ExtResource("3_me0cc")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
+[node name="Lamp1" parent="Crane" index="35" unique_id=842227469]
+script = ExtResource("5_a813b")
+
+[node name="Lamp2" parent="Crane" index="36" unique_id=1694463101]
+script = ExtResource("5_a813b")
+
+[node name="Lamp3" parent="Crane" index="37" unique_id=1536023702]
+script = ExtResource("5_a813b")
+
+[node name="Lamp4" parent="Crane" index="38" unique_id=386339661]
+script = ExtResource("5_a813b")
+
+[node name="Lamp5" parent="Crane" index="39" unique_id=1432001774]
+script = ExtResource("5_a813b")
+
 [node name="LampCorrect" parent="Crane" index="40" unique_id=141418846]
 visible = false
+script = ExtResource("5_a813b")
+initial_state = false
+
+[node name="Lampe Links Pfeil" parent="Crane" index="41" unique_id=2001354438]
+script = ExtResource("5_a813b")
+initial_state = false
+
+[node name="Lampe Magnet" parent="Crane" index="42" unique_id=510392197]
+script = ExtResource("5_a813b")
+initial_state = false
+
+[node name="Lampe Rechts Pfeil" parent="Crane" index="43" unique_id=1758935422]
+script = ExtResource("5_a813b")
+initial_state = false
+
+[node name="Lampe Stop" parent="Crane" index="44" unique_id=964123815]
+script = ExtResource("5_a813b")
+initial_state = false
+blink_interval = 0.5
 
 [node name="LampIncorrect" parent="Crane" index="45" unique_id=1203385454]
 visible = false
+script = ExtResource("5_a813b")
+initial_state = false
+
+[node name="LampMessage" type="MeshInstance3D" parent="Crane" unique_id=559417729]
+transform = Transform3D(-0.073457636, 0.12103883, 0.0807624, -0.120733954, -0.00020330997, -0.109509185, -0.081217445, -0.10917214, 0.08974497, -0.5397691, 0.63632506, -0.67009246)
+mesh = SubResource("ArrayMesh_qm6qk")
+script = ExtResource("5_a813b")
+initial_state = false
+blink_interval = 0.5
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Crane" unique_id=1595937500]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.16012506, 5.733877, -13.7825985)
@@ -198,12 +303,13 @@ transform = Transform3D(0.05, 0, 5.9211896e-16, 0, 0.05, 0, -5.9211896e-16, 0, 0
 [node name="StaticBody3D" parent="Journal/PlayerConsoleButton5" index="0" unique_id=1043815935]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.07849765, 0, -0.22718549)
 
-[node name="Manuel" type="Node3D" parent="." unique_id=520805951 node_paths=PackedStringArray("text_sprite", "page_label")]
+[node name="Manuel" type="Node3D" parent="." unique_id=520805951 node_paths=PackedStringArray("text_sprite", "text_sprite_player", "page_label")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23399484, 0.18326855, -0.15702203)
 script = ExtResource("8_gggum")
 text_sprite = NodePath("Sprite3D")
+text_sprite_player = NodePath("../PlayerCamera/ManualAttachmentPoint/ManualSprite")
 page_label = NodePath("ManuelLabel")
-data_lore = Array[Texture2D]([ExtResource("11_wbqmi"), ExtResource("12_h7dm3"), ExtResource("13_a813b"), ExtResource("13_a813b"), ExtResource("14_rfehu")])
+data_lore = Array[Texture2D]([ExtResource("11_wbqmi"), ExtResource("11_wbqmi"), ExtResource("12_h7dm3"), ExtResource("13_a813b"), ExtResource("13_a813b"), ExtResource("14_rfehu")])
 
 [node name="ManuelLabel" type="Label3D" parent="Manuel" unique_id=2037631283]
 transform = Transform3D(0.057357647, 0.0579228, -0.0579228, 0, 0.07071068, 0.07071068, 0.08191521, -0.04055798, 0.04055798, 0.077947795, 0.024992868, 0.019901752)
@@ -235,6 +341,10 @@ texture = ExtResource("14_rfehu")
 [node name="ManuelAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Manuel" unique_id=1641892453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018760383, 0, -0.003419429)
 stream = ExtResource("19_wl8ra")
+
+[node name="ManuelAudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Manuel" unique_id=1896030674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018760383, 0, -0.003419429)
+stream = ExtResource("15_h7dm3")
 
 [node name="AudioFader" parent="." unique_id=1999275858 instance=ExtResource("8_ejohg")]
 fade_speed = 5.0
@@ -270,9 +380,11 @@ volume_db = 7.0
 [connection signal="play_sound_rad_warning" from="." to="RadAudioStreamPlayer3D" method="play"]
 [connection signal="play_sound_wrong_action" from="." to="WrongLampAudioStreamPlayer3D" method="play"]
 [connection signal="entry_added" from="Journal" to="ComputerMessageAudioPlayer" method="play" unbinds=1]
+[connection signal="entry_added" from="Journal" to="Crane/LampMessage" method="blink" unbinds=1 binds= [8]]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton4/StaticBody3D" to="Journal" method="to_older_entries"]
 [connection signal="on_pressed" from="Journal/PlayerConsoleButton5/StaticBody3D" to="Journal" method="to_new_entries"]
 [connection signal="new_entry" from="Manuel" to="Manuel/ManuelAudioStreamPlayer3D" method="play"]
+[connection signal="page_stash" from="Manuel" to="Manuel/ManuelAudioStreamPlayer3D2" method="play"]
 
 [editable path="Crane"]
 [editable path="PlayerConsoleButton"]
