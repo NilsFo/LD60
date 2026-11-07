@@ -2,10 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://clp8ykfkwjfp4" path="res://sprites/ld60_hand.png" id="1_0l8sm"]
 [ext_resource type="Script" uid="uid://bf5eoq8rt5i56" path="res://scripts/hud.gd" id="1_17hw4"]
-[ext_resource type="Texture2D" uid="uid://chy1s510vgv4d" path="res://sprites/circle.png" id="1_s1cew"]
 [ext_resource type="Script" uid="uid://degap3wjr5nlf" path="res://scripts/hud_logger.gd" id="3_1odhw"]
-[ext_resource type="Script" uid="uid://bd3un6gux3l4a" path="res://nodes/volume_slider.gd" id="4_nnmls"]
+[ext_resource type="Texture2D" uid="uid://dmaal3y6si6fl" path="res://sprites/ld60_zeiger.png" id="4_kmnqw"]
+[ext_resource type="Script" uid="uid://bd3un6gux3l4a" path="res://scripts/volume_slider.gd" id="4_nnmls"]
 [ext_resource type="FontFile" uid="uid://bw6rjkuxq7g3w" path="res://fonts/IBMPlexMono-Regular.ttf" id="4_nwhxe"]
+[ext_resource type="Script" uid="uid://xrevb6ipp2ws" path="res://scripts/virtual_cursor.gd" id="5_kmnqw"]
 
 [node name="HUD" type="CanvasLayer" unique_id=948412334 node_paths=PackedStringArray("main_menu", "game_menu", "debugLB", "cursorNormal", "cursorSelect")]
 script = ExtResource("1_17hw4")
@@ -26,7 +27,6 @@ mouse_behavior_recursive = 1
 theme_override_fonts/normal_font = ExtResource("4_nwhxe")
 scroll_active = false
 script = ExtResource("3_1odhw")
-show_console = false
 
 [node name="GameLayer" type="CanvasLayer" parent="." unique_id=1165587669]
 visible = false
@@ -47,14 +47,16 @@ size_flags_horizontal = 4
 
 [node name="CursorNormal" type="Sprite2D" parent="GameLayer/Label" unique_id=444039923]
 texture_filter = 1
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_s1cew")
+scale = Vector2(2, 2)
+texture = ExtResource("4_kmnqw")
+script = ExtResource("5_kmnqw")
 
 [node name="CursorSelect" type="Sprite2D" parent="GameLayer/Label" unique_id=980800065]
 texture_filter = 1
 position = Vector2(2.9999998, 9.499999)
-scale = Vector2(1.45, 1.45)
+scale = Vector2(2, 2)
 texture = ExtResource("1_0l8sm")
+script = ExtResource("5_kmnqw")
 
 [node name="DebugLB" type="Label" parent="GameLayer" unique_id=424886254]
 visible = false

@@ -118,12 +118,7 @@ func play():
     music_gameplay.play()
     music_menu.stop()
     
-    if OS.has_feature("editor"):
-        print("Running from Godot editor")
-        print("No more confining")
-    else:
-        print("Running as exported standalone game")
-        Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN) 
+    Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN) 
 
 func win():
     print("A WINNER IS YOU!")

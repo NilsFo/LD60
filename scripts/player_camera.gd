@@ -2,11 +2,14 @@ extends Camera3D
 
 var mousePos: Vector2=Vector2.ZERO
 
+@export_category("Player look rotation")
 @export var lookLimitDegreeX: float=25.0
 @export var invertX:bool=false
 @export var lookLimitDegreeY: float=25.0
 @export var invertY:bool=true
+# @export var look_smooth_curve:Curve
 
+@export_category("RMB Zoom")
 @export var wheel_step: float = 5.0        # Grad pro Mausrad-Klick
 @export var hold_speed: float = 40.0       # Grad pro Sekunde beim Halten
 @export var min_fov: float = 20.0
