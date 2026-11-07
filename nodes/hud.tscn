@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bf5eoq8rt5i56" path="res://scripts/hud.gd" id="1_17hw4"]
 [ext_resource type="Script" uid="uid://degap3wjr5nlf" path="res://scripts/hud_logger.gd" id="3_1odhw"]
 [ext_resource type="Texture2D" uid="uid://dmaal3y6si6fl" path="res://sprites/ld60_zeiger.png" id="4_kmnqw"]
-[ext_resource type="Script" uid="uid://bd3un6gux3l4a" path="res://scripts/volume_slider.gd" id="4_nnmls"]
+[ext_resource type="Script" uid="uid://bd3un6gux3l4a" path="res://nodes/volume_slider.gd" id="4_nnmls"]
 [ext_resource type="FontFile" uid="uid://bw6rjkuxq7g3w" path="res://fonts/IBMPlexMono-Regular.ttf" id="4_nwhxe"]
 [ext_resource type="Script" uid="uid://xrevb6ipp2ws" path="res://scripts/virtual_cursor.gd" id="5_kmnqw"]
 

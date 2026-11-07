@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bgowyhv5f00k3" path="res://scripts/player_camera_ray.gd" id="3_h7dm3"]
 [ext_resource type="PackedScene" uid="uid://b4jmyhhkhxlir" path="res://models/Crane.blend" id="3_me0cc"]
 [ext_resource type="PackedScene" uid="uid://bekj5anwkf215" path="res://nodes/player_console_button.tscn" id="4_hqdnm"]
-[ext_resource type="Script" uid="uid://vlcrnae6pw76" path="res://scripts/light_flicker.gd" id="4_k5sjp"]
+[ext_resource type="Script" uid="uid://vlcrnae6pw76" path="res://nodes/light_flicker.gd" id="4_k5sjp"]
 [ext_resource type="PackedScene" uid="uid://e032x2qe65ci" path="res://models/blend/Console.blend" id="5_7lbay"]
 [ext_resource type="Script" uid="uid://l0xiengtxhgu" path="res://scripts/detector_area_3d.gd" id="6_2wrp4"]
 [ext_resource type="Script" uid="uid://wjiwhykm1db3" path="res://scripts/journal.gd" id="7_46y3y"]
