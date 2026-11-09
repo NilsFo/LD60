@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://g22hhfum4ol4" path="res://nodes/fire_pit.tscn" id="8_ubvaf"]
 [ext_resource type="Material" uid="uid://d3g7utmtuh33m" path="res://models/blend/magnet_mat.tres" id="9_827r2"]
 [ext_resource type="PackedScene" uid="uid://bxcp4a3qsx3pv" path="res://nodes/crusher.tscn" id="9_dv0a3"]
+[ext_resource type="Script" uid="uid://dbf6lqdh72auj" path="res://scripts/GamepadInputDetector.gd" id="10_engdv"]
 [ext_resource type="PackedScene" uid="uid://bypj2pgh4ndtq" path="res://nodes/scrap_spawner.tscn" id="10_fjk5n"]
 [ext_resource type="AudioStream" uid="uid://cxdw6qvbedtx8" path="res://sfx/hum_exit.wav" id="11_4axws"]
 [ext_resource type="PackedScene" uid="uid://6gsb3orb4eey" path="res://nodes/zapper.tscn" id="13_b11oy"]
@@ -110,6 +111,9 @@ one_shot = true
 
 [node name="CheatManager" type="Node" parent="GameState" unique_id=526564392]
 script = ExtResource("6_b11oy")
+
+[node name="GamepadInputDetector" type="Node3D" parent="GameState" unique_id=1837642356]
+script = ExtResource("10_engdv")
 
 [node name="Player" parent="." unique_id=1268145214 instance=ExtResource("3_6hfer")]
 rotationSpeed = 0.5

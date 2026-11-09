@@ -2,12 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://clp8ykfkwjfp4" path="res://sprites/ld60_hand.png" id="1_0l8sm"]
 [ext_resource type="Script" uid="uid://bf5eoq8rt5i56" path="res://scripts/hud.gd" id="1_17hw4"]
+[ext_resource type="Texture2D" uid="uid://rpbk4xqjma7b" path="res://icon.svg" id="2_yaef2"]
 [ext_resource type="Script" uid="uid://degap3wjr5nlf" path="res://scripts/hud_logger.gd" id="3_1odhw"]
 [ext_resource type="Texture2D" uid="uid://dmaal3y6si6fl" path="res://sprites/ld60_zeiger.png" id="4_kmnqw"]
 [ext_resource type="Script" uid="uid://bd3un6gux3l4a" path="res://scripts/volume_slider.gd" id="4_nnmls"]
 [ext_resource type="FontFile" uid="uid://bw6rjkuxq7g3w" path="res://fonts/IBMPlexMono-Regular.ttf" id="4_nwhxe"]
-[ext_resource type="Script" uid="uid://xrevb6ipp2ws" path="res://scripts/virtual_cursor.gd" id="5_kmnqw"]
+[ext_resource type="Script" uid="uid://c4pvoyuisr5on" path="res://scripts/virtual_cursor.gd" id="5_kmnqw"]
 [ext_resource type="Shader" uid="uid://crn06to7rr0yl" path="res://shaders/vignette_shader.gdshader" id="6_1odhw"]
+[ext_resource type="Script" uid="uid://xrevb6ipp2ws" path="res://scripts/ingame_cursor_sprite.gd" id="8_amv5f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ffqy3"]
 shader = ExtResource("6_1odhw")
@@ -24,6 +26,14 @@ game_menu = NodePath("GameLayer")
 debugLB = NodePath("GameLayer/DebugLB")
 cursorNormal = NodePath("GameLayer/Label/CursorNormal")
 cursorSelect = NodePath("GameLayer/Label/CursorSelect")
+
+[node name="VirtualCursor" type="Node2D" parent="." unique_id=1408651511]
+script = ExtResource("5_kmnqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="VirtualCursor" unique_id=1102514050]
+visible = false
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_yaef2")
 
 [node name="Vignette" type="TextureRect" parent="." unique_id=1200811059]
 material = SubResource("ShaderMaterial_ffqy3")
@@ -68,14 +78,14 @@ size_flags_horizontal = 4
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("4_kmnqw")
-script = ExtResource("5_kmnqw")
+script = ExtResource("8_amv5f")
 
 [node name="CursorSelect" type="Sprite2D" parent="GameLayer/Label" unique_id=980800065]
 texture_filter = 1
 position = Vector2(2.9999998, 9.499999)
 scale = Vector2(2, 2)
 texture = ExtResource("1_0l8sm")
-script = ExtResource("5_kmnqw")
+script = ExtResource("8_amv5f")
 
 [node name="DebugLB" type="Label" parent="GameLayer" unique_id=424886254]
 visible = false

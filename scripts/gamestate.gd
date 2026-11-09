@@ -11,6 +11,8 @@ extends Node3D
 var is_player_hover_over_interactable
 var request_spawn_on_next_look:bool=false
 var between_levels:bool=false
+@onready var virtual_cursor:VirtualCursor = $"../HUD/VirtualCursor"
+@onready var gamepad_input_detector:GamepadInputDetector=$"./GamepadInputDetector"
 
 @export var spawn_pool_cache:String=""
 @export var promotion_level: int = 0

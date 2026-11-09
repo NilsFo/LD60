@@ -1,7 +1,5 @@
 extends Camera3D
 
-var mousePos: Vector2=Vector2.ZERO
-
 @export_category("Player look rotation")
 @export var lookLimitDegreeX: float=25.0
 @export var invertX:bool=false
@@ -40,8 +38,8 @@ func _process(delta: float) -> void:
     
     var screenResolution:Vector2= get_viewport().get_visible_rect().size
     var lookPercent: Vector2 = Vector2(
-        (mousePos.x/screenResolution.x-0.5)*-2,
-        (mousePos.y/screenResolution.y-0.5)*-2
+        (gameState.virtual_cursor.global_position.x/screenResolution.x-0.5)*-2,
+        (gameState.virtual_cursor.global_position.y/screenResolution.y-0.5)*-2
     )
     
     if invertX:
@@ -83,9 +81,6 @@ func _input(event):
     if event is InputEventMouseButton:
         pass
         # print("Mouse Click/Unclick at: ", event.position)
-    elif event is InputEventMouseMotion:
-        # print("Mouse Motion at: ", event.position)
-        mousePos=event.position
 
 func _is_wheel(event: InputEvent) -> bool:
     return event is InputEventMouseButton and event.button_index in [

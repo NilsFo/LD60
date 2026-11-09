@@ -2,16 +2,18 @@
 extends RayCast3D
 
 @export var ray_length: float = 1000.0
+var gameState:GameState
 
 var _camera: Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    gameState = $/root/Game/GameState
     _camera=get_parent() as Camera3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-    var mouse_pos: Vector2 = get_viewport().get_mouse_position()
+    var mouse_pos = gameState.virtual_cursor.position
 
     # Convert mouse position into a 3D ray
     var ray_origin: Vector3 = _camera.project_ray_origin(mouse_pos)
